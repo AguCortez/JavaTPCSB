@@ -1,6 +1,7 @@
 package entites;
+import java.sql.*;
 
 public class Rutina {
-	private int repeticiones;
+	private String dia;
 
 }
