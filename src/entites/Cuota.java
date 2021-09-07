@@ -3,8 +3,8 @@ import java.sql.*;
 
 public class Cuota {
 
-	public Cuota() {
-		// TODO Auto-generated constructor stub
-	}
-
+	private int año;
+	private int mes;
+	private int precio;
+	private date fecha_pago;
 }
