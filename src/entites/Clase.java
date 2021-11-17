@@ -4,6 +4,7 @@ import java.sql.*;
 public class Clase {
 
 	private int total_cupo;
+	
 	public int getTotal_cupo() {
 		return total_cupo;
 	}
