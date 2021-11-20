@@ -46,18 +46,15 @@ public class Socio {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
-	public int getId_socio() {
-		return id_socio;
-	}
-	public void setId_socio(int id_socio) {
-		this.id_socio = id_socio;
-	}
 	private String nombre_soc;
 	private String apellido_soc;
 	private String celu;
 	private int dni;
 	private String tipo;
 	private String contrasenia;
-	private int id_socio;
+	@Override
+	public String toString() {
+		return "\n Persona [id=" + id_socio+ ", nombre= "+ nombre_soc+" ]";
+	}
 
 }
