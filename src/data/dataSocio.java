@@ -1,5 +1,6 @@
 package data;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,6 +10,11 @@ import entites.Socio;
 
 
 public class dataSocio {
+	
+	private String getOnebyDNI="select * from Socio where dni=? ";
+	private String newSocio="insert into socio (`dni`, `tipo`, `contrasenia`, `nombre`, `apellido`, `num_celular`) VALUES (?,?,?,?,?,?)";
+	private String deleteSocio= "delete from socio where dni=?";
+	private String modifica= "UPDATE socio SET tipo= ?, contrasenia=?, nombre=? apellido=?, num_celular=? WHERE (`dni` = ?);";
 	
 	public LinkedList<Socio> getAll(){
 		
@@ -23,12 +29,12 @@ public class dataSocio {
 			if(rs!=null) {
 				while(rs.next()) {
 					Socio p=new Socio();
-				
+					
 					p.setNombre_soc(rs.getString("nombre"));
 					p.setApellido_soc(rs.getString("apellido"));
 					p.setCelu(rs.getString("num_celular"));
 					p.setDni(rs.getInt("dni"));
-					
+					p.setTipo(rs.getString("tipo"));				
 					
 					pers.add(p);
 				}
@@ -50,7 +56,119 @@ public class dataSocio {
 		
 		return pers;
 	}
+	public Socio getOne(int dni) {
+		Socio elSocio= null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		try {
+			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyDNI);
+			ps.setInt(1, dni);
+			rs=ps.executeQuery();
+			
+				if(rs!=null && rs.next())
+				{
+					elSocio=new Socio();
+					elSocio.setDni(rs.getInt("dni"));
+					elSocio.setTipo(rs.getString("tipo"));
+					elSocio.setNombre_soc(rs.getString("nombre"));
+					elSocio.setApellido_soc(rs.getString("apellido"));
+					elSocio.setCelu(rs.getString("num_celular"));
+					elSocio.setContrasenia(rs.getString("contrasenia"));
+				}
+			} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		finally 
+		{
+			try {
+				if(rs!=null) {rs.close();}
+				if(ps!=null) {ps.close();}
+				dbConector.getInstancia().releaseConn();
+			} 
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+		return elSocio;
+	}
 	public void add(Socio s) {
-	 /*blabla sql*/
+		PreparedStatement ps=null;
+		
+		try {
+			ps=dbConector.getInstancia().getConn().prepareStatement(newSocio);
+			ps.setInt(1, s.getDni());
+			ps.setString(2, s.getTipo());
+			ps.setString(3,s.getContrasenia());
+			ps.setString(4,s.getNombre_soc());
+			ps.setString(5, s.getApellido_soc());
+			ps.setString(6, s.getCelu());
+			ps.executeUpdate();
+	 		}
+		catch(SQLException e)
+		{
+            e.printStackTrace();
+		} 
+		finally {
+            try {               
+                if(ps!=null)ps.close();
+                dbConector.getInstancia().releaseConn();
+            } 
+            catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
+	public void delete (int dni) {
+		PreparedStatement ps=null;
+		try {
+			ps=dbConector.getInstancia().getConn().prepareStatement(deleteSocio);
+			ps.setInt(1, dni);
+			ps.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+            e.printStackTrace();
+		} 
+		finally {
+            try {               
+                if(ps!=null)ps.close();
+                dbConector.getInstancia().releaseConn();
+            } 
+            catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+		
+		
+	}
+	public void update (Socio s) {
+		PreparedStatement ps=null;
+		try {
+			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
+			ps.setString(1, s.getTipo());
+			ps.setString(2, s.getContrasenia());
+			ps.setString(3, s.getNombre_soc());
+			ps.setString(4, s.getApellido_soc());
+			ps.setString(5, s.getCelu());
+			ps.setInt(6, s.getDni());
+			ps.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+            e.printStackTrace();
+		} 
+		finally {
+            try {               
+                if(ps!=null)ps.close();
+                dbConector.getInstancia().releaseConn();
+            } 
+            catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+		
+		
 	}
 }

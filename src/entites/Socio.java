@@ -3,13 +3,8 @@ package entites;
 
 public class Socio {
 
-	private int id;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
+
 	public String getNombre_soc() {
 		return nombre_soc;
 	}
@@ -54,7 +49,21 @@ public class Socio {
 	private String contrasenia;
 	@Override
 	public String toString() {
-		return "\n Persona [id=" + id_socio+ ", nombre= "+ nombre_soc+" ]";
+		return "\n Persona [dni=" + dni + ", nombre= "+ nombre_soc+", apellido= "+getApellido_soc()+ "]";
+		
+	}
+	public Socio(int dni, String nombre, String apellido, String celu, String tipodni, String contra) {
+		this.setDni(dni);
+		this.setCelu(celu);
+		this.setApellido_soc(apellido);
+		this.setContrasenia(contra);
+		this.setNombre_soc(nombre);
+		this.setTipo(tipodni);
+		
+		
+	}
+	public Socio() {
+		// TODO Auto-generated constructor stub
 	}
 
 }
