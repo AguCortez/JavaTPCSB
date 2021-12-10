@@ -8,12 +8,13 @@ public class login {
 
 	public static void main(String[] args) {
 		dataSocio s=new dataSocio();
+		Socio sa= new Socio();
+		sa=s.getOne(2);
+	
 		
-		for (Socio a : s.getAll())
-		{
 			
-			System.out.println(a.toString());
-		}
+			System.out.println(sa.toString());
+		
 			
 		
 		
