@@ -22,6 +22,11 @@
 	<div class="container">
 	<h1>Lista de Socios</h1>
 	<hr>
+	<a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nuevo Socio</a>
+		<br>
+		<br>
+		<br>
+		
 		<table class="table table-bordered">
 			<tr>
 				<th class="text-center">Nombre</th>
@@ -46,10 +51,7 @@
 				</td>
 			</tr>
 			<%} %>
-			<tr>
-				<a class="btn btn-success btn-sm">Nuevo</a>
-				
-			</tr>
+			
 		</table>
 	</div>
 	<div class="container buscar">
@@ -63,8 +65,8 @@
  		if(nombuscar!= null){
  			LinkedList<Socio> sociosbuscar=s.buscabyNombre(nombuscar);
 			for (Socio a: sociosbuscar){
-				%>
-				<tr>
+		%>
+			<tr>
 					<td class="text-center"><%=a.getNombre_soc() %></td>
 					<td class="text-center"><%=a.getApellido_soc() %></td>
 					<td class="text-center"><%=a.getCelu() %></td>
