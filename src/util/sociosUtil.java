@@ -33,4 +33,8 @@ public class sociosUtil {
 		dataSocio ds=new dataSocio();
 		return ds.getOne(dni);
 	}
+	public LinkedList<Socio> buscabyNombre(String nombre){
+			dataSocio ds=new dataSocio();
+		return ds.buscabyNombre(nombre);
+	}
 }

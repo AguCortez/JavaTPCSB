@@ -11,6 +11,7 @@ import entites.Socio;
 
 public class dataSocio {
 	
+	private String buscabyNombre = "select * from Socio where nombre=?";
 	private String getOnebyDNI="select * from Socio where dni=? ";
 	private String newSocio="insert into socio (`dni`, `tipo`, `contrasenia`, `nombre`, `apellido`, `num_celular`) VALUES (?,?,?,?,?,?)";
 	private String deleteSocio= "delete from socio where dni=?";
@@ -170,6 +171,46 @@ public class dataSocio {
 		}
 		
 		
+		}
+	
+	public  LinkedList<Socio>  buscabyNombre(String nombre) {
+		LinkedList<Socio> socios= new LinkedList<>();
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		try {
+			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyNombre);
+			ps.setString(1, nombre);
+			rs=ps.executeQuery();
+			
+				if(rs!=null && rs.next())
+				{while(rs!=null && rs.next()) {
+					Socio s=new Socio();
+					
+					s.setNombre_soc(rs.getString("nombre"));
+					s.setApellido_soc(rs.getString("apellido"));
+					s.setCelu(rs.getString("num_celular"));
+					s.setDni(rs.getInt("dni"));
+					s.setTipo(rs.getString("tipo"));				
+					
+					socios.add(s);
+				}
+				}
+			} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		finally 
+		{
+			try {
+				if(rs!=null) {rs.close();}
+				if(ps!=null) {ps.close();}
+				dbConector.getInstancia().releaseConn();
+			} 
+			catch (SQLException e) {
+				e.printStackTrace();
+			}		}		
+		return socios;
 	}
 
 		
