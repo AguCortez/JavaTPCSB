@@ -57,13 +57,27 @@
 		<input class= "form-control" type="text" name= "txtbuscar">
 		<input class= "btn btn" type = "Submit" value="Buscar">
 		</form>
+	
 		<%
 		String nombuscar= request.getParameter("txtbuscar");
  		if(nombuscar!= null){
-			LinkedList<Socio> sociosbuscar=s.buscabyNombre(nombuscar);
-		
-		}
-			%>
+ 			LinkedList<Socio> sociosbuscar=s.buscabyNombre(nombuscar);
+			for (Socio a: sociosbuscar){
+				%>
+				<tr>
+					<td class="text-center"><%=a.getNombre_soc() %></td>
+					<td class="text-center"><%=a.getApellido_soc() %></td>
+					<td class="text-center"><%=a.getCelu() %></td>
+					<td class="text-center"><%=a.getDni() %></td>
+					<td class="text-center"><%=a.getTipo() %></td>
+					<td>
+					<a class="btn btn-warning btn-sm">Editar</a>
+					<a class= "btn btn-danger btn-sm">Eliminar</a>
+					</td>
+				</tr>
+				<%}
+			}
+		 %>
 	</div>
 </body>
 </html>
