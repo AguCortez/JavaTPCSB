@@ -52,5 +52,18 @@
 			</tr>
 		</table>
 	</div>
+	<div class="container buscar">
+		<form class ="form">
+		<input class= "form-control" type="text" name= "txtbuscar">
+		<input class= "btn btn" type = "Submit" value="Buscar">
+		</form>
+		<%
+		String nombuscar= request.getParameter("txtbuscar");
+ 		if(nombuscar!= null){
+			LinkedList<Socio> sociosbuscar=s.buscabyNombre(nombuscar);
+		
+		}
+			%>
+	</div>
 </body>
 </html>
