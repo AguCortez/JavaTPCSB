@@ -33,4 +33,8 @@ public class sociosUtil {
 		dataSocio ds=new dataSocio();
 		return ds.getOne(dni);
 	}
+	public Socio getByUsuyContra(int dni, String contra) {
+		dataSocio ds=new dataSocio();
+				return ds.getUsuarioxContra(dni, contra);
+	}
 }

@@ -12,6 +12,7 @@ import entites.Socio;
 public class dataSocio {
 	
 	private String getOnebyDNI="select * from Socio where dni=? ";
+	private String getOnebyDNIyContra="select * from Socio where dni=? and contrasenia=?  ";
 	private String newSocio="insert into socio (`dni`, `tipo`, `contrasenia`, `nombre`, `apellido`, `num_celular`) VALUES (?,?,?,?,?,?)";
 	private String deleteSocio= "delete from socio where dni=?";
 	private String modifica= "UPDATE socio SET tipo= ?, contrasenia=?, nombre=? apellido=?, num_celular=? WHERE (`dni` = ?);";
@@ -63,6 +64,44 @@ public class dataSocio {
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyDNI);
 			ps.setInt(1, dni);
+			rs=ps.executeQuery();
+			
+				if(rs!=null && rs.next())
+				{
+					elSocio=new Socio();
+					elSocio.setDni(rs.getInt("dni"));
+					elSocio.setTipo(rs.getString("tipo"));
+					elSocio.setNombre_soc(rs.getString("nombre"));
+					elSocio.setApellido_soc(rs.getString("apellido"));
+					elSocio.setCelu(rs.getString("num_celular"));
+					elSocio.setContrasenia(rs.getString("contrasenia"));
+				}
+			} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		finally 
+		{
+			try {
+				if(rs!=null) {rs.close();}
+				if(ps!=null) {ps.close();}
+				dbConector.getInstancia().releaseConn();
+			} 
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+		return elSocio;
+	}
+	public Socio getUsuarioxContra(int dni, String contrasenia) {
+		Socio elSocio= null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		try {
+			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyDNIyContra);
+			ps.setInt(1, dni);
+			ps.setString(2, contrasenia);
 			rs=ps.executeQuery();
 			
 				if(rs!=null && rs.next())
