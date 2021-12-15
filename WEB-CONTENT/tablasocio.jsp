@@ -16,9 +16,33 @@
 </head>
 
 <body>
+	<header>
+		<label>Socios</label>
+	</header>
 	<%
 	sociosUtil s =new sociosUtil();
+	LinkedList<Socio> socios=new LinkedList<Socio>();
 	%>
+	<br>
+	<br>
+	<div class="container buscar">
+		<a href="Agregar.jsp" class="btn btn-success">+ Nuevo</a>
+		<form class="form">
+			<input class="form-control" type="text" name="txtbuscar">
+			<input class="btn btn" type="submit" value="Buscar">
+		</form>
+		<%
+		String nombuscar= request.getParameter("txtbuscar");
+ 		if(nombuscar!= null){
+ 			
+			socios=s.buscabyNombre(nombuscar);
+		
+		}else{
+
+		}
+			%>
+	</div>
+	<br>
 	<div class="container">
 	<h1>Lista de Socios</h1>
 	<hr>
@@ -31,7 +55,7 @@
 				<th class="text-center">Tipo Socio</th>
 			</tr>
 			<%
-			LinkedList<Socio> socios= s.getAll();
+			if(socios.isEmpty()){socios= s.getAll();}
 			for (Socio a: socios){
 			%>
 			<tr>
@@ -46,24 +70,8 @@
 				</td>
 			</tr>
 			<%} %>
-			<tr>
-				<a class="btn btn-success btn-sm">Nuevo</a>
-				
-			</tr>
+			
 		</table>
-	</div>
-	<div class="container buscar">
-		<form class ="form">
-		<input class= "form-control" type="text" name= "txtbuscar">
-		<input class= "btn btn" type = "Submit" value="Buscar">
-		</form>
-		<%
-		String nombuscar= request.getParameter("txtbuscar");
- 		if(nombuscar!= null){
-			LinkedList<Socio> sociosbuscar=s.buscabyNombre(nombuscar);
-		
-		}
-			%>
 	</div>
 </body>
 </html>

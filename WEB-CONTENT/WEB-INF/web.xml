@@ -11,12 +11,12 @@
   </welcome-file-list>
   <servlet>
   	<description></description>
-  	<display-name>verificaIngreso</display-name>
-  	<servlet-name>verificaIngreso</servlet-name>
-  	<servlet-class>servlet.verificaIngreso</servlet-class>
+  	<display-name>Validalogin</display-name>
+  	<servlet-name>Validalogin</servlet-name>
+  	<servlet-class>servlet.Validalogin</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>verificaIngreso</servlet-name>
-  	<url-pattern>/verificaIngreso</url-pattern>
+  	<servlet-name>Validalogin</servlet-name>
+  	<url-pattern>/Validalogin</url-pattern>
   </servlet-mapping>		
 </web-app>
