@@ -43,4 +43,13 @@ public class sociosUtil {
 			dataSocio ds=new dataSocio();
 		return ds.buscabyNombre(nombre);
 	}
+	
+	public boolean validaSocio(int dni, String pass) {
+		Socio s=this.getBydni(dni);
+		if(s!=null) {
+			if(s.getContrasenia().equals(pass))
+			{return true;}
+			else return false;
+		}else return false;
+	}
 }	

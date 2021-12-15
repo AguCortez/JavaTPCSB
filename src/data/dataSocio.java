@@ -80,6 +80,7 @@ public class dataSocio {
 					elSocio.setCelu(rs.getString("num_celular"));
 					elSocio.setContrasenia(rs.getString("contrasenia"));
 				}
+				
 			} 
 		catch (SQLException e) 
 		{

@@ -25,8 +25,17 @@ no">
 }
 </style>
 </head>
+<% if (session.isNew()!=false)
+{
+	  String msg= (String)session.getAttribute("mensajeError");
+	  if (msg!=null)
+	  {
+		  out.print("Estado: "+msg);
+	  }
+}
+%>
 <body class="gim">
-	<form action="Validalogin" method="post">
+	<form action="validaIngreso.jsp" method="post">
 		<table align=center>
 			<tr>
 				<p class="centrado">
