@@ -46,6 +46,11 @@
 	<div class="container">
 	<h1>Lista de Socios</h1>
 	<hr>
+	<a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nuevo Socio</a>
+		<br>
+		<br>
+		<br>
+		
 		<table class="table table-bordered">
 			<tr>
 				<th class="text-center">Nombre</th>

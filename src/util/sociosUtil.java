@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import data.dataSocio;
 
 public class sociosUtil {
+	
+	
 	public void altaSocio(int dni, String tipo, String contra, String nombre, String apellido,String celular) {
 		Socio nSocio=new Socio(dni, tipo, contra, nombre, apellido, celular);
 		dataSocio ds=new dataSocio();
@@ -41,4 +43,4 @@ public class sociosUtil {
 			dataSocio ds=new dataSocio();
 		return ds.buscabyNombre(nombre);
 	}
-}
+}	
