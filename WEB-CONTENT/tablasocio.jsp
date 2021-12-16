@@ -60,7 +60,9 @@
 				<th class="text-center">Tipo Socio</th>
 			</tr>
 			<%
-			if(socios.isEmpty()){socios= s.getAll();}
+			if(socios.isEmpty())
+			{	socios= s.getAll();
+			}
 			for (Socio a: socios){
 			%>
 			<tr>
@@ -70,7 +72,8 @@
 				<td class="text-center"><%=a.getDni() %></td>
 				<td class="text-center"><%=a.getTipo() %></td>
 				<td>
-				<a class="btn btn-warning btn-sm">Editar</a>
+				<a href="editarSocio.jsp"class="btn btn-warning btn-sm">Editar</a>
+			
 				<a class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
