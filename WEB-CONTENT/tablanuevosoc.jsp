@@ -43,6 +43,7 @@
 				<br>
 				<a href= "tablasocio.jsp"> Regresar</a>				
 		
+		
 		</form>
 	</div>
 </body>

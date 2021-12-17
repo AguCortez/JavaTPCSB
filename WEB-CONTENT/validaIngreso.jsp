@@ -24,7 +24,7 @@ if(su.validaSocio(Integer.parseInt(dni), pass)){
 }
 else
 	{
-		RequestDispatcher rd=request.getRequestDispatcher("noValido.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("invalid.jsp");
 		rd.forward(request, response);
 	}
 %>

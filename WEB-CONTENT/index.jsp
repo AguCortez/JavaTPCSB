@@ -34,7 +34,7 @@ no">
 	  }
 }
 %>
-<body class="gim">
+<body>
 	<form action="validaIngreso.jsp" method="post">
 		<table align=center>
 			<tr>
@@ -57,7 +57,7 @@ no">
 						type="submit" title="Iniciar Sesion">Iniciar Sesion</button></td>
 			</tr>
 			<tr>
-				<td align=center><a class="centrado" href="Quelastima.jsp">Olvidaste
+				<td align=right><a class="centrado" href="Quelastima.jsp">Olvidaste
 						tu contrasenia?</a></td>
 			</tr>
 		</table>

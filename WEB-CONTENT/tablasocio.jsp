@@ -1,6 +1,7 @@
 
+<%@page import="java.io.PrintWriter"%>
 <%@page import="java.util.LinkedList"%>
-<%@page import="entites.Socio"%>
+<%@page import="entites.*"%>
 <%@page import="util.sociosUtil"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -19,38 +20,54 @@
 	<header>
 		<label>Socios</label>
 	</header>
-	<%
+<%
+		HttpSession sesion = request.getSession();
+		Usuario usu = (Usuario) sesion.getAttribute("usuario");
+		response.setContentType("text/html");
+		PrintWriter mostrar = response.getWriter();
+		
+		if (usu==null)
+		{
+			RequestDispatcher rd = request.getRequestDispatcher("invalid.jsp");
+			rd.forward(request, response);
+		} else {
 	sociosUtil s =new sociosUtil();
 	LinkedList<Socio> socios=new LinkedList<Socio>();
 	%>
 	<br>
 	<br>
-	<div class="container buscar">
-		<a href="Agregar.jsp" class="btn btn-success">+ Nuevo</a>
-		<form class="form">
-			<input class="form-control" type="text" name="txtbuscar">
-			<input class="btn btn" type="submit" value="Buscar">
-		</form>
+	<div class="container">
+	
+		
 		<%
 		String nombuscar= request.getParameter("txtbuscar");
- 		if(nombuscar!= null){
- 			
-			socios=s.buscabyNombre(nombuscar);
+ 		if(nombuscar== null || nombuscar.equals("")){
+ 			socios= s.getAll();
+			
 		
-		}else{
-
-		}
+		}else{socios=s.buscabyNombre(nombuscar);}
+ 		
 			%>
 	</div>
 	<br>
 	<div class="container">
 	<h1>Lista de Socios</h1>
 	<hr>
-	<a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nuevo Socio</a>
+	<form>
+	<table>
+		<tr>
+			<td><a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nuevo Socio</a></td>
+			<td>
+			<input class="form-control" type="text" name="txtbuscar"></td>
+			<td>
+			<input class="btn btn" type="submit" value="Buscar">	
+			</td>
+		</tr>
+	</table>
+	</form>	
 		<br>
 		<br>
-		<br>
-		
+		<br>	
 		<table class="table table-bordered">
 			<tr>
 				<th class="text-center">Nombre</th>
@@ -60,7 +77,7 @@
 				<th class="text-center">Tipo Socio</th>
 			</tr>
 			<%
-			if(socios.isEmpty()){socios= s.getAll();}
+			
 			for (Socio a: socios){
 			%>
 			<tr>
@@ -74,7 +91,8 @@
 				<a class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
-			<%} %>
+			<%}
+			}%>
 			
 		</table>
 	</div>

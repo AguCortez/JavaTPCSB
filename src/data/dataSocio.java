@@ -11,7 +11,7 @@ import entites.Socio;
 
 public class dataSocio {
 	
-	private String buscabyNombre = "select * from Socio where nombre=?";
+	private String buscabyNombre = "select * from Socio where nombre LIKE %?";
 	private String getOnebyDNI="select * from Socio where dni=? ";
 	private String getOnebyDNIyContra="select * from Socio where dni=? and contrasenia=?  ";
 	private String newSocio="insert into socio (`dni`, `tipo`, `contrasenia`, `nombre`, `apellido`, `num_celular`) VALUES (?,?,?,?,?,?)";
