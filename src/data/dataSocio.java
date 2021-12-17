@@ -16,7 +16,7 @@ public class dataSocio {
 	private String getOnebyDNIyContra="select * from Socio where dni=? and contrasenia=?  ";
 	private String newSocio="insert into socio (`dni`, `tipo`, `contrasenia`, `nombre`, `apellido`, `num_celular`) VALUES (?,?,?,?,?,?)";
 	private String deleteSocio= "delete from socio where dni=?";
-	private String modifica= "UPDATE socio SET tipo= ?, contrasenia=?, nombre=? apellido=?, num_celular=? WHERE (`dni` = ?);";
+	private String modifica= "UPDATE socio SET `dni` = ?,`tipo` =?,`contrasenia` = ?,`nombre` = ?,`apellido` = ?,`num_celular` =? WHERE `dni` = ?";
 	
 	public LinkedList<Socio> getAll(){
 		
@@ -191,12 +191,12 @@ public class dataSocio {
 		PreparedStatement ps=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
-			ps.setString(1, s.getTipo());
-			ps.setString(2, s.getContrasenia());
-			ps.setString(3, s.getNombre_soc());
-			ps.setString(4, s.getApellido_soc());
-			ps.setString(5, s.getCelu());
-			ps.setInt(6, s.getDni());
+			ps.setInt(1, s.getDni());
+			ps.setString(2, s.getTipo());
+			ps.setString(3, s.getContrasenia());
+			ps.setString(4, s.getNombre_soc());
+			ps.setString(5, s.getApellido_soc());
+			ps.setString(6, s.getCelu());
 			ps.executeUpdate();
 		}
 		catch(SQLException e)

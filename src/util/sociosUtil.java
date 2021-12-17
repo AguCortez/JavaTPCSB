@@ -52,4 +52,15 @@ public class sociosUtil {
 			else return false;
 		}else return false;
 	}
+	
+	public void editaSocio(int dni,String tipo, String contra, String nombre, String apellido,String celular) {
+		
+		dataSocio ds= new dataSocio();
+		Socio so = new Socio(dni, tipo, contra, nombre, apellido, celular);
+		so=ds.getOne(dni);
+		ds.update(so);
+	}
+
+	
 }	
+
