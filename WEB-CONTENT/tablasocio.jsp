@@ -39,7 +39,30 @@
 	<div class="container">
 	
 		
-		<%
+		
+	</div>
+	<br>
+	<div class="container">
+	<h1>Lista de Socios</h1>
+	<hr>
+	<form class="form">
+	<table>
+		<tr>
+			<td><a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nuevo Socio</a></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			
+			<td>
+			<input class="form-control" type="text" name="txtbuscar">
+			</td>
+			<td>
+			<input class="btn btn" type="submit" value="Buscar">	
+			</td>
+		</tr>
+	</table>
+	</form>	
+	<%
 		String nombuscar= request.getParameter("txtbuscar");
  		if(nombuscar== null || nombuscar.equals("")){
  			socios= s.getAll();
@@ -48,47 +71,30 @@
 		}else{socios=s.buscabyNombre(nombuscar);}
  		
 			%>
-	</div>
-	<br>
-	<div class="container">
-	<h1>Lista de Socios</h1>
-	<hr>
-	<form>
-	<table>
-		<tr>
-			<td><a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nuevo Socio</a></td>
-			<td>
-			<input class="form-control" type="text" name="txtbuscar"></td>
-			<td>
-			<input class="btn btn" type="submit" value="Buscar">	
-			</td>
-		</tr>
-	</table>
-	</form>	
 		<br>
 		<br>
 		<br>	
 		<table class="table table-bordered">
 			<tr>
+				<th class="text-center">DNI</th>
+				<th class="text-center">Tipo Socio</th>
 				<th class="text-center">Nombre</th>
 				<th class="text-center">Apellido</th>
 				<th class="text-center">Celular</th>
-				<th class="text-center">DNI</th>
-				<th class="text-center">Tipo Socio</th>
 			</tr>
 			<%
 			for (Socio a: socios){
 			%>
 			<tr>
+				<td class="text-center"><%=a.getDni() %></td>
+				<td class="text-center"><%=a.getTipo() %></td>
 				<td class="text-center"><%=a.getNombre_soc() %></td>
 				<td class="text-center"><%=a.getApellido_soc() %></td>
 				<td class="text-center"><%=a.getCelu() %></td>
-				<td class="text-center"><%=a.getDni() %></td>
-				<td class="text-center"><%=a.getTipo() %></td>
 				<td>
-				<a href="editarSocio.jsp"class="btn btn-warning btn-sm">Editar</a>
+				<a href="editarSocio.jsp?dni=<%=a.getDni() %>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="borraSocio.jsp?dni=<%=a.getDni() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%}

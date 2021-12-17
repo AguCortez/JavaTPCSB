@@ -19,10 +19,9 @@ public class sociosUtil {
 		ds.delete(dni);
 	}
 
-	public void modSocio(int dni, Socio s) {
+	public void modSocio(Socio s, int dniviejo) {
 		dataSocio ds= new dataSocio();
-		s=ds.getOne(dni);
-		ds.update(s);
+		ds.update(s, dniviejo);
 	}
 
 	public LinkedList<Socio> getAll(){
@@ -53,13 +52,6 @@ public class sociosUtil {
 		}else return false;
 	}
 	
-	public void editaSocio(int dni,String tipo, String contra, String nombre, String apellido,String celular) {
-		
-		dataSocio ds= new dataSocio();
-		Socio so = new Socio(dni, tipo, contra, nombre, apellido, celular);
-		so=ds.getOne(dni);
-		ds.update(so);
-	}
 
 	
 }	

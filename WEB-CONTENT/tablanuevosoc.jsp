@@ -37,7 +37,8 @@
 				<br>
 				CELULAR:
 				<input type = "text" name = "txtCelular" class = "form-control"/>				
-				
+				<br>
+				<br>
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>

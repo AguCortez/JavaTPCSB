@@ -187,7 +187,7 @@ public class dataSocio {
 		
 		
 	}
-	public void update (Socio s) {
+	public void update (Socio s, int dniold) {
 		PreparedStatement ps=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
@@ -197,6 +197,7 @@ public class dataSocio {
 			ps.setString(4, s.getNombre_soc());
 			ps.setString(5, s.getApellido_soc());
 			ps.setString(6, s.getCelu());
+			ps.setInt(7, dniold);
 			ps.executeUpdate();
 		}
 		catch(SQLException e)

@@ -52,13 +52,13 @@ public class Socio {
 		return "\n Persona [dni=" + dni + ", nombre= "+ nombre_soc+", apellido= "+getApellido_soc()+ "]";
 		
 	}
-	public Socio(int dni, String nombre, String apellido, String celu, String tipodni, String contra) {
+	public Socio(int dni, String tipo, String contra, String nombre, String apellido, String celu) {
 		this.setDni(dni);
 		this.setCelu(celu);
 		this.setApellido_soc(apellido);
 		this.setContrasenia(contra);
 		this.setNombre_soc(nombre);
-		this.setTipo(tipodni);
+		this.setTipo(tipo);
 		
 		
 	}
