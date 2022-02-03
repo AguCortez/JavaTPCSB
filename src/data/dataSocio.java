@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 
-import entites.Socio;
+import entites.Ejercicio;
 
 
-public class dataSocio {
+public class dataEjercicio {
 	
 	private String buscabyNombre = "select * from Socio where nombre LIKE %?";
 	private String getOnebyDNI="select * from Socio where dni=? ";
