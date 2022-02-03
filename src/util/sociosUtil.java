@@ -33,6 +33,8 @@ public class sociosUtil {
 		dataSocio ds=new dataSocio();
 		return ds.getOne(dni);
 	}
+	/*Exclusiva de socio */
+	
 	public Socio getByUsuyContra(int dni, String contra) {
 		dataSocio ds=new dataSocio();
 				return ds.getUsuarioxContra(dni, contra);
@@ -42,7 +44,7 @@ public class sociosUtil {
 			dataSocio ds=new dataSocio();
 		return ds.buscabyNombre(nombre);
 	}
-	
+	/*Exclusiva de socio*/
 	public boolean validaSocio(int dni, String pass) {
 		Socio s=this.getBydni(dni);
 		if(s!=null) {

@@ -35,7 +35,7 @@ no">
 }
 %>
 <body>
-	<form action="validaIngreso.jsp" method="post">
+	<form action="tablasocio.jsp" method="post">
 		<table align=center>
 			<tr>
 				<p class="centrado">
