@@ -2,7 +2,7 @@
 <%@page import="java.io.PrintWriter"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
-<%@page import="util.sociosUtil"%>
+<%@page import="util.ejercicioUtil"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -18,21 +18,21 @@
 
 <body>
 	<header>
-		<label>Socios</label>
+		<label>Ejercicios</label>
 	</header>
 <%
 		HttpSession sesion = request.getSession();
-		Usuario usu = (Usuario) sesion.getAttribute("usuario");
+		Ejercicio ejer = (Ejercicio) sesion.getAttribute("ejercicio");
 		response.setContentType("text/html");
 		PrintWriter mostrar = response.getWriter();
 		
-		if (usu==null)
+		if (ejer==null)
 		{
-			RequestDispatcher rd = request.getRequestDispatcher("invalid.jsp");
-			rd.forward(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("ejererror.jsp");
+		rd.forward(request, response);
 		} else {
-	sociosUtil s =new sociosUtil();
-	LinkedList<Socio> socios=new LinkedList<Socio>();
+		ejercicioUtil ej =new ejercicioUtil();
+		LinkedList<Ejercicio> ejers=new LinkedList<Ejercicio>();
 %>
 	<br>
 	<br>
@@ -48,7 +48,7 @@
 	<form class="form">
 	<table>
 		<tr>
-			<td><a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nuevo Socio</a></td>
+			<td><a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nuevo Ejercicio</a></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -62,39 +62,41 @@
 		</tr>
 	</table>
 	</form>	
-	<%
-		String nombuscar= request.getParameter("txtbuscar");
- 		if(nombuscar== null || nombuscar.equals("")){
- 			socios= s.getAll();
+<%-- <% --%>
+// 		int idbuscar=Integer.parseInt(request.getParameter("txtbuscar"));
+// 		if(idbuscar== null || idbuscar.equals("")){ 
+// 			ejers= ej.getAll();
 			
-		
-		}else{socios=s.buscabyNombre(nombuscar);}
- 		
-			%>
+// 		}else{ejers=e.buscabyID(idbuscar);} -->
+<%-- 		%> --%>
 		<br>
 		<br>
 		<br>	
 		<table class="table table-bordered">
 			<tr>
-				<th class="text-center">DNI</th>
-				<th class="text-center">Tipo Socio</th>
-				<th class="text-center">Nombre</th>
-				<th class="text-center">Apellido</th>
-				<th class="text-center">Celular</th>
+				<th class="text-center">repeticiones</th>
+				<th class="text-center">peso</th>
+				<th class="text-center">series</th>
+				<th class="text-center">descripcion</th>
+				<th class="text-center">nombre maquina</th>
+				<th class="text-center">id ejercicio</th>
+
 			</tr>
 			<%
-			for (Socio a: socios){
+			for (Ejercicio e: ejers){
 			%>
 			<tr>
-				<td class="text-center"><%=a.getDni() %></td>
-				<td class="text-center"><%=a.getTipo() %></td>
-				<td class="text-center"><%=a.getNombre_soc() %></td>
-				<td class="text-center"><%=a.getApellido_soc() %></td>
-				<td class="text-center"><%=a.getCelu() %></td>
+				<td class="text-center"><%=e.getRepeticiones() %></td>
+				<td class="text-center"><%=e.getPeso() %></td>
+				<td class="text-center"><%=e.getSeries() %></td>
+				<td class="text-center"><%=e.getDescripcion() %></td>
+				<td class="text-center"><%=e.getNombre_maquina()%></td>
+				<td class="text-center"><%=e.getIdEjercicio()%></td>
+				
 				<td>
-				<a href="editarSocio.jsp?dni=<%=a.getDni() %>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="editarEjercicio.jsp?dni=<%=e.getIdEjercicio()%>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="borraSocio.jsp?dni=<%=a.getDni() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="borraEjercicio.jsp?dni=<%=e.getIdEjercicio() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%}

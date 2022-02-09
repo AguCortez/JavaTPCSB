@@ -31,7 +31,6 @@ public class dataEjercicio {
 			if(rs!=null) {
 				while(rs.next()) {
 					Ejercicio e=new Ejercicio();
-					/*ver IDRUTINA  */
 					
 					e.setIdEjercicio(rs.getInt("idejercicio"));
 					e.setDescripcion(rs.getString("descripcion"));
@@ -72,6 +71,7 @@ public class dataEjercicio {
 			
 				if(rs!=null && rs.next())
 				{
+					elEjer=new Ejercicio();
 					elEjer.setIdEjercicio(rs.getInt("idejercicio"));
 					elEjer.setDescripcion(rs.getString("descripcion"));
 					elEjer.setNombre_maquina(rs.getString("nombre_maquina"));
@@ -110,7 +110,7 @@ public class dataEjercicio {
 			
 				if(rs!=null && rs.next())
 				{
-					elEjer=new Ejercicio();
+					elEjer=new Ejercicio(idEjercicio, idEjercicio, idEjercicio, buscabyID, buscabyID, idEjercicio);
 					elEjer.setIdEjercicio(rs.getInt("idEjercicio"));
 					elEjer.setDescripcion(rs.getString("descripcion"));
 					elEjer.setNombre_maquina(rs.getString("nombre_maquina"));
@@ -216,5 +216,47 @@ public class dataEjercicio {
 		
 		
 		}
-	
+	public LinkedList<Ejercicio> buscabyID(int id) {
+		LinkedList<Ejercicio> ejers= new LinkedList<>();
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		try {
+			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyID);
+			ps.setInt(1, id);
+			rs=ps.executeQuery();
+			
+				if(rs!=null && rs.next())
+				{while(rs!=null && rs.next()) {
+					Ejercicio e= new Ejercicio();
+					
+					e.setIdEjercicio(rs.getInt(id));
+					e.setDescripcion(rs.getString("descripcion"));
+					e.setNombre_maquina(rs.getString("nombre maquina"));
+					e.setPeso(rs.getInt("peso"));
+					e.setRepeticiones(rs.getInt("repeticiones"));
+					e.setSeries(rs.getInt("series"));
+					ejers.add(e);
+					
+
+				}
+				}
+			} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		finally 
+		{
+			try {
+				if(rs!=null) {rs.close();}
+				if(ps!=null) {ps.close();}
+				dbConector.getInstancia().releaseConn();
+			} 
+			catch (SQLException e) {
+				e.printStackTrace();
+			}		}		
+		return ejers;
+	}
+		
+		
 }
