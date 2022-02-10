@@ -4,6 +4,20 @@ package entites;
 public class Ejercicio {
 
 		private int idEjercicio;
+		
+		public Ejercicio(int repeticiones, int peso, int series, String descripcion, String nombre_maquina,
+				int idejercicio) {
+		this.setRepeticiones(repeticiones);
+		this.setPeso(peso);
+		this.setSeries(series);
+		this.setDescripcion(descripcion);
+		this.setNombre_maquina(nombre_maquina);
+		this.setIdEjercicio(idejercicio);
+		
+		}
+		public Ejercicio() {
+			// TODO Auto-generated constructor stub
+		}
 		public int getIdEjercicio() {
 			return idEjercicio;
 		}

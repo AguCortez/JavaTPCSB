@@ -53,5 +53,14 @@ public class Clase {
 	private String dia;
 	private Time hora;
 	private String descripcion;
+	private int legajo_prof;
+
+	public int getLegajo_prof() {
+		return legajo_prof;
+	}
+	public void setLegajo_prof(int legajo_prof) {
+		this.legajo_prof = legajo_prof;
+	}
+	
 
 }

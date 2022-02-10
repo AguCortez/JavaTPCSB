@@ -13,18 +13,16 @@ public class dataEjercicio {
 	
 	private String buscabyID = "select * from Ejercicio where idejercicio LIKE %?";
 	private String getOnebyID="select * from Ejercicio where idejercicio=? ";
-	private String newEjer="insert into ejercio (`dni`, `tipo`, `contrasenia`, `nombre`, `apellido`, `num_celular`) VALUES (?,?,?,?,?,?)";
+	private String newEjer="insert into ejercio (`repeticiones`, `peso`, `series`, `descripcion`, `nombre_maquina`, `idejercicio`, `idrutina`) VALUES (?,?,?,?,?,?,?)";
 	private String deleteEjer= "delete from socio where dni=?";
-	private String modifica= "UPDATE socio SET `dni` = ?,`tipo` =?,`contrasenia` = ?,`nombre` = ?,`apellido` = ?,`num_celular` =? WHERE `dni` = ?";
+	private String modifica= "UPDATE ejercicio SET `repeticiones` = ?,`peso` =?,`series` = ?,`descripcion` = ?,`nombre_maquina` = ?,`idejercicio` = ?,`idrutina` =? WHERE `idejercicio` = ?";
 	
 	public LinkedList<Ejercicio> getAll(){
 		
 		Statement stmt=null;
 		ResultSet rs=null;
 		
-		
-		
-		LinkedList<Ejercicio> pers= new LinkedList<>();
+		LinkedList<Ejercicio> ejer= new LinkedList<>();
 		
 		try {
 			stmt= dbConector.getInstancia().getConn().createStatement();
@@ -32,11 +30,17 @@ public class dataEjercicio {
 			
 			if(rs!=null) {
 				while(rs.next()) {
-					Ejercicio p=new Ejercicio();
-					/*agregar lo demas*/
-								
+					Ejercicio e=new Ejercicio();
 					
-					pers.add(p);
+					e.setIdEjercicio(rs.getInt("idejercicio"));
+					e.setDescripcion(rs.getString("descripcion"));
+					e.setNombre_maquina(rs.getString("nombre_maquina"));
+					e.setPeso(rs.getInt("peso"));
+					e.setRepeticiones(rs.getInt("repeiciones"));
+					e.setSeries(rs.getInt("series"));
+					
+					
+					ejer.add(e);
 				}
 			}
 			
@@ -54,26 +58,27 @@ public class dataEjercicio {
 		}
 		
 		
-		return pers;
+		return ejer;
 	}
-	public Socio getOne(int dni) {
-		Socio elSocio= null;
+	public Ejercicio getOne(int idejercicio) {
+		Ejercicio elEjer = null;
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
-			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyDNI);
-			ps.setInt(1, dni);
+			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyID);
+			ps.setInt(1, idejercicio);
 			rs=ps.executeQuery();
 			
 				if(rs!=null && rs.next())
 				{
-					elSocio=new Socio();
-					elSocio.setDni(rs.getInt("dni"));
-					elSocio.setTipo(rs.getString("tipo"));
-					elSocio.setNombre_soc(rs.getString("nombre"));
-					elSocio.setApellido_soc(rs.getString("apellido"));
-					elSocio.setCelu(rs.getString("num_celular"));
-					elSocio.setContrasenia(rs.getString("contrasenia"));
+					elEjer=new Ejercicio();
+					elEjer.setIdEjercicio(rs.getInt("idejercicio"));
+					elEjer.setDescripcion(rs.getString("descripcion"));
+					elEjer.setNombre_maquina(rs.getString("nombre_maquina"));
+					elEjer.setPeso(rs.getInt("peso"));
+					elEjer.setRepeticiones(rs.getInt("repeiciones"));
+					elEjer.setSeries(rs.getInt("series"));
+					
 				}
 				
 			} 
@@ -92,27 +97,26 @@ public class dataEjercicio {
 				e.printStackTrace();
 			}
 		}		
-		return elSocio;
+		return elEjer;
 	}
-	public Socio getUsuarioxContra(int dni, String contrasenia) {
-		Socio elSocio= null;
+	public Ejercicio getEjercicioxID(int idEjercicio) {
+		Ejercicio elEjer= null;
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
-			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyDNIyContra);
-			ps.setInt(1, dni);
-			ps.setString(2, contrasenia);
+			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyID);
+			ps.setInt(1, idEjercicio);
 			rs=ps.executeQuery();
 			
 				if(rs!=null && rs.next())
 				{
-					elSocio=new Socio();
-					elSocio.setDni(rs.getInt("dni"));
-					elSocio.setTipo(rs.getString("tipo"));
-					elSocio.setNombre_soc(rs.getString("nombre"));
-					elSocio.setApellido_soc(rs.getString("apellido"));
-					elSocio.setCelu(rs.getString("num_celular"));
-					elSocio.setContrasenia(rs.getString("contrasenia"));
+					elEjer=new Ejercicio(idEjercicio, idEjercicio, idEjercicio, buscabyID, buscabyID, idEjercicio);
+					elEjer.setIdEjercicio(rs.getInt("idEjercicio"));
+					elEjer.setDescripcion(rs.getString("descripcion"));
+					elEjer.setNombre_maquina(rs.getString("nombre_maquina"));
+					elEjer.setPeso(rs.getInt("peso"));
+					elEjer.setRepeticiones(rs.getInt("repeiciones"));
+					elEjer.setSeries(rs.getInt("series"));
 				}
 			} 
 		catch (SQLException e) 
@@ -130,20 +134,22 @@ public class dataEjercicio {
 				e.printStackTrace();
 			}
 		}		
-		return elSocio;
+		return elEjer;
 	}
-	public void add(Socio s) {
+	public void add(Ejercicio ej) {
 		PreparedStatement ps=null;
 		
 		try {
-			ps=dbConector.getInstancia().getConn().prepareStatement(newSocio);
-			ps.setInt(1, s.getDni());
-			ps.setString(2, s.getTipo());
-			ps.setString(3,s.getContrasenia());
-			ps.setString(4,s.getNombre_soc());
-			ps.setString(5, s.getApellido_soc());
-			ps.setString(6, s.getCelu());
+			ps=dbConector.getInstancia().getConn().prepareStatement(newEjer);
+				
+			ps.setInt(1, ej.getIdEjercicio());
+			ps.setString(2, ej.getDescripcion());
+			ps.setString(3, ej.getNombre_maquina());
+			ps.setInt(4, ej.getPeso());
+			ps.setInt(5, ej.getRepeticiones());
+			ps.setInt(6, ej.getSeries());
 			ps.executeUpdate();
+			
 	 		}
 		catch(SQLException e)
 		{
@@ -159,11 +165,11 @@ public class dataEjercicio {
             }
 		}
 	}
-	public void delete (int dni) {
+	public void delete (int idEjercicio) {
 		PreparedStatement ps=null;
 		try {
-			ps=dbConector.getInstancia().getConn().prepareStatement(deleteSocio);
-			ps.setInt(1, dni);
+			ps=dbConector.getInstancia().getConn().prepareStatement(deleteEjer);
+			ps.setInt(1, idEjercicio);
 			ps.executeUpdate();
 		}
 		catch(SQLException e)
@@ -182,56 +188,56 @@ public class dataEjercicio {
 		
 		
 	}
-	public void update (Socio s, int dniold) {
+	public void update (Ejercicio e, int idEjercicio) {
 		PreparedStatement ps=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
-			ps.setInt(1, s.getDni());
-			ps.setString(2, s.getTipo());
-			ps.setString(3, s.getContrasenia());
-			ps.setString(4, s.getNombre_soc());
-			ps.setString(5, s.getApellido_soc());
-			ps.setString(6, s.getCelu());
-			ps.setInt(7, dniold);
-			ps.executeUpdate();
-		}
-		catch(SQLException e)
+			ps.setInt(1, e.getIdEjercicio());
+			ps.setString(2, e.getDescripcion());
+			ps.setString(3, e.getNombre_maquina());
+			ps.setInt(4, e.getPeso());
+			ps.setInt(5, e.getRepeticiones());
+			ps.setInt(6, e.getSeries());
+		}		
+		
+		catch(SQLException ej)
 		{
-            e.printStackTrace();
+            ej.printStackTrace();
 		} 
 		finally {
             try {               
                 if(ps!=null)ps.close();
                 dbConector.getInstancia().releaseConn();
             } 
-            catch (SQLException e) {
-            	e.printStackTrace();
+            catch (SQLException ej) {
+            	ej.printStackTrace();
             }
 		}
 		
 		
 		}
-	
-	public  LinkedList<Socio>  buscabyNombre(String nombre) {
-		LinkedList<Socio> socios= new LinkedList<>();
+	public LinkedList<Ejercicio> buscabyID(int id) {
+		LinkedList<Ejercicio> ejers= new LinkedList<>();
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
-			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyNombre);
-			ps.setString(1, nombre);
+			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyID);
+			ps.setInt(1, id);
 			rs=ps.executeQuery();
 			
 				if(rs!=null && rs.next())
 				{while(rs!=null && rs.next()) {
-					Socio s=new Socio();
+					Ejercicio e= new Ejercicio();
 					
-					s.setNombre_soc(rs.getString("nombre"));
-					s.setApellido_soc(rs.getString("apellido"));
-					s.setCelu(rs.getString("num_celular"));
-					s.setDni(rs.getInt("dni"));
-					s.setTipo(rs.getString("tipo"));				
+					e.setIdEjercicio(rs.getInt(id));
+					e.setDescripcion(rs.getString("descripcion"));
+					e.setNombre_maquina(rs.getString("nombre maquina"));
+					e.setPeso(rs.getInt("peso"));
+					e.setRepeticiones(rs.getInt("repeticiones"));
+					e.setSeries(rs.getInt("series"));
+					ejers.add(e);
 					
-					socios.add(s);
+
 				}
 				}
 			} 
@@ -249,9 +255,8 @@ public class dataEjercicio {
 			catch (SQLException e) {
 				e.printStackTrace();
 			}		}		
-		return socios;
+		return ejers;
 	}
-
 		
-	
+		
 }
