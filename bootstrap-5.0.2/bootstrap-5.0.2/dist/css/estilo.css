@@ -20,3 +20,22 @@ header label{
     display:flex;
     padding-left: 400px;
 }
+:root{
+    --primary: #111B54;
+    --light: #ffffff
+    --grey: #fefefe
+}
+body{
+    overflow: hidden;
+    color:var(--primary)
+}
+#sidebar-container {
+    min-height: 100vh;
+}
+#sidebar-container .logo {
+    padding: 0.875rem 1.25rem;
+}
+#sidebar-container .menu{
+    width: 18rem;
+
+}

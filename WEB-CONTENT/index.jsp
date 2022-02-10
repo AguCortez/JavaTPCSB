@@ -10,6 +10,8 @@ no">
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
 	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
 	crossorigin="anonymous">
+	<link rel="stylesheet" href="css/estilo.css">
+	<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 <title>Log In</title>
 <style type="text/css">
 .gim {
@@ -49,7 +51,7 @@ no">
 			</tr>
 
 			<tr>
-				<td align=center>Contraseña</td>
+				<td align=center>Contraseï¿½a</td>
 				<td align=center><input type="password" size=30 name="passUsu"></input></td>
 			</tr>
 			<tr>
