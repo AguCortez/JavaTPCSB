@@ -5,6 +5,8 @@ public class Cuota {
 
 	private int idCuota;
 	private int anio;
+	
+	
 	public int getAnio() {
 		return anio;
 	}
