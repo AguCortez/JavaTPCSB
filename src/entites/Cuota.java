@@ -7,6 +7,9 @@ public class Cuota {
 	private int anio;
 	
 	
+	public Cuota() {
+		// TODO Auto-generated constructor stub
+	}
 	public int getAnio() {
 		return anio;
 	}
