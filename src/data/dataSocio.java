@@ -99,6 +99,7 @@ public class dataSocio {
 		}		
 		return elSocio;
 	}
+	//este no sil :D
 	public Socio getUsuarioxContra(int dni, String contrasenia) {
 		Socio elSocio= null;
 		PreparedStatement ps=null;

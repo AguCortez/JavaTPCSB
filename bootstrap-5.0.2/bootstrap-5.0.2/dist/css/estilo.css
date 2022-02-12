@@ -27,8 +27,17 @@ header label{
 }
 body{
     overflow: hidden;
-    color:var(--primary)
+    color:var(--primary);
+    font-weight: 300;
 }
+
+a:hover{
+    text-decoration: none;
+}
+.bg-primary{ background-color: var(--primary);
+
+}
+
 #sidebar-container {
     min-height: 100vh;
 }

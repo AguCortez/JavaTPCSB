@@ -1,6 +1,9 @@
 package data;
 
-import java.sql.PreparedStatement;
+import java.sql.*;
+import java.util.LinkedList;
+
+import entites.Reserva;
 
 public class dataReserva { 
 	
@@ -9,14 +12,12 @@ public class dataReserva {
 	
 	private String newReserva="insert into reserva (`idreserva`, `fecha`, `dni`, `codigo`) VALUES (?,?,?,?)";
 	private String deleteReserva= "delete from reserva where dni=?";
-	private String modifica= "UPDATE reserva SET `idreserva` = ?,`fecha` =?,`dni` = ?,`codigo` = ? WHERE `dni` = ?";
+	private String modifica= "UPDATE reserva SET `idreserva` = ?,`fecha` =?,`dni` = ? WHERE `dni` = ?";
 	
 	public LinkedList<Reserva> getAll(){
 		
 		Statement stmt=null;
-		ResultSet rs=null;
-		
-		
+		ResultSet rs=null;	
 		
 		LinkedList<Reserva> res= new LinkedList<>();
 		
@@ -28,12 +29,9 @@ public class dataReserva {
 				while(rs.next()) {
 					Reserva r=new Reserva();
 					
-					r.setIdreserva(rs.getInt("id reserva"));
+					r.setId_reserva(rs.getInt("id reserva"));
 					r.setFecha(rs.getDate("fecha"));
-					r.setDni(rs.getInt("dni"));
-					r.setCodigo(rs.getString("codigo"));
-							
-					
+					r.setDni(rs.getInt("dni"));								
 					res.add(r);
 				}
 			}
@@ -67,10 +65,10 @@ public class dataReserva {
 				{
 					laReserva =new Reserva();
 					
-					laReserva.setIdreserva(rs.getInt("id reserva"));
+					laReserva.setId_reserva(rs.getInt("id reserva"));
 					laReserva.setFecha(rs.getDate("fecha"));
 					laReserva.setDni(rs.getInt("dni"));
-					laReserva.setCodigo(rs.getString("codigo"));
+					
 					
 				}
 				
@@ -92,42 +90,7 @@ public class dataReserva {
 		}		
 		return laReserva;
 	}
-	public Reserva getUsuarioxContra(int dni, String codigo) {
-		Reserva laReserva= null;
-		PreparedStatement ps=null;
-		ResultSet rs=null;
-		try {
-			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyDNIyCodigo);
-			ps.setInt(3, dni);
-			ps.setString(4, codigo);
-			rs=ps.executeQuery();
-			
-				if(rs!=null && rs.next())
-				{
-					laReserva=new Reserva();
-					laReserva.setIdreserva(rs.getInt("id reserva"));
-					laReserva.setFecha(rs.getDate("fecha"));
-					laReserva.setDni(rs.getInt("dni"));
-					laReserva.setCodigo(rs.getString("codigo"));
-				}
-			} 
-		catch (SQLException e) 
-		{
-			e.printStackTrace();
-		}
-		finally 
-		{
-			try {
-				if(rs!=null) {rs.close();}
-				if(ps!=null) {ps.close();}
-				dbConector.getInstancia().releaseConn();
-			} 
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}		
-		return laReserva;
-	}
+	
 	public void add(Reserva r) {
 		PreparedStatement ps=null;
 		
@@ -136,11 +99,9 @@ public class dataReserva {
 			
 			
 			
-			ps.setInt(1, r.getIdreserva());
+			ps.setInt(1, r.getId_reserva());
 			ps.setDate(2, r.getFecha());
-			ps.setInt(3,r.getDni());
-			ps.setString(4,r.getCodigo());
-			
+			ps.setInt(3,r.getDni());			
 			ps.executeUpdate();
 	 		}
 		catch(SQLException e)
@@ -186,7 +147,7 @@ public class dataReserva {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
 			
 			
-			ps.setInt(1, r.getIdreserva());
+			ps.setInt(1, r.getId_reserva());
 			ps.setDate(2, r.getFecha());
 			ps.setInt(3,r.getDni());
 			ps.setString(4,r.getCodigo());
@@ -210,20 +171,20 @@ public class dataReserva {
 		
 		}
 	
-	public  LinkedList<Reserva>  buscabyId(Int idreserva) {
+	public  LinkedList<Reserva>  buscabyId(int idreserva) {
 		LinkedList<Reserva> reservas= new LinkedList<>();
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
-			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyId);
-			ps.setString(1, idreserva);
+			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyIdreserva);
+			ps.setInt(1, idreserva);
 			rs=ps.executeQuery();
 			
 				if(rs!=null && rs.next())
 				{while(rs!=null && rs.next()) {
 					Reserva r=new Reserva();
 					
-					r.setIdreserva(rs.getInt("id reserva"));
+					r.setId_reserva(rs.getInt("id reserva"));
 					r.setFecha(rs.getDate("fecha"));
 					r.setDni(rs.getInt("dni"));
 					r.setCodigo(rs.getString("codigo"));

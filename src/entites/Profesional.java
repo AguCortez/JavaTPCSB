@@ -4,7 +4,10 @@ package entites;
 
 public class Profesional {
 	
-	private String nombre;
+	private String nombre;	
+	private String apellido;
+	private  int legajo;
+	private String contrasenia;
 	public String getNombre() {
 		return nombre;
 	}
@@ -29,8 +32,5 @@ public class Profesional {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
-	private String apellido;
-	private  int legajo;
-	private String contrasenia;
 
 }
