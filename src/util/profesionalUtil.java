@@ -16,7 +16,7 @@ public class profesionalUtil {
 	}
 	public void bajaProfesional(int legajo) {
 		dataProfesional ds= new dataProfesional();
-		ds.delete(lagajo);
+		ds.delete(legajo);
 	}
 
 	public void modProfesional(Profesional p, int  legajoviejo) {
