@@ -8,7 +8,7 @@ import data.dataClase;
 public class claseUtil {
 	
 	
-	public void altaClase(int total_cupo, int id, String nombre, int actual_cupos, String dia, time hora, String descripcion, int legajo_prof) {
+	public void altaClase(int total_cupo, int id, String nombre, int actual_cupos, String dia, String hora, String descripcion, int legajo_prof) {
 		Clase nClase=new Clase(total_cupo, id, nombre, actual_cupos, dia, hora, descripcion, legajo_prof);
 		dataClase ds=new dataClase();
 		ds.add(nClase);
@@ -33,3 +33,4 @@ public class claseUtil {
 		dataClase ds=new dataClase();
 		return ds.getOne(id);
 	}
+}
