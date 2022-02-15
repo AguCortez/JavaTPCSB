@@ -14,7 +14,6 @@ public class dataTiporutina {
 	
 	private String buscabyIdtipo = "select * from Tiporutina where idtipo LIKE %?";
 	private String getOnebyIdtipo="select * from Tiporutina where idtipo=? ";
-	
 	private String newTiporutina="insert into tiporutina (`idtipo`, `descripcion`) VALUES (?,?)";
 	private String deleteTiporutina= "delete from tiporutina where idtipo=?";
 	private String modifica= "UPDATE tiporutina SET `idtipo` = ?,`descripcion` =? WHERE `idtipo` = ?";
@@ -166,8 +165,8 @@ public LinkedList<TipoRutina> getAll(){
             } 
             catch (SQLException e) {
             	e.printStackTrace();
-            }
-		 }
+            }}
+		 
 		
 		
 		

@@ -3,12 +3,13 @@ package util;
 import java.util.LinkedList;
 
 import data.dataTiporutina;
+import entites.TipoRutina;
 
 public class tiporutinaUtil {
 	
 	
 	public void altaTiporutina(int id_tipo, String descripcion) {
-		Tiporutina nTiporutina=new Tiporutina(id_tipo, descripcion);
+		TipoRutina nTiporutina=new TipoRutina();
 		dataTiporutina ds=new dataTiporutina();
 		ds.add(nTiporutina);
 
@@ -18,17 +19,17 @@ public class tiporutinaUtil {
 		ds.delete(id_tipo);
 	}
 
-	public void modTiporutina(Tiporutina t, int id_tipoviejo) {
+	public void modTiporutina(TipoRutina t, int id_tipoviejo) {
 		dataTiporutina ds= new dataTiporutina();
 		ds.update(t, id_tipoviejo);
 	}
 
-	public LinkedList<Tiporutinao> getAll(){
+	public LinkedList<TipoRutina> getAll(){
 		dataTiporutina ds=new dataTiporutina();
 		return ds.getAll();
 	}
 
-	public Tiporutina getBydni(int id_tipo) {
+	public TipoRutina getBydni(int id_tipo) {
 		dataTiporutina ds=new dataTiporutina();
 		return ds.getOne(id_tipo);
 	}
