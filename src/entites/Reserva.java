@@ -34,20 +34,8 @@ public class Reserva {
 		this.codigo = codigo;
 	}
 	private Date fecha;
-	private int dni;
-	private String codigo;
-	public int getDni() {
-		return dni;
-	}
-	public void setDni(int dni) {
-		this.dni = dni;
-	}
-	public String getCodigo() {
-		return codigo;
-	}
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
+	
+	
 
 
 	public Reserva() {
