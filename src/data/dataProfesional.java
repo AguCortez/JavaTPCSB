@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.LinkedList;
 
 import entites.Profesional;
+import entites.Socio;
 
 
 public class dataProfesional {
@@ -94,6 +95,40 @@ public class dataProfesional {
 		}		
 		return elProfesional;
 	}
+	
+	public void add(Profesional p) {
+		PreparedStatement ps=null;
+		
+		try {
+			ps=dbConector.getInstancia().getConn().prepareStatement(newProfesional);
+			ps.setInt(1,p.getLegajo());
+			ps.setString(2, p.getNombre());
+			ps.setString(3, p.getApellido());
+			ps.setString(4,p.getContrasenia());
+			
+			ps.executeUpdate();
+	 		}
+		catch(SQLException e)
+		{
+            e.printStackTrace();
+		} 
+		finally {
+            try {               
+                if(ps!=null)ps.close();
+                dbConector.getInstancia().releaseConn();
+            } 
+            catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
 
 	public void delete (int legajo) {
 		PreparedStatement ps=null;

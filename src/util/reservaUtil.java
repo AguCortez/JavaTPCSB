@@ -1,14 +1,15 @@
 package util;
-import entites.Reserva; 
+import entites.Reserva;
 
+import java.util.Date;
 import java.util.LinkedList;
 
 import data.dataReserva;
 
-public class reservasUtil {
+public class reservaUtil {
 	
 	
-	public void altaReserva(int id_reserva, date fecha, int dni, String codigo) {
+	public void altaReserva(int id_reserva, Date fecha, int dni, String codigo) {
 		Reserva nReserva=new Reserva(id_reserva, fecha, dni, codigo );
 		dataReserva ds=new dataReserva();
 		ds.add(nReserva);
@@ -33,3 +34,4 @@ public class reservasUtil {
 		dataReserva ds=new dataReserva();
 		return ds.getOne(id_reserva);
 	}
+}

@@ -120,6 +120,7 @@ public LinkedList<TipoRutina> getAll(){
             }
 		}
 	}
+	
 	public void delete (int idtipo) {
 		PreparedStatement ps=null;
 		try {
@@ -131,6 +132,8 @@ public LinkedList<TipoRutina> getAll(){
 		{
             e.printStackTrace();
 		} 
+
+		
 		finally {
             try {               
                 if(ps!=null)ps.close();
@@ -139,7 +142,9 @@ public LinkedList<TipoRutina> getAll(){
             catch (SQLException e) {
             	e.printStackTrace();
             }
-		
+		}
+		}
+
 	public void update (TipoRutina t, int idtipoold) {
 		PreparedStatement ps=null;
 		try {

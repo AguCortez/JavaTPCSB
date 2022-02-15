@@ -8,6 +8,12 @@ public class Profesional {
 	private String apellido;
 	private  int legajo;
 	private String contrasenia;
+	public Profesional(String nombre2, String apellido2, int legajo2, String contrasenia2) {
+		// TODO Auto-generated constructor stub
+	}
+	public Profesional() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getNombre() {
 		return nombre;
 	}

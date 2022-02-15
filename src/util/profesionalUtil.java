@@ -20,7 +20,7 @@ public class profesionalUtil {
 	}
 
 	public void modProfesional(Profesional p, int  legajoviejo) {
-		dataProfesional ds= new dataProfesionalo();
+		dataProfesional ds= new dataProfesional();
 		ds.update(p, legajoviejo);
 	}
 
