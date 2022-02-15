@@ -1,4 +1,3 @@
-
 <%@page import="java.io.PrintWriter"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
@@ -28,9 +27,9 @@
 		
 		if (ejer==null)
 		{
-		RequestDispatcher rd = request.getRequestDispatcher("ejererror.jsp");
-		rd.forward(request, response);
-		} else {
+			RequestDispatcher rd = request.getRequestDispatcher("ejererror.jsp");
+			rd.forward(request, response);
+			} else {
 		ejercicioUtil ej =new ejercicioUtil();
 		LinkedList<Ejercicio> ejers=new LinkedList<Ejercicio>();
 %>
@@ -62,13 +61,13 @@
 		</tr>
 	</table>
 	</form>	
-<%-- <% --%>
-// 		int idbuscar=Integer.parseInt(request.getParameter("txtbuscar"));
-// 		if(idbuscar== null || idbuscar.equals("")){ 
-// 			ejers= ej.getAll();
-			
-// 		}else{ejers=e.buscabyID(idbuscar);} -->
-<%-- 		%> --%>
+<%
+		int idbuscar=Integer.parseInt(request.getParameter("txtbuscar"));
+		if(idbuscar== null ){ 
+			ejers= ej.getAll();
+		}
+		else{ejers=ej.buscabyID(idbuscar);} 
+	%> -
 		<br>
 		<br>
 		<br>	

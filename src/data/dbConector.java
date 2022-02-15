@@ -5,12 +5,11 @@ import java.sql.*;
 public class dbConector {
 
 	private static dbConector instancia;
-	
 	private String driver="com.mysql.cj.jdbc.Driver";
 	private String host="localhost";
-	private String port="3306";
-	private String user="agu";
-	private String password="enemy";
+	private String port="123";
+	private String user="java";
+	private String password="contrajava";
 	private String db="gimnasiojava";
 	private int conectados=0;
 	private Connection conn=null;
