@@ -63,4 +63,21 @@ public class Clase {
 	}
 	
 
+public Clase(int total_cupo, int id, String nombre, int actual_cupos, String dia, Time hora, String descripcion, int legajo_prof) {
+	this.setTotal_cupo(total_cupo);
+	this.setId(id);
+	this.setNombre(nombre);
+	this.setActual_cupos(actual_cupos);
+	this.setDia(dia);
+	this.setHora(hora);
+	this.setDescripcion(descripcion);
+	this.setLegajo_prof(legajo_prof);
+	
+}
+	
+	public Clase() {
+		
+	
+	
+}
 }

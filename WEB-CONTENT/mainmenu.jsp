@@ -16,15 +16,21 @@ no">
 </head>
 <body>
     <div class="d-flex">
-        <div class="sidebar-container" class="bg-primary">
+        <div id="sidebar-container" class="bg-primary">
             <div class="logo">
-                <h4>GYM</h4>
+                <h4 class="text-light">GYM</h4>
             </div>
             <div class="menu">
-                <a href="#">Administrar </a>
-                
+                <a href="#" class=" d-block text-light p-3 mr-2">Administrar Entidades </a>
+                <a href="#" class=" d-block text-light p-3 mr-2">Redes </a>
+                <a href="#" class=" d-block text-light p-3 mr-2">Perfil </a>
+                <a href="#" class=" d-block text-light p-3 mr-2">Salir </a>
 
             </div>
+        </div>
+        <div id="contenido">
+            
+
         </div>
     </div>
 </body>

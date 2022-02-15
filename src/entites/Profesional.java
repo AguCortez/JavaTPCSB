@@ -4,7 +4,16 @@ package entites;
 
 public class Profesional {
 	
-	private String nombre;
+	private String nombre;	
+	private String apellido;
+	private  int legajo;
+	private String contrasenia;
+	public Profesional(String nombre2, String apellido2, int legajo2, String contrasenia2) {
+		// TODO Auto-generated constructor stub
+	}
+	public Profesional() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -29,8 +38,5 @@ public class Profesional {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
-	private String apellido;
-	private  int legajo;
-	private String contrasenia;
 
 }
