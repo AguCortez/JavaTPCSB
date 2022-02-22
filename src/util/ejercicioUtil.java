@@ -2,9 +2,8 @@ package util;
 import java.util.LinkedList;
 
 import data.dataEjercicio;
-import data.dataSocio;
 import entites.Ejercicio;
-import entites.Socio;
+
 
 public class ejercicioUtil {
 

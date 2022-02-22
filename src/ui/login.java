@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 import data.dataSocio;
 import entites.Socio;
-import util.sociosUtil;
+
 
 public class login {
 

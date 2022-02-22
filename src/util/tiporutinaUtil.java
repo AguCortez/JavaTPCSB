@@ -33,3 +33,4 @@ public class tiporutinaUtil {
 		dataTiporutina ds=new dataTiporutina();
 		return ds.getOne(id_tipo);
 	}
+}

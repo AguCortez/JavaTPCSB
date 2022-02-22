@@ -37,7 +37,7 @@ no">
 }
 %>
 <body>
-	<form action="validaIngreso.jsp" method="post">
+	<form action="menu-main.jsp" method="post">
 <!-- 	<form action="tablasocio.jsp" method="post"> -->
 		<table align=center>
 			<tr>
@@ -52,7 +52,7 @@ no">
 			</tr>
 
 			<tr>
-				<td align=center>Contrase�a</td>
+				<td align=center>Password</td>
 				<td align=center><input type="password" size=30 name="passUsu"></input></td>
 			</tr>
 			<tr>

@@ -166,6 +166,8 @@ public LinkedList<TipoRutina> getAll(){
             catch (SQLException e) {
             	e.printStackTrace();
             }}
+	}
+}
 		 
 		
 		
