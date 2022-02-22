@@ -1,8 +1,9 @@
 package util;
-import entites.Socio;
+import entites.*;
 
 import java.util.LinkedList;
 
+import data.DataUsuario;
 import data.dataSocio;
 
 public class sociosUtil {
@@ -12,16 +13,22 @@ public class sociosUtil {
 		Socio nSocio=new Socio(dni, tipo, contra, nombre, apellido, celular);
 		dataSocio ds=new dataSocio();
 		ds.add(nSocio);
+		DataUsuario du= new DataUsuario();
+		du.addSocio(nSocio);
 
 	}
 	public void bajaSocio(int dni) {
 		dataSocio ds= new dataSocio();
+		DataUsuario du= new DataUsuario();
+		du.delete(dni);
 		ds.delete(dni);
 	}
 
 	public void modSocio(Socio s, int dniviejo) {
 		dataSocio ds= new dataSocio();
 		ds.update(s, dniviejo);
+		DataUsuario du= new DataUsuario();
+		du.update(s, dniviejo);
 	}
 
 	public LinkedList<Socio> getAll(){

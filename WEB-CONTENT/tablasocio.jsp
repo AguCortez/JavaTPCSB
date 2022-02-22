@@ -1,18 +1,15 @@
 
-<%@include file="menu-header.jsp" %>
+<%@page import="java.io.PrintWriter"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="entites.*"%>
+<%@page import="util.sociosUtil"%>
+<%@ include file="menu-header.jsp"%>s
+<body>	
 <%
-
 	sociosUtil s =new sociosUtil();
 	LinkedList<Socio> socios=new LinkedList<Socio>();
-%>
-	<br>
-	<br>
-	<div class="container">
+%>	
 	
-		
-		
-	</div>
-	<br>
 	<div class="container">
 	<h1>Lista de Socios</h1>
 	<hr>
@@ -34,16 +31,9 @@
 	</table>
 	</form>	
 	<%
+	socios= s.getAll();
+	%>	
 			
- 			socios= s.getAll();
-			
-		
-		
- 		
-			%>
-		<br>
-		<br>
-		<br>	
 		<table class="table table-bordered">
 			<tr>
 				<th class="text-center">DNI</th>
@@ -70,4 +60,4 @@
 			<%	}	%>
 			
 		</table>
-<%@inlcude file="menu-foot.jsp" %>
+<%@ include file="menu-foot.jsp" %>

@@ -13,7 +13,8 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container-fluid">
+	
 	
  	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   	<div class="container-fluid">
@@ -26,9 +27,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Administrar Entidad
@@ -47,9 +46,7 @@
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
+        
       </ul>
 
     </div>

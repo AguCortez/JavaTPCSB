@@ -1,12 +1,13 @@
 package entites;
 
-public class Usuario {
+public abstract class Usuario {
 	private int dni;
-	private String password;
+	private String contrasenia;
+	private int nivel;
 	
 	public Usuario(int dni, String pass) {
 		this.setDni(dni);
-		this.setPassword(pass);
+		this.setContrasenia(pass);
 	}
 
 	public Usuario() {
@@ -21,12 +22,20 @@ public class Usuario {
 		this.dni = dni;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getContrasenia() {
+		return contrasenia;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setContrasenia(String password) {
+		this.contrasenia = password;
+	}
+
+	public int getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
 	}
 
 }

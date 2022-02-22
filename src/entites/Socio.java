@@ -1,7 +1,7 @@
 package entites;
 
 
-public class Socio {
+public class Socio extends Usuario {
 
 	
 
@@ -59,6 +59,7 @@ public class Socio {
 		this.setContrasenia(contra);
 		this.setNombre_soc(nombre);
 		this.setTipo(tipo);
+		setNivel(1);
 		
 		
 	}
