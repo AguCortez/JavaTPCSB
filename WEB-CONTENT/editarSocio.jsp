@@ -1,4 +1,3 @@
-
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.Socio"%>
 <%@page import="util.sociosUtil"%>
