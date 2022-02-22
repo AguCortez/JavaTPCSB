@@ -29,7 +29,7 @@ public class dataSocio {
 		
 		try {
 			stmt= dbConector.getInstancia().getConn().createStatement();
-			rs= stmt.executeQuery("select * from Socio");
+			rs= stmt.executeQuery("select * from socio");
 			
 			if(rs!=null) {
 				while(rs.next()) {
