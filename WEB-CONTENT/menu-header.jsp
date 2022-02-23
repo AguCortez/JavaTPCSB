@@ -18,7 +18,7 @@
 	
  	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   	<div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="menu-main.jsp">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,9 +34,9 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Clases</a>
-            <a class="dropdown-item" href="#">Cuotas</a>
+            <a class="dropdown-item" href="cuotas-tabla.jsp">Cuotas</a>
             <a class="dropdown-item" href="#">Ejercicio</a>
-            <a class="dropdown-item" href="#">Profesional</a>
+            <a class="dropdown-item" href="tablaProfesionales.jsp">Profesional</a>
             <a class="dropdown-item" href="#">Reservas</a>
             <a class="dropdown-item" href="tablasocio.jsp">Socios</a>
             <a class="dropdown-item" href="#">Rutina</a>
