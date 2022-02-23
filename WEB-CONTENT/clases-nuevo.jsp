@@ -1,7 +1,6 @@
-
 <%@page import="java.util.LinkedList"%>
-<%@page import="entites.Reserva"%>
-<%@page import="util.reservaUtil"%>
+<%@page import="entites.Clase"%>
+<%@page import="util.claseUtil"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -17,47 +16,65 @@
 </head>
 <body>
 	<div class = "conteiner">
-		<h1>Agregar nueva reserva </h1>	
+		<h1>Agregar nueva clase </h1>	
 		<hr>
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
-				CODIGO:
-				<input type = "text" name= "txtCodigo" class = "form-control"/>
+				TOTAL CUPO:
+				<input type = "text" name= "txtTotal_cupo" class = "form-control"/>
 				<br>
-				DNI:
-				<input type = "text" name= "txtDni" class = "form-control"/>		
+				ID:
+				<input type = "text" name= "txtId" class = "form-control"/>		
 				<br>
-				ID RESERVA:
-				<input type = "text" name = "txtId_reserva" class = "form-control"/>
+				NOMBRE:
+				<input type = "text" name = "txtNombre" class = "form-control"/>
 				<br>
-				FECHA:
-				<input type = "text" name = "txtFecha" class = "form-control"/>
+				ACTUAL CUPOS:
+				<input type = "text" name = "txtActual_cupos" class = "form-control"/>
+				<br>
+				DIA:
+				<input type = "text" name = "txtDia" class = "form-control"/>
+				<br>
+				HORA:
+				<input type = "text" name = "txtHora" class = "form-control"/>
+				<br>
+				LEGAJO PROFESIONAL:
+				<input type = "text" name = "txtLegajo_prof" class = "form-control"/>
+				<br>
+				DESCRIPCION:
+				<input type = "text" name = "txtDescripcion" class = "form-control"/>
 				<br>
 				<br>
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
-				<a href= "reservas-tabla.jsp"> Regresar</a>				
+				<a href= "clases-tabla.jsp"> Regresar</a>				
 		
 		
 		</form>
 	</div>
 </body>
 </html>
-<%	reservaUtil r =new reservaUtil();
+<%	claseUtil c =new claseUtil();
 
 
-String codigo;
-Integer dni, id_reserva, fecha;
 
-codigo = request.getParameter("txtCodigo");
-dni = request.getParameter("txtDni");
-id_reserva = request.getParameter ("txtId_reserva");
-fecha = request.getParameter ("txtFecha");
+String nombre, descripcion;
+Integer total_cupo, id, actual_cupo, dia, hora, legajo_prof; 
+
+total_cupo = request.getParameter("txtTotal_cupo");
+id = request.getParameter("txtId");
+nombre = request.getParameter ("txtNombre");
+actual_cupos = request.getParameter ("txtActual_cupos");
+dia = request.getParameter("txtDia");
+hora = request.getParameter("txtHora");
+legajo_prof = request.getParameter("txtLegajo_prof");
+descripcion = request.getParameter("txtDescripcion");
 
 
-	if (codigo!= null && dni != null && id_reserva != null && fecha != null)
+
+if (total_cupo!= null && id!= null && nombre!= null && actual_cupos!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null &&)
 	{
-		r.altaReserva(Integer.parseInt(id_reserva), codigo, dni, fecha);
-		response.sendRedirect("reservas-tabla.jsp");
+		c.altaClase(Integer.parseInt(id), total_cupo, nombre, actual_cupos, dia, hora, legajo_prof, descripcion);
+		response.sendRedirect("clases-tabla.jsp");
 	}
 	%>
