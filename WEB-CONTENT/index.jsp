@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="util.UsuarioUtil"%>
+<%@page import="java.net.http.*" %>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -27,15 +29,7 @@ no">
 }
 </style>
 </head>
-<% if (session.isNew()!=false)
-{
-	  String msg= (String)session.getAttribute("mensajeError");
-	  if (msg!=null)
-	  {
-		  out.print("Estado: "+msg);
-	  }
-}
-%>
+
 <body>
 	<form action="menu-main.jsp" method="post">
 <!-- 	<form action="tablasocio.jsp" method="post"> -->
@@ -57,7 +51,7 @@ no">
 			</tr>
 			<tr>
 				<td align=right><button class="btn btn-primary btn-sml"
-						type="submit" title="Iniciar Sesion">Iniciar Sesion</button></td>
+						type="submit" title="Iniciar Sesion" naem="btnIniciar">Iniciar Sesion</button></td>
 			</tr>
 			<tr>
 				<td align=right><a class="centrado" href="Quelastima.jsp">Olvidaste
@@ -65,6 +59,27 @@ no">
 			</tr>
 		</table>
 	</form>
+	<%
+		String nombre="";
+		
+		UsuarioUtil uu=new UsuarioUtil();
+		if (request.getParameter("btnIniciar")!=null){
+			String pass=request.getParameter("passUsu");
+			int dni= Integer.parseInt(request.getParameter("dniUsu"));
+			
+		    HttpSession sesion=request.getSession();
+			
+		    switch(uu.nivellogin(dni, pass)){
+			case 1: sesion.setAttribute("usuario", nombre);
+					sesion.setAttribute("nivel", "1");
+					response.sendRedirect("main-menu.jsp");
+				break;
+			default:
+				out.write("Usuario o contrasenia incorrectos");
+				break;
+				}
+			}
+	%>
 </body>
 
 </html>

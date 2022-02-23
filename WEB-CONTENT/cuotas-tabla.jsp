@@ -1,8 +1,13 @@
+<%@page import="java.io.PrintWriter"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="entites.*"%>
+<%@page import="util.*"%>
 <%@include file="menu-header.jsp" %>
+
 <%
 
 	cuotaUtil c =new cuotaUtil();
-	LinkedList<Cuota> cuota=new LinkedList<Cuota>();
+	LinkedList<Cuota> cuotas =new LinkedList<Cuota>();
 %>
 	<br>
 	<br>
@@ -34,7 +39,7 @@
 	</form>	
 	<%
 			
- 			cuota= c.getAll();
+ 			cuotas= c.getAll();
 			
 		
 		
@@ -61,13 +66,13 @@
 				<td class="text-center"><%=a.getPrecio() %></td>
 				<td class="text-center"><%=a.getFecha_pago() %></td>
 				<td>
-				<a href="cuotas-editar.jsp?dni=<%=a.getDni() %>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="cuotas-editar.jsp?dni=<%=a.getIdCuota() %>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="cuotas-borrar.jsp?dni=<%=a.getDni() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="cuotas-borrar.jsp?dni=<%=a.getIdCuota() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%	}	%>
 			
 		</table>
-<%@inlcude file="menu-foot.jsp" %>
+<%@ include file="menu-foot.jsp" %>
 
