@@ -2,11 +2,11 @@ package entites;
 
 
 
-public class Profesional {
+public class Profesional extends Usuario{
 	
 	private String nombre;	
 	private String apellido;
-	private  int legajo;
+	private  int dni;
 	private String contrasenia;
 	public Profesional(String nombre2, String apellido2, int legajo2, String contrasenia2) {
 		// TODO Auto-generated constructor stub
@@ -26,11 +26,11 @@ public class Profesional {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public int getLegajo() {
-		return legajo;
+	public int getDni() {
+		return dni;
 	}
-	public void setLegajo(int legajo) {
-		this.legajo = legajo;
+	public void setDni(int legajo) {
+		this.dni = legajo;
 	}
 	public String getContrasenia() {
 		return contrasenia;

@@ -12,9 +12,9 @@ public class dataProfesional {
 	private String buscabyNombre = "select * from Profesional where nombre LIKE %?";
 	private String getOnebyLEGAJO="select * from Profesional where legajo=? ";
 	
-	private String newProfesional="insert into Profesional (`legajo`, `nombre`, `apellido`, `contraseña`) VALUES (?,?,?,?)";
+	private String newProfesional="insert into Profesional (`legajo`, `nombre`, `apellido`, `contraseï¿½a`) VALUES (?,?,?,?)";
 	private String deleteProfesional= "delete from profesional where legajo=?";
-	private String modifica= "UPDATE profesional SET `legajo` = ?,`nombre` =?,`apellido` = ?,`contraseña` = ? WHERE `legajo` = ?";
+	private String modifica= "UPDATE profesional SET `legajo` = ?,`nombre` =?,`apellido` = ?,`contraseï¿½a` = ? WHERE `legajo` = ?";
 	
 	public LinkedList<Profesional> getAll(){
 		
@@ -33,10 +33,10 @@ public class dataProfesional {
 				while(rs.next()) {
 					Profesional p=new Profesional();
 					
-					p.setLegajo(rs.getInt("legajo"));
+					p.setDni(rs.getInt("legajo"));
 					p.setNombre(rs.getString("nombre"));
 					p.setApellido(rs.getString("apellido"));
-					p.setContrasenia(rs.getString("contraseña"));				
+					p.setContrasenia(rs.getString("contraseï¿½a"));				
 					
 					prof.add(p);
 				}
@@ -71,7 +71,7 @@ public class dataProfesional {
 				{
 					elProfesional=new Profesional();
 					
-					elProfesional.setLegajo(rs.getInt("legajo"));
+					elProfesional.setDni(rs.getInt("legajo"));
 					elProfesional.setNombre(rs.getString("nombre"));
 					elProfesional.setApellido(rs.getString("apellido"));
 					elProfesional.setContrasenia(rs.getString("contrasenia"));
@@ -101,7 +101,7 @@ public class dataProfesional {
 		
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(newProfesional);
-			ps.setInt(1,p.getLegajo());
+			ps.setInt(1,p.getDni());
 			ps.setString(2, p.getNombre());
 			ps.setString(3, p.getApellido());
 			ps.setString(4,p.getContrasenia());
@@ -159,7 +159,7 @@ public class dataProfesional {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
 			
 			
-			ps.setInt(1, p.getLegajo());
+			ps.setInt(1, p.getDni());
 			ps.setString(2, p.getNombre());
 			ps.setString(3,p.getApellido());
 			ps.setString(4,p.getContrasenia());

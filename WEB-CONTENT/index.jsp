@@ -31,7 +31,7 @@ no">
 </head>
 
 <body>
-	<form action="menu-main.jsp" method="post">
+	<form name="form" action="LoginVer" method="get">
 <!-- 	<form action="tablasocio.jsp" method="post"> -->
 		<table align=center>
 			<tr>
@@ -60,7 +60,7 @@ no">
 		</table>
 	</form>
 	<%
-		String nombre="";
+		/*String nombre="";
 		
 		UsuarioUtil uu=new UsuarioUtil();
 		if (request.getParameter("btnIniciar")!=null){
@@ -68,17 +68,18 @@ no">
 			int dni= Integer.parseInt(request.getParameter("dniUsu"));
 			
 		    HttpSession sesion=request.getSession();
-			
-		    switch(uu.nivellogin(dni, pass)){
+			int lvl=uu.nivellogin(dni, pass);
+		    switch(lvl){
 			case 1: sesion.setAttribute("usuario", nombre);
 					sesion.setAttribute("nivel", "1");
+				
 					response.sendRedirect("main-menu.jsp");
 				break;
 			default:
-				out.write("Usuario o contrasenia incorrectos");
+				out.print("Usuario o contrasenia incorrectos");
 				break;
 				}
-			}
+			}*/
 	%>
 </body>
 

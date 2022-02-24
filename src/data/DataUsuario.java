@@ -4,8 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import entites.Socio;
-import entites.Usuario;
+import entites.*;
 
 public class DataUsuario {
 
@@ -16,6 +15,7 @@ public class DataUsuario {
 	private String unlogin="select * from usuario where 'id' = ? and 'contra'= ? ";
 	
 	public Usuario getUsuarioxContra(int dni, String contrasenia) {
+		int lvl=0;
 		Usuario eluser= null;
 		PreparedStatement ps=null;
 		ResultSet rs=null;
@@ -27,10 +27,13 @@ public class DataUsuario {
 			
 				if(rs!=null && rs.next())
 				{
-					eluser=new Usuario();
+					lvl=rs.getInt("nivel");
+					if(lvl==1) {eluser=new Socio();}
+					if(lvl==2) {eluser=new Profesional();}
+					if(lvl==3) {eluser=new Socio();}				
 					eluser.setDni(rs.getInt("dni"));					
 					eluser.setContrasenia(rs.getString("contra"));
-					eluser.setNivel(rs.getInt("nivel"));
+					eluser.setNivel(lvl);
 				}
 			} 
 		catch (SQLException e) 
