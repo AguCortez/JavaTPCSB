@@ -52,7 +52,7 @@
 	contrase = request.getParameter ("txtcontra");
 	ape = request.getParameter ("txtApellido");
 	
-	if (nom!= null && tipo != null && contrase != null && ape != null && cel != null)
+	if (nom!= null && tipo != null && contrase != null && ape != null )
 	{
 		p.altaProfesional(nom, ape,Integer.parseInt(dni), contrase);
 

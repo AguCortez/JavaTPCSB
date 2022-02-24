@@ -16,7 +16,8 @@ String pass= request.getParameter("passUsu");
 sociosUtil su=new sociosUtil();
 int intdni;
 if(su.validaSocio(Integer.parseInt(dni), pass)){
-	Usuario usu= new Usuario(Integer.parseInt(dni), pass);
+	Usuario usu= new Usuario();
+	
 	HttpSession sesion= request.getSession();
 	sesion.setAttribute("usuario", usu);
 	RequestDispatcher rd= request.getRequestDispatcher("menu-main.jsp");

@@ -48,8 +48,7 @@
 </html>
 <%	cuotaUtil c =new cuotaUtil();
 
-	String idCuota;
-	Integer  anio, mes, precio, fecha_pago;
+	String idCuota, anio, mes, precio, fecha_pago;
 
 	idCuota = request.getParameter("txtIdCuota");
 	anio = request.getParameter("txtAnio");

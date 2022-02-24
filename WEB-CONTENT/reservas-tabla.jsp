@@ -1,5 +1,10 @@
 
-<%@include file="menu-header.jsp" %>
+<%@page import="java.io.PrintWriter"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="entites.*"%>
+<%@page import="util.reservaUtil"%>
+<%@ include file="menu-header.jsp"%>s
+<body>	
 <%
 
     reservaUtil r =new reservaUtil();

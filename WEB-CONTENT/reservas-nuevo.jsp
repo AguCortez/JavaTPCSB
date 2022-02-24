@@ -46,18 +46,15 @@
 <%	reservaUtil r =new reservaUtil();
 
 
-String codigo;
-Integer dni, id_reserva, fecha;
+String codigo,dni, id_reserva, fecha;
 
-codigo = request.getParameter("txtCodigo");
-dni = request.getParameter("txtDni");
-id_reserva = request.getParameter ("txtId_reserva");
-fecha = request.getParameter ("txtFecha");
-
+	codigo = request.getParameter("txtCodigo");
+	dni = request.getParameter("txtDni");
+	id_reserva = request.getParameter ("txtId_reserva");
+	fecha = request.getParameter ("txtFecha");
 
 	if (codigo!= null && dni != null && id_reserva != null && fecha != null)
-	{
-		r.altaReserva(Integer.parseInt(id_reserva), codigo, dni, fecha);
+	{	r.altaReserva(Integer.parseInt(id_reserva), fecha,Integer.parseInt( dni), codigo);
 		response.sendRedirect("reservas-tabla.jsp");
 	}
 	%>

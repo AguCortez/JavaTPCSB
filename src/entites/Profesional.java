@@ -29,8 +29,8 @@ public class Profesional extends Usuario{
 	public int getDni() {
 		return dni;
 	}
-	public void setDni(int legajo) {
-		this.dni = legajo;
+	public void setDni(int dni) {
+		this.dni = dni;
 	}
 	public String getContrasenia() {
 		return contrasenia;

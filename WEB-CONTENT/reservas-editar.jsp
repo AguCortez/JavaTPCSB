@@ -1,6 +1,6 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.Reserva"%>
-<%@page import="util.ReservaUtil"%>
+<%@page import="util.reservaUtil"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -17,8 +17,8 @@
 <body>
 	<%
 		int id_reserva1= Integer.parseInt(request.getParameter("id_reserva"));
-	    reservaUtil r =new reservaUtil();
-	    Reserva lareserva=r.getbyIdreserva(id_reserva1);
+		reservaUtil r =new reservaUtil();
+	    Reserva lareserva=r.getByIdreserva(id_reserva1);
 	%>
 
  	<div class = "conteiner">
@@ -45,26 +45,19 @@
 				<br>
 				<a href= "reservas-tabla.jsp"> Regresar</a>				
            <%
-            String codigo;
-            Integer dni, id_reserva, fecha;
-            
-            codigo = request.getParameter("txtCodigo");
+            String codigo,dni,fecha,id_reserva;            
+          
+           codigo = request.getParameter("txtCodigo");
 			dni = request.getParameter("txtDni");
 			id_reserva = request.getParameter ("txtId_reserva");
 			fecha = request.getParameter ("txtFecha");
-			
-			
-            
-			
-							
-			
-			
+
 			
 			if (codigo!= null && dni != null && id_reserva != null && fecha != null)
 			{
-				lareserva.setCodigo(Integer.parseInt(codigo));
-				lareserva.setDni(dni);
-				lareserva.setId_reserva(id_reserva);
+				lareserva.setCodigo(codigo);
+				lareserva.setDni(Integer.parseInt(dni));
+				lareserva.setId_reserva(Integer.parseInt(id_reserva));
 				lareserva.setFecha(fecha);
 				
 				r.modReserva(lareserva, id_reserva1);
