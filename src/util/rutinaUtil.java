@@ -9,7 +9,7 @@ import data.dataRutina;
 public class rutinaUtil {
 	
 	
-	public void altaRutina(Date dia, int idrutina, int dni, int legajo) {
+	public void altaRutina(String dia, int idrutina, int dni, int legajo) {
 		Rutina nRutina=new Rutina(dia, idrutina, dni, legajo);
 		dataRutina ds=new dataRutina();
 		ds.add(nRutina);

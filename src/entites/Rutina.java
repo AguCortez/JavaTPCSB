@@ -1,10 +1,9 @@
 package entites;
 
-import java.util.Date;
 
 public class Rutina {
 	private int dni;
-	public Rutina(Date dia2, int idrutina2, int dni2, int legajo2) {
+	public Rutina(String dia2, int idrutina2, int dni2, int legajo2) {
 		// TODO Auto-generated constructor stub
 	}
 
