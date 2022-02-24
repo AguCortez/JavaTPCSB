@@ -28,16 +28,18 @@ no">
 	text-align: center;
 }
 </style>
+
+  
 </head>
 
 <body>
-	<form name="form" action="LoginVer" method="get">
-<!-- 	<form action="tablasocio.jsp" method="post"> -->
-		<table align=center>
+	<form name="form" action="index.jsp" method="POST" >
+	<div class="container">
+		<table  >
 			<tr>
-				<p class="centrado">
+				
 					&nbsp;<label id="Label2"><strong>Bienvenidos!</strong></label>
-				</p>
+				
 			</tr>
 
 			<tr>
@@ -51,26 +53,28 @@ no">
 			</tr>
 			<tr>
 				<td align=right><button class="btn btn-primary btn-sml"
-						type="submit" title="Iniciar Sesion" naem="btnIniciar">Iniciar Sesion</button></td>
+						type="submit" title="Iniciar Sesion" name="btnIniciar">Iniciar Sesion</button></td>
 			</tr>
 			<tr>
 				<td align=right><a class="centrado" href="Quelastima.jsp">Olvidaste
 						tu contrasenia?</a></td>
 			</tr>
 		</table>
+		</div>
 	</form>
 	<%
-		/*String nombre="";
-		
+	int dni=0;
+	String pass="";
+				
 		UsuarioUtil uu=new UsuarioUtil();
 		if (request.getParameter("btnIniciar")!=null){
-			String pass=request.getParameter("passUsu");
-			int dni= Integer.parseInt(request.getParameter("dniUsu"));
+			pass=request.getParameter("passUsu");
+			dni= Integer.parseInt(request.getParameter("dniUsu"));
 			
 		    HttpSession sesion=request.getSession();
 			int lvl=uu.nivellogin(dni, pass);
 		    switch(lvl){
-			case 1: sesion.setAttribute("usuario", nombre);
+			case 1: sesion.setAttribute("usuario", "dni");
 					sesion.setAttribute("nivel", "1");
 				
 					response.sendRedirect("main-menu.jsp");
@@ -79,7 +83,7 @@ no">
 				out.print("Usuario o contrasenia incorrectos");
 				break;
 				}
-			}*/
+			}
 	%>
 </body>
 
