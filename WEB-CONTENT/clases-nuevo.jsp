@@ -38,7 +38,12 @@
 				<input type = "text" name = "txtHora" class = "form-control"/>
 				<br>
 				LEGAJO PROFESIONAL:
-				<input type = "text" name = "txtLegajo_prof" class = "form-control"/>
+				<select class="custom-select" id="inpution">
+					<option value="1">One </option>
+					<option value="2">Two </option>
+					<option value="3">3 </option>
+				</select>
+				<!input type = "text" name = "txtLegajo_prof" class = "form-control"/!>
 				<br>
 				DESCRIPCION:
 				<input type = "text" name = "txtDescripcion" class = "form-control"/>
@@ -57,11 +62,10 @@
 <%	claseUtil c =new claseUtil();
 
 
-
 String nombre, descripcion;
-Integer total_cupo, id, actual_cupo, dia, hora, legajo_prof; 
+int total_cupo, id, actual_cupo, dia, hora, legajo_prof; 
 
-total_cupo = request.getParameter("txtTotal_cupo");
+total_cupo = Integer.parseInt(request.getParameter("txtTotal_cupo"));
 id = request.getParameter("txtId");
 nombre = request.getParameter ("txtNombre");
 actual_cupos = request.getParameter ("txtActual_cupos");
@@ -72,7 +76,7 @@ descripcion = request.getParameter("txtDescripcion");
 
 
 
-if (total_cupo!= null && id!= null && nombre!= null && actual_cupos!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null &&)
+if (total_cupo!= null && id!= null && nombre!= null && actual_cupos!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null)
 	{
 		c.altaClase(Integer.parseInt(id), total_cupo, nombre, actual_cupos, dia, hora, legajo_prof, descripcion);
 		response.sendRedirect("clases-tabla.jsp");
