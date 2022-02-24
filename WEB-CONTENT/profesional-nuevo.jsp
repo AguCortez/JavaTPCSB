@@ -1,7 +1,7 @@
 
 <%@page import="java.util.LinkedList"%>
-<%@page import="entites.Reserva"%>
-<%@page import="util.reservaUtil"%>
+<%@page import="entites.Profesional"%>
+<%@page import="util.profesionalUtil"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -17,47 +17,46 @@
 </head>
 <body>
 	<div class = "conteiner">
-		<h1>Agregar nueva reserva </h1>	
+		<h1>Agregar nuevo profesional</h1>	
 		<hr>
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
-				CODIGO:
-				<input type = "text" name= "txtCodigo" class = "form-control"/>
-				<br>
 				DNI:
-				<input type = "text" name= "txtDni" class = "form-control"/>		
+				<input type = "text" name= "txtDNI" class = "form-control"/>
 				<br>
-				ID RESERVA:
-				<input type = "text" name = "txtId_reserva" class = "form-control"/>
+				CONTRASE:
+				<input type = "text" name = "txtcontra" class = "form-control"/>
 				<br>
-				FECHA:
-				<input type = "text" name = "txtFecha" class = "form-control"/>
+				NOMBRE:
+				<input type = "text" name = "txtNombre" class = "form-control"/>
 				<br>
-				<br>
+				APELLIDO:
+				<input type = "text" name = "txtApellido" class = "form-control"/>
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
-				<a href= "reservas-tabla.jsp"> Regresar</a>				
+				<a href= "profesional-tabla.jsp"> Regresar</a>				
 		
 		
 		</form>
 	</div>
 </body>
 </html>
-<%	reservaUtil r =new reservaUtil();
+<%	profesionalUtil p =new profesionalUtil();
 
 
-String codigo;
-Integer dni, id_reserva, fecha;
+	String  dni,contrase, tipo, nom, ape;
 
-codigo = request.getParameter("txtCodigo");
-dni = request.getParameter("txtDni");
-id_reserva = request.getParameter ("txtId_reserva");
-fecha = request.getParameter ("txtFecha");
-
-
-	if (codigo!= null && dni != null && id_reserva != null && fecha != null)
+	dni = request.getParameter("txtDNI");
+	tipo = request.getParameter("txtTipo");
+	nom = request.getParameter ("txtNombre");
+	contrase = request.getParameter ("txtcontra");
+	ape = request.getParameter ("txtApellido");
+	
+	if (nom!= null && tipo != null && contrase != null && ape != null )
 	{
-		r.altaReserva(Integer.parseInt(id_reserva), codigo, dni, fecha);
-		response.sendRedirect("reservas-tabla.jsp");
+		p.altaProfesional(nom, ape,Integer.parseInt(dni), contrase);
+
+
+		response.sendRedirect("profesional-tabla.jsp");
 	}
 	%>

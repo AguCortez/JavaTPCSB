@@ -21,16 +21,16 @@
 		<hr>
 		<<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
 				dia:
-				<input type = "text" name= "txtDIA" class = "form-control" value="<%=laRutina.getDia() %>"/>	
+				<input type = "text" name= "txtDIA" class = "form-control"/>	
 				<br>
 				ID Rutina:
-				<input type = "text" name= "txtID" class = "form-control" value="<%= laRutina.getIdRutina() %>"/>		
+				<input type = "text" name= "txtID" class = "form-control"/>		
 				<br>
 				DNI:
-				<input type = "text" name = "txtDNI" class = "form-control" value="<%= laRutina.getDni() %>"/>
+				<input type = "text" name = "txtDNI" class = "form-control"/>
 				<br>
 				LEGAJO:
-				<input type = "text" name = "txtLEGAJO" class = "form-control" value="<%= laRutina.getLegajo()%>"/>
+				<input type = "text" name = "txtLEGAJO" class = "form-control"/>
 				<br>
 			
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>

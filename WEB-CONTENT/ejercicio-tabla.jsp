@@ -62,14 +62,9 @@
 	</table>
 	</form>	
 <%
-		int idbuscar=Integer.parseInt(request.getParameter("txtbuscar"));
-		if(idbuscar== null ){ 
 			ejers= ej.getAll();
-		}
-		else{ejers=ej.buscabyID(idbuscar);} 
-	%> -
-		<br>
-		<br>
+		
+	%> 
 		<br>	
 		<table class="table table-bordered">
 			<tr>

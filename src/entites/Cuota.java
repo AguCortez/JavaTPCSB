@@ -10,6 +10,9 @@ public class Cuota {
 	public Cuota() {
 		// TODO Auto-generated constructor stub
 	}
+	public Cuota(int idCuota2, int anio2, int mes2, int precio2, Date fecha2) {
+		// TODO Auto-generated constructor stub
+	}
 	public int getAnio() {
 		return anio;
 	}
@@ -35,12 +38,14 @@ public class Cuota {
 		this.precio = precio;
 	}
 	public Date getFecha_pago() {
-		return fecha_pago;
+		return fecha;
 	}
-	public void setFecha_pago(Date fecha_pago) {
-		this.fecha_pago = fecha_pago;
+	public void setFecha_pago(String fecha_pago) {
+		Date fecha = Date.valueOf(fecha_pago);
+
+		this.fecha = fecha;
 	}
 	private int mes;
 	private int precio;
-	private Date fecha_pago;
+	private Date fecha;
 }
