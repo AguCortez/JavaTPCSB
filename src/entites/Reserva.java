@@ -6,7 +6,7 @@ public class Reserva {
 	private String codigo;
 	private int dni;
 	private int id_reserva;
-	public Reserva(int id_reserva2, java.util.Date fecha2, int dni2, String codigo2) {
+	public Reserva(int id_reserva2,Date fecha2, int dni2, String codigo2) {
 		// TODO Auto-generated constructor stub
 	}
 	public int getId_reserva() {
@@ -18,8 +18,9 @@ public class Reserva {
 	public Date getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+	public void setFecha(String fecha) {
+		Date f = Date.valueOf(fecha);
+		this.fecha = f;
 	}
 	public int getDni() {
 		return dni;
@@ -35,9 +36,6 @@ public class Reserva {
 	}
 	private Date fecha;
 	
-	
-
-
 	public Reserva() {
 		
 	}

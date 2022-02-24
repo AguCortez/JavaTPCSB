@@ -45,8 +45,7 @@
 </html>
 <%	reservaUtil r =new reservaUtil();
 
-
-String codigo,dni, id_reserva, fecha;
+	String codigo,dni, id_reserva, fecha;
 
 	codigo = request.getParameter("txtCodigo");
 	dni = request.getParameter("txtDni");

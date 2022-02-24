@@ -8,11 +8,13 @@ import entites.Cuota;
 
 public class cuotaUtil {
 
-public void altaCuota(int idCuota,int anio,int mes,int precio,Date fecha_pago) {
-	Cuota xCuota = new Cuota();
+public void altaCuota(int idCuota,int anio,int mes,int precio,String fecha_pago) {
+	Date fecha = Date.valueOf(fecha_pago);
+	Cuota xCuota = new Cuota(idCuota,anio,mes,precio,fecha);
 	dataCuota dc = new dataCuota();
 	dc.add(xCuota);
 	}
+
 	public void bajaCuota (int idCuota) {
 		dataCuota dc = new dataCuota ();
 		dc.delete(idCuota);

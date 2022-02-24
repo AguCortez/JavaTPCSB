@@ -18,7 +18,7 @@
 	<%
 		int idCuota1= Integer.parseInt(request.getParameter("idCuota"));
 		cuotaUtil c =new cuotaUtil();
-		Cuota lacuota=c.getbyIdCuota(idCuota1);
+		Cuota lacuota=c.getbyID(idCuota1);
 	%>
 
  	<div class = "conteiner">
@@ -39,7 +39,7 @@
 				<input type = "text" name = "txtPrecio" class = "form-control" value="<%= lacuota.getPrecio()%>"/>
 				<br>
 				FECHA PAGO:
-				<input type = "text" name = "txtFecha_pago" class = "form-control" value="<%= lacuota.getFecha_pago %>"/>
+				<input type = "text" name = "txtFecha_pago" class = "form-control" value="<%= lacuota.getFecha_pago() %>"/>
 				<br>
 				
 				<br>
@@ -54,13 +54,7 @@
 			mes = request.getParameter ("txtMes");
 			precio = request.getParameter ("txtPrecio");
 			fecha_pago = request.getParameter ("txtFecha_pago");
-			
-			
-            
-			
-							
-			
-			
+						
 			
 			if (idCuota!= null && anio != null && mes != null && precio != null && fecha_pago != null)
 			{
@@ -68,7 +62,7 @@
 				lacuota.setAnio(Integer.parseInt(anio));
 				lacuota.setMes(Integer.parseInt(mes));
 				lacuota.setPrecio(Integer.parseInt(precio));
-				lacuota.setFecha_pago(Integer.parseInt(fecha_pago));
+				lacuota.setFecha_pago(fecha_pago);
 				
 				c.modCuota(lacuota, idCuota1);
 				response.sendRedirect("cuotas-tabla.jsp");

@@ -58,7 +58,7 @@
 	
 	if (idCuota!= null && anio != null && mes != null && precio != null && fecha_pago != null)
 	{
-		c.altaCuota(Integer.parseInt(idCuota), anio, mes, precio, fecha_pago);
+		c.altaCuota(Integer.parseInt(idCuota), Integer.parseInt(anio),Integer.parseInt(mes), Integer.parseInt(precio), fecha_pago);
 		response.sendRedirect("cuotas-tabla.jsp");
 	}
 	%>

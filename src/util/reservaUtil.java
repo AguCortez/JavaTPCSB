@@ -10,8 +10,9 @@ import data.dataReserva;
 public class reservaUtil {
 	
 	
-	public void altaReserva(int id_reserva, Date fecha, int dni, String codigo) {
-		Reserva nReserva=new Reserva(id_reserva, fecha, dni, codigo );
+	public void altaReserva(int id_reserva, String fech, int dni, String codigo) {
+		Date f = Date.valueOf(fech);
+		Reserva nReserva= new Reserva(id_reserva, f, dni, codigo);
 		dataReserva ds=new dataReserva();
 		ds.add(nReserva);
 
