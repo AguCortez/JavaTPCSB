@@ -3,7 +3,9 @@ package ui;
 import java.util.LinkedList;
 
 import data.dataSocio;
+import entites.Profesional;
 import entites.Socio;
+import util.profesionalUtil;
 
 
 public class login {
@@ -17,7 +19,9 @@ public class login {
 			System.out.println(xcv.toString());
 		}
 			
-		
+		profesionalUtil pu=new profesionalUtil();
+		LinkedList<Profesional> profes=pu.getAll();
+		for(Profesional p:profes){System.out.println(p.getApellido());}
 		
 	}
 

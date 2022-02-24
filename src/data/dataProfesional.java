@@ -27,7 +27,7 @@ public class dataProfesional {
 		
 		try {
 			stmt= dbConector.getInstancia().getConn().createStatement();
-			rs= stmt.executeQuery("select * from Profesional");
+			rs= stmt.executeQuery("select * from profesional");
 			
 			if(rs!=null) {
 				while(rs.next()) {
@@ -36,7 +36,7 @@ public class dataProfesional {
 					p.setDni(rs.getInt("legajo"));
 					p.setNombre(rs.getString("nombre"));
 					p.setApellido(rs.getString("apellido"));
-					p.setContrasenia(rs.getString("contrase�a"));				
+					p.setContrasenia(rs.getString("contrasenia"));				
 					
 					prof.add(p);
 				}

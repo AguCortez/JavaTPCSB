@@ -1,6 +1,7 @@
 <%@page import="java.util.LinkedList"%>
-<%@page import="entites.Clase"%>
-<%@page import="util.claseUtil"%>
+<%@page import="entites.*"%>
+<%@page import="java.sql.*" %>
+<%@page import="util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -38,10 +39,16 @@
 				<input type = "text" name = "txtHora" class = "form-control"/>
 				<br>
 				LEGAJO PROFESIONAL:
-				<select class="custom-select" id="inpution">
-					<option value="1">One </option>
-					<option value="2">Two </option>
-					<option value="3">3 </option>
+				<select class="custom-select" id="dniProf">
+					<option value="2">----</option>
+					<%profesionalUtil pu=new profesionalUtil();
+					LinkedList<Profesional> profes=pu.getAll();
+					for(Profesional p:profes){
+						
+					%>
+					<option value=<%=p.getDni()%> ><%=p.getNombre()+" "+p.getApellido() %> -</option>
+					<% } %>
+					
 				</select>
 				<!input type = "text" name = "txtLegajo_prof" class = "form-control"/!>
 				<br>
@@ -62,23 +69,22 @@
 <%	claseUtil c =new claseUtil();
 
 
-String nombre, descripcion;
-int total_cupo, id, actual_cupo, dia, hora, legajo_prof; 
+String nombre, descripcion, dia, total_cupo, id, actual_cupo,  hora, legajo_prof; 
 
-total_cupo = Integer.parseInt(request.getParameter("txtTotal_cupo"));
+total_cupo = request.getParameter("txtTotal_cupo");
 id = request.getParameter("txtId");
 nombre = request.getParameter ("txtNombre");
-actual_cupos = request.getParameter ("txtActual_cupos");
+actual_cupo = request.getParameter ("txtActual_cupos");
 dia = request.getParameter("txtDia");
 hora = request.getParameter("txtHora");
-legajo_prof = request.getParameter("txtLegajo_prof");
+legajo_prof = request.getParameter("dniProf");
 descripcion = request.getParameter("txtDescripcion");
 
 
 
-if (total_cupo!= null && id!= null && nombre!= null && actual_cupos!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null)
+if (total_cupo!= null && id!= null && nombre!= null && actual_cupo!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null)
 	{
-		c.altaClase(Integer.parseInt(id), total_cupo, nombre, actual_cupos, dia, hora, legajo_prof, descripcion);
+		c.altaClase(Integer.parseInt(id), Integer.parseInt(total_cupo), nombre,	Integer.parseInt(actual_cupo), dia, hora, descripcion, Integer.parseInt(legajo_prof));
 		response.sendRedirect("clases-tabla.jsp");
 	}
 	%>
