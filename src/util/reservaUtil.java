@@ -1,9 +1,9 @@
 package util;
 
 import entites.Reserva;
-
-import java.util.Date;
+import java.sql.Date;
 import java.util.LinkedList;
+
 
 import data.dataReserva;
 

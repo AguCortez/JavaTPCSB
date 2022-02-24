@@ -1,5 +1,6 @@
 package entites;
 import java.sql.*;
+import java.sql.Date;
 
 public class Reserva {
 
