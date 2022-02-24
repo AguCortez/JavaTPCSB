@@ -34,20 +34,25 @@
             Administrar Entidad
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Clases</a>
+            <a class="dropdown-item" href="clases-tabla.jsp">Clases</a>
             <a class="dropdown-item" href="cuotas-tabla.jsp">Cuotas</a>
-            <a class="dropdown-item" href="#">Ejercicio</a>
-            <a class="dropdown-item" href="tablaProfesionales.jsp">Profesional</a>
-            <a class="dropdown-item" href="#">Reservas</a>
-            <a class="dropdown-item" href="tablasocio.jsp">Socios</a>
-            <a class="dropdown-item" href="#">Rutina</a>
+            <a class="dropdown-item" href="ejercicio-tabla.jsp">Ejercicio</a>
+            <a class="dropdown-item" href="profesional-tabla.jsp">Profesional</a>
+            <a class="dropdown-item" href="reserva-tabla.jsp">Reservas</a>
+            <a class="dropdown-item" href="socio-tabla.jsp">Socios</a>
+            <a class="dropdown-item" href="rutina-tabla.jsp">Rutina</a>
 
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
-        
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#"> Mis Rutinas </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#"> Mis Reservas </a>
+        </li>
       </ul>
 
     </div>

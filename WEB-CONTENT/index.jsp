@@ -37,8 +37,7 @@ no">
 	<div class="container">
 		<table  >
 			<tr>
-				
-					&nbsp;<label id="Label2"><strong>Bienvenidos!</strong></label>
+			<label id="Label2"><strong>Bienvenidos!</strong></label>
 				
 			</tr>
 
