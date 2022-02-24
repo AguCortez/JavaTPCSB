@@ -42,7 +42,7 @@
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
-				<a href= "tablasocio.jsp"> Regresar</a>				
+				<a href= "socio-tabla.jsp"> Regresar</a>				
 		
 		
 		</form>
@@ -63,6 +63,6 @@
 	if (nom!= null && tipo != null && contrase != null && ape != null && cel != null)
 	{
 		s.altaSocio(Integer.parseInt(dni), tipo, contrase, nom, ape, cel);
-		response.sendRedirect("tablasocio.jsp");
+		response.sendRedirect("socio-tabla.jsp");
 	}
 	%>
