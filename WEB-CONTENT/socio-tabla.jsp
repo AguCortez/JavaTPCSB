@@ -16,7 +16,7 @@
 	<form class="form">
 	<table>
 		<tr>
-			<td><a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nuevo Socio</a></td>
+			<td><a class = "btn btn-success btn-lg" href="socio-nuevo.jsp">Nuevo Socio</a></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -52,9 +52,9 @@
 				<td class="text-center"><%=a.getApellido_soc() %></td>
 				<td class="text-center"><%=a.getCelu() %></td>
 				<td>
-				<a href="editarSocio.jsp?dni=<%=a.getDni() %>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="socio-editar.jsp?dni=<%=a.getDni() %>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="borraSocio.jsp?dni=<%=a.getDni() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="socio-borrar.jsp?dni=<%=a.getDni() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%	}	%>

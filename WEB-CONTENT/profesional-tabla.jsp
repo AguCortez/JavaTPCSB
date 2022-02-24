@@ -23,7 +23,7 @@
 	<form class="form">
 	<table>
 		<tr>
-			<td><a class = "btn btn-success btn-lg" href="tablaNuevoProf.jsp">Nuevo Profesional</a></td>
+			<td><a class = "btn btn-success btn-lg" href="profesional-nuevo.jsp">Nuevo Profesional</a></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -66,9 +66,9 @@
 				<td class="text-center"><%=pr.getNombre()%></td>
 				<td class="text-center"><%=pr.getApellido()%></td>
 				<td>
-				<a href="editarProfesional.jsp?dni=<%=pr.getDni()%>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="profesional-editar.jsp?dni=<%=pr.getLegajo() %>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="borraProfesional.jsp?dni=<%=pr.getDni()%>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="profesional-borrar.jsp?dni=<%=pr.getLegajo() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%}			%>

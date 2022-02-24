@@ -2,8 +2,8 @@
 <%@include file="menu-header.jsp" %>
 <%
 
-    reservaUtil r =new reservaUtil();
-	LinkedList<Reserva> reserva=new LinkedList<Reserva>();
+    claseUtil c =new claseUtil();
+	LinkedList<Clase> clase=new LinkedList<Clase>();
 %>
 	<br>
 	<br>
@@ -14,12 +14,12 @@
 	</div>
 	<br>
 	<div class="container">
-	<h1>Lista de Reservas</h1>
+	<h1>Lista de Clase</h1>
 	<hr>
 	<form class="form">
 	<table>
 		<tr>
-			<td><a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nueva Reserva</a></td>
+			<td><a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nueva  Clase</a></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -35,7 +35,7 @@
 	</form>	
 	<%
 			
-	      reserva= r.getAll();
+	      clase= c.getAll();
 			
 		
 		
@@ -46,25 +46,33 @@
 		<br>	
 		<table class="table table-bordered">
 			<tr>
-				<th class="text-center">Codigo</th>
-				<th class="text-center">Dni</th>
-				<th class="text-center">Id_reserva</th>
-				<th class="text-center">Fecha</th>
+				<th class="text-center">Total_cupo</th>
+				<th class="text-center">Id</th>
+				<th class="text-center">Nombre</th>
+				<th class="text-center">Actual_cupos</th>
+				<th class="text-center">Dia</th>
+				<th class="text-center">Hora</th>
+				<th class="text-center">Legajo_prof</th>
+				<th class="text-center">Descripcion</th>
 				
 			</tr>
 			<%
-			for (Reserva a: reserva){
+			for ( Clase a: clase){
 			%>
 			<tr>
-				<td class="text-center"><%=a.getCodigo() %></td>
-				<td class="text-center"><%=a.getDni() %></td>
-				<td class="text-center"><%=a.getId_reserva() %></td>
-				<td class="text-center"><%=a.getFecha() %></td>
+				<td class="text-center"><%=a.getTotal_cupos() %></td>
+				<td class="text-center"><%=a.getId() %></td>
+				<td class="text-center"><%=a.getNombre() %></td>
+				<td class="text-center"><%=a.getActual_cupos() %></td>
+				<td class="text-center"><%=a.getDia() %></td>
+				<td class="text-center"><%=a.getHora() %></td>
+				<td class="text-center"><%=a.getLegajo_prof() %></td>
+				<td class="text-center"><%=a.getDescripcion() %></td>
 				
 				<td>
-				<a href="editarSocio.jsp?dni=<%=a.getDni() %>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="clases-editar.jsp?dni=<%=a.getId() %>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="borraSocio.jsp?dni=<%=a.getDni() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="clases-borrar.jsp?dni=<%=a.getId() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%	}	%>

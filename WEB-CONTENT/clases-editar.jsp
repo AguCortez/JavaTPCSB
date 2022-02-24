@@ -16,7 +16,7 @@
 
 <body>
 	<%
-		int codigo1= Integer.parseInt(request.getParameter("codigo"));
+		int id1= Integer.parseInt(request.getParameter("id"));
 	    claseUtil c =new claseUtil();
 	    Clase laclase=c.getbyCodigo(codigo1);
 	%>
@@ -71,15 +71,19 @@
 			
        
 			
-			if (total_cupo!= null && dni != null && id_reserva != null && fecha != null)
+			if (total_cupo!= null && id!= null && nombre!= null && actual_cupos!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null &&)
 			{
-				lareserva.setCodigo(Integer.parseInt(codigo));
-				lareserva.setDni(dni);
-				lareserva.setId_reserva(id_reserva);
-				lareserva.setFecha(fecha);
+				lacuota.setId(Integer.parseInt(id));
+				lacuota.setTotal_cupos(total_cupos);
+				lacuota.setNombre(nombre);
+				lacuota.setActual_cupos(actual_cupos);
+				lacuota.setDia(dia);
+				lacuota.setHora(hora);
+				lacuota.setLegajo_prof(legajo_prof);
+				lacuota.setDescripcion(descripcion);
 				
-				r.modReserva(lareserva, id_reserva1);
-				response.sendRedirect("reservas-tabla.jsp");
+				c.modClase(laclase, id1);
+				response.sendRedirect("clases-tabla.jsp");
 			}
 %>
 		</form> 

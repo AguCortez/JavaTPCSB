@@ -27,7 +27,7 @@
 		
 		if (ejer==null)
 		{
-			RequestDispatcher rd = request.getRequestDispatcher("ejererror.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("ejercicio-error.jsp");
 			rd.forward(request, response);
 			} else {
 		ejercicioUtil ej =new ejercicioUtil();
@@ -47,7 +47,7 @@
 	<form class="form">
 	<table>
 		<tr>
-			<td><a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nuevo Ejercicio</a></td>
+			<td><a class = "btn btn-success btn-lg" href="ejercicio-nuevo.jsp">Nuevo Ejercicio</a></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -93,9 +93,9 @@
 				<td class="text-center"><%=e.getIdEjercicio()%></td>
 				
 				<td>
-				<a href="editarEjercicio.jsp?dni=<%=e.getIdEjercicio()%>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="ejercicio-editar.jsp?dni=<%=e.getIdEjercicio()%>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="borraEjercicio.jsp?dni=<%=e.getIdEjercicio() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="ejercicio-borrar.jsp?dni=<%=e.getIdEjercicio() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%}
