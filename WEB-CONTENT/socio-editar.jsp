@@ -48,7 +48,7 @@
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
-				<a href= "tablasocio.jsp"> Regresar</a>				
+				<a href= "socio-tabla.jsp"> Regresar</a>				
            <%
             String dni, contrase, tipo, nom, ape, cel;
             dni = request.getParameter("txtDNI");
@@ -73,7 +73,7 @@
 				elsocio.setNombre_soc(nom);
 				elsocio.setCelu(cel);
 				s.modSocio(elsocio, dni1);
-				response.sendRedirect("tablasocio.jsp");
+				response.sendRedirect("socio-tabla.jsp");
 			}
 %>
 		</form> 
