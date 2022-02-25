@@ -1,6 +1,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.Clase"%> 
-<%@page import="util.ClaseUtil"%>
+<%@page import="util.*"%>
+<%@page import="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -18,7 +19,7 @@
 	<%
 		int id1= Integer.parseInt(request.getParameter("id"));
 	    claseUtil c =new claseUtil();
-	    Clase laclase=c.getbyCodigo(codigo1);
+	    Clase laclase=c.getByid(id1);
 	%>
 
  	<div class = "conteiner">
@@ -57,13 +58,12 @@
 				<br>
 				<a href= "clases-tabla.jsp"> Regresar</a>				
            <%
-            String nombre, descripcion;
-            Integer total_cupo, id, actual_cupo, dia, hora, legajo_prof; 
+            String nombre, descripcion, total_cupo, id, actual_cupo, dia, hora, legajo_prof; 
             
             total_cupo = request.getParameter("txtTotal_cupo");
 			id = request.getParameter("txtId");
 			nombre = request.getParameter ("txtNombre");
-			actual_cupos = request.getParameter ("txtActual_cupos");
+			actual_cupo = request.getParameter ("txtActual_cupos");
 			dia = request.getParameter("txtDia");
 			hora = request.getParameter("txtHora");
 			legajo_prof = request.getParameter("txtLegajo_prof");
@@ -71,16 +71,17 @@
 			
        
 			
-			if (total_cupo!= null && id!= null && nombre!= null && actual_cupos!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null &&)
+			if (total_cupo!= null && id!= null && nombre!= null && actual_cupo!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null )
 			{
-				lacuota.setId(Integer.parseInt(id));
-				lacuota.setTotal_cupos(total_cupos);
-				lacuota.setNombre(nombre);
-				lacuota.setActual_cupos(actual_cupos);
-				lacuota.setDia(dia);
-				lacuota.setHora(hora);
-				lacuota.setLegajo_prof(legajo_prof);
-				lacuota.setDescripcion(descripcion);
+				Time hs=Time.valueOf(hora);
+				laclase.setId(Integer.parseInt(id));
+				laclase.setTotal_cupo(Integer.parseInt(total_cupo));
+				laclase.setNombre(nombre);
+				laclase.setActual_cupos(Integer.parseInt(actual_cupo));
+				laclase.setDia(dia);
+				laclase.setHora(hs);
+				laclase.setLegajo_prof(Integer.parseInt(legajo_prof));
+				laclase.setDescripcion(descripcion);
 				
 				c.modClase(laclase, id1);
 				response.sendRedirect("clases-tabla.jsp");

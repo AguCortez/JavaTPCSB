@@ -1,5 +1,9 @@
 
+<%@page import="util.*" %>
+<%@page import= "entites.*" %>
+<%@page import="java.util.LinkedList" %>
 <%@include file="menu-header.jsp" %>
+
 <%
 
     claseUtil c =new claseUtil();
@@ -60,7 +64,7 @@
 			for ( Clase a: clase){
 			%>
 			<tr>
-				<td class="text-center"><%=a.getTotal_cupos() %></td>
+				<td class="text-center"><%=a.getTotal_cupo() %></td>
 				<td class="text-center"><%=a.getId() %></td>
 				<td class="text-center"><%=a.getNombre() %></td>
 				<td class="text-center"><%=a.getActual_cupos() %></td>
