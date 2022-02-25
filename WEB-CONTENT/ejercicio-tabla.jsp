@@ -20,16 +20,6 @@
 		<label>Ejercicios</label>
 	</header>
 <%
-		HttpSession sesion = request.getSession();
-		Ejercicio ejer = (Ejercicio) sesion.getAttribute("ejercicio");
-		response.setContentType("text/html");
-		PrintWriter mostrar = response.getWriter();
-		
-		if (ejer==null)
-		{
-			RequestDispatcher rd = request.getRequestDispatcher("ejercicio-error.jsp");
-			rd.forward(request, response);
-			} else {
 		ejercicioUtil ej =new ejercicioUtil();
 		LinkedList<Ejercicio> ejers=new LinkedList<Ejercicio>();
 %>
@@ -42,7 +32,7 @@
 	</div>
 	<br>
 	<div class="container">
-	<h1>Lista de Socios</h1>
+	<h1>Lista de Ejercicios</h1>
 	<hr>
 	<form class="form">
 	<table>
@@ -93,7 +83,7 @@
 				<a href="ejercicio-borrar.jsp?dni=<%=e.getIdEjercicio() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
-			<%}
+			<%
 			}%>
 			
 		</table>
