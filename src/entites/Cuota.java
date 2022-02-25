@@ -38,6 +38,7 @@ public class Cuota {
 		this.precio = precio;
 	}
 	public Date getFecha_pago() {
+		
 		return fecha;
 	}
 	public void setFecha_pago(String fecha_pago) {

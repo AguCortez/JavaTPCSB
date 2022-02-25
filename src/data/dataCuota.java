@@ -1,5 +1,6 @@
 package data;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,7 +35,7 @@ public class dataCuota {
 				if(rs!=null && rs.next())
 				{while(rs!=null && rs.next()) {
 					Cuota c=new Cuota();
-					c.setFecha_pago(rs.getDate("anio"));
+					c.setFecha_pago(String.valueOf(rs.getDate("fecha_pago")));
 					c.setAnio(rs.getInt("anio"));
 					c.setMes(rs.getInt("mes"));
 					c.setPrecio(rs.getInt("precio"));
@@ -70,7 +71,7 @@ public class dataCuota {
 				if(rs!=null && rs.next())
 				{
 					cuotax=new Cuota();
-					cuotax.setFecha_pago(rs.getDate("fecha_pago"));
+					cuotax.setFecha_pago(String.valueOf(rs.getDate("fecha_pago")));
 					cuotax.setAnio(rs.getInt("anio"));
 					cuotax.setMes(rs.getInt("mes"));
 					cuotax.setPrecio(rs.getInt("precio"));

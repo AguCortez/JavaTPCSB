@@ -30,7 +30,7 @@ public class dataReserva {
 					Reserva r=new Reserva();
 					
 					r.setId_reserva(rs.getInt("id reserva"));
-					r.setFecha(rs.getDate("fecha"));
+					r.setFecha(String.valueOf(rs.getDate("fecha")));
 					r.setDni(rs.getInt("dni"));								
 					res.add(r);
 				}
@@ -66,7 +66,7 @@ public class dataReserva {
 					laReserva =new Reserva();
 					
 					laReserva.setId_reserva(rs.getInt("id reserva"));
-					laReserva.setFecha(rs.getDate("fecha"));
+					laReserva.setFecha(String.valueOf(rs.getDate("fecha")));
 					laReserva.setDni(rs.getInt("dni"));
 					
 					
@@ -185,7 +185,7 @@ public class dataReserva {
 					Reserva r=new Reserva();
 					
 					r.setId_reserva(rs.getInt("id reserva"));
-					r.setFecha(rs.getDate("fecha"));
+					r.setFecha(String.valueOf(rs.getDate("fecha")));
 					r.setDni(rs.getInt("dni"));
 					r.setCodigo(rs.getString("codigo"));
 					
