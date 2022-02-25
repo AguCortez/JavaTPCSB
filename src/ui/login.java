@@ -3,9 +3,11 @@ package ui;
 import java.util.LinkedList;
 
 import data.dataSocio;
+import data.dataProfesional;
 import entites.Profesional;
 import entites.Socio;
-import util.profesionalUtil;
+import entites.Ejercicio;
+import data.dataEjercicio;
 
 
 public class login {
@@ -18,10 +20,17 @@ public class login {
 			
 			System.out.println(xcv.toString());
 		}
-			
-		profesionalUtil pu=new profesionalUtil();
-		LinkedList<Profesional> profes=pu.getAll();
-		for(Profesional p:profes){System.out.println(p.getApellido());}
+		dataProfesional dp= new dataProfesional();	
+		LinkedList<Profesional> profes= dp.getAll();
+		for(Profesional xcv:profes){
+			System.out.println(xcv.toString());}
+		
+		dataEjercicio de=new dataEjercicio();
+		LinkedList <Ejercicio> ejers = de.getAll();
+		for (Ejercicio xcv : ejers) {
+			System.out.println(xcv.toString());
+		}
+		
 		
 	}
 

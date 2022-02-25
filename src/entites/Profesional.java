@@ -8,8 +8,19 @@ public class Profesional extends Usuario{
 	private String apellido;
 	private  int dni;
 	private String contrasenia;
+	
+	@Override
+	public String toString() {
+		return "\n Profesional [dni=" + dni + ", nombre= "+ nombre +", apellido= "+getApellido()+ "]";
+		
+	}
+	
 	public Profesional(String nombre2, String apellido2, int legajo2, String contrasenia2) {
-		// TODO Auto-generated constructor stub
+		this.setNombre(nombre2);
+		this.setApellido(apellido2);
+		this.setDni(legajo2);
+		this.setContrasenia(contrasenia2);
+		setNivel(1);
 	}
 	public Profesional() {
 		// TODO Auto-generated constructor stub

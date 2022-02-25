@@ -26,8 +26,9 @@
 				ID RUTINA:
 				<input type = "text" name= "txtID" class = "form-control"/>		
 				<br>
+			
 				SOCIO:
-				<select class="custom-select" id="dniProf">
+				<select class="custom-select" id="dniSoc">
 					<option value="2">----</option>
 					<%sociosUtil su=new sociosUtil();
 					LinkedList<Socio> socios=su.getAll();
@@ -38,12 +39,10 @@
 					<% } %>
 					
 				</select>
-				
 				<br>
-				
 				PROFESIONAL:
 				<select class="custom-select" id="dniProf">
-					<option value="2">----</option>
+					<option value="3">----</option>
 					<%profesionalUtil pu=new profesionalUtil();
 					LinkedList<Profesional> profes=pu.getAll();
 					for(Profesional p:profes){
@@ -53,10 +52,22 @@
 					<% } %>
 					
 				</select>
-				
 				<br>
 				
-			
+				EJERCICIOS:
+				<select class="custom-select" id="idEjer">
+					<option value="4">----</option>
+					<% ejercicioUtil ej= new ejercicioUtil();
+					LinkedList<Ejercicio> ejers = ej.getAll();
+					for(Ejercicio e: ejers){
+						
+					%>
+					<option value=<%=e.getIdEjercicio()%> ><%=e.getDescripcion()%> -</option>
+					<% } %>
+					
+				</select>
+				<br>
+				
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>

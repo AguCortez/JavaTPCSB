@@ -23,9 +23,6 @@ public class dataSocio {
 		
 		Statement stmt=null;
 		ResultSet rs=null;
-		
-		
-		
 		LinkedList<Socio> pers= new LinkedList<>();
 		
 		try {
