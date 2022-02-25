@@ -20,6 +20,18 @@ public class claseUtil {
 		ds.add(nClase);
 
 	}
+	public LinkedList<Clase> getAllconcupo(){
+		dataClase dc=new dataClase();
+		LinkedList<Clase> concupo=new LinkedList<Clase>();
+		LinkedList<Clase> clases=dc.getAll();
+		for(Clase c: clases ) {
+			if(c.getActual_cupos()>0) {
+				concupo.add(c);
+			}
+		}
+		
+		return concupo;
+	}
 	public void bajaClase(int id) {
 		dataClase ds= new dataClase();
 		ds.delete(id);

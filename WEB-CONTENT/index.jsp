@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@page import="util.UsuarioUtil"%>
 <%@page import="java.net.http.*" %>
+<%@page session="true" %>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -69,20 +70,23 @@ no">
 		if (request.getParameter("btnIniciar")!=null){
 			pass=request.getParameter("passUsu");
 			dni= Integer.parseInt(request.getParameter("dniUsu"));
-			
+			String sdni=request.getParameter("dniUsu");
 		    HttpSession sesion=request.getSession();
 			int lvl=uu.nivellogin(dni, pass);
 		    switch(lvl){
-			case 1: sesion.setAttribute("usuario", "dni");
+			case 1: sesion.setAttribute("usuario", sdni);
 					sesion.setAttribute("nivel", "1");
 				
-					response.sendRedirect("main-menu.jsp");
+					response.sendRedirect("menu-main.jsp");
 				break;
 			default:
 				out.print("Usuario o contrasenia incorrectos");
 				break;
 				}
 			}
+		if(request.getParameter("cerrar")!=null){
+			session.invalidate();
+		}
 	%>
 </body>
 

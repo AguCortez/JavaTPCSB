@@ -1,6 +1,6 @@
 package entites;
 
-public abstract class Usuario {
+public class Usuario {
 	private int dni;
 	private String contrasenia;
 	private int nivel;

@@ -9,12 +9,21 @@ import entites.Socio;
 
 public class dataProfesional {
 	
+<<<<<<< HEAD
+	private String buscabyNombre = "select * from profesional where nombre LIKE %?";
+	private String getOnebyLEGAJO="select * from profesional where legajo=? ";
+	
+	private String newProfesional="insert into profesional (`legajo`, `nombre`, `apellido`, `contrase�a`) VALUES (?,?,?,?)";
+	private String deleteProfesional= "delete from profesional where legajo=?";
+	private String modifica= "UPDATE profesional SET `legajo` = ?,`nombre` =?,`apellido` = ?,`contrase�a` = ? WHERE `legajo` = ?";
+=======
 	private String buscabyNombre = "select * from Profesional where nombre LIKE %?";
 	private String getOnebyLEGAJO="select * from Profesional where dni=? ";
 	
 	private String newProfesional="insert into Profesional (`dni`, `nombre`, `apellido`, `contrase�a`) VALUES (?,?,?,?)";
 	private String deleteProfesional= "delete from profesional where dni=?";
 	private String modifica= "UPDATE profesional SET `dni` = ?,`nombre` =?,`apellido` = ?,`contrase�a` = ? WHERE `dni` = ?";
+>>>>>>> c2157ec842dcc21143eb0622342f678c987937d5
 	
 	public LinkedList<Profesional> getAll(){
 		

@@ -23,7 +23,7 @@
 	<form class="form">
 	<table>
 		<tr>
-			<td><a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nueva  Clase</a></td>
+			<td><a class = "btn btn-success btn-lg" href="clases-nuevo.jsp">Nueva Clase</a></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -82,4 +82,4 @@
 			<%	}	%>
 			
 		</table>
-<%@inlcude file="menu-foot.jsp" %>
+<%@ include file="menu-foot.jsp" %>

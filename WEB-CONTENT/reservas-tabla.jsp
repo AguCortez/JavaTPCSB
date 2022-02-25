@@ -54,7 +54,7 @@
 				<th class="text-center">Codigo</th>
 				<th class="text-center">Dni</th>
 				<th class="text-center">Id_reserva</th>
-				<th class="text-center">Fecha</th>
+				
 				
 			</tr>
 			<%
@@ -64,7 +64,7 @@
 				<td class="text-center"><%=a.getCodigo() %></td>
 				<td class="text-center"><%=a.getDni() %></td>
 				<td class="text-center"><%=a.getId_reserva() %></td>
-				<td class="text-center"><%=a.getFecha() %></td>
+				
 				
 				<td>
 				<a href="editarSocio.jsp?dni=<%=a.getDni() %>"class="btn btn-warning btn-sm">Editar</a>

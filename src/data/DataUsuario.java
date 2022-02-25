@@ -3,6 +3,8 @@ package data;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.LinkedList;
 
 import entites.*;
 
@@ -13,7 +15,48 @@ public class DataUsuario {
 	private String newProfe="insert into usuario (`dni`, `contrasenia`, `nivel`) VALUES (?,?,2)";
 	private String delete= "delete from socio where dni=?";
 	private String modifica= "UPDATE usuario SET `dni` = ?,`contrasenia` = ? WHERE `dni` = ?";
-	private String unlogin="select * from usuario where 'id' = ? and 'contra'= ? ";
+	private String unlogin="select * from usuario where dni = ? and contra= ? ";
+	
+public LinkedList<Usuario> getAll(){
+		
+		Statement stmt=null;
+		ResultSet rs=null;
+		
+		
+		
+		LinkedList<Usuario> prof= new LinkedList<>();
+		
+		try {
+			stmt= dbConector.getInstancia().getConn().createStatement();
+			rs= stmt.executeQuery("select * from usuario");
+			
+			if(rs!=null) {
+				while(rs.next()) {
+					Usuario p=new Usuario();
+					
+					p.setDni(rs.getInt("dni"));
+					p.setContrasenia(rs.getString("contra"));				
+					p.setNivel(rs.getInt("nivel"));
+					prof.add(p);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return prof;
+	}
 	
 	public Usuario getUsuarioxContra(int dni, String contrasenia) {
 		int lvl=0;
@@ -28,10 +71,8 @@ public class DataUsuario {
 			
 				if(rs!=null && rs.next())
 				{
-					lvl=rs.getInt("nivel");
-					if(lvl==1) {eluser=new Socio();}
-					if(lvl==2) {eluser=new Profesional();}
-					if(lvl==3) {eluser=new Socio();}				
+					eluser=new Usuario();
+					lvl=rs.getInt("nivel");								
 					eluser.setDni(rs.getInt("dni"));					
 					eluser.setContrasenia(rs.getString("contra"));
 					eluser.setNivel(lvl);

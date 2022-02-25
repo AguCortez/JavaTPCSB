@@ -12,8 +12,8 @@ import entites.Socio;
 
 public class dataClase {
 	
-	private String buscabyNombre = "select * from Clase where nombre LIKE %?";
-	private String getOnebyCodigo="select * from Clase where codigo=? ";
+	private String buscabyNombre = "select * from clase where nombre LIKE %?";
+	private String getOnebyCodigo="select * from clase where codigo=? ";
 	
 	private String newClase="insert into clase (`codigo`, `total_cupos`, `nombre`, `actual_cupos`, `dia`, `hora`,`descripcion`,`legajo`) VALUES (?,?,?,?,?,?)";
 	private String deleteClase= "delete from clase where codigo=?";
@@ -30,19 +30,19 @@ public class dataClase {
 		
 		try {
 			stmt= dbConector.getInstancia().getConn().createStatement();
-			rs= stmt.executeQuery("select * from Clase");
+			rs= stmt.executeQuery("select * from clase");
 			
 			if(rs!=null) {
 				while(rs.next()) {
 					Clase c=new Clase();
 					
 					c.setId(rs.getInt("codigo"));
-					c.setTotal_cupo(rs.getInt("total cupos"));
+					c.setTotal_cupo(rs.getInt("total_cupos"));
 					c.setNombre(rs.getString("nombre"));
-					c.setActual_cupos(rs.getInt("actual cupos"));
+					c.setActual_cupos(rs.getInt("actual_cupos"));
 					c.setDia(rs.getString("dia"));
 					c.setHora(rs.getTime("hora"));				
-					c.setDescripcion(rs.getString("descripcion"));
+					c.setDescripcion(rs.getString("descricion"));
 					c.setLegajo_prof(rs.getInt("legajo"));
 					
 					clases.add(c);
