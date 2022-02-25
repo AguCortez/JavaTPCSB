@@ -1,6 +1,6 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.Clase"%> 
-<%@page import="util.ClaseUtil"%>
+<%@page import="util.claseUtil"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -68,8 +68,6 @@
 			hora = request.getParameter("txtHora");
 			legajo_prof = request.getParameter("txtLegajo_prof");
 			descripcion = request.getParameter("txtDescripcion");
-			
-       
 			
 			if (total_cupo!= null && id!= null && nombre!= null && actual_cupos!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null &&)
 			{
