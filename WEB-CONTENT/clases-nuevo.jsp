@@ -52,10 +52,12 @@
 				</select>
 				<!input type = "text" name = "txtLegajo_prof" class = "form-control"/!>
 				<br>
+				
 				DESCRIPCION:
 				<input type = "text" name = "txtDescripcion" class = "form-control"/>
 				<br>
 				<br>
+				
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>

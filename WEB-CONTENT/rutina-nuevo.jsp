@@ -1,7 +1,7 @@
 
 <%@page import="java.util.LinkedList"%>
-<%@page import="entites.Rutina"%>
-<%@page import="util.rutinaUtil"%>
+<%@page import="entites.*"%>
+<%@page import="util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -20,18 +20,42 @@
 		<h1>Agregar nueva rutina</h1>	
 		<hr>
 		<<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
-				dia:
+				DIA:
 				<input type = "text" name= "txtDIA" class = "form-control"/>	
 				<br>
-				ID Rutina:
+				ID RUTINA:
 				<input type = "text" name= "txtID" class = "form-control"/>		
 				<br>
-				DNI:
-				<input type = "text" name = "txtDNI" class = "form-control"/>
+				SOCIO:
+				<select class="custom-select" id="dniProf">
+					<option value="2">----</option>
+					<%sociosUtil su=new sociosUtil();
+					LinkedList<Socio> socios=su.getAll();
+					for(Socio s:socios){
+						
+					%>
+					<option value=<%=s.getDni()%> ><%=s.getNombre_soc()+" "+s.getApellido_soc() %> -</option>
+					<% } %>
+					
+				</select>
+				
 				<br>
-				LEGAJO:
-				<input type = "text" name = "txtLEGAJO" class = "form-control"/>
+				
+				PROFESIONAL:
+				<select class="custom-select" id="dniProf">
+					<option value="2">----</option>
+					<%profesionalUtil pu=new profesionalUtil();
+					LinkedList<Profesional> profes=pu.getAll();
+					for(Profesional p:profes){
+						
+					%>
+					<option value=<%=p.getDni()%> ><%=p.getNombre()+" "+p.getApellido() %> -</option>
+					<% } %>
+					
+				</select>
+				
 				<br>
+				
 			
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
