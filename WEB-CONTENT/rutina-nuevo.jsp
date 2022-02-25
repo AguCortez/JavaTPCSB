@@ -1,7 +1,7 @@
 
 <%@page import="java.util.LinkedList"%>
-<%@page import="entites.Rutina"%>
-<%@page import="util.rutinaUtil"%>
+<%@page import="entites.*"%>
+<%@page import="util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -16,23 +16,30 @@
 
 </head>
 <body>
+
+
+
 	<div class = "conteiner">
 		<h1>Agregar nueva rutina</h1>	
 		<hr>
-		<<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
-				dia:
+		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
+				DIA:
 				<input type = "text" name= "txtDIA" class = "form-control"/>	
 				<br>
-				ID Rutina:
+				ID RUTINA:
 				<input type = "text" name= "txtID" class = "form-control"/>		
 				<br>
-				DNI:
-				<input type = "text" name = "txtDNI" class = "form-control"/>
+				SOCIO:
+				<input type = "text" name= "txtSOC" class = "form-control"/>		
 				<br>
-				LEGAJO:
-				<input type = "text" name = "txtLEGAJO" class = "form-control"/>
+				PROFESIONAL:
+				<input type = "text" name= "txtPROF" class = "form-control"/>		
 				<br>
-			
+				<a href= "ejercicio-agrega-varios.jsp"> AGREGAR EJERCICIOS</a>
+				<br>
+				<br>
+				<br>
+				<br>
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
@@ -41,18 +48,20 @@
 	</div>
 </body>
 </html>
-<%	rutinaUtil ru =new rutinaUtil();
-
-String dia,idr,dni,legajo;
-idr=request.getParameter("txtID");
-dni=request.getParameter("txtDNI");
-legajo=request.getParameter("txtLEGAJO");
-dia=request.getParameter("txtDIA");			
-
-if (idr!= null && dni != null && legajo != null && dia != null )
-	{
-	 ru.altaRutina(dia, Integer.parseInt(idr), Integer.parseInt(dni), Integer.parseInt(legajo));
+		<%rutinaUtil ru =new rutinaUtil();
 		
-		response.sendRedirect("rutina-tabla.jsp");
-	}
-	%>
+		String dia,idr;
+		String dniSoc, dniProf, idEj;
+		
+		idr=request.getParameter("txtID");
+		dniSoc=request.getParameter("txtSOC");
+		dniProf=request.getParameter("txtPROF");
+		dia=request.getParameter("txtDIA");
+		idEj = request.getParameter("txtEJER");
+		
+		if (idr!= null && dniSoc != null && dniProf != null && dia != null && idEj != null )
+			{
+			 ru.altaRutina(dia, Integer.parseInt(idr), Integer.parseInt(dniSoc), Integer.parseInt(dniProf),Integer.parseInt(idEj));
+			 response.sendRedirect("rutina-tabla.jsp");
+			}
+			%>

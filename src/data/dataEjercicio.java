@@ -36,7 +36,7 @@ public class dataEjercicio {
 					e.setDescripcion(rs.getString("descripcion"));
 					e.setNombre_maquina(rs.getString("nombre_maquina"));
 					e.setPeso(rs.getInt("peso"));
-					e.setRepeticiones(rs.getInt("repeiciones"));
+					e.setRepeticiones(rs.getInt("repeticiones"));
 					e.setSeries(rs.getInt("series"));
 					
 					
@@ -76,7 +76,7 @@ public class dataEjercicio {
 					elEjer.setDescripcion(rs.getString("descripcion"));
 					elEjer.setNombre_maquina(rs.getString("nombre_maquina"));
 					elEjer.setPeso(rs.getInt("peso"));
-					elEjer.setRepeticiones(rs.getInt("repeiciones"));
+					elEjer.setRepeticiones(rs.getInt("repeticiones"));
 					elEjer.setSeries(rs.getInt("series"));
 					
 				}
@@ -115,7 +115,7 @@ public class dataEjercicio {
 					elEjer.setDescripcion(rs.getString("descripcion"));
 					elEjer.setNombre_maquina(rs.getString("nombre_maquina"));
 					elEjer.setPeso(rs.getInt("peso"));
-					elEjer.setRepeticiones(rs.getInt("repeiciones"));
+					elEjer.setRepeticiones(rs.getInt("repeticiones"));
 					elEjer.setSeries(rs.getInt("series"));
 				}
 			} 

@@ -15,6 +15,13 @@ public class Ejercicio {
 		this.setIdEjercicio(idejercicio);
 		
 		}
+		
+		@Override
+		public String toString() {
+			return "\n Ejercicio [idEjer=" +idEjercicio+ ", repeticiones= "+repeticiones+",peso= "+peso+ ",series=" +series+", descripcion= "+descripcion+", nombreMq= "+nombre_maquina+"]";
+			
+		}
+		
 		public Ejercicio() {
 			// TODO Auto-generated constructor stub
 		}

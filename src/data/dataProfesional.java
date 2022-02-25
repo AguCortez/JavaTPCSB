@@ -9,20 +9,26 @@ import entites.Socio;
 
 public class dataProfesional {
 	
+<<<<<<< HEAD
 	private String buscabyNombre = "select * from profesional where nombre LIKE %?";
 	private String getOnebyLEGAJO="select * from profesional where legajo=? ";
 	
 	private String newProfesional="insert into profesional (`legajo`, `nombre`, `apellido`, `contrase�a`) VALUES (?,?,?,?)";
 	private String deleteProfesional= "delete from profesional where legajo=?";
 	private String modifica= "UPDATE profesional SET `legajo` = ?,`nombre` =?,`apellido` = ?,`contrase�a` = ? WHERE `legajo` = ?";
+=======
+	private String buscabyNombre = "select * from Profesional where nombre LIKE %?";
+	private String getOnebyLEGAJO="select * from Profesional where dni=? ";
+	
+	private String newProfesional="insert into Profesional (`dni`, `nombre`, `apellido`, `contrase�a`) VALUES (?,?,?,?)";
+	private String deleteProfesional= "delete from profesional where dni=?";
+	private String modifica= "UPDATE profesional SET `dni` = ?,`nombre` =?,`apellido` = ?,`contrase�a` = ? WHERE `dni` = ?";
+>>>>>>> c2157ec842dcc21143eb0622342f678c987937d5
 	
 	public LinkedList<Profesional> getAll(){
 		
 		Statement stmt=null;
 		ResultSet rs=null;
-		
-		
-		
 		LinkedList<Profesional> prof= new LinkedList<>();
 		
 		try {
@@ -33,7 +39,7 @@ public class dataProfesional {
 				while(rs.next()) {
 					Profesional p=new Profesional();
 					
-					p.setDni(rs.getInt("legajo"));
+					p.setDni(rs.getInt("dni"));
 					p.setNombre(rs.getString("nombre"));
 					p.setApellido(rs.getString("apellido"));
 					p.setContrasenia(rs.getString("contrasenia"));				
@@ -58,20 +64,20 @@ public class dataProfesional {
 		
 		return prof;
 	}
-	public Profesional getOne(int legajo) {
+	public Profesional getOne(int dni) {
 		Profesional elProfesional= null;
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyLEGAJO);
-			ps.setInt(1, legajo);
+			ps.setInt(1, dni);
 			rs=ps.executeQuery();
 			
 				if(rs!=null && rs.next())
 				{
 					elProfesional=new Profesional();
 					
-					elProfesional.setDni(rs.getInt("legajo"));
+					elProfesional.setDni(rs.getInt("dni"));
 					elProfesional.setNombre(rs.getString("nombre"));
 					elProfesional.setApellido(rs.getString("apellido"));
 					elProfesional.setContrasenia(rs.getString("contrasenia"));
@@ -122,13 +128,6 @@ public class dataProfesional {
             }
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
 
 	public void delete (int legajo) {
 		PreparedStatement ps=null;
