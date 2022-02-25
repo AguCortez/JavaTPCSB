@@ -19,53 +19,21 @@
 	<div class = "conteiner">
 		<h1>Agregar nueva rutina</h1>	
 		<hr>
-		<<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
+		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
 				DIA:
 				<input type = "text" name= "txtDIA" class = "form-control"/>	
 				<br>
 				ID RUTINA:
 				<input type = "text" name= "txtID" class = "form-control"/>		
 				<br>
-			
 				SOCIO:
-				<select class="custom-select" id="dniSoc">
-					<option value="2">----</option>
-					<%sociosUtil su=new sociosUtil();
-					LinkedList<Socio> socios=su.getAll();
-					for(Socio s:socios){
-						
-					%>
-					<option value=<%=s.getDni()%> ><%=s.getNombre_soc()+" "+s.getApellido_soc() %> -</option>
-					<% } %>
-					
-				</select>
+				<input type = "text" name= "txtSOC" class = "form-control"/>		
 				<br>
 				PROFESIONAL:
-				<select class="custom-select" id="dniProf">
-					<option value="3">----</option>
-					<%profesionalUtil pu=new profesionalUtil();
-					LinkedList<Profesional> profes=pu.getAll();
-					for(Profesional p:profes){
-						
-					%>
-					<option value=<%=p.getDni()%> ><%=p.getNombre()+" "+p.getApellido() %> -</option>
-					<% } %>
-					
-				</select>
+				<input type = "text" name= "txtPROF" class = "form-control"/>		
 				<br>
-				
-				EJERCICIOS:
-				<select class="custom-select" id="idEjer">
-					<option value="4">----</option>
-					<% ejercicioUtil ej= new ejercicioUtil();
-					LinkedList<Ejercicio> ejers = ej.getAll();
-					for(Ejercicio e: ejers){
-						
-					%>
-					<option value=<%=e.getIdEjercicio()%> ><%=e.getDescripcion()%> -</option>
-					<% } %>
-					
-				</select>
+				EJERCICIO:
+				<input type = "text" name= "txtEJER" class = "form-control"/>		
 				<br>
 				
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
@@ -76,18 +44,20 @@
 	</div>
 </body>
 </html>
-<%	rutinaUtil ru =new rutinaUtil();
-
-String dia,idr,dni,legajo;
-idr=request.getParameter("txtID");
-dni=request.getParameter("txtDNI");
-legajo=request.getParameter("txtLEGAJO");
-dia=request.getParameter("txtDIA");			
-
-if (idr!= null && dni != null && legajo != null && dia != null )
-	{
-	 ru.altaRutina(dia, Integer.parseInt(idr), Integer.parseInt(dni), Integer.parseInt(legajo));
+		<%	rutinaUtil ru =new rutinaUtil();
 		
-		response.sendRedirect("rutina-tabla.jsp");
-	}
-	%>
+		String dia,idr;
+		String dniSoc, dniProf, idEj;
+		
+		idr=request.getParameter("txtID");
+		dniSoc=request.getParameter("txtSOC");
+		dniProf=request.getParameter("txtPROF");
+		dia=request.getParameter("txtDIA");
+		idEj = request.getParameter("txtEJER");
+		
+		if (idr!= null && dniSoc != null && dniProf != null && dia != null && idEj != null )
+			{
+			 ru.altaRutina(dia, Integer.parseInt(idr), Integer.parseInt(dniSoc), Integer.parseInt(dniProf),Integer.parseInt(idEj));
+			 response.sendRedirect("rutina-tabla.jsp");
+			}
+			%>

@@ -1,7 +1,6 @@
 package util; 
 import entites.Rutina;
 
-import java.util.Date;
 import java.util.LinkedList;
 
 import data.dataRutina;
@@ -9,8 +8,8 @@ import data.dataRutina;
 public class rutinaUtil {
 	
 	
-	public void altaRutina(String dia, int idrutina, int dni, int legajo) {
-		Rutina nRutina=new Rutina(dia, idrutina, dni, legajo);
+	public void altaRutina(String dia, int idrutina, int dni, int legajo, int id_ejer) {
+		Rutina nRutina=new Rutina(dia, idrutina, dni, legajo, id_ejer);
 		dataRutina ds=new dataRutina();
 		ds.add(nRutina);
 

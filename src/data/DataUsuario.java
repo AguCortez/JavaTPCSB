@@ -9,6 +9,7 @@ import entites.*;
 public class DataUsuario {
 
 	private String newSocio="insert into usuario (`dni`, `contrasenia`, `nivel`) VALUES (?,?,1)";
+
 	private String newProfe="insert into usuario (`dni`, `contrasenia`, `nivel`) VALUES (?,?,2)";
 	private String delete= "delete from socio where dni=?";
 	private String modifica= "UPDATE usuario SET `dni` = ?,`contrasenia` = ? WHERE `dni` = ?";
@@ -125,5 +126,5 @@ public class DataUsuario {
 		
 		
 		}
-	
+
 }

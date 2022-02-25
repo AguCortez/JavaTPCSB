@@ -3,7 +3,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
 <%@page import="util.rutinaUtil"%>
-<%@ include file="menu-header.jsp"%>s
+<%@ include file="menu-header.jsp"%>
 <body>	
 <%
 	rutinaUtil r =new rutinaUtil();
@@ -36,10 +36,10 @@
 			
 		<table class="table table-bordered">
 			<tr>
-				<th class="text-center">DNI</th>
+				<th class="text-center">DNI del socio</th>
 				<th class="text-center">dia</th>
-				<th class="text-center">idRutina</th>
-				<th class="text-center"> LEGAJO</th>
+				<th class="text-center">id-Rutina</th>
+				<th class="text-center"> Profesional</th>
 			</tr>
 			<%
 			for (Rutina ru: rutinas){

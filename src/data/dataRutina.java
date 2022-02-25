@@ -13,10 +13,9 @@ public class dataRutina {
 	
 	private String buscabyidRutina = "select * from Rutina where idRutina LIKE %?";
 	private String getOnebyidRutina="select * from Rutina where idRutina=? ";
-	
-	private String newRutina="insert into Rutina (`dia`, `idRutina`, `dni`, `legajo`) VALUES (?,?,?,?)";
+	private String newRutina="insert into Rutina (`dia`, `idRutina`, `dni`, `dniP`, `id_ejer`) VALUES (?,?,?,?,?)";
 	private String deleteRutina= "delete from Rutina where idRutina=?";
-	private String modifica= "UPDATE Rutina SET `dia` = ?,`idRutina` =?,`dni` = ?,`legajo` = ? WHERE `idRutina` = ?";
+	private String modifica= "UPDATE Rutina SET `dia` = ?,`idRutina` =?,`dni` = ?,`dniP` = ? WHERE `idRutina` = ?";
 	
 	public LinkedList<Rutina> getAll(){
 		
@@ -38,7 +37,7 @@ public class dataRutina {
 					r.setDia(rs.getString("dia"));
 					r.setIdRutina(rs.getInt("idRutina"));
 					r.setDni(rs.getInt("dni"));
-					r.setLegajo(rs.getInt("legajo"));
+					r.setLegajo(rs.getInt("dniP"));
 									
 					
 					rut.add(r);
@@ -76,7 +75,7 @@ public class dataRutina {
 					laRutina.setDia(rs.getString("dia"));
 					laRutina.setIdRutina(rs.getInt("idRutina"));
 					laRutina.setDni(rs.getInt("dni"));
-					laRutina.setLegajo(rs.getInt("legajo"));
+					laRutina.setLegajo(rs.getInt("dniP"));
 				}
 				
 			} 
@@ -108,7 +107,7 @@ public class dataRutina {
 			ps.setInt(2, r.getIdRutina());
 			ps.setInt(3,r.getDni());
 			ps.setInt(4,r.getLegajo());
-			
+			ps.setInt(5,r.getId_ejer());
 			ps.executeUpdate();
 	 		}
 		catch(SQLException e)
@@ -193,7 +192,7 @@ public class dataRutina {
 					r.setDia(rs.getString("dia"));
 					r.setIdRutina(rs.getInt("idRutina"));
 					r.setDni(rs.getInt("dni"));
-					r.setLegajo(rs.getInt("legajo"));
+					r.setLegajo(rs.getInt("dniP"));
 									
 					
 					rutinas.add(r);
