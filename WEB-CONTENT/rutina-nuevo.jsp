@@ -16,6 +16,9 @@
 
 </head>
 <body>
+
+
+
 	<div class = "conteiner">
 		<h1>Agregar nueva rutina</h1>	
 		<hr>
@@ -32,10 +35,11 @@
 				PROFESIONAL:
 				<input type = "text" name= "txtPROF" class = "form-control"/>		
 				<br>
-				EJERCICIO:
-				<input type = "text" name= "txtEJER" class = "form-control"/>		
+				<a href= "ejercicio-agrega-varios.jsp"> AGREGAR EJERCICIOS</a>
 				<br>
-				
+				<br>
+				<br>
+				<br>
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
@@ -44,7 +48,7 @@
 	</div>
 </body>
 </html>
-		<%	rutinaUtil ru =new rutinaUtil();
+		<%rutinaUtil ru =new rutinaUtil();
 		
 		String dia,idr;
 		String dniSoc, dniProf, idEj;
