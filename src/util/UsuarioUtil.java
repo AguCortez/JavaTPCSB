@@ -8,6 +8,7 @@ public class UsuarioUtil {
 		Usuario elusu=null;
 		int lvl=0;
 		elusu=du.getUsuarioxContra(dni, pass);
+		if(elusu==null) {return 0;}
 		lvl=elusu.getNivel();
 		return lvl;
 	}

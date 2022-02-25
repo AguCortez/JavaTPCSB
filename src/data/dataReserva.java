@@ -10,9 +10,9 @@ public class dataReserva {
 	private String buscabyIdreserva = "select * from Reserva where idreserva LIKE %?";
 	private String getOnebyDNI="select * from Reserva where dni=? ";
 	
-	private String newReserva="insert into reserva (`idreserva`, `fecha`, `dni`, `codigo`) VALUES (?,?,?,?)";
+	private String newReserva="insert into reserva (`idreserva`, , `dni`, `codigo`) VALUES (?,?,?,?)";
 	private String deleteReserva= "delete from reserva where dni=?";
-	private String modifica= "UPDATE reserva SET `idreserva` = ?,`fecha` =?,`dni` = ? WHERE `dni` = ?";
+	private String modifica= "UPDATE reserva SET `idreserva` = ?,`dni` = ? WHERE `dni` = ?";
 	
 	public LinkedList<Reserva> getAll(){
 		
@@ -30,7 +30,7 @@ public class dataReserva {
 					Reserva r=new Reserva();
 					
 					r.setId_reserva(rs.getInt("id reserva"));
-					r.setFecha(String.valueOf(rs.getDate("fecha")));
+					
 					r.setDni(rs.getInt("dni"));								
 					res.add(r);
 				}
@@ -66,7 +66,7 @@ public class dataReserva {
 					laReserva =new Reserva();
 					
 					laReserva.setId_reserva(rs.getInt("id reserva"));
-					laReserva.setFecha(String.valueOf(rs.getDate("fecha")));
+					
 					laReserva.setDni(rs.getInt("dni"));
 					
 					
@@ -100,8 +100,8 @@ public class dataReserva {
 			
 			
 			ps.setInt(1, r.getId_reserva());
-			ps.setDate(2, r.getFecha());
-			ps.setInt(3,r.getDni());			
+	
+			ps.setInt(2,r.getDni());			
 			ps.executeUpdate();
 	 		}
 		catch(SQLException e)
@@ -148,10 +148,10 @@ public class dataReserva {
 			
 			
 			ps.setInt(1, r.getId_reserva());
-			ps.setDate(2, r.getFecha());
-			ps.setInt(3,r.getDni());
-			ps.setString(4,r.getCodigo());
-			ps.setInt(5, idreservaold);
+			
+			ps.setInt(2,r.getDni());
+			ps.setString(3,r.getCodigo());
+			ps.setInt(4, idreservaold);
 			ps.executeUpdate();
 		}
 		catch(SQLException e)
@@ -185,7 +185,7 @@ public class dataReserva {
 					Reserva r=new Reserva();
 					
 					r.setId_reserva(rs.getInt("id reserva"));
-					r.setFecha(String.valueOf(rs.getDate("fecha")));
+				
 					r.setDni(rs.getInt("dni"));
 					r.setCodigo(rs.getString("codigo"));
 					

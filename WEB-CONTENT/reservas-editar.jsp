@@ -35,10 +35,7 @@
 				ID RESERVA:
 				<input type = "text" name = "txtId_reserva" class = "form-control" value="<%= lareserva.getId_reserva() %>"/>
 				<br>
-				FECHA:
-				<input type = "text" name = "txtFecha" class = "form-control" value="<%= lareserva.getFecha()%>"/>
-				<br>
-				<br>
+				
 				<br>
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
@@ -50,15 +47,15 @@
            codigo = request.getParameter("txtCodigo");
 			dni = request.getParameter("txtDni");
 			id_reserva = request.getParameter ("txtId_reserva");
-			fecha = request.getParameter ("txtFecha");
+			
 
 			
-			if (codigo!= null && dni != null && id_reserva != null && fecha != null)
+			if (codigo!= null && dni != null && id_reserva != null )
 			{
 				lareserva.setCodigo(codigo);
 				lareserva.setDni(Integer.parseInt(dni));
 				lareserva.setId_reserva(Integer.parseInt(id_reserva));
-				lareserva.setFecha(fecha);
+				
 				
 				r.modReserva(lareserva, id_reserva1);
 				response.sendRedirect("reservas-tabla.jsp");

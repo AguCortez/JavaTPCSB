@@ -3,6 +3,19 @@
     pageEncoding="ISO-8859-1"%>
 <%@page session="true" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<% 
+	HttpSession sesion= request.getSession();
+	String user, lvl;	
+if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
+	{
+	user=sesion.getAttribute("usuario").toString();
+	lvl=sesion.getAttribute("nivel").toString();
+
+	}
+else{
+	out.print("<script>location.replace('index.jsp');</script>"); 
+}
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -18,6 +31,7 @@
 	
 	
  	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+ 	
   	<div class="container-fluid">
     <a class="navbar-brand" href="menu-main.jsp">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,17 +56,18 @@
             <a class="dropdown-item" href="socio-tabla.jsp">Socios</a>
             <a class="dropdown-item" href="rutina-tabla.jsp">Rutina</a>
 
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+         
           </div>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#"> Mis Rutinas </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#"> Mis Reservas </a>
+          <a class="nav-link active" href="inscripcion.jsp"> Inscribirse a una clase </a>
         </li>
+        <li class="nav-item">
+        <a class= "nav-link active" href='index.jsp?cerrar=true'> <h5>Cerrar Sesion </h5></a>"
+         </li>l
       </ul>
 
     </div>

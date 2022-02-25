@@ -15,11 +15,39 @@
  integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
 </head>
+<%	
+claseUtil c =new claseUtil();
+String dniprof="";
+profesionalUtil pu=new profesionalUtil();
+%>
 <body>
 	<div class = "conteiner">
 		<h1>Agregar nueva clase </h1>	
 		<hr>
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
+				<%if(request.getParameter("checkdni")==null){ %>
+				PROFESIONAL:
+				<div class="input-group mb-3">
+  					<button class="btn btn-outline-secondary" type="submit" name="checkdni">Check</button>
+  					<input type="text" name="dniprof" value="<%=dniprof %>" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+				</div>
+				<%
+				dniprof=request.getParameter("dniprof");
+				request.setAttribute("dni", dniprof);
+			    request.getRequestDispatcher("clases-nuevo.jsp").forward(request, response); 
+				
+				}
+				boolean dniok;
+				if(request.getParameter("checkdni")!=null && pu.existeProf(Integer.parseInt(request.getParameter("dniprof"))))
+				{
+					
+				%>
+				<div class="mb-3 row">
+    				<label for="staticEmail" class="col-sm-2 col-form-label">Profesional</label>
+   						 <div class="col-sm-10">
+     						 <input type="text" readonly class="form-control-plaintext" id="txtDni" value="<%=request.getAttribute("dni")%>">
+    					</div>
+  				</div>
 				TOTAL CUPO:
 				<input type = "text" name= "txtTotal_cupo" class = "form-control"/>
 				<br>
@@ -38,19 +66,7 @@
 				HORA:
 				<input type = "text" name = "txtHora" class = "form-control"/>
 				<br>
-				LEGAJO PROFESIONAL:
-				<select class="custom-select" id="dniProf">
-					<option value="2">----</option>
-					<%profesionalUtil pu=new profesionalUtil();
-					LinkedList<Profesional> profes=pu.getAll();
-					for(Profesional p:profes){
 						
-					%>
-					<option value=<%=p.getDni()%> ><%=p.getNombre()+" "+p.getApellido() %> -</option>
-					<% } %>
-					
-				</select>
-				<!input type = "text" name = "txtLegajo_prof" class = "form-control"/!>
 				<br>
 				DESCRIPCION:
 				<input type = "text" name = "txtDescripcion" class = "form-control"/>
@@ -59,15 +75,20 @@
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
+				<%
+				
+				}else{
+				%>
+				Ingrese un DNI de profesional vlaido.
+				<%} %>
 				<a href= "clases-tabla.jsp"> Regresar</a>				
 		
 		
 		</form>
 	</div>
 </body>
-</html>
-<%	claseUtil c =new claseUtil();
 
+<%	
 
 String nombre, descripcion, dia, total_cupo, id, actual_cupo,  hora, legajo_prof; 
 
@@ -77,7 +98,7 @@ nombre = request.getParameter ("txtNombre");
 actual_cupo = request.getParameter ("txtActual_cupos");
 dia = request.getParameter("txtDia");
 hora = request.getParameter("txtHora");
-legajo_prof = request.getParameter("dniProf");
+legajo_prof= request.getParameter()
 descripcion = request.getParameter("txtDescripcion");
 
 

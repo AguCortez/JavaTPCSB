@@ -9,10 +9,10 @@ import entites.Socio;
 
 public class dataProfesional {
 	
-	private String buscabyNombre = "select * from Profesional where nombre LIKE %?";
-	private String getOnebyLEGAJO="select * from Profesional where legajo=? ";
+	private String buscabyNombre = "select * from profesional where nombre LIKE %?";
+	private String getOnebyLEGAJO="select * from profesional where legajo=? ";
 	
-	private String newProfesional="insert into Profesional (`legajo`, `nombre`, `apellido`, `contrase�a`) VALUES (?,?,?,?)";
+	private String newProfesional="insert into profesional (`legajo`, `nombre`, `apellido`, `contrase�a`) VALUES (?,?,?,?)";
 	private String deleteProfesional= "delete from profesional where legajo=?";
 	private String modifica= "UPDATE profesional SET `legajo` = ?,`nombre` =?,`apellido` = ?,`contrase�a` = ? WHERE `legajo` = ?";
 	

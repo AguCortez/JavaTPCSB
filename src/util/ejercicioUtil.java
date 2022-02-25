@@ -11,6 +11,7 @@ public class ejercicioUtil {
 		Ejercicio nEjercicio=new Ejercicio(repeticiones,  peso, series, descripcion, nombre_maquina,  idejercicio);
 		dataEjercicio de=new dataEjercicio();
 		de.add(nEjercicio);
+		
 
 	}
 	

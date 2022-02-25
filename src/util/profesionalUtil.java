@@ -33,4 +33,12 @@ public class profesionalUtil {
 		dataProfesional ds=new dataProfesional();
 		return ds.getOne(legajo);
 	}
+	public boolean existeProf(int dni) {
+		dataProfesional ds=new dataProfesional();
+		boolean rta;
+		if(ds.getOne(dni)==null) {
+			rta=false;
+		}else rta=true;
+		return rta;
+	}
 }

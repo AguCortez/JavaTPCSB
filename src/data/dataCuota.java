@@ -10,8 +10,8 @@ import entites.Cuota;
 
 public class dataCuota {
 
-	private String buscaDNI = "select * from Cuota where dni LIKE %?";
-	private String getOnebyDNI="select * from Cuota where dni=? ";
+	private String buscaDNI = "select * from cuota where dni LIKE %?";
+	private String getOnebyDNI="select * from cuota where dni=? ";
 	private String newCuota="insert into cuota (`idCuota`, `anio`, `mes`, `precio`, `fecha_pago`) VALUES (?,?,?,?,?)";
 	private String modifica= "UPDATE cuota SET `idCuota` = ?,`anio` =?,`mes` = ?,`precio` = ?,`fecha_pago` = ?";
 	private String delete= "delete from cuota where dni=?";
