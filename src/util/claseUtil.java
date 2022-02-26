@@ -11,7 +11,16 @@ import data.dataClase;
 
 public class claseUtil {
 	
-	
+	public void modcupo(int id){
+		dataClase dc=new dataClase();
+		Clase laclase=new Clase();
+		laclase=dc.getOne(id);
+		int cupo=0;
+		cupo=laclase.getActual_cupos();
+		cupo=cupo-1;
+		laclase.setActual_cupos(cupo);
+		dc.update(laclase, id);
+	}
 	public void altaClase(int total_cupo, int id, String nombre, int actual_cupos, String dia, String hora, String descripcion, int legajo_prof) {
 		
 		Time hs=Time.valueOf(hora);		

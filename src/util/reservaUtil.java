@@ -9,7 +9,18 @@ import data.dataReserva;
 
 public class reservaUtil {
 	
-	
+	public LinkedList<Reserva> getxDNI(int dni)
+	{
+		LinkedList<Reserva> reservas=new LinkedList<Reserva>();
+		LinkedList<Reserva> susreservas=new LinkedList<Reserva>();
+		reservas=getAll();
+		for(Reserva r : reservas) {
+			if(r.getDni()==dni) {
+				susreservas.add(r);
+			}
+		}
+		return reservas;
+	}
 	public void altaReserva(int id_reserva, int dni, String codigo) {
 		
 		Reserva nReserva= new Reserva(id_reserva, dni, codigo);

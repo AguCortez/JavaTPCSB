@@ -13,7 +13,19 @@
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" 
  integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<% 
+	HttpSession sesion= request.getSession();
+	String user, lvl;	
+if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
+	{
+	user=sesion.getAttribute("usuario").toString();
+	lvl=sesion.getAttribute("nivel").toString();
 
+	}
+else{
+	out.print("<script>location.replace('index.jsp');</script>"); 
+}
+%>
 </head>
 <body>
 	<div class = "conteiner">

@@ -14,6 +14,18 @@ public class dataReserva {
 	private String deleteReserva= "delete from reserva where dni=?";
 	private String modifica= "UPDATE reserva SET `idreserva` = ?,`dni` = ? WHERE `dni` = ?";
 	
+	public LinkedList<Reserva> getxDNI(int dni)
+	{
+		LinkedList<Reserva> reservas=new LinkedList<Reserva>();
+		LinkedList<Reserva> susreservas=new LinkedList<Reserva>();
+		reservas=getAll();
+		for(Reserva r : reservas) {
+			if(r.getDni()==dni) {
+				susreservas.add(r);
+			}
+		}
+		return reservas;
+	}
 	public LinkedList<Reserva> getAll(){
 		
 		Statement stmt=null;

@@ -4,9 +4,22 @@
 <%@include file="menu-header.jsp" %>
 
 <%
+ 
+HttpSession sesion= request.getSession();
+String user="", lvl;	
+if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
+{
+user=sesion.getAttribute("usuario").toString();
+lvl=sesion.getAttribute("nivel").toString();
+
+}
+else{
+out.print("<script>location.replace('index.jsp');</script>"); 
+}
+	int dni;
 	String nombre="";
 	reservaUtil ru=new reservaUtil();
-	
+	sociosUtil su=new sociosUtil();
     claseUtil c =new claseUtil();
 	profesionalUtil pu= new profesionalUtil();
 	LinkedList<Clase> clase=new LinkedList<Clase>();
@@ -40,9 +53,19 @@
 			</tr>
 			<%
 			for ( Clase a: clase){
+				boolean reservada=false;
+				dni=Integer.parseInt(user);
+				LinkedList<Reserva> reser=new LinkedList<Reserva>();
+				reser=ru.getxDNI(dni);
 				Profesional prof=pu.getBylegajo(a.getLegajo_prof());
 				nombre=prof.getNombre()+" "+prof.getApellido() ;
-				
+				for (Reserva r: reser)
+				{
+					if(Integer.parseInt(r.getCodigo())==a.getId())
+					{
+						reservada=true;
+					}
+				}
 			%>
 			<tr>
 				
@@ -54,10 +77,13 @@
 				<td class="text-center"><%=a.getDescripcion() %></td>
 				
 				<td>
-				<%
-				if() %>
-				<a href="clases-editar.jsp?idclase=<%=a.getId() %>"class="btn btn-info btn-sm">Reservar cupo</a>
-							
+				<%if(reservada){
+				 %>
+				<a "class="btn btn-info btn-sm" disabled >Ya reservada</a>
+				<% }else{ 
+				%>
+				<a href="ValidaReservacion.jsp?idclase=<%=a.getId() %>"class="btn btn-info btn-sm">Reservar cupo</a>
+				<%} %>			
 				</td>
 			</tr>
 			<%	}	%>

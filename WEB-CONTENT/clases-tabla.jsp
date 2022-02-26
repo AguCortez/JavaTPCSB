@@ -3,7 +3,19 @@
 <%@page import= "entites.*" %>
 <%@page import="java.util.LinkedList" %>
 <%@include file="menu-header.jsp" %>
+<% 
+	HttpSession sesion= request.getSession();
+	String user, lvl;	
+if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
+	{
+	user=sesion.getAttribute("usuario").toString();
+	lvl=sesion.getAttribute("nivel").toString();
 
+	}
+else{
+	out.print("<script>location.replace('index.jsp');</script>"); 
+}
+%>
 <%
 
     claseUtil c =new claseUtil();

@@ -10,6 +10,19 @@
     reservaUtil r =new reservaUtil();
 	LinkedList<Reserva> reserva=new LinkedList<Reserva>();
 %>
+<% 
+	HttpSession sesion= request.getSession();
+	String user, lvl;	
+if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
+	{
+	user=sesion.getAttribute("usuario").toString();
+	lvl=sesion.getAttribute("nivel").toString();
+
+	}
+else{
+	out.print("<script>location.replace('index.jsp');</script>"); 
+}
+%>
 	<br>
 	<br>
 	<div class="container">
@@ -75,4 +88,4 @@
 			<%	}	%>
 			
 		</table>
-<%@inlcude file="menu-foot.jsp" %>
+<%@ include file="menu-foot.jsp" %>

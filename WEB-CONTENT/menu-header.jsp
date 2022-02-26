@@ -3,19 +3,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@page session="true" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<% 
-	HttpSession sesion= request.getSession();
-	String user, lvl;	
-if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
-	{
-	user=sesion.getAttribute("usuario").toString();
-	lvl=sesion.getAttribute("nivel").toString();
 
-	}
-else{
-	out.print("<script>location.replace('index.jsp');</script>"); 
-}
-%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -52,7 +40,7 @@ else{
             <a class="dropdown-item" href="cuotas-tabla.jsp">Cuotas</a>
             <a class="dropdown-item" href="ejercicio-tabla.jsp">Ejercicio</a>
             <a class="dropdown-item" href="profesional-tabla.jsp">Profesional</a>
-            <a class="dropdown-item" href="reserva-tabla.jsp">Reservas</a>
+            <a class="dropdown-item" href="reservas-tabla.jsp">Reservas</a>
             <a class="dropdown-item" href="socio-tabla.jsp">Socios</a>
             <a class="dropdown-item" href="rutina-tabla.jsp">Rutina</a>
 
