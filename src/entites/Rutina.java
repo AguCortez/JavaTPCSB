@@ -2,6 +2,15 @@ package entites;
 
 
 public class Rutina {
+	private int idtiporutina;
+	public int getIdtiporutina() {
+		return idtiporutina;
+	}
+
+	public void setIdtiporutina(int idtiporutina) {
+		this.idtiporutina = idtiporutina;
+	}
+
 	private int dni;
 	public Rutina(String dia2, int idrutina2, int dni2, int dniP, int id_ejer) {
 		this.setDia(dia2);
