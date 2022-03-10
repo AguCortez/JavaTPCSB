@@ -4,6 +4,8 @@ package entites;
 public class TipoRutina {
 
 	private String  descripcion;
+	
+	public TipoRutina() {}
 	public String getDescripcion() {
 		return descripcion;
 	}
