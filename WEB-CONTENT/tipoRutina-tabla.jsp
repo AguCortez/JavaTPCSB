@@ -15,7 +15,7 @@
 	<form class="form">
 	<table>
 		<tr>
-			<td><a class = "btn btn-success btn-lg" href="socio-nuevo.jsp">Nuevo Tipo de rutina</a></td>
+			<td><a class = "btn btn-success btn-lg" href="tipoRutina-nuevo.jsp">Nuevo Tipo de rutina</a></td>
 			<td></td>
 			<td></td>
 			<td></td>

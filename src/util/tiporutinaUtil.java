@@ -8,10 +8,10 @@ import entites.TipoRutina;
 public class tiporutinaUtil {
 	
 	
-	public void altaTiporutina(int id_tipo, String descripcion) {
-		TipoRutina nTiporutina=new TipoRutina();
+	public void altaTiporutina(TipoRutina tr) {
+		
 		dataTiporutina ds=new dataTiporutina();
-		ds.add(nTiporutina);
+		ds.add(tr);
 
 	}
 	public void bajaTiporutinao(int id_tipo) {
