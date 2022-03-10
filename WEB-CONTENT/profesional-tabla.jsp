@@ -66,7 +66,7 @@ else{
 		<br>	
 		<table class="table table-bordered">
 			<tr>
-				<th class="text-center">LEGAJO</th>
+				<th class="text-center">Dni</th>
 				<th class="text-center">Nombre</th>
 				<th class="text-center">Apellido</th>
 

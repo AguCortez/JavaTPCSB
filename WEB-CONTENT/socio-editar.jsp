@@ -63,19 +63,16 @@ else{
 				<a href= "socio-tabla.jsp"> Regresar</a>				
            <%
             String dni, contrase, tipo, nom, ape, cel;
-            dni = request.getParameter("txtDNI");
+           
+           
+           dni = request.getParameter("txtDNI");
 			tipo = request.getParameter("txtTipo");
 			nom = request.getParameter ("txtNombre");
 			contrase = request.getParameter ("txtcontra");
 			ape = request.getParameter ("txtApellido");
-			cel = request.getParameter ("txtCelular");
-			
-            
-			
-							
-			
-			
-			
+			cel = request.getParameter ("txtCelular");			   
+										
+					
 			if (nom!= null && tipo != null && contrase != null && ape != null && cel != null)
 			{
 				elsocio.setDni(Integer.parseInt(dni));

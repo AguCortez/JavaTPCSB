@@ -38,29 +38,7 @@ profesionalUtil pu=new profesionalUtil();
 		<h1>Agregar nueva clase </h1>	
 		<hr>
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
-				<%if(request.getParameter("checkdni")==null){ %>
-				PROFESIONAL:
-				<div class="input-group mb-3">
-  					<button class="btn btn-outline-secondary" type="submit" name="checkdni">Check</button>
-  					<input type="text" name="dniprof" value="<%=dniprof %>" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-				</div>
-				<%
-				dniprof=request.getParameter("dniprof");
-				request.setAttribute("dni", dniprof);
-			    request.getRequestDispatcher("clases-nuevo.jsp").forward(request, response); 
 				
-				}
-				boolean dniok;
-				if(request.getParameter("checkdni")!=null && pu.existeProf(Integer.parseInt(request.getParameter("dniprof"))))
-				{
-					
-				%>
-				<div class="mb-3 row">
-    				<label for="staticEmail" class="col-sm-2 col-form-label">Profesional</label>
-   						 <div class="col-sm-10">
-     						 <input type="text" readonly class="form-control-plaintext" id="txtDni" value="<%=request.getAttribute("dni")%>">
-    					</div>
-  				</div>
 				TOTAL CUPO:
 				<input type = "text" name= "txtTotal_cupo" class = "form-control"/>
 				<br>

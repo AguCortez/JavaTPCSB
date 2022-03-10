@@ -13,7 +13,7 @@
 	int dni=Integer.parseInt(request.getParameter("dni"));
 	sociosUtil su= new sociosUtil();
 	su.bajaSocio(dni);
-	response.sendRedirect("socio-borrar.jsp");
+	response.sendRedirect("socio-tabla.jsp");
 
 %>
 </body>

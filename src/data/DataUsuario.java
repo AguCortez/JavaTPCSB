@@ -13,7 +13,7 @@ public class DataUsuario {
 	private String newSocio="insert into usuario (`dni`, `contrasenia`, `nivel`) VALUES (?,?,1)";
 
 	private String newProfe="insert into usuario (`dni`, `contrasenia`, `nivel`) VALUES (?,?,2)";
-	private String delete= "delete from socio where dni=?";
+	private String delete= "delete from usuario where dni=?";
 	private String modifica= "UPDATE usuario SET `dni` = ?,`contrasenia` = ? WHERE `dni` = ?";
 	private String unlogin="select * from usuario where dni = ? and contra= ? ";
 	
@@ -95,13 +95,13 @@ public LinkedList<Usuario> getAll(){
 		}		
 		return eluser;
 	}
-	public void addSocio(Socio s) {
+	public void addSocio(Usuario usu) {
 		PreparedStatement ps=null;
 		
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(newSocio);
-			ps.setInt(1, s.getDni());
-			ps.setString(2, s.getContrasenia());
+			ps.setInt(1, usu.getDni());
+			ps.setString(2, usu.getContrasenia());
 			
 			ps.executeUpdate();
 	 		}
