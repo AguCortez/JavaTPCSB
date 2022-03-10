@@ -3,7 +3,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
 <%@page import="util.sociosUtil"%>
-<%@ include file="menu-header.jsp"%>s
+<%@ include file="menu-header.jsp"%>
 <body>	
 <%
 	sociosUtil s =new sociosUtil();

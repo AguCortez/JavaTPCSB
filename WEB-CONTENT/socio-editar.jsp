@@ -72,10 +72,6 @@ else{
 			
             
 			
-							
-			
-			
-			
 			if (nom!= null && tipo != null && contrase != null && ape != null && cel != null)
 			{
 				elsocio.setDni(Integer.parseInt(dni));

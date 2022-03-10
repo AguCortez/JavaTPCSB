@@ -29,7 +29,7 @@ public class tiporutinaUtil {
 		return ds.getAll();
 	}
 
-	public TipoRutina getBydni(int id_tipo) {
+	public TipoRutina getByID(int id_tipo) {
 		dataTiporutina ds=new dataTiporutina();
 		return ds.getOne(id_tipo);
 	}
