@@ -91,7 +91,7 @@ else{
 				laclase.setNombre(nombre);
 				laclase.setActual_cupos(Integer.parseInt(actual_cupo));
 				laclase.setDia(dia);
-				laclase.setHora(hs);
+				laclase.setHora(hora);
 				laclase.setLegajo_prof(Integer.parseInt(legajo_prof));
 				laclase.setDescripcion(descripcion);
 				
