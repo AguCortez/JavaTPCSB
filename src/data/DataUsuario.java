@@ -95,13 +95,13 @@ public LinkedList<Usuario> getAll(){
 		}		
 		return eluser;
 	}
-	public void addSocio(Socio s) {
+	public void addSocio(Usuario usu) {
 		PreparedStatement ps=null;
 		
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(newSocio);
-			ps.setInt(1, s.getDni());
-			ps.setString(2, s.getContrasenia());
+			ps.setInt(1, usu.getDni());
+			ps.setString(2, usu.getContrasenia());
 			
 			ps.executeUpdate();
 	 		}

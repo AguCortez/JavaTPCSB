@@ -57,14 +57,14 @@ else{
 
 
 	String  dni,contrase, tipo, nom, ape;
-
+	
 	dni = request.getParameter("txtDNI");
-	tipo = request.getParameter("txtTipo");
+	
 	nom = request.getParameter ("txtNombre");
 	contrase = request.getParameter ("txtcontra");
 	ape = request.getParameter ("txtApellido");
 	
-	if (nom!= null && tipo != null && contrase != null && ape != null )
+	if (nom!= null  && contrase != null && ape != null )
 	{
 		p.altaProfesional(nom, ape,Integer.parseInt(dni), contrase);
 

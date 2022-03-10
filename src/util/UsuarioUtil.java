@@ -12,5 +12,10 @@ public class UsuarioUtil {
 		lvl=elusu.getNivel();
 		return lvl;
 	}
+	public void altaSocioU(int dni, String contra) {
+		Usuario usu=new Usuario(dni, contra);
+		DataUsuario du=new DataUsuario();
+		du.addSocio(usu);
+	}
 
 }

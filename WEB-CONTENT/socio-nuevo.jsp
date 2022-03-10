@@ -1,7 +1,7 @@
 
 <%@page import="java.util.LinkedList"%>
-<%@page import="entites.Socio"%>
-<%@page import="util.sociosUtil"%>
+<%@page import="entites.*"%>
+<%@page import="util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -62,7 +62,7 @@ else{
 </body>
 </html>
 <%	sociosUtil s =new sociosUtil();
-
+	UsuarioUtil usuarioUtil = new UsuarioUtil();
 	String dni;
 	String  contrase, tipo, nom, ape, cel;
 
@@ -74,6 +74,8 @@ else{
 	cel = request.getParameter ("txtCelular");
 	if (nom!= null && tipo != null && contrase != null && ape != null && cel != null)
 	{
+		
+		usuarioUtil.altaSocioU(Integer.parseInt(dni), contrase);
 		s.altaSocio(Integer.parseInt(dni), tipo, contrase, nom, ape, cel);
 		response.sendRedirect("socio-tabla.jsp");
 	}
