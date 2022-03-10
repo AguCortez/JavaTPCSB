@@ -23,7 +23,7 @@ else{
 }
 %>	
 	<div class="container">
-	<h1>Seleccione a que rutina quiere añadirle el ejercicio </h1>
+	<h1>Seleccione a que rutina quiere aï¿½adirle el ejercicio </h1>
 	<hr>
 	
 	<%
@@ -36,6 +36,8 @@ else{
 				<th class="text-center">dia</th>
 				<th class="text-center">id-Rutina</th>
 				<th class="text-center"> Profesional</th>
+				<th class="text-center"> TipoRutina</th>
+				
 			</tr>
 			<%
 			for (Rutina ru: rutinas){
@@ -51,10 +53,20 @@ else{
 					profesionalUtil pu=new profesionalUtil();
 					p=pu.getBylegajo(ru.getLegajo());   %>
 				<td class="text-center"><%=p.getNombre()+" "+p.getApellido() %></td>
+				
+				<% TipoRutina ri=new TipoRutina();
+					tiporutinaUtil ra=new tiporutinaUtil();
+					ri=ra.getByID(ru.getIdtiporutina());   %>
+				<td class="text-center"><%=ri.getDescripcion()%></td>
+				
+			
+				
 				<td>
 				<a href="ejercicio-nuevo.jsp?idrutina=<%=ru.getIdRutina()%>"class="btn btn-info btn-sm">Seleccionar</a>
 			
 				</td>
+				
+				
 			</tr>
 			<%	}	%>
 			

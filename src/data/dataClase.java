@@ -14,8 +14,7 @@ public class dataClase {
 	
 	private String buscabyNombre = "select * from clase where nombre LIKE %?";
 	private String getOnebyCodigo="select * from clase where codigo=? ";
-	
-	private String newClase="insert into clase (`codigo`, `total_cupos`, `nombre`, `actual_cupos`, `dia`, `hora`,`descripcion`,`legajo`) VALUES (?,?,?,?,?,?)";
+	private String newClase="insert into clase (`codigo`, `total_cupos`, `nombre`, `actual_cupos`, `dia`, `hora`,`descripcion`,`legajo`) VALUES (?,?,?,?,?,?,?,?)";
 	private String deleteClase= "delete from clase where codigo=?";
     private String modifica= "UPDATE clase SET `codigo` = ?,`total_cupos` =?,`nombre` = ?,`actual_cupos` = ?,`dia` = ?,`hora` =?, `descripcion` = ?,`legajo` = ?, WHERE `codigo` = ?";
 	
@@ -23,9 +22,6 @@ public class dataClase {
 		
 		Statement stmt=null;
 		ResultSet rs=null;
-		
-		
-		
 		LinkedList<Clase> clases= new LinkedList<>();
 		
 		try {
@@ -41,7 +37,7 @@ public class dataClase {
 					c.setNombre(rs.getString("nombre"));
 					c.setActual_cupos(rs.getInt("actual_cupos"));
 					c.setDia(rs.getString("dia"));
-					c.setHora(rs.getTime("hora"));				
+					c.setHora(rs.getString("hora"));				
 					c.setDescripcion(rs.getString("descricion"));
 					c.setLegajo_prof(rs.getInt("legajo"));
 					
@@ -82,7 +78,7 @@ public class dataClase {
 					laClase.setNombre(rs.getString("nombre"));
 					laClase.setActual_cupos(rs.getInt("actual cupos"));
 					laClase.setDia(rs.getString("dia"));
-					laClase.setHora(rs.getTime("hora"));
+					laClase.setHora(rs.getString("hora"));
 					laClase.setDescripcion(rs.getString("descripcion"));
 					laClase.setLegajo_prof(rs.getInt("legajo"));
 					
@@ -117,7 +113,7 @@ public class dataClase {
 			ps.setString(3,c.getNombre());
 			ps.setInt(4,c.getActual_cupos());
 			ps.setString(5, c.getDia());
-			ps.setTime(6, c.getHora());
+			ps.setString(6, c.getHora());
 			ps.setString(7,c.getDescripcion());
 			ps.setInt(8,c.getLegajo_prof());
 			
@@ -170,7 +166,7 @@ public class dataClase {
 			ps.setString(3,c.getNombre());
 			ps.setInt(4,c.getActual_cupos());
 			ps.setString(5, c.getDia());
-			ps.setTime(6, c.getHora());
+			ps.setString(6, c.getHora());
 			ps.setString(7,c.getDescripcion());
 			ps.setInt(8,c.getLegajo_prof());
 			ps.setInt(9, codigoold);
@@ -211,7 +207,7 @@ public class dataClase {
 					c.setNombre(rs.getString("nombre"));
 					c.setActual_cupos(rs.getInt("actual cupos"));
 					c.setDia(rs.getString("dia"));	
-					c.setHora(rs.getTime("hora"));
+					c.setHora(rs.getString("hora"));
 					c.setDescripcion(rs.getString("descripcion"));
 					c.setLegajo_prof(rs.getInt("legajo"));
 					clases.add(c);

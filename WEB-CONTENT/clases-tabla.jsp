@@ -86,9 +86,9 @@ else{
 				<td class="text-center"><%=a.getDescripcion() %></td>
 				
 				<td>
-				<a href="clases-editar.jsp?dni=<%=a.getId() %>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="clases-editar.jsp?id=<%=a.getId() %>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="clases-borrar.jsp?dni=<%=a.getId() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="clases-borrar.jsp?id=<%=a.getId() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%	}	%>

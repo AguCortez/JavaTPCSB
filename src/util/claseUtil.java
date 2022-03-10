@@ -23,8 +23,7 @@ public class claseUtil {
 	}
 	public void altaClase(int total_cupo, int id, String nombre, int actual_cupos, String dia, String hora, String descripcion, int legajo_prof) {
 		
-		Time hs=Time.valueOf(hora);		
-		Clase nClase=new Clase(total_cupo, id, nombre, actual_cupos, dia, hs, descripcion, legajo_prof);
+		Clase nClase=new Clase(total_cupo, id, nombre, actual_cupos, dia, hora, descripcion, legajo_prof);
 		dataClase ds=new dataClase();
 		ds.add(nClase);
 
