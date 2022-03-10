@@ -68,12 +68,9 @@ profesionalUtil pu=new profesionalUtil();
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
-				<%
-				
-				}else{
-				%>
+			
 				Ingrese un DNI de profesional vlaido.
-				<%} %>
+			
 				<a href= "clases-tabla.jsp"> Regresar</a>				
 		
 		
@@ -91,14 +88,14 @@ nombre = request.getParameter ("txtNombre");
 actual_cupo = request.getParameter ("txtActual_cupos");
 dia = request.getParameter("txtDia");
 hora = request.getParameter("txtHora");
-legajo_prof= request.getParameter();
+
 descripcion = request.getParameter("txtDescripcion");
 
 
 
-if (total_cupo!= null && id!= null && nombre!= null && actual_cupo!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null)
+if (total_cupo!= null && id!= null && nombre!= null && actual_cupo!= null && dia!= null && hora!= null &&  descripcion!= null)
 	{
-		c.altaClase(Integer.parseInt(id), Integer.parseInt(total_cupo), nombre,	Integer.parseInt(actual_cupo), dia, hora, descripcion, Integer.parseInt(legajo_prof));
+		c.altaClase(Integer.parseInt(id), Integer.parseInt(total_cupo), nombre,	Integer.parseInt(actual_cupo), dia, hora, descripcion, 2);
 		response.sendRedirect("clases-tabla.jsp");
 	}
 	%>

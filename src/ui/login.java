@@ -27,13 +27,12 @@ import data.dataEjercicio;
 public class login {
 
 	public static void main(String[] args) {
-		dataRutina dp= new dataRutina();
+		dataEjercicio dp= new dataEjercicio();
 		LinkedList<Rutina> pr= new LinkedList<>();
-		pr=dp.getAll();
-		for (Rutina p: pr) {
-			System.out.println(p.getIdRutina());
+		Ejercicio ej=new Ejercicio(2, 2, 3, "nose", "la grande", 90, 3);
+		dp.add(ej);
 		}
 	}
-	}
+	
 
 

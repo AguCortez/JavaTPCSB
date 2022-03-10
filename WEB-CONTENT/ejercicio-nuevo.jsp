@@ -35,8 +35,9 @@ else{
 				ID ejercicio:
 				<input type = "text" name= "txtIDejer" class = "form-control"/>
 				<br>
+				<%int idrutina=Integer.parseInt(request.getParameter("idrutina")); %>
 				ID rutina:
-				<input type = "text" name= "txtIDrutina" class = "form-control"/>		
+				<input type = "text" name= "txtIDrutina" class = "form-control" value="<%=idrutina %>" disabled readonly/>		
 				<br>
 				Repeticiones:
 				<input type = "text" name = "txtRepeticiones" class = "form-control"/>
@@ -69,7 +70,7 @@ else{
 	String descripcion , nombre_maq;
 
 	idEj = request.getParameter("txtIDejer");
-	idRutina = request.getParameter("txtIDrutina");
+	idRutina =Integer.toString(idrutina);
 	repeteciones = request.getParameter ("txtRepeticiones");
 	peso = request.getParameter ("txtPeso");
 	series = request.getParameter ("txtSeries");
@@ -78,7 +79,7 @@ else{
 
 	if (idEj!= null && idRutina != null && repeteciones != null && peso != null && nombre_maq != null && series != null && descripcion!= null )
 	{
-		e.NuevoEjercicio(Integer.parseInt(repeteciones),Integer.parseInt(peso), Integer.parseInt(series), descripcion, nombre_maq, Integer.parseInt(idEj));
+		e.NuevoEjercicio(Integer.parseInt(repeteciones),Integer.parseInt(peso), Integer.parseInt(series), descripcion, nombre_maq, Integer.parseInt(idEj), idrutina);
 		response.sendRedirect("ejercicio-tabla.jsp");
 	}
 	%>

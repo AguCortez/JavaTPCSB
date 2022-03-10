@@ -6,13 +6,14 @@ public class Ejercicio {
 		private int idEjercicio;
 		
 		public Ejercicio(int repeticiones, int peso, int series, String descripcion, String nombre_maquina,
-				int idejercicio) {
+				int idejercicio, int idrutina2) {
 		this.setRepeticiones(repeticiones);
 		this.setPeso(peso);
 		this.setSeries(series);
 		this.setDescripcion(descripcion);
 		this.setNombre_maquina(nombre_maquina);
 		this.setIdEjercicio(idejercicio);
+		this.setIdrutina(idrutina2);
 		
 		}
 		
@@ -62,10 +63,18 @@ public class Ejercicio {
 		public void setNombre_maquina(String nombre_maquina) {
 			this.nombre_maquina = nombre_maquina;
 		}
+		public int getIdrutina() {
+			return idrutina;
+		}
+
+		public void setIdrutina(int idrutina) {
+			this.idrutina = idrutina;
+		}
 		private int peso;
 		private int series;
 		private String descripcion;
 		private String nombre_maquina;
+		private int idrutina;
 	
 
 }

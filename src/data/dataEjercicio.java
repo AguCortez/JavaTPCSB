@@ -13,7 +13,7 @@ public class dataEjercicio {
 	
 	private String buscabyID = "select * from ejercicio where idejercicio LIKE %?";
 	private String getOnebyID="select * from ejercicio where idejercicio=? ";
-	private String newEjer="insert into ejercio (`repeticiones`, `peso`, `series`, `descripcion`, `nombre_maquina`, `idejercicio`, `idrutina`) VALUES (?,?,?,?,?,?,?)";
+	private String newEjer=" INSERT INTO `gimnasiojava`.`ejercicio` (`repeticiones`, `peso`, `series`, `descripcion`, `nombre_maquina`, `idejercicio`, `idrutina`) VALUES (?,?, ?, ?, ?, ?, ?)";
 	private String deleteEjer= "delete from socio where dni=?";
 	private String modifica= "UPDATE ejercicio SET `repeticiones` = ?,`peso` =?,`series` = ?,`descripcion` = ?,`nombre_maquina` = ?,`idejercicio` = ?,`idrutina` =? WHERE `idejercicio` = ?";
 	
@@ -38,7 +38,7 @@ public class dataEjercicio {
 					e.setPeso(rs.getInt("peso"));
 					e.setRepeticiones(rs.getInt("repeticiones"));
 					e.setSeries(rs.getInt("series"));
-					
+					e.setIdrutina(rs.getInt("idrutina"));
 					
 					ejer.add(e);
 				}
@@ -78,6 +78,7 @@ public class dataEjercicio {
 					elEjer.setPeso(rs.getInt("peso"));
 					elEjer.setRepeticiones(rs.getInt("repeticiones"));
 					elEjer.setSeries(rs.getInt("series"));
+					elEjer.setIdrutina(rs.getInt("idrutina"));
 					
 				}
 				
@@ -110,13 +111,14 @@ public class dataEjercicio {
 			
 				if(rs!=null && rs.next())
 				{
-					elEjer=new Ejercicio(idEjercicio, idEjercicio, idEjercicio, buscabyID, buscabyID, idEjercicio);
+					elEjer=new Ejercicio();
 					elEjer.setIdEjercicio(rs.getInt("idEjercicio"));
 					elEjer.setDescripcion(rs.getString("descripcion"));
 					elEjer.setNombre_maquina(rs.getString("nombre_maquina"));
 					elEjer.setPeso(rs.getInt("peso"));
 					elEjer.setRepeticiones(rs.getInt("repeticiones"));
 					elEjer.setSeries(rs.getInt("series"));
+					elEjer.setIdrutina(rs.getInt("idrutina"));
 				}
 			} 
 		catch (SQLException e) 
@@ -142,12 +144,18 @@ public class dataEjercicio {
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(newEjer);
 				
-			ps.setInt(1, ej.getIdEjercicio());
-			ps.setString(2, ej.getDescripcion());
-			ps.setString(3, ej.getNombre_maquina());
-			ps.setInt(4, ej.getPeso());
-			ps.setInt(5, ej.getRepeticiones());
-			ps.setInt(6, ej.getSeries());
+			ps.setInt(1, ej.getRepeticiones());
+			ps.setInt(2, ej.getPeso());
+			ps.setInt(3, ej.getSeries());
+			ps.setString(4, ej.getDescripcion());
+			
+			ps.setString(5, ej.getNombre_maquina());
+			ps.setInt(6, ej.getIdEjercicio());
+	
+			
+			
+			
+			ps.setInt(7, ej.getIdrutina());
 			ps.executeUpdate();
 			
 	 		}

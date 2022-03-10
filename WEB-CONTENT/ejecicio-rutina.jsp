@@ -52,7 +52,7 @@ else{
 					p=pu.getBylegajo(ru.getLegajo());   %>
 				<td class="text-center"><%=p.getNombre()+" "+p.getApellido() %></td>
 				<td>
-				<a href="rutina-nuevo.jsp?dni=<%=ru.getIdRutina()%>"class="btn btn-info btn-sm">Seleccionar</a>
+				<a href="ejercicio-nuevo.jsp?idrutina=<%=ru.getIdRutina()%>"class="btn btn-info btn-sm">Seleccionar</a>
 			
 				</td>
 			</tr>
