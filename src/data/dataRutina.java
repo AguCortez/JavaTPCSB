@@ -11,11 +11,11 @@ import entites.Rutina;
 
 public class dataRutina {
 	
-	private String buscabyidRutina = "select * from Rutina where idRutina LIKE %?";
-	private String getOnebyidRutina="select * from Rutina where idRutina=? ";
-	private String newRutina="insert into Rutina (`dia`, `idRutina`, `dni`, `dniP`, `id_ejer`) VALUES (?,?,?,?,?)";
-	private String deleteRutina= "delete from Rutina where idRutina=?";
-	private String modifica= "UPDATE Rutina SET `dia` = ?,`idRutina` =?,`dni` = ?,`dniP` = ? WHERE `idRutina` = ?";
+	private String buscabyidRutina = "select * from rutina where idRutina LIKE %?";
+	private String getOnebyidRutina="select * from rutina where idRutina=? ";
+	private String newRutina="insert into rutina (`dia`, `idRutina`, `dni`, `dniP`, `id_ejer`) VALUES (?,?,?,?,?)";
+	private String deleteRutina= "delete from rutina where idRutina=?";
+	private String modifica= "UPDATE rutina SET `dia` = ?,`idRutina` =?,`dni` = ?,`dniP` = ? WHERE `idRutina` = ?";
 	
 	public LinkedList<Rutina> getAll(){
 		
@@ -28,7 +28,7 @@ public class dataRutina {
 		
 		try {
 			stmt= dbConector.getInstancia().getConn().createStatement();
-			rs= stmt.executeQuery("select * from Rutina");
+			rs= stmt.executeQuery("select * from rutina");
 			
 			if(rs!=null) {
 				while(rs.next()) {

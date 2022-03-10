@@ -91,7 +91,7 @@ nombre = request.getParameter ("txtNombre");
 actual_cupo = request.getParameter ("txtActual_cupos");
 dia = request.getParameter("txtDia");
 hora = request.getParameter("txtHora");
-legajo_prof= request.getParameter()
+legajo_prof= request.getParameter();
 descripcion = request.getParameter("txtDescripcion");
 
 

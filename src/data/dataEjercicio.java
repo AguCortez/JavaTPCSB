@@ -11,8 +11,8 @@ import entites.Ejercicio;
 
 public class dataEjercicio {
 	
-	private String buscabyID = "select * from Ejercicio where idejercicio LIKE %?";
-	private String getOnebyID="select * from Ejercicio where idejercicio=? ";
+	private String buscabyID = "select * from ejercicio where idejercicio LIKE %?";
+	private String getOnebyID="select * from ejercicio where idejercicio=? ";
 	private String newEjer="insert into ejercio (`repeticiones`, `peso`, `series`, `descripcion`, `nombre_maquina`, `idejercicio`, `idrutina`) VALUES (?,?,?,?,?,?,?)";
 	private String deleteEjer= "delete from socio where dni=?";
 	private String modifica= "UPDATE ejercicio SET `repeticiones` = ?,`peso` =?,`series` = ?,`descripcion` = ?,`nombre_maquina` = ?,`idejercicio` = ?,`idrutina` =? WHERE `idejercicio` = ?";
@@ -26,7 +26,7 @@ public class dataEjercicio {
 		
 		try {
 			stmt= dbConector.getInstancia().getConn().createStatement();
-			rs= stmt.executeQuery("select * from Ejercicio");
+			rs= stmt.executeQuery("select * from ejercicio");
 			
 			if(rs!=null) {
 				while(rs.next()) {

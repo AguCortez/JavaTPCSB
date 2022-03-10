@@ -37,7 +37,7 @@
 	<form class="form">
 	<table>
 		<tr>
-			<td><a class = "btn btn-success btn-lg" href="ejercicio-nuevo.jsp">Nuevo Ejercicio</a></td>
+			<td><a class = "btn btn-success btn-lg" href="ejecicio-rutina.jsp">Nuevo Ejercicio</a></td>
 			<td></td>
 			<td></td>
 			<td></td>

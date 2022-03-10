@@ -50,6 +50,7 @@
         <li class="nav-item">
           <a class="nav-link active" href="inscripcion.jsp"> Inscribirse a una clase </a>
         </li>
+        
         <li class="nav-item">
         <a class= "nav-link active" href='index.jsp?cerrar=true'> <h5>Cerrar Sesion </h5></a>"
          </li>l
