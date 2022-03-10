@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.UUID;
 
 import data.DataUsuario;
+import data.dataClase;
 import data.dataSocio;
 
 import entites.Clase;
@@ -27,11 +28,11 @@ import data.dataEjercicio;
 public class login {
 
 	public static void main(String[] args) {
-		dataRutina dp= new dataRutina();
-		LinkedList<Rutina> pr= new LinkedList<>();
-		pr=dp.getAll();
-		for (Rutina p: pr) {
-			System.out.println(p.getIdRutina());
+		dataClase dc = new dataClase();
+		LinkedList<Clase> cl=new LinkedList<Clase>();
+		cl=dc.getAll();
+		for(Clase c : cl) {
+			System.out.println(c.getDescripcion());
 		}
 	}
 	}

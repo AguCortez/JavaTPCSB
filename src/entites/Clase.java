@@ -35,10 +35,10 @@ public class Clase {
 	public void setDia(String dia) {
 		this.dia = dia;
 	}
-	public Time getHora() {
+	public String getHora() {
 		return hora;
 	}
-	public void setHora(Time hora) {
+	public void setHora(String hora) {
 		this.hora = hora;
 	}
 	public String getDescripcion() {
@@ -51,7 +51,7 @@ public class Clase {
 	private String nombre;
 	private int actual_cupos;
 	private String dia;
-	private Time hora;
+	private String hora;
 	private String descripcion;
 	private int legajo_prof;
 
@@ -63,7 +63,7 @@ public class Clase {
 	}
 	
 
-public Clase(int total_cupo, int id, String nombre, int actual_cupos, String dia, Time hora, String descripcion, int legajo_prof) {
+public Clase(int total_cupo, int id, String nombre, int actual_cupos, String dia, String hora, String descripcion, int legajo_prof) {
 	this.setTotal_cupo(total_cupo);
 	this.setId(id);
 	this.setNombre(nombre);

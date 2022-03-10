@@ -34,7 +34,6 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="clases-tabla.jsp">Clases</a>
-            <a class="dropdown-item" href="cuotas-tabla.jsp">Cuotas</a>
             <a class="dropdown-item" href="ejercicio-tabla.jsp">Ejercicio</a>
             <a class="dropdown-item" href="profesional-tabla.jsp">Profesional</a>
             <a class="dropdown-item" href="reservas-tabla.jsp">Reservas</a>

@@ -38,7 +38,22 @@ profesionalUtil pu=new profesionalUtil();
 		<h1>Agregar nueva clase </h1>	
 		<hr>
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
+				<a href="clases-agrega-prof.jsp"class="btn btn-warning btn-sm">Agregar Profesionales</a>
 				
+				<% String dniprofe1= request.getParameter("dni");
+				if (dniprofe1 !=null){
+				int dnipr=Integer.parseInt(request.getParameter("dni"));
+				Profesional p = new Profesional(); 
+				profesionalUtil profe=new profesionalUtil();
+				p=profe.getBylegajo(dnipr);
+				%>
+				PROFESIONAL A CARGO:
+				
+				<input type = "text" name= "txtProfesional" class = "form-control"  value = "<%=p.getNombre()+" "+p.getApellido()%>" disable readonly/>
+
+<%} %>
+				<br>
+				<br>
 				TOTAL CUPO:
 				<input type = "text" name= "txtTotal_cupo" class = "form-control"/>
 				<br>
@@ -57,31 +72,25 @@ profesionalUtil pu=new profesionalUtil();
 				HORA:
 				<input type = "text" name = "txtHora" class = "form-control"/>
 				<br>
-						
-				<br>
-				
 				DESCRIPCION:
 				<input type = "text" name = "txtDescripcion" class = "form-control"/>
 				<br>
 				<br>
-				
+			
+			
+			
+				<br>
+				<br>
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
-				<%
 				
-				}else{
-				%>
-				Ingrese un DNI de profesional vlaido.
-				<%} %>
-				<a href= "clases-tabla.jsp"> Regresar</a>				
-		
-		
+				
 		</form>
 	</div>
 </body>
 
-<%	
+<%
 
 String nombre, descripcion, dia, total_cupo, id, actual_cupo,  hora, legajo_prof; 
 
@@ -91,14 +100,14 @@ nombre = request.getParameter ("txtNombre");
 actual_cupo = request.getParameter ("txtActual_cupos");
 dia = request.getParameter("txtDia");
 hora = request.getParameter("txtHora");
-legajo_prof= request.getParameter();
+
 descripcion = request.getParameter("txtDescripcion");
 
 
 
-if (total_cupo!= null && id!= null && nombre!= null && actual_cupo!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null)
+if (total_cupo!= null && id!= null && nombre!= null && actual_cupo!= null && dia!= null && hora!= null &&  descripcion!= null)
 	{
-		c.altaClase(Integer.parseInt(id), Integer.parseInt(total_cupo), nombre,	Integer.parseInt(actual_cupo), dia, hora, descripcion, Integer.parseInt(legajo_prof));
+		c.altaClase(Integer.parseInt(id), Integer.parseInt(total_cupo), nombre,	Integer.parseInt(actual_cupo), dia, hora, descripcion, 0);
 		response.sendRedirect("clases-tabla.jsp");
 	}
 	%>
