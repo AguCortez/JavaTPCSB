@@ -2,7 +2,7 @@
 <%@page import="java.io.PrintWriter"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
-<%@page import="util.rutinaUtil"%>
+<%@page import="util.*"%>
 <%@ include file="menu-header.jsp"%>
 <body>	
 <%
@@ -52,6 +52,7 @@ else{
 				<th class="text-center">dia</th>
 				<th class="text-center">id-Rutina</th>
 				<th class="text-center"> Profesional</th>
+				<th class="text-center"> Tiporutina</th>
 			</tr>
 			<%
 			for (Rutina ru: rutinas){
@@ -61,6 +62,13 @@ else{
 				<td class="text-center"><%=ru.getDia() %></td>
 				<td class="text-center"><%=ru.getIdRutina() %></td>
 				<td class="text-center"><%=ru.getLegajo() %></td>
+				
+				<% TipoRutina ri=new TipoRutina();
+					tiporutinaUtil ra=new tiporutinaUtil();
+					ri=ra.getByID(ru.getIdtiporutina());   %>
+				<td class="text-center"><%=ri.getDescripcion()%></td>
+				
+				
 				<td>
 				<a href="rutina-editar.jsp?dni=<%=ru.getDni() %>"class="btn btn-warning btn-sm">Editar</a>
 			

@@ -13,9 +13,9 @@ public class dataRutina {
 	
 	private String buscabyidRutina = "select * from rutina where idRutina LIKE %?";
 	private String getOnebyidRutina="select * from rutina where idRutina=? ";
-	private String newRutina="insert into rutina (`dia`, `idRutina`, `dni`, `dniP`, `id_ejer`) VALUES (?,?,?,?,?)";
+	private String newRutina="insert into rutina (`dia`, `idRutina`, `dni`, `dniP`, `id_ejer`, `idtiporutina`) VALUES (?,?,?,?,?,?)";
 	private String deleteRutina= "delete from rutina where idRutina=?";
-	private String modifica= "UPDATE rutina SET `dia` = ?,`idRutina` =?,`dni` = ?,`dniP` = ? WHERE `idRutina` = ?";
+	private String modifica= "UPDATE rutina SET  `dia` = ?,`idRutina` =?,`dni` = ?,`dniP` = ? WHERE `idRutina` = ?, `idtiporutina` = ?";
 	
 	public LinkedList<Rutina> getAll(){
 		
@@ -34,10 +34,12 @@ public class dataRutina {
 				while(rs.next()) {
 					Rutina r=new Rutina();
 					
+					
 					r.setDia(rs.getString("dia"));
 					r.setIdRutina(rs.getInt("idRutina"));
 					r.setDni(rs.getInt("dni"));
 					r.setLegajo(rs.getInt("dniP"));
+					r.setIdtiporutina(rs.getInt("idtiporutina"));
 									
 					
 					rut.add(r);
@@ -72,10 +74,12 @@ public class dataRutina {
 				if(rs!=null && rs.next())
 				{
 					laRutina=new Rutina();
+					
 					laRutina.setDia(rs.getString("dia"));
 					laRutina.setIdRutina(rs.getInt("idRutina"));
 					laRutina.setDni(rs.getInt("dni"));
 					laRutina.setLegajo(rs.getInt("dniP"));
+					laRutina.setIdtiporutina(rs.getInt("idtiporutina"));
 				}
 				
 			} 
@@ -108,6 +112,7 @@ public class dataRutina {
 			ps.setInt(3,r.getDni());
 			ps.setInt(4,r.getLegajo());
 			ps.setInt(5,r.getId_ejer());
+			ps.setInt(6,r.getIdtiporutina());
 			ps.executeUpdate();
 	 		}
 		catch(SQLException e)
@@ -157,6 +162,7 @@ public class dataRutina {
 			ps.setInt(3,r.getDni());
 			ps.setInt(4,r.getLegajo());
 			ps.setInt(5, idRutinaold); 
+			ps.setInt(6,r.getIdtiporutina());
 			ps.executeUpdate();
 		}
 		catch(SQLException e)
@@ -193,6 +199,7 @@ public class dataRutina {
 					r.setIdRutina(rs.getInt("idRutina"));
 					r.setDni(rs.getInt("dni"));
 					r.setLegajo(rs.getInt("dniP"));
+					r.setIdtiporutina(rs.getInt("idtiporutina"));
 									
 					
 					rutinas.add(r);
