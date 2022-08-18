@@ -54,10 +54,6 @@ else{
 					p=pu.getBylegajo(ru.getLegajo());   %>
 				<td class="text-center"><%=p.getNombre()+" "+p.getApellido() %></td>
 				
-				<% TipoRutina ri=new TipoRutina();
-					tiporutinaUtil ra=new tiporutinaUtil();
-					ri=ra.getByID(ru.getIdtiporutina());   %>
-				<td class="text-center"><%=ri.getDescripcion()%></td>
 				
 			
 				
