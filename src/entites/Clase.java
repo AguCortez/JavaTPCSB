@@ -54,7 +54,6 @@ public class Clase {
 	private String hora;
 	private String descripcion;
 	private int legajo_prof;
-
 	public int getLegajo_prof() {
 		return legajo_prof;
 	}
@@ -76,8 +75,5 @@ public Clase(int total_cupo, int id, String nombre, int actual_cupos, String dia
 }
 	
 	public Clase() {
-		
-	
-	
 }
 }
