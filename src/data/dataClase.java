@@ -74,9 +74,9 @@ public class dataClase {
 				{
 					laClase=new Clase();
 					laClase.setId(rs.getInt("codigo"));
-					laClase.setTotal_cupo(rs.getInt("total cupos"));
+					laClase.setTotal_cupo(rs.getInt("total_cupos"));
 					laClase.setNombre(rs.getString("nombre"));
-					laClase.setActual_cupos(rs.getInt("actual cupos"));
+					laClase.setActual_cupos(rs.getInt("actual_cupos"));
 					laClase.setDia(rs.getString("dia"));
 					laClase.setHora(rs.getString("hora"));
 					laClase.setDescripcion(rs.getString("descripcion"));
@@ -203,9 +203,9 @@ public class dataClase {
 					Clase c=new Clase();
 					
 					c.setId(rs.getInt("codigo"));
-					c.setTotal_cupo(rs.getInt("total cupos"));
+					c.setTotal_cupo(rs.getInt("total_cupos"));
 					c.setNombre(rs.getString("nombre"));
-					c.setActual_cupos(rs.getInt("actual cupos"));
+					c.setActual_cupos(rs.getInt("actual_cupos"));
 					c.setDia(rs.getString("dia"));	
 					c.setHora(rs.getString("hora"));
 					c.setDescripcion(rs.getString("descripcion"));

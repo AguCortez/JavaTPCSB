@@ -37,7 +37,7 @@ else{
 	<form class="form">
 	<table>
 		<tr>
-			<td><a class = "btn btn-success btn-lg" href="tablanuevosoc.jsp">Nueva Reserva</a></td>
+			<td><a class = "btn btn-success btn-lg" href="reservas-nuevo.jsp">Nueva Reserva</a></td>
 			<td></td>
 			<td></td>
 			<td></td>
