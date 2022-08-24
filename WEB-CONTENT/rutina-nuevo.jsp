@@ -73,7 +73,7 @@ else{
 		
 		if (idr!= null && dniSoc != null && dniProf != null && dia != null && idEj != null )
 			{
-			 ru.altaRutina(dia, Integer.parseInt(idr), Integer.parseInt(dniSoc), Integer.parseInt(dniProf),Integer.parseInt(idEj));
+			 // ru.altaRutina(dia, Integer.parseInt(idr), Integer.parseInt(dniSoc), Integer.parseInt(dniProf),Integer.parseInt(idEj));
 			 response.sendRedirect("rutina-tabla.jsp");
 			}
 			%>

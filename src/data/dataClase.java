@@ -38,7 +38,7 @@ public class dataClase {
 					c.setActual_cupos(rs.getInt("actual_cupos"));
 					c.setDia(rs.getString("dia"));
 					c.setHora(rs.getString("hora"));				
-					c.setDescripcion(rs.getString("descricion"));
+					c.setDescripcion(rs.getString("descripcion"));
 					c.setLegajo_prof(rs.getInt("legajo"));
 					
 					clases.add(c);

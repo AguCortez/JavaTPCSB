@@ -9,27 +9,4 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-
-
-  <servlet>
-  	<description></description>
-  	<display-name>LoginVer</display-name>>
-  	<servlet-name>LoginVer</servlet-name>
-  	<servlet-class>servlet.LoginVer</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  <http-method>POST</http-method>
-  	<servlet-name>LoginVer</servlet-name>
-  	<url-pattern>/LoginVer</url-pattern>
-  </servlet-mapping>	
-  <servlet>
-        <description></description>
-        <display-name>LoginServlet</display-name>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.login.controller.LoginServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/LoginServlet</url-pattern>
-    </servlet-mapping>	
 </web-app>

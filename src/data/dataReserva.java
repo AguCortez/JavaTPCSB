@@ -8,7 +8,7 @@ import entites.Reserva;
 public class dataReserva { 
 	
 	private String buscabyIdreserva = "select * from reserva where idreserva LIKE %?";
-	private String getOnebyDNI="select * from eeserva where dni=? ";
+	private String getOnebyDNI="select * from reserva where dni=? ";
 	
 	private String newReserva="insert into reserva (`idreserva`, , `dni`, `codigo`) VALUES (?,?,?,?)";
 	private String deleteReserva= "delete from reserva where dni=?";
@@ -41,7 +41,7 @@ public class dataReserva {
 				while(rs.next()) {
 					Reserva r=new Reserva();
 					
-					r.setId_reserva(rs.getInt("id reserva"));
+					r.setId_reserva(rs.getInt("idreserva"));
 					
 					r.setDni(rs.getInt("dni"));								
 					res.add(r);
