@@ -23,7 +23,7 @@ else{
 }
 %>	
 	<div class="container">
-	<h1>Seleccione a que rutina quiere a�adirle el ejercicio </h1>
+	<h1>Seleccione a que rutina </h1>
 	<hr>
 	
 	<%

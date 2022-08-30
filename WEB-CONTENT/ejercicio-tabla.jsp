@@ -21,7 +21,7 @@
 	<form class="form">
 	<table>
 		<tr>
-			<td><a class = "btn btn-success btn-lg" href="ejecicio-rutina.jsp">Nuevo Ejercicio</a></td>
+			<td><a class = "btn btn-success btn-lg" href="ejercicio-rutina.jsp">Nuevo Ejercicio</a></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -71,6 +71,4 @@
 			}%>
 			
 		</table>
-	</div>
-</body>
-</html>
+	<%@ include file="menu-foot.jsp" %>
