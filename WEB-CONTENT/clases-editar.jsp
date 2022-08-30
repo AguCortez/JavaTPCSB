@@ -85,7 +85,6 @@ else{
 			
 			if (total_cupo!= null && id!= null && nombre!= null && actual_cupo!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null )
 			{
-				Time hs=Time.valueOf(hora);
 				laclase.setId(Integer.parseInt(id));
 				laclase.setTotal_cupo(Integer.parseInt(total_cupo));
 				laclase.setNombre(nombre);
