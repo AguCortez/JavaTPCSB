@@ -12,8 +12,8 @@ import entites.Socio;
 
 public class dataClase {
 	
-	private String buscabyNombre = "select * from clase where nombre LIKE %?";
-	private String getOnebyCodigo="select * from clase where codigo=? ";
+	private String buscabyNombre = "select * from clase where `nombre` LIKE %?";
+	private String getOnebyCodigo="select * from clase where `codigo` =? ";
 	private String newClase="insert into clase (`codigo`, `total_cupos`, `nombre`, `actual_cupos`, `dia`, `hora`,`descripcion`,`legajo`) VALUES (?,?,?,?,?,?,?,?)";
 	private String deleteClase= "delete from clase where codigo=?";
     private String modifica= "UPDATE clase SET `codigo` = ?,`total_cupos` =?,`nombre` = ?,`actual_cupos` = ?,`dia` = ?,`hora` =?, `descripcion` = ?,`legajo` = ? WHERE `codigo` = ?;";
@@ -231,6 +231,4 @@ public class dataClase {
 		return clases;
 	}
 
-		
-	
 }

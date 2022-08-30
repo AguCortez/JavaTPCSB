@@ -39,13 +39,10 @@ else{
 			<td></td>
 			<td></td>
 			<td></td>
-			
-			<td>
-			<input class="form-control" type="text" name="txtbuscar">
-			</td>
-			<td>
-			<input class="btn btn" type="submit" value="Buscar">	
-			</td>
+			<form class="form-inline">
+				<input class="form-control" type="search" name="txtbuscar">
+				<input class="btn btn-out" type="submit" name = "accion" value="Buscar">	
+			</form>
 		</tr>
 	</table>
 	</form>	
@@ -55,7 +52,6 @@ else{
 			
 		
 		
- 		
 			%>
 		<br>
 		<br>
@@ -92,6 +88,7 @@ else{
 				</td>
 			</tr>
 			<%	}	%>
+			
 			
 		</table>
 <%@ include file="menu-foot.jsp" %>
