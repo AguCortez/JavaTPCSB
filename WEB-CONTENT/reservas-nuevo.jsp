@@ -32,7 +32,7 @@ else{
 		<h1>Agregar nueva reserva </h1>	
 		<hr>
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
-				CODIGO:
+				CODIGO DE CLASE:
 				<input type = "text" name= "txtCodigo" class = "form-control"/>
 				<br>
 				DNI:
@@ -63,7 +63,7 @@ else{
 	
 
 	if (codigo!= null && dni != null && id_reserva != null )
-	{	r.altaReserva(Integer.parseInt(id_reserva),Integer.parseInt( dni), codigo);
+	{	r.altaReserva(Integer.parseInt(id_reserva),Integer.parseInt(dni), codigo);
 		response.sendRedirect("reservas-tabla.jsp");
 	}
 	%>

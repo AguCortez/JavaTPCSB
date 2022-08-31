@@ -14,7 +14,7 @@
 	profesionalUtil pr= new profesionalUtil();
 	pr.bajaProfesional(dni);
 	
-	response.sendRedirect("profesional-borrar.jsp");
+	response.sendRedirect("profesional-tabla.jsp");
 
 %>
 </body>

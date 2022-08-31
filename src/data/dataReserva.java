@@ -10,9 +10,9 @@ public class dataReserva {
 	private String buscabyIdreserva = "select * from reserva where idreserva LIKE %?";
 	private String getOnebyDNI="select * from reserva where dni=? ";
 	
-	private String newReserva="insert into reserva (`idreserva`, `dni`, `codigo`) VALUES (?,?,?)";
+	private String newReserva="insert into reserva (`idreserva`, `dni`, `codigo`,`fecha`) VALUES (?,?,?,?)";
 	private String deleteReserva= "delete from reserva where dni=?";
-	private String modifica= "UPDATE reserva SET `idreserva` = ?,`dni` = ? WHERE `dni` = ?";
+	private String modifica= "UPDATE reserva SET `idreserva` = ?,`dni` = ?,`codigo`,`fecha` WHERE `dni` = ?";
 	
 	public LinkedList<Reserva> getxDNI(int dni)
 	{
@@ -44,6 +44,7 @@ public class dataReserva {
 					r.setId_reserva(rs.getInt("idreserva"));
 					r.setDni(rs.getInt("dni"));								
 					r.setCodigo(rs.getString("codigo"));
+					r.setFecha(rs.getDate("fecha"));
 					res.add(r);
 				}
 			}
@@ -81,6 +82,8 @@ public class dataReserva {
 					
 					laReserva.setDni(rs.getInt("dni"));
 					
+					laReserva.setFecha(rs.getDate("fecha"));
+					
 					
 				}
 				
@@ -111,7 +114,8 @@ public class dataReserva {
 				
 			ps.setInt(1, r.getId_reserva());
 			ps.setString(3, r.getCodigo());
-			ps.setInt(2,r.getDni());			
+			ps.setInt(2,r.getDni());
+			ps.setDate(4, r.getFecha());
 			ps.executeUpdate();
 	 		}
 		catch(SQLException e)
@@ -161,7 +165,8 @@ public class dataReserva {
 			
 			ps.setInt(2,r.getDni());
 			ps.setString(3,r.getCodigo());
-			ps.setInt(4, idreservaold);
+			ps.setDate(4, r.getFecha());
+			ps.setInt(5, idreservaold);
 			ps.executeUpdate();
 		}
 		catch(SQLException e)

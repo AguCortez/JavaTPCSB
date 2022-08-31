@@ -12,11 +12,11 @@ import entites.*;
 
 public class dataTiporutina {
 	
-	private String buscabyIdtipo = "select * from tiporutina where id_tipo LIKE %?";
-	private String getOnebyIdtipo="select * from tiporutina where id_tipo=? ";
-	private String newTiporutina="insert into tiporutina (`id_tipo`, `descripcion`) VALUES (?,?)";
-	private String deleteTiporutina= "delete from tiporutina where id_tipo=?";
-	private String modifica= "UPDATE tiporutina SET `id_tipo` = ?,`descripcion` =? WHERE `id_tipo` = ?";
+	private String buscabyIdtipo = "select * from tiporutina where idtipo LIKE %?";
+	private String getOnebyIdtipo="select * from tiporutina where idtipo=? ";
+	private String newTiporutina="insert into tiporutina (`idtipo`, `descripcion`) VALUES (?,?)";
+	private String deleteTiporutina= "delete from tiporutina where idtipo=?";
+	private String modifica= "UPDATE tiporutina SET `idtipo` = ?,`descripcion` =? WHERE `idtipo` = ?";
 	
 	
 	
@@ -37,7 +37,7 @@ public LinkedList<TipoRutina> getAll(){
 				while(rs.next()) {
 					TipoRutina t=new TipoRutina();
 					
-					t.setId_tipo(rs.getInt("id_tipo"));
+					t.setId_tipo(rs.getInt("idtipo"));
 					t.setDescripcion(rs.getString("descripcion"));
 					
 					tip.add(t);
@@ -72,7 +72,7 @@ public LinkedList<TipoRutina> getAll(){
 				if(rs!=null && rs.next())
 				{
 					laTipoRutina = new TipoRutina();
-					laTipoRutina.setId_tipo(rs.getInt("id_tipo"));
+					laTipoRutina.setId_tipo(rs.getInt("idtipo"));
 					laTipoRutina.setDescripcion(rs.getString("descripcion"));
 				}
 				

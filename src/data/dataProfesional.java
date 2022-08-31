@@ -14,7 +14,7 @@ public class dataProfesional {
 	private String getOnebyLEGAJO="select * from profesional where dni=? ";
 	
 	private String newProfesional="insert into profesional (`dni`, `nombre`, `apellido`, `contrasenia`) VALUES (?,?,?,?)";
-	private String deleteProfesional= "delete from profesional where 'dni' =?";
+	private String deleteProfesional= "delete from profesional where dni = ?";
 	private String modifica= "UPDATE profesional SET `dni` = ?,`nombre` =?,`apellido` = ?,`contrasenia` = ? WHERE `dni` = ?";
 
 	
