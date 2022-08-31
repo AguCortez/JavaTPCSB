@@ -41,11 +41,13 @@ profesionalUtil pu=new profesionalUtil();
 				<a href="clases-agrega-prof.jsp"class="btn btn-warning btn-sm">Agregar Profesionales</a>
 				
 				<% String dniprofe1= request.getParameter("dni");
+				Profesional p=null;
 				if (dniprofe1 !=null){
 				int dnipr=Integer.parseInt(request.getParameter("dni"));
-				Profesional p = new Profesional(); 
+				p = new Profesional(); 
 				profesionalUtil profe=new profesionalUtil();
 				p=profe.getBylegajo(dnipr);
+				
 				%>
 				PROFESIONAL A CARGO:
 				
@@ -107,7 +109,7 @@ descripcion = request.getParameter("txtDescripcion");
 
 if (total_cupo!= null && id!= null && nombre!= null && actual_cupo!= null && dia!= null && hora!= null &&  descripcion!= null)
 	{
-		c.altaClase(Integer.parseInt(id), Integer.parseInt(total_cupo), nombre,	Integer.parseInt(actual_cupo), dia, hora, descripcion, 0);
+		c.altaClase(Integer.parseInt(id), Integer.parseInt(total_cupo), nombre,	Integer.parseInt(actual_cupo), dia, hora, descripcion, p.getDni());
 		response.sendRedirect("clases-tabla.jsp");
 	}
 	%>
