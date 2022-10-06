@@ -2,7 +2,7 @@
 <%@page import="util.*" %>
 <%@page import= "entites.*" %>
 <%@page import="java.util.LinkedList" %>
-<%@include file="menu-header.jsp" %>
+<%@include file="../menu-header.jsp" %>
 <% 
 	HttpSession sesion= request.getSession();
 	String user, lvl;	
@@ -91,4 +91,4 @@ else{
 			
 			
 		</table>
-<%@ include file="menu-foot.jsp" %>
+<%@ include file="../menu-foot.jsp" %>

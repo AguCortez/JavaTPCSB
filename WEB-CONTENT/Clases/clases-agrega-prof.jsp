@@ -3,7 +3,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
 <%@page import="util.*"%>
-<%@ include file="menu-header.jsp"%>
+<%@ include file="../menu-header.jsp"%>
 <body>	
 <%
 	profesionalUtil p =new profesionalUtil();
@@ -19,7 +19,7 @@ if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
 
 	}
 else{
-	out.print("<script>location.replace('index.jsp');</script>"); 
+	out.print("<script>location.replace('../index.jsp');</script>"); 
 }
 %>	
 	<div class="container">
@@ -47,4 +47,4 @@ else{
 				
 			
 		</table>
-<%@ include file="menu-foot.jsp" %>
+<%@ include file="../menu-foot.jsp" %>

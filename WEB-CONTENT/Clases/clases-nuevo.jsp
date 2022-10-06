@@ -25,7 +25,7 @@ if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
 
 	}
 else{
-	out.print("<script>location.replace('index.jsp');</script>"); 
+	out.print("<script>location.replace('../index.jsp');</script>"); 
 }
 %>
 <%	
@@ -115,11 +115,13 @@ if (total_cupo!= "" && id!= "" && nombre!= "" && actual_cupo!= "" && dia!= "" &&
 	}
 
 
+
 else
 	
 {
 	out.print("Rellenar todos los campos");
 
 }
+
 
 	%>

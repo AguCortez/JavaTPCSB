@@ -38,7 +38,7 @@
             <a class="dropdown-item" href="profesional-tabla.jsp">Profesional</a>
             <a class="dropdown-item" href="reservas-tabla.jsp">Reservas</a>
             <a class="dropdown-item" href="socio-tabla.jsp">Socios</a>
-            <a class="dropdown-item" href="rutina-tabla.jsp">Rutina</a>
+            <a class="dropdown-item" href="Rutinas/rutina-tabla.jsp">Rutina</a>
 
          
           </div>

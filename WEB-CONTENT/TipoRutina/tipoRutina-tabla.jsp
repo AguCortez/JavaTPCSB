@@ -3,7 +3,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
 <%@page import="util.tiporutinaUtil"%>
-<%@ include file="menu-header.jsp"%>
+<%@ include file="../menu-header.jsp"%>
 <body>	
 <%
 	tiporutinaUtil tr =new tiporutinaUtil();

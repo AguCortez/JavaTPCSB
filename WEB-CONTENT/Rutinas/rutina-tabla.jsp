@@ -3,6 +3,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
 <%@page import="util.*"%>
+
 <%@ include file="menu-header.jsp"%>
 <body>	
 <%
@@ -28,6 +29,7 @@ else{
 	<form class="form">
 	<table>
 		<tr>
+			<td><a class = "btn btn-success btn-lg" href="Rutinas/laRutina.jsp">Mis Rutinas</a></td>
 			<td><a class = "btn btn-success btn-lg" href="rutina-nuevo.jsp">Nueva Rutina</a></td>
 			<td></td>
 			<td></td>
