@@ -51,8 +51,8 @@
         </li>
         
         <li class="nav-item">
-        <a class= "nav-link active" href='index.jsp?cerrar=true'> <h5> Cerrar Sesion </h5></a>"
-         </li>l
+        <a class= "nav-link active" href='index.jsp?cerrar=true'> <h5> Cerrar Sesion </h5></a>
+         </li>
       </ul>
 
     </div>
