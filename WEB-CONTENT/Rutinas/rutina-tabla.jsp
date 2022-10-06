@@ -4,7 +4,7 @@
 <%@page import="entites.*"%>
 <%@page import="util.*"%>
 
-<%@ include file="menu-header.jsp"%>
+<%@ include file="../menu-header.jsp"%>
 <body>	
 <%
 	rutinaUtil r =new rutinaUtil();
@@ -80,4 +80,4 @@ else{
 			<%	}	%>
 			
 		</table>
-<%@ include file="menu-foot.jsp" %>
+<%@ include file="../menu-foot.jsp" %>

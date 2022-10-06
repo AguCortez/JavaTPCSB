@@ -2,7 +2,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
 <%@page import="util.*"%>
-<%@ include file="menu-header.jsp"%>
+<%@ include file="../menu-header.jsp"%>
 <%
 		ejercicioUtil ej =new ejercicioUtil();
 		LinkedList<Ejercicio> ejers=new LinkedList<Ejercicio>();
@@ -71,4 +71,4 @@
 			}%>
 			
 		</table>
-	<%@ include file="menu-foot.jsp" %>
+	<%@ include file="../menu-foot.jsp" %>

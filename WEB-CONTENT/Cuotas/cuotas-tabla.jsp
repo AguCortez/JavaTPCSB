@@ -2,7 +2,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
 <%@page import="util.*"%>
-<%@include file="menu-header.jsp" %>
+<%@include file="../menu-header.jsp" %>
 <% 
 	HttpSession sesion= request.getSession();
 	String user, lvl;	
@@ -13,7 +13,7 @@ if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
 
 	}
 else{
-	out.print("<script>location.replace('index.jsp');</script>"); 
+	out.print("<script>location.replace('../index.jsp');</script>"); 
 }
 %>
 <%
@@ -86,5 +86,5 @@ else{
 			<%	}	%>
 			
 		</table>
-<%@ include file="menu-foot.jsp" %>
+<%@ include file="../menu-foot.jsp" %>
 

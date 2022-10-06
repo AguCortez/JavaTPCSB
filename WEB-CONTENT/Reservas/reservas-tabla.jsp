@@ -3,7 +3,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
 <%@page import="util.reservaUtil"%>
-<%@ include file="menu-header.jsp"%>s
+<%@ include file="../menu-header.jsp"%>s
 <body>	
 <%
 
@@ -88,4 +88,4 @@ else{
 			<%	}	%>
 			
 		</table>
-<%@ include file="menu-foot.jsp" %>
+<%@ include file="../menu-foot.jsp" %>

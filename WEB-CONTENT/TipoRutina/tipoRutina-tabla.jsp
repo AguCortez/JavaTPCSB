@@ -55,4 +55,4 @@
 			<%	}	%>
 			
 		</table>
-<%@ include file="menu-foot.jsp" %>
+<%@ include file="../menu-foot.jsp" %>
