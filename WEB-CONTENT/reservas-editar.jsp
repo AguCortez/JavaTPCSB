@@ -50,7 +50,7 @@
 			
 
 			
-			if (codigo!= null && dni != null && id_reserva != null )
+			if (codigo!= ""  && dni != ""  && id_reserva != ""  )
 			{
 				lareserva.setCodigo(codigo);
 				lareserva.setDni(Integer.parseInt(dni));
@@ -60,6 +60,16 @@
 				r.modReserva(lareserva, id_reserva1);
 				response.sendRedirect("reservas-tabla.jsp");
 			}
+			
+			else
+				
+			{
+				out.print("Rellenar todos los campos");
+
+			}
+			
+			
+			
 %>
 		</form> 
 	</div>

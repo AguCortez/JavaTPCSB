@@ -72,11 +72,23 @@ else{
 	contrase = request.getParameter ("txtcontra");
 	ape = request.getParameter ("txtApellido");
 	cel = request.getParameter ("txtCelular");
-	if (nom!= null && tipo != null && contrase != null && ape != null && cel != null)
+	if (nom!= "" && tipo != "" && contrase != "" && ape != "" && cel != "")
 	{
 		
 		usuarioUtil.altaSocioU(Integer.parseInt(dni), contrase);
 		s.altaSocio(Integer.parseInt(dni), tipo, contrase, nom, ape, cel);
 		response.sendRedirect("socio-tabla.jsp");
 	}
+	
+	else
+		
+	{
+		out.print("Rellenar todos los campos");
+
+	}
+	
+	
+	
+	
+	
 	%>

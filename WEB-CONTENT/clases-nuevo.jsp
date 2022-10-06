@@ -111,5 +111,15 @@ if (total_cupo!= "" && id!= "" && nombre!= "" && actual_cupo!= "" && dia!= "" &&
 	{
 		c.altaClase(Integer.parseInt(id), Integer.parseInt(total_cupo), nombre,	Integer.parseInt(actual_cupo), dia, hora, descripcion, p.getDni());
 		response.sendRedirect("clases-tabla.jsp");
+	
 	}
+
+
+else
+	
+{
+	out.print("Rellenar todos los campos");
+
+}
+
 	%>

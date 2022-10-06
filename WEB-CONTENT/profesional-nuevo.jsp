@@ -64,11 +64,21 @@ else{
 	contrase = request.getParameter ("txtcontra");
 	ape = request.getParameter ("txtApellido");
 	
-	if (nom!= null  && contrase != null && ape != null )
+	if (nom!= ""  && contrase != "" && ape != "" )
 	{
 		p.altaProfesional(nom, ape,Integer.parseInt(dni), contrase);
 
 
 		response.sendRedirect("profesional-tabla.jsp");
 	}
+	
+else
+		
+	{
+		out.print("Rellenar todos los campos");
+
+	}
+	
+
+	
 	%>

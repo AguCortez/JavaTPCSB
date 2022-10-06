@@ -46,7 +46,7 @@
 		descripcion=request.getParameter("txtDescripcion");
 
 
-		if (id!= null && descripcion != null )
+		if (id!= "" && descripcion != "" )
 			{
 			TipoRutina ntipo= new TipoRutina();
 			ntipo.setDescripcion(descripcion);
@@ -54,4 +54,15 @@
 			tr.altaTiporutina(ntipo);
 			 response.sendRedirect("tipoRutina-tabla.jsp");
 			}
+		
+		
+		else
+			
+		{
+			out.print("Rellenar todos los campos");
+
+		}
+		
+		
+		
 			%>

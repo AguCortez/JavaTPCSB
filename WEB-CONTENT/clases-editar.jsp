@@ -83,7 +83,7 @@ else{
 			
        
 			
-			if (total_cupo!= null && id!= null && nombre!= null && actual_cupo!= null && dia!= null && hora!= null && legajo_prof!= null &&  descripcion!= null )
+			if (total_cupo!= "" && id!= "" && nombre!= "" && actual_cupo!= "" && dia!= "" && hora!= "" && legajo_prof!= "" &&  descripcion!= "" )
 			{
 				laclase.setId(Integer.parseInt(id));
 				laclase.setTotal_cupo(Integer.parseInt(total_cupo));
@@ -97,6 +97,15 @@ else{
 				c.modClase(laclase, id1);
 				response.sendRedirect("clases-tabla.jsp");
 			}
+			
+			
+			else
+				
+			{
+				out.print("Rellenar todos los campos");
+
+			}
+			
 %>
 		</form> 
 	</div>

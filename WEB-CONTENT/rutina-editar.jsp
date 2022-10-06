@@ -64,7 +64,7 @@ else{
             dia=request.getParameter("txtDIA");			
 			
 			
-			if (idr!= null && dni != null && legajo != null && dia != null )
+			if (idr!= "" && dni != "" && legajo != "" && dia != "" )
 			{
 				laRutina.setDia(dia);
 				laRutina.setDni(Integer.parseInt(dni));
@@ -73,6 +73,16 @@ else{
 				r.modRutina(laRutina, id);
 				response.sendRedirect("rutina-tabla.jsp");
 			}
+			
+			
+			else
+				
+			{
+				out.print("Rellenar todos los campos");
+
+			}
+			
+			
 %>
 		</form> 
 	</div>

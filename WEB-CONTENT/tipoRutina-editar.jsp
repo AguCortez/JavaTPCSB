@@ -42,13 +42,23 @@
             id_tip= request.getParameter("txtID");
 			desc = request.getParameter("txtDescripcion");		
 			
-			if (id_tip!= null && desc != null)
+			if (id_tip!= "" && desc != "")
 			{
 				tipo.setId_tipo(Integer.parseInt(id_tip));
 				tipo.setDescripcion(desc);
 				tr.modTiporutina(tipo,id);
 				response.sendRedirect("tipoRutina-tabla.jsp");
 			}
+			
+			
+			else
+				
+			{
+				out.print("Rellenar todos los campos");
+
+			}			
+			
+			
 %>
 		</form> 
 	</div>

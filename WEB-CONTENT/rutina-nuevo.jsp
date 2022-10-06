@@ -71,9 +71,21 @@ else{
 		dia=request.getParameter("txtDIA");
 		idEj = request.getParameter("txtEJER");
 		
-		if (idr!= null && dniSoc != null && dniProf != null && dia != null && idEj != null )
+		if (idr!= "" && dniSoc != "" && dniProf != "" && dia != "" && idEj != "" )
 			{
 			 // ru.altaRutina(dia, Integer.parseInt(idr), Integer.parseInt(dniSoc), Integer.parseInt(dniProf),Integer.parseInt(idEj));
 			 response.sendRedirect("rutina-tabla.jsp");
 			}
+		
+		
+		else
+			
+		{
+			out.print("Rellenar todos los campos");
+
+		}
+		
+		
+		
+		
 			%>

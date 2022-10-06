@@ -62,8 +62,17 @@ else{
 	id_reserva = request.getParameter ("txtId_reserva");
 	
 
-	if (codigo!= null && dni != null && id_reserva != null )
+	if (codigo!= ""  && dni != ""  && id_reserva != ""  )
 	{	r.altaReserva(Integer.parseInt(id_reserva),Integer.parseInt(dni), codigo);
 		response.sendRedirect("reservas-tabla.jsp");
 	}
+	
+else
+		
+	{
+		out.print("Rellenar todos los campos");
+
+	}
+	
+	
 	%>

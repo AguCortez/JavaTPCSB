@@ -77,9 +77,21 @@ else{
 	descripcion = request.getParameter ("txtDescripcion");
 	nombre_maq = request.getParameter ("txtNombreMaq");
 
-	if (idEj!= null && idRutina != null && repeteciones != null && peso != null && nombre_maq != null && series != null && descripcion!= null )
+	if (idEj!= "" && idRutina != "" && repeteciones != "" && peso != "" && nombre_maq != "" && series != "" && descripcion!= "" )
 	{
 		e.NuevoEjercicio(Integer.parseInt(repeteciones),Integer.parseInt(peso), Integer.parseInt(series), descripcion, nombre_maq, Integer.parseInt(idEj), idrutina);
 		response.sendRedirect("ejercicio-tabla.jsp");
 	}
+	
+	
+	else
+		
+	{
+		out.print("Rellenar todos los campos");
+
+	}
+	
+
+	
+	
 	%>

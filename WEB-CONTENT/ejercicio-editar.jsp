@@ -81,7 +81,7 @@ else{
 			
 			
 			
-    	if (idEj!= null && idRutina != null && repeteciones != null && peso != null && nombre_maq != null && series != null && descripcion!= null )
+    	if (idEj!= "" && idRutina != "" && repeteciones != "" && peso != "" && nombre_maq != "" && series != "" && descripcion!= "" )
 			{
     		elejer.setIdEjercicio(Integer.parseInt(idEj));
     		elejer.setRepeticiones(Integer.parseInt(repeteciones));
@@ -91,6 +91,14 @@ else{
     		elejer.setNombre_maquina(nombre_maq);
 			response.sendRedirect("ejercicio-tabla.jsp");
 			}
+    	
+    	
+    	else
+    		
+    	{
+    		out.print("Rellenar todos los campos");
+
+    	}
 %>
 		</form> 
 	</div>

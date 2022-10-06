@@ -68,7 +68,7 @@ Pro=p.getBylegajo(dni1);
 	contrase = request.getParameter ("txtcontra");
 	ape = request.getParameter ("txtApellido");
 	
-	if (nom!= null  && contrase != null && ape != null )
+	if (nom!= ""  && contrase != "" && ape != "" )
 	{
 	
 		
@@ -80,4 +80,14 @@ Pro=p.getBylegajo(dni1);
 		p.modProfesional(Pro, dni1);
 		response.sendRedirect("profesional-tabla.jsp");
 	}
+	
+else
+		
+	{
+		out.print("Rellenar todos los campos");
+
+	}
+	
+	
+	
 	%>

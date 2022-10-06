@@ -68,7 +68,7 @@ else{
 			fecha_pago = request.getParameter ("txtFecha_pago");
 						
 			
-			if (idCuota!= null && anio != null && mes != null && precio != null && fecha_pago != null)
+			if (idCuota!= ""  && anio != ""  && mes != ""  && precio != ""  && fecha_pago != "" )
 			{
 				lacuota.setIdCuota(Integer.parseInt(idCuota));
 				lacuota.setAnio(Integer.parseInt(anio));
@@ -78,6 +78,14 @@ else{
 				
 				c.modCuota(lacuota, idCuota1);
 				response.sendRedirect("cuotas-tabla.jsp");
+			}
+			
+			
+			else
+				
+			{
+				out.print("Rellenar todos los campos");
+
 			}
 %>
 		</form> 
