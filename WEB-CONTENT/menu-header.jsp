@@ -33,11 +33,11 @@
             Administrar Entidad
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="clases-tabla.jsp">Clases</a>
-            <a class="dropdown-item" href="ejercicio-tabla.jsp">Ejercicio</a>
-            <a class="dropdown-item" href="profesional-tabla.jsp">Profesional</a>
-            <a class="dropdown-item" href="reservas-tabla.jsp">Reservas</a>
-            <a class="dropdown-item" href="socio-tabla.jsp">Socios</a>
+            <a class="dropdown-item" href="Clases/clases-tabla.jsp">Clases</a>
+            <a class="dropdown-item" href="Ejercicios/ejercicio-tabla.jsp">Ejercicio</a>
+            <a class="dropdown-item" href="Profesionales/profesional-tabla.jsp">Profesional</a>
+            <a class="dropdown-item" href="Reservas/reservas-tabla.jsp">Reservas</a>
+            <a class="dropdown-item" href="Socio/socio-tabla.jsp">Socios</a>
             <a class="dropdown-item" href="Rutinas/rutina-tabla.jsp">Rutina</a>
 
          

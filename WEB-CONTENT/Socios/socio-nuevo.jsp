@@ -51,7 +51,7 @@ else{
 				<input type = "text" name = "txtCelular" class = "form-control"/>				
 				<br>
 				<br>
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
+				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg" name = "Guardar"/>
 				<br>
 				<br>
 				<a href= "socio-tabla.jsp"> Regresar</a>				
@@ -61,7 +61,11 @@ else{
 	</div>
 </body>
 </html>
-<%	sociosUtil s =new sociosUtil();
+<%	
+
+	if ( null !=request.getParameter("Guardar") )
+	{
+		sociosUtil s =new sociosUtil();
 	UsuarioUtil usuarioUtil = new UsuarioUtil();
 	String dni;
 	String  contrase, tipo, nom, ape, cel;
@@ -86,7 +90,7 @@ else{
 		out.print("Rellenar todos los campos");
 
 	}
-	
+	}
 	
 	
 	
