@@ -65,7 +65,7 @@ else{
 				<br>
 				<br>
 				<br>
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
+				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name = "Editar"/>
 				<br>
 				<br>
 				<a href= "clases-tabla.jsp"> Regresar</a>				
@@ -81,7 +81,8 @@ else{
 			legajo_prof = request.getParameter("txtLegajo_prof");
 			descripcion = request.getParameter("txtDescripcion");
 			
-       
+			if ( null !=request.getParameter("Editar") )
+			{
 			
 			if (total_cupo!= "" && id!= "" && nombre!= "" && actual_cupo!= "" && dia!= "" && hora!= "" && legajo_prof!= "" &&  descripcion!= "" )
 			{
@@ -105,7 +106,7 @@ else{
 				out.print("Rellenar todos los campos");
 
 			}
-			
+			}
 %>
 		</form> 
 	</div>
@@ -115,3 +116,7 @@ else{
 
 
 
+	
+
+
+	
