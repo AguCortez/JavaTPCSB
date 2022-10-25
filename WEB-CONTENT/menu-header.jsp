@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="menu-main.jsp">Home</a>
+          <a class="nav-link active" aria-current="page" href="/TPJavaWeb/menu-main.jsp">Home</a>
         </li>
         
         <li class="nav-item dropdown">
@@ -33,12 +33,12 @@
             Administrar Entidad
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="Clases/clases-tabla.jsp">Clases</a>
-            <a class="dropdown-item" href="Ejercicios/ejercicio-tabla.jsp">Ejercicio</a>
-            <a class="dropdown-item" href="Profesionales/profesional-tabla.jsp">Profesional</a>
-            <a class="dropdown-item" href="Reservas/reservas-tabla.jsp">Reservas</a>
-            <a class="dropdown-item" href="Socio/socio-tabla.jsp">Socios</a>
-            <a class="dropdown-item" href="Rutinas/rutina-tabla.jsp">Rutina</a>
+            <a class="dropdown-item" href="/TPJavaWeb/Clases/clases-tabla.jsp">Clases</a>
+            <a class="dropdown-item" href="/TPJavaWeb/Ejercicios/ejercicio-tabla.jsp">Ejercicio</a>
+            <a class="dropdown-item" href="/TPJavaWeb/Profesionales/profesional-tabla.jsp">Profesional</a>
+            <a class="dropdown-item" href="/TPJavaWeb/Reservas/reservas-tabla.jsp">Reservas</a>
+            <a class="dropdown-item" href="/TPJavaWeb/Socios/socio-tabla.jsp">Socios</a>
+            <a class="dropdown-item" href="/TPJavaWeb/Rutinas/rutina-tabla.jsp">Rutina</a>
 
          
           </div>
