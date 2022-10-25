@@ -41,10 +41,9 @@ public class dataReserva {
 				while(rs.next()) {
 					Reserva r=new Reserva();
 					
-					r.setId_reserva(rs.getInt("idreserva"));
 					r.setDni(rs.getInt("dni"));								
 					r.setCodigo(rs.getString("codigo"));
-					r.setFecha(rs.getDate("fecha"));
+					r.setFecha(rs.getString("fecha"));
 					res.add(r);
 				}
 			}
@@ -77,12 +76,10 @@ public class dataReserva {
 				if(rs!=null && rs.next())
 				{
 					laReserva =new Reserva();
-					
-					laReserva.setId_reserva(rs.getInt("id reserva"));
-					
+										
 					laReserva.setDni(rs.getInt("dni"));
 					
-					laReserva.setFecha(rs.getDate("fecha"));
+					laReserva.setFecha(rs.getString("fecha"));
 					
 					
 				}
@@ -115,7 +112,7 @@ public class dataReserva {
 			ps.setInt(1, r.getId_reserva());
 			ps.setString(3, r.getCodigo());
 			ps.setInt(2,r.getDni());
-			ps.setDate(4, r.getFecha());
+			ps.setString(4, r.getFecha());
 			ps.executeUpdate();
 	 		}
 		catch(SQLException e)
@@ -165,7 +162,7 @@ public class dataReserva {
 			
 			ps.setInt(2,r.getDni());
 			ps.setString(3,r.getCodigo());
-			ps.setDate(4, r.getFecha());
+			ps.setString(4, r.getFecha());
 			ps.setInt(5, idreservaold);
 			ps.executeUpdate();
 		}
@@ -198,9 +195,7 @@ public class dataReserva {
 				if(rs!=null && rs.next())
 				{while(rs!=null && rs.next()) {
 					Reserva r=new Reserva();
-					
-					r.setId_reserva(rs.getInt("id reserva"));
-				
+									
 					r.setDni(rs.getInt("dni"));
 					r.setCodigo(rs.getString("codigo"));
 					

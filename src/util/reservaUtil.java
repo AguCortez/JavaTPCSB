@@ -21,9 +21,9 @@ public class reservaUtil {
 		}
 		return reservas;
 	}
-	public void altaReserva(int id_reserva, int dni, String codigo) {
+	public void altaReserva( int dni, String codigo, String fecha) {
 		
-		Reserva nReserva= new Reserva(id_reserva, dni, codigo);
+		Reserva nReserva= new Reserva( dni, codigo, fecha);
 		dataReserva ds=new dataReserva();
 		ds.add(nReserva);
 
@@ -39,7 +39,7 @@ public class reservaUtil {
 	}
 
 	public LinkedList<Reserva> getAll(){
-		dataReserva ds=new dataReserva();
+		dataReserva ds= new dataReserva();
 		return ds.getAll();
 	}
 

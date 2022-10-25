@@ -53,7 +53,7 @@ else{
 	</form>	
 	<%
 			
-	      reserva= r.getAll();
+	      reserva = r.getAll();
 			
 		
 		

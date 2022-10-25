@@ -7,16 +7,22 @@ public class Reserva {
 	private String codigo;
 	private int dni;
 	private int id_reserva;
-	private Date fecha;
-	public Reserva(int id_reserva2, int dni2, String codigo2) {
+	private String fecha;
+	public Reserva(int dni, String codigo, String fecha) {
+		// TODO Auto-generated constructor stub
+		this.setCodigo(codigo);
+		this.setDni(dni);
+		this.setFecha(fecha);
+	}
+
+	public Reserva() {
 		// TODO Auto-generated constructor stub
 	}
+
 	public int getId_reserva() {
 		return id_reserva;
 	}
-	public void setId_reserva(int id_reserva) {
-		this.id_reserva = id_reserva;
-	}
+	
 	
 	
 	
@@ -34,18 +40,14 @@ public class Reserva {
 	}
 	
 	
-	public Reserva() {
-		
-	}
-	public Date getFecha() {
+
+	public String getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-	
-	
-	
+
 
 }
 

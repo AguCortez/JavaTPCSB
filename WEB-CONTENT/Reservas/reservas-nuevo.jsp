@@ -2,6 +2,9 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.Reserva"%>
 <%@page import="util.reservaUtil"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.util.Date"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -38,12 +41,11 @@ else{
 				DNI:
 				<input type = "text" name= "txtDni" class = "form-control"/>		
 				<br>
-				ID RESERVA:
-				<input type = "text" name = "txtId_reserva" class = "form-control"/>
+				FECHA:
+				<input type = "text" name= "txtFecha" class = "form-control"/>		
 				<br>
-			
 				<br>
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
+				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg" name = "Guardar"/>
 				<br>
 				<br>
 				<a href= "reservas-tabla.jsp"> Regresar</a>				
@@ -55,15 +57,19 @@ else{
 </html>
 <%	reservaUtil r =new reservaUtil();
 
-	String codigo,dni, id_reserva, fecha;
+	String codigo,dni,fecha ;
 
 	codigo = request.getParameter("txtCodigo");
 	dni = request.getParameter("txtDni");
-	id_reserva = request.getParameter ("txtId_reserva");
+	fecha = request.getParameter("txtFecha");
+  
 	
-
-	if (codigo!= ""  && dni != ""  && id_reserva != ""  )
-	{	r.altaReserva(Integer.parseInt(id_reserva),Integer.parseInt(dni), codigo);
+	
+	if ( null !=request.getParameter("Guardar") )
+		
+	{	
+		//reservaUtil.altaReserva(Integer.parseInt(dni), //contrase);
+		r.altaReserva(Integer.parseInt(dni), codigo, fecha);
 		response.sendRedirect("reservas-tabla.jsp");
 	}
 	
