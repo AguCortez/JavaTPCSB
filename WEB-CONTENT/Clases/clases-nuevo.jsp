@@ -83,7 +83,7 @@ profesionalUtil pu=new profesionalUtil();
 			
 				<br>
 				<br>
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
+				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg" name = "Guardar"/>
 				<br>
 				<br>
 				
@@ -93,6 +93,11 @@ profesionalUtil pu=new profesionalUtil();
 </body>
 
 <%
+
+if ( null !=request.getParameter("Guardar") )
+{
+	
+
 
 String nombre, descripcion, dia, total_cupo, id, actual_cupo,  hora, legajo_prof; 
 
@@ -122,6 +127,6 @@ else
 	out.print("Rellenar todos los campos");
 
 }
-
+}
 
 	%>
