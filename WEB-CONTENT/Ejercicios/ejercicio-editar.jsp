@@ -38,34 +38,34 @@ else{
 		<hr>
 
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
-				ID ejercicio:
-				<input type = "text" name= "txtIDejer" class = "form-control"/>
+				ID EJERCICIO:
+				<input type = "text" name= "txtIDejer" class = "form-control" value="<%=elejer.getIdEjercicio() %>"/>
 				<br>
-				ID rutina:
-				<input type = "text" name= "txtIDrutina" class = "form-control"/>		
+				ID RUTINA:
+				<input type = "text" name= "txtIDrutina" class = "form-control" value="<%=elejer.getIdrutina() %>"/>		
 				<br>
-				Repeticiones:
-				<input type = "text" name = "txtRepeticiones" class = "form-control"/>
+				REPETICIONES:
+				<input type = "text" name = "txtRepeticiones" class = "form-control" value="<%=elejer.getRepeticiones() %>"/>
 				<br>
-				Peso:
-				<input type = "text" name = "txtPeso" class = "form-control"/>
+				PESO:
+				<input type = "text" name = "txtPeso" class = "form-control" value="<%=elejer.getPeso() %>"/>
 				<br>
-				series:
-				<input type = "text" name = "txtSeries" class = "form-control"/>
+				SERIES:
+				<input type = "text" name = "txtSeries" class = "form-control" value="<%=elejer.getSeries() %>"/>
 				<br>
-				Descripcion:
-				<input type = "text" name = "txtDescripcion" class = "form-control"/>				
+				DESCRIPCION:
+				<input type = "text" name = "txtDescripcion" class = "form-control" value="<%=elejer.getDescripcion() %>"/>				
+				<br>
+				NOMBRE MAQUINA:
+				<input type = "text" name = "txtNombreMaq" class = "form-control" value="<%=elejer.getNombre_maquina() %>"/>
+				<br>
+				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name = "Editar"/>
 				<br>
 				<br>
-				Nombre Maquina:
-				<input type = "text" name = "txtNombreMaq" class = "form-control"/>
-				<br>
-				<br>
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<a href= "ejercicio-tabla.jsp"> Regresar</a>				
-		
-           <%
-           String idEj, idRutina,repeteciones,  peso, series;
+		<%
+           
+        String idEj, idRutina,repeteciones,  peso, series;
        	String descripcion , nombre_maq;
 
        	idEj = request.getParameter("txtIDejer");
@@ -76,8 +76,9 @@ else{
        	descripcion = request.getParameter ("txtDescripcion");
        	nombre_maq = request.getParameter ("txtNombreMaq");
 
-			
-							
+       	
+       	if ( null !=request.getParameter("Editar") )
+		{					
 			
 			
 			
@@ -89,6 +90,7 @@ else{
     		elejer.setSeries(Integer.parseInt(series));
     		elejer.setDescripcion(descripcion);
     		elejer.setNombre_maquina(nombre_maq);
+    		e.modEjercicio(elejer, Integer.parseInt(idEj));
 			response.sendRedirect("ejercicio-tabla.jsp");
 			}
     	
@@ -97,8 +99,9 @@ else{
     		
     	{
     		out.print("Rellenar todos los campos");
-
+      
     	}
+		}
 %>
 		</form> 
 	</div>

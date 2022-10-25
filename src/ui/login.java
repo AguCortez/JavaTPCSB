@@ -29,14 +29,9 @@ import data.dataReserva;
 public class login {
 
 	public static void main(String[] args) {
-		reservaUtil ru=new reservaUtil(); 
-		dataReserva dr=new dataReserva();
-		Reserva r=new Reserva();
-		r.setCodigo("4");
-		r.setDni(3);
-		r.setId_reserva(50);
-		dr.add(r);
-		}
+	dataEjercicio e = new dataEjercicio();
+	System.out.println(e.getOne(666).toString());
+	 }
 	}
 	
 

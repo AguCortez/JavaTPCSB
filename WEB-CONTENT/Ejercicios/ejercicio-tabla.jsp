@@ -62,9 +62,9 @@
 				<td class="text-center"><%=e.getIdEjercicio()%></td>
 				
 				<td>
-				<a href="ejercicio-editar.jsp?dni=<%=e.getIdEjercicio()%>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="ejercicio-editar.jsp?idEj=<%=e.getIdEjercicio()%>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="ejercicio-borrar.jsp?dni=<%=e.getIdEjercicio() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="ejercicio-borrar.jsp?idEj=<%=e.getIdEjercicio() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%

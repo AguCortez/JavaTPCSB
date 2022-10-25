@@ -11,12 +11,11 @@ import entites.Ejercicio;
 
 public class dataEjercicio {
 	
-	private String buscabyID = "select * from ejercicio where idejercicio LIKE %?";
-	private String getOnebyID="select * from ejercicio where idejercicio=? ";
-	private String newEjer=" INSERT INTO `gimnasiojava`.`ejercicio` (`repeticiones`, `peso`, `series`, `descripcion`, `nombre_maquina`, `idejercicio`, `idrutina`) VALUES (?,?, ?, ?, ?, ?, ?)";
+	private String buscabyID = "select * from ejercicio where idEjercicio LIKE %?";
+	private String getOnebyID="select * from ejercicio where idEjercicio=?";
+	private String newEjer=" INSERT INTO `gimnasiojava`.`ejercicio` (`repeticiones`, `peso`, `series`, `descripcion`, `nombre_maquina`, `idEjercicio`, `idrutina`) VALUES (?,?, ?, ?, ?, ?, ?)";
 	private String deleteEjer= "delete from socio where dni=?";
-	private String modifica= "UPDATE ejercicio SET `repeticiones` = ?,`peso` =?,`series` = ?,`descripcion` = ?,`nombre_maquina` = ?,`idejercicio` = ?,`idrutina` =? WHERE `idejercicio` = ?";
-	
+	private String modifica= "UPDATE ejercicio SET `repeticiones` = ?,`peso` =?,`series` = ?,`descripcion` = ?,`nombre_maquina` = ?,`idEjercicio` = ?,`idrutina` =? WHERE `idEjercicio` = ?";	
 	public LinkedList<Ejercicio> getAll(){
 		
 		Statement stmt=null;
@@ -65,14 +64,14 @@ public class dataEjercicio {
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
-			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyID);
+			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyID);
 			ps.setInt(1, idejercicio);
 			rs=ps.executeQuery();
 			
 				if(rs!=null && rs.next())
 				{
 					elEjer=new Ejercicio();
-					elEjer.setIdEjercicio(rs.getInt("idejercicio"));
+					elEjer.setIdEjercicio(rs.getInt("idEjercicio"));
 					elEjer.setDescripcion(rs.getString("descripcion"));
 					elEjer.setNombre_maquina(rs.getString("nombre_maquina"));
 					elEjer.setPeso(rs.getInt("peso"));
