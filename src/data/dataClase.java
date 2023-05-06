@@ -32,14 +32,15 @@ public class dataClase {
 				while(rs.next()) {
 					Clase c=new Clase();
 					
-					c.setId(rs.getInt("codigo"));
+					c.setCodigo(rs.getInt("codigo"));
 					c.setTotal_cupo(rs.getInt("total_cupos"));
-					c.setNombre(rs.getString("nombre"));
-					c.setActual_cupos(rs.getInt("actual_cupos"));
+					/* c.setNombre(rs.getString("nombre"));*/
+					/* c.setActual_cupos(rs.getInt("actual_cupos"));*/
 					c.setDia(rs.getString("dia"));
 					c.setHora(rs.getString("hora"));				
-					c.setDescripcion(rs.getString("descripcion"));
+					/* c.setDescripcion(rs.getString("descripcion"));*/
 					c.setLegajo_prof(rs.getInt("legajo"));
+					c.setidtipo_clase(rs.getInt("idtipo_clase"));
 					
 					clases.add(c);
 				}
@@ -73,15 +74,11 @@ public class dataClase {
 				if(rs!=null && rs.next())
 				{
 					laClase=new Clase();
-					laClase.setId(rs.getInt("codigo"));
+					laClase.setCodigo(rs.getInt("codigo"));
 					laClase.setTotal_cupo(rs.getInt("total_cupos"));
-					laClase.setNombre(rs.getString("nombre"));
-					laClase.setActual_cupos(rs.getInt("actual_cupos"));
 					laClase.setDia(rs.getString("dia"));
 					laClase.setHora(rs.getString("hora"));
-					laClase.setDescripcion(rs.getString("descripcion"));
-					laClase.setLegajo_prof(rs.getInt("legajo"));
-					
+					laClase.setLegajo_prof(rs.getInt("legajo"));					
 				}
 				
 			} 
@@ -108,13 +105,10 @@ public class dataClase {
 		
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(newClase);
-			ps.setInt(1, c.getId());
+			ps.setInt(1, c.getCodigo());
 			ps.setInt(2, c.getTotal_cupo());
-			ps.setString(3,c.getNombre());
-			ps.setInt(4,c.getActual_cupos());
 			ps.setString(5, c.getDia());
 			ps.setString(6, c.getHora());
-			ps.setString(7,c.getDescripcion());
 			ps.setInt(8,c.getLegajo_prof());
 			
 			ps.executeUpdate();
@@ -161,15 +155,11 @@ public class dataClase {
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
 			
-			ps.setInt(1, c.getId());
+			ps.setInt(1, c.getCodigo());
 			ps.setInt(2, c.getTotal_cupo());
-			ps.setString(3,c.getNombre());
-			ps.setInt(4,c.getActual_cupos());
 			ps.setString(5, c.getDia());
 			ps.setString(6, c.getHora());
-			ps.setString(7,c.getDescripcion());
 			ps.setInt(8,c.getLegajo_prof());
-			ps.setInt(9, codigoold);
 			ps.executeUpdate();
 		}
 		catch(SQLException e)
@@ -202,13 +192,10 @@ public class dataClase {
 				{while(rs!=null && rs.next()) {
 					Clase c=new Clase();
 					
-					c.setId(rs.getInt("codigo"));
+					c.setCodigo(rs.getInt("codigo"));
 					c.setTotal_cupo(rs.getInt("total_cupos"));
-					c.setNombre(rs.getString("nombre"));
-					c.setActual_cupos(rs.getInt("actual_cupos"));
 					c.setDia(rs.getString("dia"));	
 					c.setHora(rs.getString("hora"));
-					c.setDescripcion(rs.getString("descripcion"));
 					c.setLegajo_prof(rs.getInt("legajo"));
 					clases.add(c);
 				}

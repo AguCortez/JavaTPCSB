@@ -58,33 +58,29 @@ else{
 		<br>	
 		<table class="table table-bordered">
 			<tr>
-				<th class="text-center">Total_cupo</th>
 				<th class="text-center">Id</th>
-				<th class="text-center">Nombre</th>
-				<th class="text-center">Actual_cupos</th>
+				<th class="text-center">Total_cupo</th>
 				<th class="text-center">Dia</th>
 				<th class="text-center">Hora</th>
 				<th class="text-center">Legajo_prof</th>
-				<th class="text-center">Descripcion</th>
+				<th class="text-center">ID tipo de clase</th>
 				
 			</tr>
 			<%
 			for ( Clase a: clase){
 			%>
 			<tr>
+				<td class="text-center"><%=a.getCodigo() %></td>
 				<td class="text-center"><%=a.getTotal_cupo() %></td>
-				<td class="text-center"><%=a.getId() %></td>
-				<td class="text-center"><%=a.getNombre() %></td>
-				<td class="text-center"><%=a.getActual_cupos() %></td>
 				<td class="text-center"><%=a.getDia() %></td>
 				<td class="text-center"><%=a.getHora() %></td>
 				<td class="text-center"><%=a.getLegajo_prof() %></td>
-				<td class="text-center"><%=a.getDescripcion() %></td>
+				<td class="text-center"><%=a.getidtipo_clase() %></td>
 				
 				<td>
-				<a href="clases-editar.jsp?id=<%=a.getId() %>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="clases-editar.jsp?id=<%=a.getCodigo() %>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="clases-borrar.jsp?id=<%=a.getId() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="clases-borrar.jsp?id=<%=a.getCodigo() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%	}	%>
