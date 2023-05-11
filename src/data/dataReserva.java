@@ -42,9 +42,10 @@ public class dataReserva {
 					Reserva r=new Reserva();
 					
 					r.setId_reserva(rs.getInt("idreserva"));
+					r.setFecha(rs.getString("fecha"));
+
 					r.setDni(rs.getInt("dni"));								
 					r.setCodigo(rs.getString("codigo"));
-					r.setFecha(rs.getDate("fecha"));
 					res.add(r);
 				}
 			}
@@ -82,7 +83,7 @@ public class dataReserva {
 					
 					laReserva.setDni(rs.getInt("dni"));
 					
-					laReserva.setFecha(rs.getDate("fecha"));
+					laReserva.setFecha(rs.getString("fecha"));
 					
 					
 				}
@@ -115,7 +116,7 @@ public class dataReserva {
 			ps.setInt(1, r.getId_reserva());
 			ps.setString(3, r.getCodigo());
 			ps.setInt(2,r.getDni());
-			ps.setDate(4, r.getFecha());
+			ps.setString(4, r.getDate());
 			ps.executeUpdate();
 	 		}
 		catch(SQLException e)
@@ -165,7 +166,7 @@ public class dataReserva {
 			
 			ps.setInt(2,r.getDni());
 			ps.setString(3,r.getCodigo());
-			ps.setDate(4, r.getFecha());
+			ps.setString(4, r.getDate());
 			ps.setInt(5, idreservaold);
 			ps.executeUpdate();
 		}

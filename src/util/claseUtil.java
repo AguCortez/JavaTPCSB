@@ -11,7 +11,7 @@ import data.dataClase;
 
 public class claseUtil {
 	
-	public void modcupo(int id){
+	/*public void modcupo(int id){
 		dataClase dc=new dataClase();
 		Clase laclase=new Clase();
 		laclase=dc.getOne(id);
@@ -39,7 +39,7 @@ public class claseUtil {
 		}
 		
 		return concupo;
-	}
+	}*/
 	public void bajaClase(int id) {
 		dataClase ds= new dataClase();
 		ds.delete(id);

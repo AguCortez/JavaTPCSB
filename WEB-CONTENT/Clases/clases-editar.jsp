@@ -43,13 +43,7 @@ else{
 				<input type = "text" name= "txtTotal_cupo" class = "form-control" value="<%=laclase.getTotal_cupo() %>"/>	
 				<br>
 				ID:
-				<input type = "text" name= "txtId" class = "form-control" value="<%= laclase.getId() %>"/>		
-				<br>
-				NOMBRE:
-				<input type = "text" name = "txtNombre" class = "form-control" value="<%= laclase.getNombre() %>"/>
-				<br>
-				ACTUAL CUPOS:
-				<input type = "text" name = "txtActual_cupos" class = "form-control" value="<%= laclase.getActual_cupos()%>"/>
+				<input type = "text" name= "txtId" class = "form-control" value="<%= laclase.getCodigo() %>"/>		
 				<br>
 				DIA:
 				<input type = "text" name = "txtDia" class = "form-control" value="<%= laclase.getDia() %>"/>
@@ -60,9 +54,8 @@ else{
 				LEGAJO PROFESIONAL:
 				<input type = "text" name = "txtLegajo_prof" class = "form-control" value="<%= laclase.getLegajo_prof() %>"/>
 				<br>
-				DESCRIPCION:
-				<input type = "text" name = "txtDescripcion" class = "form-control" value="<%= laclase.getDescripcion() %>"/>
-				<br>
+				ID TIPO CLASE:
+				<input type = "text" name = "txtIDTIPO" class = "form-control" value="<%= laclase.getidtipo_clase() %>"/>
 				<br>
 				<br>
 				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name = "Editar"/>
@@ -70,30 +63,26 @@ else{
 				<br>
 				<a href= "clases-tabla.jsp"> Regresar</a>				
            <%
-            String nombre, descripcion, total_cupo, id, actual_cupo, dia, hora, legajo_prof; 
+            String nombre, descripcion, total_cupo, id, idtipo, dia, hora, legajo_prof; 
             
             total_cupo = request.getParameter("txtTotal_cupo");
 			id = request.getParameter("txtId");
-			nombre = request.getParameter ("txtNombre");
-			actual_cupo = request.getParameter ("txtActual_cupos");
 			dia = request.getParameter("txtDia");
 			hora = request.getParameter("txtHora");
 			legajo_prof = request.getParameter("txtLegajo_prof");
-			descripcion = request.getParameter("txtDescripcion");
-			
+			idtipo = request.getParameter("txtIDTIPO");
+
 			if ( null !=request.getParameter("Editar") )
 			{
 			
-			if (total_cupo!= "" && id!= "" && nombre!= "" && actual_cupo!= "" && dia!= "" && hora!= "" && legajo_prof!= "" &&  descripcion!= "" )
+			if (total_cupo!= "" && id!= "" && idtipo!= "" && dia!= "" && hora!= "" && legajo_prof!= "" )
 			{
-				laclase.setId(Integer.parseInt(id));
+				
+				laclase.setCodigo(Integer.parseInt(id));
 				laclase.setTotal_cupo(Integer.parseInt(total_cupo));
-				laclase.setNombre(nombre);
-				laclase.setActual_cupos(Integer.parseInt(actual_cupo));
 				laclase.setDia(dia);
 				laclase.setHora(hora);
 				laclase.setLegajo_prof(Integer.parseInt(legajo_prof));
-				laclase.setDescripcion(descripcion);
 				
 				c.modClase(laclase, id1);
 				response.sendRedirect("clases-tabla.jsp");

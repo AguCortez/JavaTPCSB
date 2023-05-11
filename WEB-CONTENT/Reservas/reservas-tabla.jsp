@@ -54,19 +54,16 @@ else{
 	<%
 			
 	      reserva= r.getAll();
-			
-		
-		
- 		
-			%>
+	%>
 		<br>
 		<br>
 		<br>	
 		<table class="table table-bordered">
 			<tr>
+				<th class="text-center">Id reserva</th>
+				<th class="text-center">Fecha</th>
+				<th class="text-center">DNI</th>
 				<th class="text-center">Codigo</th>
-				<th class="text-center">Dni</th>
-				<th class="text-center">Id_reserva</th>
 				
 				
 			</tr>
@@ -74,9 +71,10 @@ else{
 			for (Reserva a: reserva){
 			%>
 			<tr>
-				<td class="text-center"><%=a.getCodigo() %></td>
-				<td class="text-center"><%=a.getDni() %></td>
 				<td class="text-center"><%=a.getId_reserva() %></td>
+				<td class="text-center"><%=a.getDate() %></td>
+				<td class="text-center"><%=a.getDni() %></td>
+				<td class="text-center"><%=a.getCodigo() %></td>
 				
 				
 				<td>

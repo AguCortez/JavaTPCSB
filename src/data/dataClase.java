@@ -15,8 +15,8 @@ public class dataClase {
 	private String buscabyNombre = "select * from clase where `nombre` LIKE %?";
 	private String getOnebyCodigo="select * from clase where `codigo` =? ";
 	private String newClase="insert into clase (`codigo`, `total_cupos`, `nombre`, `actual_cupos`, `dia`, `hora`,`descripcion`,`legajo`) VALUES (?,?,?,?,?,?,?,?)";
-	private String deleteClase= "delete from clase where codigo=?";
-    private String modifica= "UPDATE clase SET `codigo` = ?,`total_cupos` =?,`nombre` = ?,`actual_cupos` = ?,`dia` = ?,`hora` =?, `descripcion` = ?,`legajo` = ? WHERE `codigo` = ?;";
+	private String deleteClase= "delete from clase where `codigo` =? ";
+    private String modifica= "UPDATE clase SET `codigo` = ?,`total_cupos` =?,`dia` = ?,`hora` =?, `legajo` = ? , `idtipo_clase` = ? WHERE `codigo` = ?;";
 	
 	public LinkedList<Clase> getAll(){
 		
@@ -157,9 +157,10 @@ public class dataClase {
 			
 			ps.setInt(1, c.getCodigo());
 			ps.setInt(2, c.getTotal_cupo());
-			ps.setString(5, c.getDia());
-			ps.setString(6, c.getHora());
-			ps.setInt(8,c.getLegajo_prof());
+			ps.setString(3, c.getDia());
+			ps.setString(4, c.getHora());
+			ps.setInt(5,c.getLegajo_prof());
+			ps.setInt(6,c.getidtipo_clase());
 			ps.executeUpdate();
 		}
 		catch(SQLException e)
