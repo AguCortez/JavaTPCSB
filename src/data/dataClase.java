@@ -78,7 +78,9 @@ public class dataClase {
 					laClase.setTotal_cupo(rs.getInt("total_cupos"));
 					laClase.setDia(rs.getString("dia"));
 					laClase.setHora(rs.getString("hora"));
-					laClase.setLegajo_prof(rs.getInt("legajo"));					
+					laClase.setLegajo_prof(rs.getInt("legajo"));	
+					laClase.setidtipo_clase(rs.getInt("idtipo_clase"));
+	
 				}
 				
 			} 
@@ -107,9 +109,10 @@ public class dataClase {
 			ps=dbConector.getInstancia().getConn().prepareStatement(newClase);
 			ps.setInt(1, c.getCodigo());
 			ps.setInt(2, c.getTotal_cupo());
-			ps.setString(5, c.getDia());
-			ps.setString(6, c.getHora());
-			ps.setInt(8,c.getLegajo_prof());
+			ps.setString(3, c.getDia());
+			ps.setString(4, c.getHora());
+			ps.setInt(5, c.getLegajo_prof());
+			ps.setInt(6, c.getidtipo_clase());
 			
 			ps.executeUpdate();
 	 		}
@@ -161,6 +164,7 @@ public class dataClase {
 			ps.setString(4, c.getHora());
 			ps.setInt(5,c.getLegajo_prof());
 			ps.setInt(6,c.getidtipo_clase());
+			ps.setInt(7, codigoold);
 			ps.executeUpdate();
 		}
 		catch(SQLException e)
@@ -198,6 +202,7 @@ public class dataClase {
 					c.setDia(rs.getString("dia"));	
 					c.setHora(rs.getString("hora"));
 					c.setLegajo_prof(rs.getInt("legajo"));
+					c.setidtipo_clase(rs.getInt("idtipo_clase"));
 					clases.add(c);
 				}
 				}
