@@ -29,8 +29,9 @@ import data.dataReserva;
 public class login {
 
 	public static void main(String[] args) {
-	dataEjercicio e = new dataEjercicio();
-	System.out.println(e.getOne(666).toString());
+	dataProfesional d = new dataProfesional();
+	
+	System.out.println(d.getAll());
 	 }
 	}
 	
