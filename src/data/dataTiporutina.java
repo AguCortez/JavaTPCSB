@@ -11,8 +11,7 @@ import entites.*;
 
 
 public class dataTiporutina {
-	
-	private String buscabyIdtipo = "select * from tiporutina where idtipo LIKE %?";
+	 	
 	private String getOnebyIdtipo="select * from tiporutina where idtipo=? ";
 	private String newTiporutina="insert into tiporutina (`idtipo`, `descripcion`) VALUES (?,?)";
 	private String deleteTiporutina= "delete from tiporutina where idtipo=?";

@@ -35,11 +35,11 @@ else{
 		<h1>Agregar nueva rutina</h1>	
 		<hr>
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
-				DIA:
-				<input type = "text" name= "txtDIA" class = "form-control"/>	
-				<br>
 				ID RUTINA:
 				<input type = "text" name= "txtID" class = "form-control"/>		
+				<br>
+				DIA:
+				<input type = "text" name= "txtDIA" class = "form-control"/>	
 				<br>
 				SOCIO:
 				<input type = "text" name= "txtSOC" class = "form-control"/>		
