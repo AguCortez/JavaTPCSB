@@ -39,6 +39,7 @@
             <a class="dropdown-item" href="/TPJavaWeb/Reservas/reservas-tabla.jsp">Reservas</a>
             <a class="dropdown-item" href="/TPJavaWeb/Socios/socio-tabla.jsp">Socios</a>
             <a class="dropdown-item" href="/TPJavaWeb/Rutinas/rutina-tabla.jsp">Rutina</a>
+            <a class="dropdown-item" href="/TPJavaWeb/TipoClases/tipoclases-tabla.jsp">Tipo de Clases</a>
 
          
           </div>
