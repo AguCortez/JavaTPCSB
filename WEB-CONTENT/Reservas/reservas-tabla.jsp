@@ -20,7 +20,7 @@ if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
 
 	}
 else{
-	out.print("<script>location.replace('index.jsp');</script>"); 
+	out.print("<script>location.replace('../index.jsp');</script>"); 
 }
 %>
 	<br>
