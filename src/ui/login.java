@@ -29,8 +29,8 @@ import data.dataReserva;
 public class login {
 
 	public static void main(String[] args) {
-	dataReserva d = new dataReserva();
-	d.getOne(1);
+	dataSocio s = new dataSocio();
+	s.getOne(41312036);
     System.out.println("asdasd");
 	 }
 	}

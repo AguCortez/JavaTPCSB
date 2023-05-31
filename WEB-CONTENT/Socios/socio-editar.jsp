@@ -40,7 +40,7 @@ else{
 
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
 				DNI:
-				<input type = "text" name= "txtDNI" class = "form-control" value="<%=elsocio.getDni() %>"/>	
+				<input type = "text" name= "txtDNI" class = "form-control" value="<%= elsocio.getDni() %>"/>	
 				<br>
 				TIPO:
 				<input type = "text" name= "txtTipo" class = "form-control" value="<%= elsocio.getTipo() %>"/>		
@@ -58,33 +58,43 @@ else{
 				<input type = "text" name = "txtCelular" class = "form-control" value="<%= elsocio.getCelu() %>"/>				
 				<br>
 				<br>
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
+				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name = "Editar"/>
 				<br>
 				<br>
 				<a href= "socio-tabla.jsp"> Regresar</a>				
            <%
-            String dni, contrase, tipo, nom, ape, cel;
+            String dni, contrasenia , tipo, nombre , apellido , num_celular;
            
            
            dni = request.getParameter("txtDNI");
 			tipo = request.getParameter("txtTipo");
-			nom = request.getParameter ("txtNombre");
-			contrase = request.getParameter ("txtcontra");
-			ape = request.getParameter ("txtApellido");
-			cel = request.getParameter ("txtCelular");			   
+			nombre = request.getParameter ("txtNombre");
+			contrasenia = request.getParameter ("txtcontra");
+			apellido = request.getParameter ("txtApellido");
+			num_celular = request.getParameter ("txtCelular");			   
 										
 					
-			if (nom!= "" && tipo != "" && contrase != "" && ape != "" && cel != "")
+			if (dni!= "" && nombre!= "" && tipo != "" && contrasenia != "" && apellido != "" && num_celular != "")
 			{
 				elsocio.setDni(Integer.parseInt(dni));
 				elsocio.setTipo(tipo);
-				elsocio.setApellido_soc(ape);
-				elsocio.setContrasenia(contrase);
-				elsocio.setNombre_soc(nom);
-				elsocio.setCelu(cel);
+				elsocio.setApellido_soc(apellido);
+				elsocio.setContrasenia(contrasenia);
+				elsocio.setNombre_soc(nombre);
+				elsocio.setCelu(num_celular);
+				
 				s.modSocio(elsocio, dni1);
 				response.sendRedirect("socio-tabla.jsp");
 			}
+			
+			
+else
+				
+			{
+				out.print("Rellenar todos los campos");
+
+			}
+			
 %>
 		</form> 
 	</div>
