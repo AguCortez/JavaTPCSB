@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Reserva {
 
-	private String codigo;
+	private int codigo;
 	private int dni;
 	private int id_reserva;
 	private String fecha;
@@ -26,10 +26,10 @@ public class Reserva {
 	public void setDni(int dni) {
 		this.dni = dni;
 	}
-	public String getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(String codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 	
