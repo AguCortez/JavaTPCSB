@@ -29,9 +29,9 @@ import data.dataReserva;
 public class login {
 
 	public static void main(String[] args) {
-	dataProfesional d = new dataProfesional();
-	
-	System.out.println(d.getAll());
+	dataReserva d = new dataReserva();
+	d.getOne(1);
+    System.out.println("asdasd");
 	 }
 	}
 	

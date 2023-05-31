@@ -78,9 +78,9 @@ else{
 				
 				
 				<td>
-				<a href="editarSocio.jsp?dni=<%=a.getDni() %>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="reservas-editar.jsp?id_reserva=<%=a.getId_reserva() %>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="borraSocio.jsp?dni=<%=a.getDni() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="reservas-borrar.jsp?id_reserva=<%=a.getId_reserva() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%	}	%>

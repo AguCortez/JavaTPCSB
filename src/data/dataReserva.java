@@ -9,10 +9,10 @@ public class dataReserva {
 	
 	private String buscabyIdreserva = "select * from reserva where idreserva LIKE %?";
 	private String getOnebyDNI="select * from reserva where dni=? ";
-	
+	private String getOne="select * from reserva where idreserva=?";
 	private String newReserva="insert into reserva (`idreserva`, `dni`, `codigo`,`fecha`) VALUES (?,?,?,?)";
 	private String deleteReserva= "delete from reserva where dni=?";
-	private String modifica= "UPDATE reserva SET `idreserva` = ?,`dni` = ?,`codigo`,`fecha` WHERE `dni` = ?";
+	private String modifica= "UPDATE reserva SET `idreserva` = ?,`dni` = ?,`codigo` = ?,`fecha` = ? WHERE `dni` = ?";
 	
 	public LinkedList<Reserva> getxDNI(int dni)
 	{
@@ -45,7 +45,7 @@ public class dataReserva {
 					r.setFecha(rs.getString("fecha"));
 
 					r.setDni(rs.getInt("dni"));								
-					r.setCodigo(rs.getString("codigo"));
+					r.setCodigo(rs.getInt("codigo"));
 					res.add(r);
 				}
 			}
@@ -66,24 +66,26 @@ public class dataReserva {
 		
 		return res;
 	}
-	public Reserva getOne(int dni) {
+	public Reserva getOne(int id) {
 		Reserva laReserva= null;
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
-			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyDNI);
-			ps.setInt(3, dni);
+			ps=dbConector.getInstancia().getConn().prepareStatement(getOne);
+			ps.setInt(1, id);
 			rs=ps.executeQuery();
 			
 				if(rs!=null && rs.next())
 				{
 					laReserva =new Reserva();
 					
-					laReserva.setId_reserva(rs.getInt("id reserva"));
+					laReserva.setId_reserva(rs.getInt("idreserva"));
 					
 					laReserva.setDni(rs.getInt("dni"));
 					
 					laReserva.setFecha(rs.getString("fecha"));
+					
+					laReserva.setCodigo(rs.getInt("codigo"));
 					
 					
 				}
@@ -114,7 +116,7 @@ public class dataReserva {
 			ps=dbConector.getInstancia().getConn().prepareStatement(newReserva);
 				
 			ps.setInt(1, r.getId_reserva());
-			ps.setString(3, r.getCodigo());
+			ps.setInt(3, r.getCodigo());
 			ps.setInt(2,r.getDni());
 			ps.setString(4, r.getDate());
 			ps.executeUpdate();
@@ -165,7 +167,7 @@ public class dataReserva {
 			ps.setInt(1, r.getId_reserva());
 			
 			ps.setInt(2,r.getDni());
-			ps.setString(3,r.getCodigo());
+			ps.setInt(3,r.getCodigo());
 			ps.setString(4, r.getDate());
 			ps.setInt(5, idreservaold);
 			ps.executeUpdate();
@@ -203,7 +205,7 @@ public class dataReserva {
 					r.setId_reserva(rs.getInt("id reserva"));
 				
 					r.setDni(rs.getInt("dni"));
-					r.setCodigo(rs.getString("codigo"));
+					r.setCodigo(rs.getInt("codigo"));
 					
 					reservas.add(r);
 				}

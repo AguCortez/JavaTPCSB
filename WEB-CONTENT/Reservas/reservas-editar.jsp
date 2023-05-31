@@ -14,6 +14,24 @@
  integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 
+
+<% 
+	HttpSession sesion= request.getSession();
+	String user, lvl;	
+if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
+	{
+	user=sesion.getAttribute("usuario").toString();
+	lvl=sesion.getAttribute("nivel").toString();
+
+	}
+else{
+	out.print("<script>location.replace('../index.jsp');</script>"); 
+}
+%>
+
+
+
+
 <body>
 	<%
 		int id_reserva1= Integer.parseInt(request.getParameter("id_reserva"));
@@ -27,7 +45,7 @@
 
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
 				CODIGO:
-				<input type = "text" name= "txtCodigo" class = "form-control" value="<%=lareserva.getCodigo() %>"/>	
+				<input type = "text" name= "txtCodigo" class = "form-control" value="<%= lareserva.getCodigo() %>"/>	
 				<br>
 				DNI:
 				<input type = "text" name= "txtDni" class = "form-control" value="<%= lareserva.getDni() %>"/>		
@@ -35,10 +53,13 @@
 				ID RESERVA:
 				<input type = "text" name = "txtId_reserva" class = "form-control" value="<%= lareserva.getId_reserva() %>"/>
 				<br>
+				FECHA:
+				<input type = "text" name = "txtFecha" class = "form-control" value="<%= lareserva.getDate() %>"/>
+				<br>
+				<br>
+				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name = "Editar"/>
+				<br>
 				
-				<br>
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
-				<br>
 				<br>
 				<a href= "reservas-tabla.jsp"> Regresar</a>				
            <%
@@ -47,14 +68,17 @@
            codigo = request.getParameter("txtCodigo");
 			dni = request.getParameter("txtDni");
 			id_reserva = request.getParameter ("txtId_reserva");
+			fecha = request.getParameter("txtFecha");
 			
-
-			
-			if (codigo!= ""  && dni != ""  && id_reserva != ""  )
+			if ( null !=request.getParameter("Editar") )
 			{
-				lareserva.setCodigo(codigo);
+			
+			if (codigo!= ""  && dni != ""  && id_reserva != "" && fecha != "" )
+			{
+				lareserva.setCodigo(Integer.parseInt(codigo));
 				lareserva.setDni(Integer.parseInt(dni));
 				lareserva.setId_reserva(Integer.parseInt(id_reserva));
+				lareserva.setFecha(fecha);
 				
 				
 				r.modReserva(lareserva, id_reserva1);
@@ -66,6 +90,7 @@
 			{
 				out.print("Rellenar todos los campos");
 
+			}
 			}
 			
 			
