@@ -7,8 +7,8 @@ import entites.Ejercicio;
 
 public class ejercicioUtil {
 
-	public void NuevoEjercicio(int repeticiones, int peso, int series, String descripcion, String nombre_maquina,int idejercicio, int idrutina) {
-		Ejercicio nEjercicio=new Ejercicio(repeticiones,  peso, series, descripcion, nombre_maquina,  idejercicio, idrutina);
+	public void NuevoEjercicio() {
+		Ejercicio nEjercicio=new Ejercicio();
 		dataEjercicio de=new dataEjercicio();
 		de.add(nEjercicio);
 		
