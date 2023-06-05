@@ -40,8 +40,8 @@ public class tipoclaseUtil {
 		ds.delete(id);
 	}
 
-	public void modClase(Clase c, int idviejo) {
-		dataClase ds= new dataClase();
+	public void modClase(TipoClase c, int idviejo) {
+		dataTipoClase ds= new dataTipoClase();
 		ds.update(c, idviejo);
 	}
 
@@ -58,8 +58,8 @@ public class tipoclaseUtil {
 
 	}
 
-	public Clase getByid(int id) {
-		dataClase ds=new dataClase();
+	public TipoClase getByid(int id) {
+		dataTipoClase ds=new dataTipoClase();
 		return ds.getOne(id);
 	}
 }

@@ -17,9 +17,9 @@ no">
 	<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 <title>Log In</title>
 <style type="text/css">
-.gim {
+body {
 	background-image:
-		url("https://scontent.fros8-1.fna.fbcdn.net/v/t39.30808-6/265297748_5203088276386853_7818040945558415977_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeFIbdbLKOYU86oWBTy0y7DpwfYx7nWkuWvB9jHudaS5a5mDV1RAoKWEnD_53JAlM05f9UcPuQk7ZyP9rnBlxaRb&_nc_ohc=nJ0TtEggW-kAX94aYvL&_nc_ht=scontent.fros8-1.fna&oh=00_AT9GGoDMTfHkB71WcUkPWD95nOoRQjQ5sglc1WPyJRU6Fg&oe=61BD51C6");
+		url("file:///C:/Users/Angelina/Downloads/UTN.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;

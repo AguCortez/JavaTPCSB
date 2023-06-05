@@ -13,11 +13,11 @@ import entites.TipoClase;
 
 public class dataTipoClase {
 	
-	private String buscabyNombre = "select * from clase where `nombre` LIKE %?";
-	private String getOnebyCodigo="select * from clase where `codigo` =? ";
+	private String buscabyNombre = "select * from tipo_clase where `nombre_clase` LIKE %?";
+	private String getOnebyCodigo="select * from tipo_clase where `idtipo_clase` =? ";
 	private String newTipoClase="insert into tipo_clase (`idtipo_clase`, `nombre_clase`, `descripcion`) VALUES (?,?,?)";
 	private String deleteTipoClase= "delete from tipo_clase where `idtipo_clase` =? ";
-    private String modifica= "UPDATE clase SET `codigo` = ?,`total_cupos` =?,`dia` = ?,`hora` =?, `legajo` = ? , `idtipo_clase` = ? WHERE `codigo` = ?;";
+    private String modifica= "UPDATE tipo_clase SET `idtipo_clase` = ?,`nombre_clase` =?,`descripcion` = ? WHERE `idtipo_clase` = ?;";
 	
 	public LinkedList<TipoClase> getAll(){
 		
@@ -56,25 +56,21 @@ public class dataTipoClase {
 		
 		return tipoclases;
 	}
-	public Clase getOne(int codigo) {
-		Clase laClase= null;
+	public TipoClase getOne(int id) {
+		TipoClase laClase= null;
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyCodigo);
-			ps.setInt(1, codigo);
+			ps.setInt(1, id);
 			rs=ps.executeQuery();
 			
 				if(rs!=null && rs.next())
 				{
-					laClase=new Clase();
-					laClase.setCodigo(rs.getInt("codigo"));
-					laClase.setTotal_cupo(rs.getInt("total_cupos"));
-					laClase.setDia(rs.getString("dia"));
-					laClase.setHora(rs.getString("hora"));
-					laClase.setLegajo_prof(rs.getInt("legajo"));	
-					laClase.setidtipo_clase(rs.getInt("idtipo_clase"));
-	
+					laClase=new TipoClase();
+					laClase.setIdtipo_clase(rs.getInt("idtipo_clase"));
+					laClase.setNombre_clase(rs.getString("nombre_clase"));
+					laClase.setDescripcion(rs.getString("descripcion"));
 				}
 				
 			} 
@@ -144,18 +140,15 @@ public class dataTipoClase {
 		
 		
 	}
-	public void update (Clase c, int codigoold) {
+	public void update (TipoClase c, int codigoold) {
 		PreparedStatement ps=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
 			
-			ps.setInt(1, c.getCodigo());
-			ps.setInt(2, c.getTotal_cupo());
-			ps.setString(3, c.getDia());
-			ps.setString(4, c.getHora());
-			ps.setInt(5,c.getLegajo_prof());
-			ps.setInt(6,c.getidtipo_clase());
-			ps.setInt(7, codigoold);
+			ps.setInt(1, c.getIdtipo_clase());
+			ps.setString(2, c.getNombre_clase());
+			ps.setString(3, c.getDescripcion());
+			ps.setInt(4,codigoold);
 			ps.executeUpdate();
 		}
 		catch(SQLException e)
@@ -171,29 +164,23 @@ public class dataTipoClase {
             	e.printStackTrace();
             }
 		}
-		
-		
 		}
 	
-	public  LinkedList<Clase>  buscabyCodigo(String codigo) {
-		LinkedList<Clase> clases= new LinkedList<>();
+	public  LinkedList<TipoClase>  buscabyCodigo(String nombre) {
+		LinkedList<TipoClase> clases= new LinkedList<>();
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyNombre);
-			ps.setString(1, codigo);
+			ps.setString(1, nombre);
 			rs=ps.executeQuery();
 			
 				if(rs!=null && rs.next())
 				{while(rs!=null && rs.next()) {
-					Clase c=new Clase();
-					
-					c.setCodigo(rs.getInt("codigo"));
-					c.setTotal_cupo(rs.getInt("total_cupos"));
-					c.setDia(rs.getString("dia"));	
-					c.setHora(rs.getString("hora"));
-					c.setLegajo_prof(rs.getInt("legajo"));
-					c.setidtipo_clase(rs.getInt("idtipo_clase"));
+					TipoClase c=new TipoClase();					
+	      			c.setInt(rs.getIdtipo_clase("idtipo_clase"));
+					c.setString(rs.getNombre_clase("nombre_clase"));
+					c.setString(rs.getDescripcion("descripcion"));
 					clases.add(c);
 				}
 				}

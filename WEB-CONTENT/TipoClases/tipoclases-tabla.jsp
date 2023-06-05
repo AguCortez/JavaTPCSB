@@ -46,13 +46,9 @@ else{
 		</tr>
 	</table>
 	</form>	
-	<%
-			
-	      clase = c.getAll();
-			
-		
-		
-			%>
+	<%	     
+	clase = c.getAll();
+	%>
 		<br>
 		<br>
 		<br>	
@@ -71,7 +67,7 @@ else{
 				<td class="text-center"><%=a.getNombre_clase() %></td>
 				<td class="text-center"><%=a.getDescripcion() %></td>				
 				<td>
-				<a href="clases-editar.jsp?id=<%=a.getIdtipo_clase() %>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="tipoclases-editar.jsp?id=<%=a.getIdtipo_clase() %>"class="btn btn-warning btn-sm">Editar</a>
 			
 				<a href="tipoclases-borrar.jsp?id=<%=a.getIdtipo_clase() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
