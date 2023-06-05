@@ -33,7 +33,7 @@ Pro=p.getBylegajo(dni1);
 </head>
 <body>
 	<div class = "conteiner">
-		<h1>Modificar profesional</h1>	
+		<h1>Agregar nuevo profesional</h1>	
 		<hr>
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
 				DNI:
@@ -47,26 +47,28 @@ Pro=p.getBylegajo(dni1);
 				<br>
 				APELLIDO:
 				<input type = "text" name = "txtApellido" class = "form-control" value="<%=Pro.getApellido() %>"/>
-				<br>
-				<br>
-				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name = "Editar"/>
+				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
 				<a href= "profesional-tabla.jsp"> Regresar</a>				
 		
+		
+		</form>
+	</div>
+</body>
+</html>
+<%	
 
-<%
 	
 	String  dni,contrase, tipo, nom, ape;
 	
 	dni = request.getParameter("txtDNI");
+	
 	nom = request.getParameter ("txtNombre");
 	contrase = request.getParameter ("txtcontra");
 	ape = request.getParameter ("txtApellido");
 	
-	if ( null !=request.getParameter("Editar") )
-	{
-	if (dni!= "" && nom!= ""  && contrase != "" && ape != "" )
+	if (nom!= ""  && contrase != "" && ape != "" )
 	{
 	
 		
@@ -75,22 +77,17 @@ Pro=p.getBylegajo(dni1);
 		Pro.setNombre(nom);
 		Pro.setApellido(ape);
 		Pro.setContrasenia(contrase);
-		
 		p.modProfesional(Pro, dni1);
 		response.sendRedirect("profesional-tabla.jsp");
 	}
 	
-else 
+else
 		
 	{
 		out.print("Rellenar todos los campos");
 
-	}}
+	}
 	
 	
 	
-%>
-		</form> 
-	</div>
-</body>
-</html>
+	%>

@@ -40,7 +40,7 @@ else{
 
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
 				TOTAL CUPO:
-				<input type = "text" name= "txtTotal_cupo" class = "form-control" value="<%= laclase.getTotal_cupo() %>"/>	
+				<input type = "text" name= "txtTotal_cupo" class = "form-control" value="<%=laclase.getTotal_cupo() %>"/>	
 				<br>
 				ID:
 				<input type = "text" name= "txtId" class = "form-control" value="<%= laclase.getCodigo() %>"/>		

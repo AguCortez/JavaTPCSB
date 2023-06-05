@@ -30,10 +30,8 @@ else{
 <body>
 	<%
 		int dni1= Integer.parseInt(request.getParameter("dni"));
-		System.out.println(dni1);
 		sociosUtil s =new sociosUtil();
 		Socio elsocio=s.getBydni(dni1);
-		System.out.println("puto el que lea esto: " + elsocio.getDni());
 	%>
 
  	<div class = "conteiner">
@@ -68,17 +66,14 @@ else{
             String dni, contrasenia , tipo, nombre , apellido , num_celular;
            
            
-            dni = request.getParameter("txtDNI");
+           dni = request.getParameter("txtDNI");
 			tipo = request.getParameter("txtTipo");
-			System.out.println("puto el que lea esto: " + elsocio.getTipo());
-
 			nombre = request.getParameter ("txtNombre");
 			contrasenia = request.getParameter ("txtcontra");
 			apellido = request.getParameter ("txtApellido");
 			num_celular = request.getParameter ("txtCelular");			   
 										
-			if ( null !=request.getParameter("Editar") )
-			{		
+					
 			if (dni!= "" && nombre!= "" && tipo != "" && contrasenia != "" && apellido != "" && num_celular != "")
 			{
 				elsocio.setDni(Integer.parseInt(dni));
@@ -98,7 +93,7 @@ else
 			{
 				out.print("Rellenar todos los campos");
 
-			}}
+			}
 			
 %>
 		</form> 

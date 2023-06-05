@@ -17,7 +17,7 @@ public class dataSocio {
 	private String getOnebyDNIyContra="select * from socio where dni=? and contrasenia=?  ";
 	private String newSocio="insert into socio (`dni`, `tipo`, `contrasenia`, `nombre`, `apellido`, `num_celular`) VALUES (?,?,?,?,?,?)";
 	private String deleteSocio= "delete from socio where dni=?";
-	private String modifica= "UPDATE socio SET `dni` = ?,`tipo` = ?,`contrasenia` = ?,`nombre` = ?,`apellido` = ?,`num_celular` =? WHERE `dni` = ?";
+	private String modifica= "UPDATE socio SET `dni` = ?,`tipo` =?,`contrasenia` = ?,`nombre` = ?,`apellido` = ?,`num_celular` =? WHERE `dni` = ?";
 	
 	public LinkedList<Socio> getAll(){
 		
