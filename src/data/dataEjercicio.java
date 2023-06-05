@@ -11,11 +11,11 @@ import entites.Ejercicio;
 
 public class dataEjercicio {
 	
-	private String buscabyID = "select * from ejercicio where idEjercicio LIKE %?";
-	private String getOnebyID="select * from ejercicio where idEjercicio=?";
-	private String newEjer=" INSERT INTO `gimnasiojava`.`ejercicio` (`repeticiones`, `peso`, `series`, `descripcion`, `nombre_maquina`, `idEjercicio`, `idrutina`) VALUES (?,?, ?, ?, ?, ?, ?)";
-	private String deleteEjer= "delete from socio where dni=?";
-	private String modifica= "UPDATE ejercicio SET `repeticiones` = ?,`peso` =?,`series` = ?,`descripcion` = ?,`nombre_maquina` = ?,`idEjercicio` = ?,`idrutina` =? WHERE `idEjercicio` = ?";	
+	private String buscabyID = "select * from ejercicio where idtipo LIKE % ? %";
+	private String getOnebyID="select * from ejercicio where idtipo=?";
+	private String newEjer=" INSERT INTO `gimnasiojava`.`tipo_ejercicio` (`idtipo`,`descripcion` VALUES (?,?)";
+	private String deleteEjer= "delete from tipo_ejercicio where `idtipo` = ?";
+	private String modifica= "UPDATE ejercicio SET `descripcion` = ?,`idtipo` = ? WHERE `idtipo` = ?";	
 	public LinkedList<Ejercicio> getAll(){
 		
 		Statement stmt=null;
@@ -25,20 +25,14 @@ public class dataEjercicio {
 		
 		try {
 			stmt= dbConector.getInstancia().getConn().createStatement();
-			rs= stmt.executeQuery("select * from ejercicio");
+			rs= stmt.executeQuery("select * from tipo_ejercicio");
 			
 			if(rs!=null) {
 				while(rs.next()) {
 					Ejercicio e=new Ejercicio();
 					
-					e.setIdEjercicio(rs.getInt("idejercicio"));
+					e.setIdtipo(rs.getInt("idtipo"));
 					e.setDescripcion(rs.getString("descripcion"));
-					e.setNombre_maquina(rs.getString("nombre_maquina"));
-					e.setPeso(rs.getInt("peso"));
-					e.setRepeticiones(rs.getInt("repeticiones"));
-					e.setSeries(rs.getInt("series"));
-					e.setIdrutina(rs.getInt("idrutina"));
-					
 					ejer.add(e);
 				}
 			}
@@ -71,13 +65,9 @@ public class dataEjercicio {
 				if(rs!=null && rs.next())
 				{
 					elEjer=new Ejercicio();
-					elEjer.setIdEjercicio(rs.getInt("idEjercicio"));
+					elEjer.setIdtipo(rs.getInt("idtipo"));
 					elEjer.setDescripcion(rs.getString("descripcion"));
-					elEjer.setNombre_maquina(rs.getString("nombre_maquina"));
-					elEjer.setPeso(rs.getInt("peso"));
-					elEjer.setRepeticiones(rs.getInt("repeticiones"));
-					elEjer.setSeries(rs.getInt("series"));
-					elEjer.setIdrutina(rs.getInt("idrutina"));
+					
 					
 				}
 				
@@ -99,62 +89,15 @@ public class dataEjercicio {
 		}		
 		return elEjer;
 	}
-	public Ejercicio getEjercicioxID(int idEjercicio) {
-		Ejercicio elEjer= null;
-		PreparedStatement ps=null;
-		ResultSet rs=null;
-		try {
-			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyID);
-			ps.setInt(1, idEjercicio);
-			rs=ps.executeQuery();
-			
-				if(rs!=null && rs.next())
-				{
-					elEjer=new Ejercicio();
-					elEjer.setIdEjercicio(rs.getInt("idEjercicio"));
-					elEjer.setDescripcion(rs.getString("descripcion"));
-					elEjer.setNombre_maquina(rs.getString("nombre_maquina"));
-					elEjer.setPeso(rs.getInt("peso"));
-					elEjer.setRepeticiones(rs.getInt("repeticiones"));
-					elEjer.setSeries(rs.getInt("series"));
-					elEjer.setIdrutina(rs.getInt("idrutina"));
-				}
-			} 
-		catch (SQLException e) 
-		{
-			e.printStackTrace();
-		}
-		finally 
-		{
-			try {
-				if(rs!=null) {rs.close();}
-				if(ps!=null) {ps.close();}
-				dbConector.getInstancia().releaseConn();
-			} 
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}		
-		return elEjer;
-	}
+	
 	public void add(Ejercicio ej) {
 		PreparedStatement ps=null;
 		
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(newEjer);
 				
-			ps.setInt(1, ej.getRepeticiones());
-			ps.setInt(2, ej.getPeso());
-			ps.setInt(3, ej.getSeries());
-			ps.setString(4, ej.getDescripcion());
-			
-			ps.setString(5, ej.getNombre_maquina());
-			ps.setInt(6, ej.getIdEjercicio());
-	
-			
-			
-			
-			ps.setInt(7, ej.getIdrutina());
+			ps.setString(2, ej.getDescripcion());			
+			ps.setInt(1, ej.getIdtipo());
 			ps.executeUpdate();
 			
 	 		}
@@ -199,12 +142,10 @@ public class dataEjercicio {
 		PreparedStatement ps=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
-			ps.setInt(1, e.getIdEjercicio());
+			
+			ps.setInt(1, e.getIdtipo());
 			ps.setString(2, e.getDescripcion());
-			ps.setString(3, e.getNombre_maquina());
-			ps.setInt(4, e.getPeso());
-			ps.setInt(5, e.getRepeticiones());
-			ps.setInt(6, e.getSeries());
+			
 		}		
 		
 		catch(SQLException ej)
@@ -223,47 +164,7 @@ public class dataEjercicio {
 		
 		
 		}
-	public LinkedList<Ejercicio> buscabyID(int id) {
-		LinkedList<Ejercicio> ejers= new LinkedList<>();
-		PreparedStatement ps=null;
-		ResultSet rs=null;
-		try {
-			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyID);
-			ps.setInt(1, id);
-			rs=ps.executeQuery();
-			
-				if(rs!=null && rs.next())
-				{while(rs!=null && rs.next()) {
-					Ejercicio e= new Ejercicio();
-					
-					e.setIdEjercicio(rs.getInt(id));
-					e.setDescripcion(rs.getString("descripcion"));
-					e.setNombre_maquina(rs.getString("nombre maquina"));
-					e.setPeso(rs.getInt("peso"));
-					e.setRepeticiones(rs.getInt("repeticiones"));
-					e.setSeries(rs.getInt("series"));
-					ejers.add(e);
-					
-
-				}
-				}
-			} 
-		catch (SQLException e) 
-		{
-			e.printStackTrace();
-		}
-		finally 
-		{
-			try {
-				if(rs!=null) {rs.close();}
-				if(ps!=null) {ps.close();}
-				dbConector.getInstancia().releaseConn();
-			} 
-			catch (SQLException e) {
-				e.printStackTrace();
-			}		}		
-		return ejers;
-	}
+	
 		
 		
 }
