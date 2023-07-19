@@ -11,7 +11,7 @@ public class dataReserva {
 	private String getOnebyDNI="select * from reserva where dni=? ";
 	private String getOne="select * from reserva where idreserva=?";
 	private String newReserva="insert into reserva (`idreserva`, `dni`, `codigo`,`fecha`) VALUES (?,?,?,?)";
-	private String deleteReserva= "delete from reserva where dni=?";
+	private String deleteReserva= "delete from reserva where idreserva=?";
 	private String modifica= "UPDATE reserva SET `idreserva` = ?,`dni` = ?,`codigo` = ?,`fecha` = ? WHERE `idreserva` = ?";
 	
 	public LinkedList<Reserva> getxDNI(int dni)

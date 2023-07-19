@@ -17,5 +17,10 @@ public class UsuarioUtil {
 		DataUsuario du=new DataUsuario();
 		du.addSocio(usu);
 	}
+	public void altaProfesional(String dni, String contra) {
+		Usuario usu= new Usuario (Integer.parseInt(dni),contra);
+		DataUsuario du = new DataUsuario();
+		du.addProf(usu);
+	}
 
 }

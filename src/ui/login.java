@@ -2,7 +2,7 @@ package ui;
 
 import java.util.LinkedList;
 import java.util.UUID;
-import data.dataTiporutina;
+
 import data.DataUsuario;
 import data.dataSocio;
 
@@ -21,7 +21,7 @@ import entites.Profesional;
 import entites.Socio;
 import entites.Ejercicio;
 import data.dataEjercicio;
-import entites.TipoRutina;
+
 import util.reservaUtil;
 import entites.Reserva;
 import data.dataReserva;
@@ -29,8 +29,8 @@ import data.dataReserva;
 public class login {
 
 	public static void main(String[] args) {
-	dataSocio s = new dataSocio();
-	s.getOne(41312036);
+	dataReserva s = new dataReserva();
+	s.el;
     System.out.println("asdasd");
 	 }
 	}

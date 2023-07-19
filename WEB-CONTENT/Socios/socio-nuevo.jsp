@@ -65,12 +65,12 @@ else{
 
 	if ( null !=request.getParameter("Guardar") )
 	{
-		sociosUtil s =new sociosUtil();
-	UsuarioUtil usuarioUtil = new UsuarioUtil();
-	String dni;
-	String  contrase, tipo, nom, ape, cel;
+		sociosUtil s =new sociosUtil();		
+		UsuarioUtil usuarioUtil = new UsuarioUtil();
+		String dni;
+		String  contrase, tipo, nom, ape, cel;
 
-	dni = request.getParameter("txtDNI");
+		dni = request.getParameter("txtDNI");
 	tipo = request.getParameter("txtTipo");
 	nom = request.getParameter ("txtNombre");
 	contrase = request.getParameter ("txtcontra");
