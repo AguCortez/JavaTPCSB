@@ -32,8 +32,17 @@ else{
 		<h1>Agregar nueva reserva </h1>	
 		<hr>
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
-				CODIGO DE CLASE:
-				<input type = "text" name= "txtCodigo" class = "form-control"/>
+				Clase que desea reservar:
+				
+				<div class="input-group mb-3">
+  					<label class="input-group-text" for="inputGroupSelect01">Options</label>
+ 						<select class="form-select" id="inputGroupSelect01">
+    						<option selected>Choose...</option>
+   							<option value="1">ACA VA EL NOMBRE DE LA CLASE</option>
+    						<option value="2">Two</option>
+    						<option value="3">Three</option>
+  						</select>
+				</div>
 				<br>
 				DNI:
 				<input type = "text" name= "txtDni" class = "form-control"/>		
@@ -61,7 +70,7 @@ else{
 	dni = request.getParameter("txtDni");
 	id_reserva = request.getParameter ("txtId_reserva");
 	
-
+	if ( null !=request.getParameter("Guardar") ){
 	if (codigo!= ""  && dni != ""  && id_reserva != ""  )
 	{	r.altaReserva(Integer.parseInt(id_reserva),Integer.parseInt(dni), codigo);
 		response.sendRedirect("reservas-tabla.jsp");
@@ -73,6 +82,6 @@ else
 		out.print("Rellenar todos los campos");
 
 	}
-	
+	}
 	
 	%>
