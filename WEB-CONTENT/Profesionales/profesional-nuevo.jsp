@@ -43,7 +43,7 @@ else{
 				<br>
 				APELLIDO:
 				<input type = "text" name = "txtApellido" class = "form-control"/>
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
+				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg" name = "Guardar"/>
 				<br>
 				<br>
 				<a href= "profesional-tabla.jsp"> Regresar</a>				
@@ -53,6 +53,7 @@ else{
 	</div>
 </body>
 </html>
+
 <%	profesionalUtil p =new profesionalUtil();
 
 
@@ -64,11 +65,11 @@ else{
 	contrase = request.getParameter ("txtcontra");
 	ape = request.getParameter ("txtApellido");
 	
+	if( null != request.getParameter("Guardar")){
 	if (nom!= ""  && contrase != "" && ape != "" )
 	{
 		p.altaProfesional(nom, ape,Integer.parseInt(dni), contrase);
-
-
+		
 		response.sendRedirect("profesional-tabla.jsp");
 	}
 	
@@ -78,7 +79,7 @@ else
 		out.print("Rellenar todos los campos");
 
 	}
-	
+	}
 
 	
 	%>

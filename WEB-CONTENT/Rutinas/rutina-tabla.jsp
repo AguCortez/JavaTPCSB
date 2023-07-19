@@ -65,16 +65,15 @@ else{
 				<td class="text-center"><%=ru.getIdRutina() %></td>
 				<td class="text-center"><%=ru.getLegajo() %></td>
 				
-				<% TipoRutina ri=new TipoRutina();
-					tiporutinaUtil ra=new tiporutinaUtil();
-					ri=ra.getByID(ru.getIdtiporutina());   %>
-				<td class="text-center"><%=ri.getDescripcion()%></td>
+				<% Rutina ri=new Rutina();
+					rutinaUtil ra=new rutinaUtil();
+					ri=ra.getByidRutina(ru.getIdtiporutina());   %>
 				
 				
 				<td>
 				<a href="rutina-editar.jsp?dni=<%=ru.getDni() %>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="rutina-borrar.jsp?dni=<%=ru.getDni() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="rutina-borrar.jsp?dni=<%=ru.getIdRutina() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%	}	%>
