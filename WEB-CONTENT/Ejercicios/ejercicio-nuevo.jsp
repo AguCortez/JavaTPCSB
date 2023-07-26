@@ -25,38 +25,29 @@ if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
 else{
 	out.print("<script>location.replace('index.jsp');</script>"); 
 }
+
+ejercicioUtil ej =new ejercicioUtil();
+String descripcion; 
 %>
-</head>
+
+
+
+
 <body>
 	<div class = "conteiner">
 		<h1>Agregar nuevo ejercicio </h1>	
 		<hr>
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
-				ID ejercicio:
-				<input type = "text" name= "txtIDejer" class = "form-control"/>
-				<br>
-				<%int idrutina=Integer.parseInt(request.getParameter("idrutina")); %>
-				ID rutina:
-				<input type = "text" name= "txtIDrutina" class = "form-control" value="<%=idrutina %>" disabled readonly/>		
-				<br>
-				Repeticiones:
-				<input type = "text" name = "txtRepeticiones" class = "form-control"/>
-				<br>
-				Peso:
-				<input type = "text" name = "txtPeso" class = "form-control"/>
-				<br>
-				series:
-				<input type = "text" name = "txtSeries" class = "form-control"/>
-				<br>
+				
 				Descripcion:
 				<input type = "text" name = "txtDescripcion" class = "form-control"/>				
 				<br>
 				<br>
-				Nombre Maquina:
-				<input type = "text" name = "txtNombreMaq" class = "form-control"/>
 				<br>
 				<br>
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
+				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg" name = "Guardar"/>
+				<br>
+				<br>
 				<a href= "ejercicio-tabla.jsp"> Regresar</a>				
 		
 		
@@ -64,22 +55,21 @@ else{
 	</div>
 </body>
 </html>
-<%	ejercicioUtil e =new ejercicioUtil();
 
-	String idEj, idRutina,repeteciones,  peso, series;
-	String descripcion , nombre_maq;
+<%
+if ( null !=request.getParameter("Guardar") )
+{
+		
+	    
+		descripcion = request.getParameter("txtDescripcion");	
+Ejercicio e = new Ejercicio();
+e.setDescripcion(descripcion);
 
-	idEj = request.getParameter("txtIDejer");
-	idRutina =Integer.toString(idrutina);
-	repeteciones = request.getParameter ("txtRepeticiones");
-	peso = request.getParameter ("txtPeso");
-	series = request.getParameter ("txtSeries");
-	descripcion = request.getParameter ("txtDescripcion");
-	nombre_maq = request.getParameter ("txtNombreMaq");
 
-	if (idEj!= "" && idRutina != "" && repeteciones != "" && peso != "" && nombre_maq != "" && series != "" && descripcion!= "" )
+	if ( descripcion!= "" )
+		
 	{
-		e.NuevoEjercicio(Integer.parseInt(repeteciones),Integer.parseInt(peso), Integer.parseInt(series), descripcion, nombre_maq, Integer.parseInt(idEj), idrutina);
+		ej.NuevoEjercicio(e);
 		response.sendRedirect("ejercicio-tabla.jsp");
 	}
 	
@@ -87,11 +77,9 @@ else{
 	else
 		
 	{
-		out.print("Rellenar todos los campos");
+		out.print("Rellenar el campo");
 
 	}
-	
-
-	
+}
 	
 	%>

@@ -7,8 +7,8 @@ import entites.Ejercicio;
 
 public class ejercicioUtil {
 
-	public void NuevoEjercicio() {
-		Ejercicio nEjercicio=new Ejercicio();
+	public void NuevoEjercicio(Ejercicio nEjercicio) {
+		
 		dataEjercicio de=new dataEjercicio();
 		de.add(nEjercicio);
 		

@@ -10,7 +10,7 @@
 </head>
 <body>
 <%
-	int id=Integer.parseInt(request.getParameter("id"));
+	int id=Integer.parseInt(request.getParameter("idEj"));
 	ejercicioUtil ej= new ejercicioUtil();
 	ej.bajaEjercicio(id);
 	response.sendRedirect("ejercicio-tabla.jsp");
