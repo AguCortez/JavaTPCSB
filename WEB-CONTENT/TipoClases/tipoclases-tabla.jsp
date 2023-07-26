@@ -17,8 +17,7 @@ else{
 }
 %>
 <%
-
-    tipoclaseUtil c =new tipoclaseUtil();
+	tipoclaseUtil c =new tipoclaseUtil();
 	LinkedList<TipoClase> clase=new LinkedList<TipoClase>();
 %>
 	<br>
@@ -30,7 +29,7 @@ else{
 	</div>
 	<br>
 	<div class="container">
-	<h1>Lista de Clase</h1>
+	<h1>Lista de tipos de Clases</h1>
 	<hr>
 	<form class="form">
 	<table>
@@ -43,12 +42,21 @@ else{
 				<input class="form-control" type="search" name="txtbuscar">
 				<input class="btn btn-out" type="submit" name = "accion" value="Buscar">	
 			</form>
+			<%
+				String nombuscar=request.getParameter("txtbuscar");
+				if (nombuscar!=null ){
+					clase = c.buscaNom(nombuscar);
+					System.out.print(nombuscar);
+				}else{
+					clase = c.getAll();
+				}
+				
+			
+			%>
 		</tr>
 	</table>
 	</form>	
-	<%	     
-	clase = c.getAll();
-	%>
+
 		<br>
 		<br>
 		<br>	

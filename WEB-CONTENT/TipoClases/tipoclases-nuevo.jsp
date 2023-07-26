@@ -38,9 +38,6 @@ tipoclaseUtil c =new tipoclaseUtil();
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">				
 				<br>
 				<br>
-				Id tipo:
-				<input type = "text" name= "txtId" class = "form-control"/>
-				<br>
 				Nombre:
 				<input type = "text" name= "txtNombre" class = "form-control"/>		
 				<br>
@@ -61,16 +58,15 @@ tipoclaseUtil c =new tipoclaseUtil();
 if ( null !=request.getParameter("Guardar") )
 {
 	
-		String id, nombre, descripcion; 
+		String  nombre, descripcion; 
 	
-		id = request.getParameter("txtId");
 		nombre = request.getParameter ("txtNombre");
 		descripcion = request.getParameter("txtDescripcion");
 		
 		
-		if (id!= "" && nombre!= "" && descripcion!= "")
+		if (nombre!= "" && descripcion!= "")
 			{
-				c.altaTipoClase(Integer.parseInt(id), nombre, descripcion);
+				c.altaTipoClase( nombre, descripcion);
 				response.sendRedirect("tipoclases-tabla.jsp");
 			}
 		else

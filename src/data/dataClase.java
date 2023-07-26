@@ -30,8 +30,8 @@ public class dataClase {
 			
 			if(rs!=null) {
 				while(rs.next()) {
-					Clase c= new Clase();
-					  
+					Clase c=new Clase();
+					
 					c.setCodigo(rs.getInt("codigo"));
 					c.setTotal_cupo(rs.getInt("total_cupos"));
 					/* c.setNombre(rs.getString("nombre"));*/
@@ -40,7 +40,7 @@ public class dataClase {
 					c.setHora(rs.getString("hora"));				
 					/* c.setDescripcion(rs.getString("descripcion"));*/
 					c.setLegajo_prof(rs.getInt("legajo"));
-					c.setIdtipo_clase(rs.getInt("idtipo_clase"));
+					c.setidtipo_clase(rs.getInt("idtipo_clase"));
 					
 					clases.add(c);
 				}
@@ -163,12 +163,8 @@ public class dataClase {
 			ps.setString(3, c.getDia());
 			ps.setString(4, c.getHora());
 			ps.setInt(5,c.getLegajo_prof());
-<<<<<<< Updated upstream
 			ps.setInt(6,c.getidtipo_clase());
 			ps.setInt(7, codigoold);
-=======
-			ps.setInt(6,c.getIdtipo_clase());
->>>>>>> Stashed changes
 			ps.executeUpdate();
 		}
 		catch(SQLException e)
