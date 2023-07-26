@@ -50,9 +50,9 @@ public class tipoclaseUtil {
 		return ds.getAll();
 	}
 	
-	public void altaTipoClase(int idtipo_clase, String nombre_clase, String descripcion) {
+	public void altaTipoClase(String nombre_clase, String descripcion) {
 		
-		TipoClase nClase=new TipoClase(idtipo_clase, nombre_clase, descripcion);
+		TipoClase nClase=new TipoClase(nombre_clase, descripcion);
 		dataTipoClase ds=new dataTipoClase();
 		ds.add(nClase);
 
@@ -61,5 +61,9 @@ public class tipoclaseUtil {
 	public TipoClase getByid(int id) {
 		dataTipoClase ds=new dataTipoClase();
 		return ds.getOne(id);
+	}
+	public LinkedList<TipoClase> buscaNom(String nombre) {
+		dataTipoClase ds=new dataTipoClase();
+		return ds.buscabyCodigo(nombre);
 	}
 }

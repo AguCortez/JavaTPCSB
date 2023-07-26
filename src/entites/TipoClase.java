@@ -7,8 +7,8 @@ public class TipoClase {
 	private String descripcion;
 	private String nombre_clase;
 
-public TipoClase(int idtipo_clase,String nombre_clase, String descripcion) {
-	this.setIdtipo_clase(idtipo_clase);
+public TipoClase(String nombre_clase, String descripcion) {
+
 	this.setNombre_clase(nombre_clase);
 	this.setDescripcion(descripcion);	
 }

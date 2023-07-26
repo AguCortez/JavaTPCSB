@@ -12,8 +12,8 @@ import entites.TipoClase;
 
 
 public class dataTipoClase {
-	
-	private String buscabyNombre = "select * from tipo_clase where `nombre_clase` LIKE %?";
+	private String nombreBuscar;
+	private String buscabyNombre = "select * from tipo_clase where `nombre_clase` LIKE "+"'%"+"?"+"%'" ;
 	private String getOnebyCodigo="select * from tipo_clase where `idtipo_clase` =? ";
 	private String newTipoClase="insert into tipo_clase (`idtipo_clase`, `nombre_clase`, `descripcion`) VALUES (?,?,?)";
 	private String deleteTipoClase= "delete from tipo_clase where `idtipo_clase` =? ";
@@ -170,17 +170,19 @@ public class dataTipoClase {
 		LinkedList<TipoClase> clases= new LinkedList<>();
 		PreparedStatement ps=null;
 		ResultSet rs=null;
+		nombreBuscar = null;
 		try {
+			nombreBuscar = nombre;
 			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyNombre);
 			ps.setString(1, nombre);
 			rs=ps.executeQuery();
 			
 				if(rs!=null && rs.next())
 				{while(rs!=null && rs.next()) {
-					TipoClase c=new TipoClase();					
-	      			c.setInt(rs.getIdtipo_clase("idtipo_clase"));
-					c.setString(rs.getNombre_clase("nombre_clase"));
-					c.setString(rs.getDescripcion("descripcion"));
+					TipoClase c =new TipoClase();
+					c.setIdtipo_clase(rs.getInt("idtipo_clase"));
+					c.setNombre_clase(rs.getString("nombre_clase"));
+					c.setDescripcion(rs.getString("descripcion"));
 					clases.add(c);
 				}
 				}
