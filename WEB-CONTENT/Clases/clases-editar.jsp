@@ -26,7 +26,6 @@ if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
 else{
 	out.print("<script>location.replace('../index.jsp');</script>"); 
 }
-
 %>
 <body>
 	<%
@@ -43,7 +42,7 @@ else{
 				TOTAL CUPO:
 				<input type = "text" name= "txtTotal_cupo" class = "form-control" value="<%= laclase.getTotal_cupo() %>"/>	
 				<br>
-				CODIGO:
+				ID:
 				<input type = "text" name= "txtId" class = "form-control" value="<%= laclase.getCodigo() %>"/>		
 				<br>
 				DIA:
@@ -56,15 +55,15 @@ else{
 				<input type = "text" name = "txtLegajo_prof" class = "form-control" value="<%= laclase.getLegajo_prof() %>"/>
 				<br>
 				ID TIPO CLASE:
-				<input type = "text" name = "txtIDTIPO" class = "form-control" value="<%= laclase.getIdtipo_clase() %>"/>
+				<input type = "text" name = "txtIDTIPO" class = "form-control" value="<%= laclase.getidtipo_clase() %>"/>
 				<br>
 				<br>
-				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name = "Editar"/>				
+				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name = "Editar"/>
 				<br>
 				<br>
 				<a href= "clases-tabla.jsp"> Regresar</a>				
            <%
-            String total_cupo, id, idtipo, dia, hora, legajo_prof; 
+            String nombre, descripcion, total_cupo, id, idtipo, dia, hora, legajo_prof; 
             
             total_cupo = request.getParameter("txtTotal_cupo");
 			id = request.getParameter("txtId");
@@ -84,7 +83,6 @@ else{
 				laclase.setDia(dia);
 				laclase.setHora(hora);
 				laclase.setLegajo_prof(Integer.parseInt(legajo_prof));
-				laclase.setIdtipo_clase(Integer.parseInt(idtipo));
 				
 				c.modClase(laclase, id1);
 				response.sendRedirect("clases-tabla.jsp");
