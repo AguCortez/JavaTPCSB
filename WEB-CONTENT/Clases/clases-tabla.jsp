@@ -58,7 +58,7 @@ else{
 		<br>	
 		<table class="table table-bordered">
 			<tr>
-				<th class="text-center">Id</th>
+				<th class="text-center">Codigo</th>
 				<th class="text-center">Total_cupo</th>
 				<th class="text-center">Dia</th>
 				<th class="text-center">Hora</th>
@@ -75,7 +75,7 @@ else{
 				<td class="text-center"><%=a.getDia() %></td>
 				<td class="text-center"><%=a.getHora() %></td>
 				<td class="text-center"><%=a.getLegajo_prof() %></td>
-				<td class="text-center"><%=a.getidtipo_clase() %></td>
+				<td class="text-center"><%=a.getIdtipo_clase() %></td>
 				
 				<td>
 				<a href="clases-editar.jsp?id=<%=a.getCodigo() %>"class="btn btn-warning btn-sm">Editar</a>

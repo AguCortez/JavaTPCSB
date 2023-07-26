@@ -1,5 +1,6 @@
 package data;
 
+<<<<<<< Updated upstream
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,21 +10,45 @@ import java.util.LinkedList;
 import entites.Clase;
 import entites.Socio;
 import entites.TipoClase;
+=======
+import java.sql.*;
+import java.util.LinkedList;
+
+import entites.Profesional;
+import entites.Socio;
+>>>>>>> Stashed changes
 
 
 public class dataTipoClase {
 	
+<<<<<<< Updated upstream
 	private String buscabyNombre = "select * from tipo_clase where `nombre_clase` LIKE %?";
 	private String getOnebyCodigo="select * from tipo_clase where `idtipo_clase` =? ";
 	private String newTipoClase="insert into tipo_clase (`idtipo_clase`, `nombre_clase`, `descripcion`) VALUES (?,?,?)";
 	private String deleteTipoClase= "delete from tipo_clase where `idtipo_clase` =? ";
     private String modifica= "UPDATE tipo_clase SET `idtipo_clase` = ?,`nombre_clase` =?,`descripcion` = ? WHERE `idtipo_clase` = ?;";
+=======
+
+	private String buscabyNombre = "select * from tipo_clase where nombre LIKE %?";
+	private String newTipoClase="insert into tipo_clase (`idtipo_clase`, `nombre_clase`, `descripcion`) VALUES (?,?,?)";
+	private String deleteTipoClase= "delete from tipo_clase where idtipo_clase = ?";
+	private String modifica= "UPDATE tipo_clase SET `idtipo_clase` = ?,`nombre_clase` =?,`descripcion` = ? WHERE `idtipo_clase` = ?";
+
+	
+	
+	
+
+>>>>>>> Stashed changes
 	
 	public LinkedList<TipoClase> getAll(){
 		
 		Statement stmt=null;
 		ResultSet rs=null;
+<<<<<<< Updated upstream
 		LinkedList<TipoClase> tipoclases= new LinkedList<>();
+=======
+		LinkedList<TipoClase> prof= new LinkedList<>();
+>>>>>>> Stashed changes
 		
 		try {
 			stmt= dbConector.getInstancia().getConn().createStatement();
@@ -31,12 +56,23 @@ public class dataTipoClase {
 			
 			if(rs!=null) {
 				while(rs.next()) {
+<<<<<<< Updated upstream
 					TipoClase c =new TipoClase();
 					
 					c.setIdtipo_clase(rs.getInt("idtipo_clase"));
 					c.setNombre_clase(rs.getString("nombre_clase"));
 					c.setDescripcion(rs.getString("descripcion"));
 					tipoclases.add(c);
+=======
+					Profesional p=new Profesional();
+					
+					p.setDni(rs.getInt("dni"));
+					p.setNombre(rs.getString("nombre"));
+					p.setApellido(rs.getString("apellido"));
+					p.setContrasenia(rs.getString("contrasenia"));				
+					
+					prof.add(p);
+>>>>>>> Stashed changes
 				}
 			}
 			
@@ -54,6 +90,7 @@ public class dataTipoClase {
 		}
 		
 		
+<<<<<<< Updated upstream
 		return tipoclases;
 	}
 	public TipoClase getOne(int id) {
@@ -93,13 +130,26 @@ public class dataTipoClase {
 	}
 	
 	public void add(TipoClase c) {
+=======
+		return prof;
+	}
+	
+	public void add(Profesional p) {
+>>>>>>> Stashed changes
 		PreparedStatement ps=null;
 		
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(newTipoClase);
+<<<<<<< Updated upstream
 			ps.setInt(1, c.getIdtipo_clase());
 			ps.setString(2, c.getNombre_clase());
 			ps.setString(3, c.getDescripcion());
+=======
+			ps.setInt(1,p.getDni());
+			ps.setString(2, p.getNombre());
+			ps.setString(3, p.getApellido());
+			ps.setString(4,p.getContrasenia());
+>>>>>>> Stashed changes
 			
 			ps.executeUpdate();
 	 		}
@@ -117,11 +167,20 @@ public class dataTipoClase {
             }
 		}
 	}
+<<<<<<< Updated upstream
 	public void delete (int codigo) {
 		PreparedStatement ps=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(deleteTipoClase);
 			ps.setInt(1, codigo);
+=======
+
+	public void delete (int legajo) {
+		PreparedStatement ps=null;
+		try {
+			ps=dbConector.getInstancia().getConn().prepareStatement(deleteProfesional);
+			ps.setInt(1, legajo);
+>>>>>>> Stashed changes
 			ps.executeUpdate();
 		}
 		catch(SQLException e)
@@ -140,15 +199,28 @@ public class dataTipoClase {
 		
 		
 	}
+<<<<<<< Updated upstream
 	public void update (TipoClase c, int codigoold) {
+=======
+	public void update (Profesional p, int legajoold) {
+>>>>>>> Stashed changes
 		PreparedStatement ps=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
 			
+<<<<<<< Updated upstream
 			ps.setInt(1, c.getIdtipo_clase());
 			ps.setString(2, c.getNombre_clase());
 			ps.setString(3, c.getDescripcion());
 			ps.setInt(4,codigoold);
+=======
+			
+			ps.setInt(1, p.getDni());
+			ps.setString(2, p.getNombre());
+			ps.setString(3,p.getApellido());
+			ps.setString(4,p.getContrasenia());
+			ps.setInt(5, legajoold);
+>>>>>>> Stashed changes
 			ps.executeUpdate();
 		}
 		catch(SQLException e)
@@ -164,6 +236,7 @@ public class dataTipoClase {
             	e.printStackTrace();
             }
 		}
+<<<<<<< Updated upstream
 		}
 	
 	public  LinkedList<TipoClase>  buscabyCodigo(String nombre) {
@@ -203,3 +276,15 @@ public class dataTipoClase {
 	}
 
 }
+=======
+		
+		
+		}
+	
+	
+	
+
+		
+	
+}
+>>>>>>> Stashed changes
