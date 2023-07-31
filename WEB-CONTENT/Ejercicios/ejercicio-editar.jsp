@@ -39,57 +39,34 @@ else{
 
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
 				ID EJERCICIO:
-				<input type = "text" name= "txtIDejer" class = "form-control" value="<%=elejer.getIdEjercicio() %>"/>
-				<br>
-				ID RUTINA:
-				<input type = "text" name= "txtIDrutina" class = "form-control" value="<%=elejer.getIdrutina() %>"/>		
-				<br>
-				REPETICIONES:
-				<input type = "text" name = "txtRepeticiones" class = "form-control" value="<%=elejer.getRepeticiones() %>"/>
-				<br>
-				PESO:
-				<input type = "text" name = "txtPeso" class = "form-control" value="<%=elejer.getPeso() %>"/>
-				<br>
-				SERIES:
-				<input type = "text" name = "txtSeries" class = "form-control" value="<%=elejer.getSeries() %>"/>
+				<input type = "text" name= "txtIdtipo" class = "form-control" value="<%=elejer.getIdtipo() %>"/>
 				<br>
 				DESCRIPCION:
 				<input type = "text" name = "txtDescripcion" class = "form-control" value="<%=elejer.getDescripcion() %>"/>				
 				<br>
-				NOMBRE MAQUINA:
-				<input type = "text" name = "txtNombreMaq" class = "form-control" value="<%=elejer.getNombre_maquina() %>"/>
+				
 				<br>
-				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name = "Editar"/>
+				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
-				<a href= "ejercicio-tabla.jsp"> Regresar</a>				
+				<a href= "tablaejercicio.jsp"> Regresar</a>					
 		<%
            
-        String idEj, idRutina,repeteciones,  peso, series;
-       	String descripcion , nombre_maq;
+        String idEj,descripcion ;
 
        	idEj = request.getParameter("txtIDejer");
-       	idRutina = request.getParameter("txtIDrutina");
-       	repeteciones = request.getParameter ("txtRepeticiones");
-       	peso = request.getParameter ("txtPeso");
-       	series = request.getParameter ("txtSeries");
        	descripcion = request.getParameter ("txtDescripcion");
-       	nombre_maq = request.getParameter ("txtNombreMaq");
-
+       
        	
-       	if ( null !=request.getParameter("Editar") )
-		{					
+    	if ( null !=request.getParameter("Guardar") )
+		{	
 			
 			
-			
-    	if (idEj!= "" && idRutina != "" && repeteciones != "" && peso != "" && nombre_maq != "" && series != "" && descripcion!= "" )
+    	if (idEj!= "" &&  descripcion!= "" )
 			{
-    		elejer.setIdEjercicio(Integer.parseInt(idEj));
-    		elejer.setRepeticiones(Integer.parseInt(repeteciones));
-    		elejer.setPeso(Integer.parseInt(peso));
-    		elejer.setSeries(Integer.parseInt(series));
+    		elejer.setIdtipo(Integer.parseInt(idEj));
     		elejer.setDescripcion(descripcion);
-    		elejer.setNombre_maquina(nombre_maq);
+    		
     		e.modEjercicio(elejer, Integer.parseInt(idEj));
 			response.sendRedirect("ejercicio-tabla.jsp");
 			}
@@ -102,6 +79,7 @@ else{
       
     	}
 		}
+		
 %>
 		</form> 
 	</div>

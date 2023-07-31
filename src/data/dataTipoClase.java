@@ -18,7 +18,6 @@ public class dataTipoClase {
 	private String newTipoClase="insert into tipo_clase (`idtipo_clase`, `nombre_clase`, `descripcion`) VALUES (?,?,?)";
 	private String deleteTipoClase= "delete from tipo_clase where `idtipo_clase` =? ";
     private String modifica= "UPDATE tipo_clase SET `idtipo_clase` = ?,`nombre_clase` =?,`descripcion` = ? WHERE `idtipo_clase` = ?;";
-	
 	public LinkedList<TipoClase> getAll(){
 		
 		Statement stmt=null;

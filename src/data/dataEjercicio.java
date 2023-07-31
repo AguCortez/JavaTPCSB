@@ -10,17 +10,15 @@ import entites.Ejercicio;
 
 
 public class dataEjercicio {
-	
-	private String buscabyID = "select * from ejercicio where idtipo LIKE % ? %";
-	private String getOnebyID="select * from ejercicio where idtipo=?";
-	private String newEjer=" INSERT INTO `gimnasiojava`.`tipo_ejercicio` (`idtipo`,`descripcion` VALUES (?,?)";
+	private String buscabyID = "select * from tipo_ejercicio where idtipo LIKE % ? %";
+	private String getOnebyID="select * from tipo_ejercicio where idtipo=?";
+	private String newEjer="INSERT INTO `tipo_ejercicio` (`descripcion`) VALUES (?)";
 	private String deleteEjer= "delete from tipo_ejercicio where `idtipo` = ?";
-	private String modifica= "UPDATE ejercicio SET `descripcion` = ?,`idtipo` = ? WHERE `idtipo` = ?";	
+	private String modifica= "UPDATE tipo_ejercicio SET `idtipo` = ? , `descripcion` = ? WHERE `idtipo` = ?";	
 	public LinkedList<Ejercicio> getAll(){
 		
 		Statement stmt=null;
 		ResultSet rs=null;
-		
 		LinkedList<Ejercicio> ejer= new LinkedList<>();
 		
 		try {
@@ -96,8 +94,8 @@ public class dataEjercicio {
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(newEjer);
 				
-			ps.setString(2, ej.getDescripcion());			
-			ps.setInt(1, ej.getIdtipo());
+			ps.setString(1, ej.getDescripcion());		
+		
 			ps.executeUpdate();
 			
 	 		}
@@ -143,8 +141,12 @@ public class dataEjercicio {
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
 			
-			ps.setInt(1, e.getIdtipo());
+			ps.setInt(1,idEjercicio);
 			ps.setString(2, e.getDescripcion());
+			ps.setInt(3, idEjercicio);
+	
+			ps.executeUpdate();
+
 			
 		}		
 		
@@ -161,9 +163,11 @@ public class dataEjercicio {
             	ej.printStackTrace();
             }
 		}
-		
-		
 		}
+	public LinkedList<Ejercicio> buscabyID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 		
 		

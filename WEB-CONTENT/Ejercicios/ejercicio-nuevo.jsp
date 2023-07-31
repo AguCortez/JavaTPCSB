@@ -1,4 +1,3 @@
-
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.Ejercicio"%>
 <%@page import="util.ejercicioUtil"%>
@@ -23,9 +22,10 @@ if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
 
 	}
 else{
-	out.print("<script>location.replace('index.jsp');</script>"); 
+	out.print("<script>location.replace('../index.jsp');</script>"); 
 }
-
+%>
+<% 
 ejercicioUtil ej =new ejercicioUtil();
 String descripcion; 
 %>
