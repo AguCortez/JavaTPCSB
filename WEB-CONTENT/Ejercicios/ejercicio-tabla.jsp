@@ -4,6 +4,21 @@
 <%@page import="util.*"%>
 <%@ include file="../menu-header.jsp"%>
 <%
+
+    HttpSession sesion= request.getSession();
+    String user, lvl;	
+if(sesion.getAttribute("usuario")!=null && sesion.getAttribute("nivel")!=null)
+    {
+    user=sesion.getAttribute("usuario").toString();
+    lvl=sesion.getAttribute("nivel").toString();
+
+    }
+else{
+    out.print("<script>location.replace('index.jsp');</script>"); 
+}
+%>
+<%
+
 		ejercicioUtil ej =new ejercicioUtil();
 		LinkedList<Ejercicio> ejers=new LinkedList<Ejercicio>();
 %>
@@ -11,7 +26,7 @@
 	<br>
 	<div class="container">
 	
-		
+	
 		
 	</div>
 	<br>
@@ -21,54 +36,46 @@
 	<form class="form">
 	<table>
 		<tr>
-			<td><a class = "btn btn-success btn-lg" href="ejercicio-rutina.jsp">Nuevo Ejercicio</a></td>
+			<td><a class = "btn btn-success btn-lg" href="ejercicio-nuevo.jsp">Nuevo Ejercicio</a></td>
 			<td></td>
 			<td></td>
 			<td></td>
-			
-			<td>
-			<input class="form-control" type="text" name="txtbuscar">
-			</td>
-			<td>
-			<input class="btn btn" type="submit" value="Buscar">	
-			</td>
+			<form class="form-inline">
+			    <input class="form-control" type="search" name="txtbuscar">
+				<input class="btn btn-out" type="submit" name = "accion" value="Buscar">	
+			</form>
 		</tr>
 	</table>
 	</form>	
-<%
+	<%
 			ejers= ej.getAll();
 		
 	%> 
 		<br>	
+		<br>
+		<br>
 		<table class="table table-bordered">
 			<tr>
-				<th class="text-center">repeticiones</th>
-				<th class="text-center">peso</th>
-				<th class="text-center">series</th>
+				
 				<th class="text-center">descripcion</th>
-				<th class="text-center">nombre maquina</th>
-				<th class="text-center">id ejercicio</th>
+				<th class="text-center">idtipo</th>
 
 			</tr>
 			<%
 			for (Ejercicio e: ejers){
 			%>
 			<tr>
-				<td class="text-center"><%=e.getRepeticiones() %></td>
-				<td class="text-center"><%=e.getPeso() %></td>
-				<td class="text-center"><%=e.getSeries() %></td>
+				
 				<td class="text-center"><%=e.getDescripcion() %></td>
-				<td class="text-center"><%=e.getNombre_maquina()%></td>
-				<td class="text-center"><%=e.getIdEjercicio()%></td>
+				<td class="text-center"><%=e.getIdtipo()%></td>
 				
 				<td>
-				<a href="ejercicio-editar.jsp?idEj=<%=e.getIdEjercicio()%>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="ejercicio-editar.jsp?idEj=<%=e.getIdtipo()%>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="ejercicio-borrar.jsp?idEj=<%=e.getIdEjercicio() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="ejercicio-borrar.jsp?idEj=<%=e.getIdtipo() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
-			<%
-			}%>
+			<%    }    %>
 			
 		</table>
 	<%@ include file="../menu-foot.jsp" %>
