@@ -13,7 +13,7 @@ import entites.TipoClase;
 
 public class dataTipoClase {
 	private String nombreBuscar;
-	private String buscabyNombre = "select * from tipo_clase where `nombre_clase` LIKE "+"'%"+"?"+"%'" ;
+	private String buscabyNombre = "SELECT * FROM `tipo_clase` WHERE `nombre_clase` LIKE ? ORDER BY `idtipo_clase` ASC" ;
 	private String getOnebyCodigo="select * from tipo_clase where `idtipo_clase` =? ";
 	private String newTipoClase="insert into tipo_clase (`idtipo_clase`, `nombre_clase`, `descripcion`) VALUES (?,?,?)";
 	private String deleteTipoClase= "delete from tipo_clase where `idtipo_clase` =? ";
@@ -174,11 +174,11 @@ public class dataTipoClase {
 		try {
 			nombreBuscar = nombre;
 			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyNombre);
-			ps.setString(1, nombre);
+			ps.setString(1, "%" + nombre + "%");
 			rs=ps.executeQuery();
-			
-				if(rs!=null && rs.next())
-				{while(rs!=null && rs.next()) {
+
+			if(rs!=null) {
+				while(rs.next()) {
 					TipoClase c =new TipoClase();
 					c.setIdtipo_clase(rs.getInt("idtipo_clase"));
 					c.setNombre_clase(rs.getString("nombre_clase"));
