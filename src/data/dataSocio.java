@@ -12,7 +12,7 @@ import entites.Socio;
 
 public class dataSocio {
 	
-	private String buscabyNombre = "select * from socio where nombre LIKE %?";
+	private String buscabyNombre = "select * from socio where nombre LIKE ?";
 	private String getOnebyDNI="select * from socio where dni=? ";
 	private String getOnebyDNIyContra="select * from socio where dni=? and contrasenia=?  ";
 	private String newSocio="insert into socio (`dni`, `tipo`, `contrasenia`, `nombre`, `apellido`, `num_celular`) VALUES (?,?,?,?,?,?)";
@@ -222,13 +222,12 @@ public class dataSocio {
 		ResultSet rs=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyNombre);
-			ps.setString(1, nombre);
+			ps.setString(1, "%" + nombre + "%");
 			rs=ps.executeQuery();
 			
-				if(rs!=null && rs.next())
-				{while(rs!=null && rs.next()) {
+			if(rs!=null) {
+				while(rs.next()) {
 					Socio s=new Socio();
-					
 					s.setNombre_soc(rs.getString("nombre"));
 					s.setApellido_soc(rs.getString("apellido"));
 					s.setCelu(rs.getString("num_celular"));

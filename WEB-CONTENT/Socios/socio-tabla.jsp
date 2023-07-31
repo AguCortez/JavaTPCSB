@@ -40,11 +40,21 @@ else{
 			<input class="btn btn" type="submit" value="Buscar">	
 			</td>
 		</tr>
+					<%
+				String nombuscar=request.getParameter("txtbuscar");
+				if (nombuscar!=null ){
+					socios = s.buscabyNombre(nombuscar);
+					System.out.print(nombuscar);
+				}else{
+					socios= s.getAll();
+				}
+				
+			
+			%>
 	</table>
 	</form>	
-	<%
-	socios= s.getAll();
-	%>	
+	
+
 			
 		<table class="table table-bordered">
 			<tr>
