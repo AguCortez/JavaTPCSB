@@ -48,10 +48,22 @@ else{
 			<input class="btn btn" type="submit" value="Buscar">	
 			</td>
 		</tr>
+				<%
+				String nombuscar=request.getParameter("txtbuscar");
+				if (nombuscar!=null ){
+					profesionales= p.buscaNom(nombuscar);
+					System.out.print(nombuscar);
+				}else{
+					profesionales= p.getAll();
+				}
+				
+			
+			%>
 	</table>
 	</form>	
-	<%profesionales= p.getAll();
-		/*String legajo= request.getParameter("txtbuscar");
+	<%
+		/*profesionales= p.getAll();
+		String legajo= request.getParameter("txtbuscar");
  		if(legajo== null || legajo.equals("")){
  			
 			

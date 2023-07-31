@@ -1,9 +1,11 @@
 package util; 
 import entites.Profesional;
+import entites.TipoClase;
 
 import java.util.LinkedList;
 
 import data.dataProfesional;
+import data.dataTipoClase;
 
 public class profesionalUtil {
 	
@@ -40,5 +42,9 @@ public class profesionalUtil {
 			rta=false;
 		}else rta=true;
 		return rta;
+	}
+	public LinkedList<Profesional> buscaNom(String nombre) {
+		dataProfesional ds=new dataProfesional();
+		return ds.buscabyNombre(nombre);
 	}
 }

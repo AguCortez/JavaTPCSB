@@ -5,12 +5,13 @@ import java.util.LinkedList;
 
 import entites.Profesional;
 import entites.Socio;
+import entites.TipoClase;
 
 
 public class dataProfesional {
 	
 
-	private String buscabyNombre = "select * from profesional where nombre LIKE %?";
+	private String buscabyNombre = "select * from profesional where nombre LIKE ?";
 	private String getOnebyLEGAJO="select * from profesional where dni=? ";
 	
 	private String newProfesional="insert into profesional (`dni`, `nombre`, `apellido`, `contrasenia`) VALUES (?,?,?,?)";
@@ -178,7 +179,42 @@ public class dataProfesional {
 		
 		
 		}
-	
+	public  LinkedList<Profesional>  buscabyNombre(String nombre) {
+		LinkedList<Profesional> profesionales= new LinkedList<>();
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		try {
+			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyNombre);
+			ps.setString(1, "%" + nombre + "%");
+			rs=ps.executeQuery();
+
+			if(rs!=null) {
+				while(rs.next()) {
+					Profesional c =new Profesional();
+					c.setDni(rs.getInt("dni"));
+					c.setNombre(rs.getString("nombre"));
+					c.setApellido(rs.getString("apellido"));
+					c.setContrasenia(rs.getString("contrasenia"));
+					profesionales.add(c);
+				}
+				}
+			} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		finally 
+		{
+			try {
+				if(rs!=null) {rs.close();}
+				if(ps!=null) {ps.close();}
+				dbConector.getInstancia().releaseConn();
+			} 
+			catch (SQLException e) {
+				e.printStackTrace();
+			}		}		
+		return profesionales;
+	}
 	
 	
 
