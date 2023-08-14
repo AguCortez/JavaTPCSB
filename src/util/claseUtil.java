@@ -1,5 +1,6 @@
 package util;
 import entites.Clase;
+import entites.TipoClase;
 
 import java.sql.*;
 
@@ -8,6 +9,7 @@ import java.util.LinkedList;
 
 
 import data.dataClase;
+import data.dataTipoClase;
 
 public class claseUtil {
 	
@@ -58,5 +60,10 @@ public class claseUtil {
 	public Clase getByid(int id) {
 		dataClase ds=new dataClase();
 		return ds.getOne(id);
+	}
+	
+	public LinkedList<Clase> buscaNom(String nombre) {
+		dataClase ds=new dataClase();
+		return ds.buscabyCodigo(nombre);
 	}
 }
