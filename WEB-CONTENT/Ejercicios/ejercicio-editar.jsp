@@ -39,25 +39,25 @@ else{
 
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
 				ID EJERCICIO:
-				<input type = "text" name= "txtIDejer" class = "form-control" value="<%=elejer.getIdEjercicio() %>"/>
+				<input type = "text" name= "txtIdtipo" class = "form-control" value="<%= elejer.getIdtipo() %>"/>
 				<br>
 				ID RUTINA:
-				<input type = "text" name= "txtIDrutina" class = "form-control" value="<%=elejer.getIdrutina() %>"/>		
+				<input type = "text" name= "txtIDrutina" class = "form-control" value="<%= elejer.getIDrutina() %>"/>		
 				<br>
 				REPETICIONES:
-				<input type = "text" name = "txtRepeticiones" class = "form-control" value="<%=elejer.getRepeticiones() %>"/>
+				<input type = "text" name = "txtRepeticiones" class = "form-control" value="<%= elejer.getRepeticiones() %>"/>
 				<br>
 				PESO:
-				<input type = "text" name = "txtPeso" class = "form-control" value="<%=elejer.getPeso() %>"/>
+				<input type = "text" name = "txtPeso" class = "form-control" value="<%= elejer.getPeso() %>"/>
 				<br>
 				SERIES:
-				<input type = "text" name = "txtSeries" class = "form-control" value="<%=elejer.getSeries() %>"/>
+				<input type = "text" name = "txtSeries" class = "form-control" value="<%= elejer.getSeries() %>"/>
 				<br>
 				DESCRIPCION:
-				<input type = "text" name = "txtDescripcion" class = "form-control" value="<%=elejer.getDescripcion() %>"/>				
+				<input type = "text" name = "txtDescripcion" class = "form-control" value="<%= elejer.getDescripcion() %>"/>				
 				<br>
 				NOMBRE MAQUINA:
-				<input type = "text" name = "txtNombreMaq" class = "form-control" value="<%=elejer.getNombre_maquina() %>"/>
+				<input type = "text" name = "txtNombreMaq" class = "form-control" value="<%= elejer.getNombre_maquina() %>"/>
 				<br>
 				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name = "Editar"/>
 				<br>

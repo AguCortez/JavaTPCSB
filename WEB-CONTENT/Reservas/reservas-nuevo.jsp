@@ -31,34 +31,30 @@ else{
 	<div class = "conteiner">
 		<h1>Agregar nueva reserva </h1>	
 		<hr>
-		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
+		
 				Clase que desea reservar:
 				
-				<div class="input-group mb-3">
-  					<label class="input-group-text" for="inputGroupSelect01">Options</label>
- 						<select class="form-select" id="inputGroupSelect01">
-    						<option selected>Choose...</option>
-   							<option value="1">ACA VA EL NOMBRE DE LA CLASE</option>
-    						<option value="2">Two</option>
-    						<option value="3">Three</option>
-  						</select>
-				</div>
+			<div class="input-group mb-3">
+  				<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">	
+				ID Clase: 
+					<input type = "text" name= "txtIdClase" class = "form-control"/>	
 				<br>
 				DNI:
-				<input type = "text" name= "txtDni" class = "form-control"/>		
+					<input type = "text" name= "txtDni" class = "form-control"/>		
 				<br>
 				ID RESERVA:
-				<input type = "text" name = "txtId_reserva" class = "form-control"/>
+					<input type = "text" name = "txtId_reserva" class = "form-control"/>
 				<br>
 			
-				<br>
+				<br>  
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
-				<a href= "reservas-tabla.jsp"> Regresar</a>				
+				<a href= "reservas-tabla.jsp"> Regresar</a>	
+				</form>			
+		</div>
 		
 		
-		</form>
 	</div>
 </body>
 </html>
@@ -66,7 +62,7 @@ else{
 
 	String codigo,dni, id_reserva, fecha;
 
-	codigo = request.getParameter("txtCodigo");
+	codigo = request.getParameter("txtIdClase");
 	dni = request.getParameter("txtDni");
 	id_reserva = request.getParameter ("txtId_reserva");
 	

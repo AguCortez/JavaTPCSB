@@ -45,7 +45,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#"> Mis Rutinas </a>
+          <a class="nav-link active" href="servlettry.jsp"> Mis Rutinas </a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="inscripcion.jsp"> Inscribirse a una clase </a>
