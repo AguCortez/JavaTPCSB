@@ -30,10 +30,12 @@ import data.dataReserva;
 public class login {
 
 	public static void main(String[] args) {
-	dataTipoClase s = new dataTipoClase();
-	LinkedList<TipoClase> a = new LinkedList<TipoClase>();
-    a=s.buscabyCodigo("pinning");
-    System.out.println(a.toString());
+		dataEjercicio d =new dataEjercicio();
+		Ejercicio e= d.getOne(15);
+		e.setDescripcion("Si edito");
+		d.update(e, 15);
+		System.out.println(e.getDescripcion()+ " "+ e.getIdtipo());
+		
 	}
 }
 

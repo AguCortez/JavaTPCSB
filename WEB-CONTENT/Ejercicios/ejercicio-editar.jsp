@@ -29,8 +29,11 @@ else{
 <body>
 	<%
 		int id= Integer.parseInt(request.getParameter("idEj"));
+	    System.out.println(id);
 		ejercicioUtil e =new ejercicioUtil();
 		Ejercicio elejer= e.getByID(id); 
+		
+
 	%>
 
  	<div class = "conteiner">
@@ -46,31 +49,34 @@ else{
 				<br>
 				
 				<br>
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
+				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name="Editar"/>
 				<br>
 				<br>
-				<a href= "tablaejercicio.jsp"> Regresar</a>					
+				<a href= "ejercicio-tabla.jsp"> Regresar</a>					
 		<%
            
-        String idEj,descripcion ;
+        
+		String idEj=request.getParameter("txtIdtipo"),descripcion=request.getParameter("txtDescripcion") ;
 
-       	idEj = request.getParameter("txtIDejer");
-       	descripcion = request.getParameter ("txtDescripcion");
-       
-       	
-    	if ( null !=request.getParameter("Guardar") )
+
+	
+		
+		
+		
+    	if ( null !=request.getParameter("Editar") )
 		{	
-			
+
 			
     	if (idEj!= "" &&  descripcion!= "" )
 			{
+    		
     		elejer.setIdtipo(Integer.parseInt(idEj));
     		elejer.setDescripcion(descripcion);
     		
     		e.modEjercicio(elejer, Integer.parseInt(idEj));
 			response.sendRedirect("ejercicio-tabla.jsp");
 			}
-    	
+    	 
     	
     	else
     		

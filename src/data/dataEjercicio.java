@@ -14,7 +14,7 @@ public class dataEjercicio {
 	private String getOnebyID="select * from tipo_ejercicio where idtipo=?";
 	private String newEjer="INSERT INTO `tipo_ejercicio` (`descripcion`) VALUES (?)";
 	private String deleteEjer= "delete from tipo_ejercicio where `idtipo` = ?";
-	private String modifica= "UPDATE tipo_ejercicio SET `idtipo` = ? , `descripcion` = ? WHERE `idtipo` = ?";	
+	private String modifica= "UPDATE tipo_ejercicio SET idtipo = ? , descripcion = ? WHERE idtipo = ?";	
 	public LinkedList<Ejercicio> getAll(){
 		
 		Statement stmt=null;
@@ -140,14 +140,10 @@ public class dataEjercicio {
 		PreparedStatement ps=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
-			
 			ps.setInt(1,idEjercicio);
 			ps.setString(2, e.getDescripcion());
 			ps.setInt(3, idEjercicio);
-	
-			ps.executeUpdate();
-
-			
+			ps.executeUpdate();			
 		}		
 		
 		catch(SQLException ej)
