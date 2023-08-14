@@ -12,7 +12,7 @@ import entites.Socio;
 
 public class dataClase {
 	
-	private String buscabyNombre = "select * from clase where `nombre` LIKE %?";
+	private String buscabyNombre = "select * from clase where `dia` LIKE ?  ORDER BY `codigo` ASC";
 	private String getOnebyCodigo="select * from clase where `codigo` =? ";
 	private String newClase="insert into clase (`codigo`, `total_cupos`, `nombre`, `actual_cupos`, `dia`, `hora`,`descripcion`,`legajo`) VALUES (?,?,?,?,?,?,?,?)";
 	private String deleteClase= "delete from clase where `codigo` =? ";
@@ -190,20 +190,19 @@ public class dataClase {
 		ResultSet rs=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyNombre);
-			ps.setString(1, codigo);
+			ps.setString(1,  "%" + codigo + "%");
 			rs=ps.executeQuery();
 			
-				if(rs!=null && rs.next())
-				{while(rs!=null && rs.next()) {
-					Clase c=new Clase();
-					
-					c.setCodigo(rs.getInt("codigo"));
-					c.setTotal_cupo(rs.getInt("total_cupos"));
-					c.setDia(rs.getString("dia"));	
-					c.setHora(rs.getString("hora"));
-					c.setLegajo_prof(rs.getInt("legajo"));
-					c.setidtipo_clase(rs.getInt("idtipo_clase"));
-					clases.add(c);
+				if(rs!=null){
+					while(rs.next()) {
+						Clase c=new Clase();
+						c.setCodigo(rs.getInt("codigo"));
+						c.setTotal_cupo(rs.getInt("total_cupos"));
+						c.setDia(rs.getString("dia"));
+						c.setHora(rs.getString("hora"));				
+						c.setLegajo_prof(rs.getInt("legajo"));
+						c.setidtipo_clase(rs.getInt("idtipo_clase"));
+						clases.add(c);
 				}
 				}
 			} 

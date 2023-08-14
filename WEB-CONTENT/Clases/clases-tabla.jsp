@@ -43,16 +43,21 @@ else{
 				<input class="form-control" type="search" name="txtbuscar">
 				<input class="btn btn-out" type="submit" name = "accion" value="Buscar">	
 			</form>
+			<%
+				String nombuscar=request.getParameter("txtbuscar");
+				if (nombuscar!=null ){
+					clase = c.buscaNom(nombuscar);
+					System.out.print(nombuscar);
+				}else{
+					clase= c.getAll();
+				}
+				
+			
+			%>
 		</tr>
 	</table>
 	</form>	
-	<%
-			
-	      clase= c.getAll();
-			
-		
-		
-			%>
+
 		<br>
 		<br>
 		<br>	

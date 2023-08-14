@@ -34,8 +34,8 @@ public class ejercicioUtil {
 		return de.getOne(idejercicio);
 	}
 	
-	public LinkedList<Ejercicio> buscabyID(int id){
+	public LinkedList<Ejercicio> buscaDesc(String id){
 		dataEjercicio de=new dataEjercicio();
-	return de.buscabyID(id);
+	return de.buscabyDesc(id);
 }
 }
