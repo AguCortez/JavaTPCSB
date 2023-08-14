@@ -29,7 +29,8 @@ else{
 <body>
 	<%
 		int id= Integer.parseInt(request.getParameter("id"));
-	   rutinaUtil r =new rutinaUtil();
+        System.out.println(id);
+   	   rutinaUtil r =new rutinaUtil();
 		Rutina laRutina= r.getByidRutina(id);
 	%>
 
@@ -47,30 +48,36 @@ else{
 				DNI:
 				<input type = "text" name = "txtDNI" class = "form-control" value="<%= laRutina.getDni() %>"/>
 				<br>
-				LEGAJO:
+				Legajo :
 				<input type = "text" name = "txtLEGAJO" class = "form-control" value="<%= laRutina.getLegajo()%>"/>
 				<br>
-			
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
+				<br>
+				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name="Editar"/>
 				<br>
 				<br>
 				<a href= "rutina-tabla.jsp"> Regresar</a>				
            <%
+          
 
             String dia,idr,dni,legajo;
+            dia=request.getParameter("txtDIA");	
             idr=request.getParameter("txtID");
             dni=request.getParameter("txtDNI");
             legajo=request.getParameter("txtLEGAJO");
-            dia=request.getParameter("txtDIA");			
+            		
 			
 			
-			if (idr!= "" && dni != "" && legajo != "" && dia != "" )
+            if ( null !=request.getParameter("Editar") )
+    		{	
+            
+			if (dia!= "" && idr != "" && dni != "" &&  legajo != "" )
 			{
 				laRutina.setDia(dia);
-				laRutina.setDni(Integer.parseInt(dni));
-				laRutina.setIdRutina(Integer.parseInt(idr));
+				laRutina.setDni(Integer.parseInt(idr));
+				laRutina.setIdRutina(Integer.parseInt(dni));
 				laRutina.setLegajo(Integer.parseInt(legajo));
-				r.modRutina(laRutina, id);
+				
+				r.modRutina(laRutina,(id));
 				response.sendRedirect("rutina-tabla.jsp");
 			}
 			
@@ -81,9 +88,10 @@ else{
 				out.print("Rellenar todos los campos");
 
 			}
-			
-			
-%>
+    		}
+            
+			%>			
+
 		</form> 
 	</div>
 </body>
