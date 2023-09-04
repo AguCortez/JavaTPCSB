@@ -2,70 +2,69 @@ package entites;
 
 
 public class Rutina {
-	private int idtiporutina;
-	public int getIdtiporutina() {
-		return idtiporutina;
+	public Rutina(int idtipoej2, String dia2, int idrutina2, int dni2, int dniP2, int dniP3, int series2,
+			int repeticiones2) {
+		setIdtipoej(idtipoej2);
+		setDia(dia2);
+		setIdRutina(idrutina2);
+		setDni(dni2);
+		setDniP(dniP2);
+		setDniP(dniP3);
+		setSeries(series2);
+		
+		// TODO Auto-generated constructor stub
 	}
-
-	public void setIdtiporutina(int idtiporutina) {
-		this.idtiporutina = idtiporutina;
+	public Rutina() {
+		// TODO Auto-generated constructor stub
 	}
-
-	private int dni;
-	public Rutina(int idtiporutina, String dia2, int idrutina2, int dni2, int dniP, int id_ejer) {
-		this.setDia(dia2);
-		this.setIdRutina(idrutina2);
-		this.setDni(dni2);
-		this.setLegajo(dniP);
-		this.setId_ejer(id_ejer);
-        this.setIdtiporutina(idtiporutina);
-	}
-
-	public int getDni() {
-		return dni;
-	}
-
-	public void setDni(int dni) {
-		this.dni = dni;
-	}
-
-	public int getLegajo() {
-		return dniP;
-	}
-
-	public void setLegajo(int legajo) {
-		this.dniP = legajo;
-	}
-
-	private int dniP;
-	private int idRutina;
-	private String dia;
-	private int id_ejer;
-
 	public int getIdRutina() {
 		return idRutina;
 	}
-
 	public void setIdRutina(int idRutina) {
 		this.idRutina = idRutina;
 	}
-
 	public String getDia() {
 		return dia;
 	}
-
 	public void setDia(String dia) {
 		this.dia = dia;
 	}
-	public Rutina() {
+	public int getDni() {
+		return dni;
 	}
-
-	public int getId_ejer() {
-		return id_ejer;
+	public void setDni(int dni) {
+		this.dni = dni;
 	}
-
-	public void setId_ejer(int id_ejer) {
-		this.id_ejer = id_ejer;
+	public int getDniP() {
+		return dniP;
 	}
-
+	public void setDniP(int dniP) {
+		this.dniP = dniP;
+	}
+	public int getIdtipoej() {
+		return idtipoej;
+	}
+	public void setIdtipoej(int idtipoej) {
+		this.idtipoej = idtipoej;
+	}
+	public int getSeries() {
+		return series;
+	}
+	public void setSeries(int series) {
+		this.series = series;
+	}
+	public int getRepeticiones() {
+		return repeticiones;
+	}
+	public void setRepeticiones(int repeticiones) {
+		this.repeticiones = repeticiones;
+	}
+	private int idRutina;
+	private String dia;
+	private int dni;
+	private int dniP;
+	private int idtipoej;
+	private int series;
+	private int repeticiones; 
+	
 }

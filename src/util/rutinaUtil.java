@@ -8,8 +8,8 @@ import data.dataRutina;
 public class rutinaUtil {
 	
 	
-	public void altaRutina(int idtiporutina, String dia, int idrutina, int dni, int legajo, int id_ejer) {
-		Rutina nRutina=new Rutina(idtiporutina, dia, idrutina, dni, legajo, id_ejer);
+	public void altaRutina(int idtipoej, String dia, int idrutina, int dni, int dniP, int series, int repeticiones) {
+		Rutina nRutina=new Rutina(idtipoej, dia, idrutina, dni, dniP, dniP, series, repeticiones);
 		dataRutina ds=new dataRutina();
 		ds.add(nRutina);
 

@@ -63,11 +63,11 @@ else{
 				<td class="text-center"><%=ru.getDni() %></td>
 				<td class="text-center"><%=ru.getDia() %></td>
 				<td class="text-center"><%=ru.getIdRutina() %></td>
-				<td class="text-center"><%=ru.getLegajo() %></td>
+				<td class="text-center"><%=ru.getDniP() %></td>
 				
 				<% Rutina ri=new Rutina();
 					rutinaUtil ra=new rutinaUtil();
-					ri=ra.getByidRutina(ru.getIdtiporutina());   %>
+					ri=ra.getByidRutina(ru.getIdtipoej());   %>
 				
 				
 				<td>

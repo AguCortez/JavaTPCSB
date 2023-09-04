@@ -48,34 +48,50 @@ else{
 				DNI:
 				<input type = "text" name = "txtDNI" class = "form-control" value="<%= laRutina.getDni() %>"/>
 				<br>
-				Legajo :
-				<input type = "text" name = "txtLEGAJO" class = "form-control" value="<%= laRutina.getLegajo()%>"/>
+				DNI P:
+				<input type = "text" name = "txtDNIP" class = "form-control" value="<%= laRutina.getDniP()%>"/>
+				<br>
+				Id tipo ej:
+				<input type = "text" name = "txtIDTIPOEJ" class = "form-control" value="<%= laRutina.getIdtipoej()%>"/>
+				<br>
+				Series:
+				<input type = "text" name = "txtSERIES" class = "form-control" value="<%= laRutina.getSeries() %>"/>
+				<br>
+				Repeticiones:
+				<input type = "text" name = "txtREPETICIONES" class = "form-control" value="<%= laRutina.getRepeticiones() %>"/>
 				<br>
 				<br>
-				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name="Editar"/>
+				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg" name= "Editar"/>
 				<br>
 				<br>
 				<a href= "rutina-tabla.jsp"> Regresar</a>				
            <%
           
 
-            String dia,idr,dni,legajo;
+            String dia,idr,dni,dniP,idtipoej,series,repeticiones;
+           
             dia=request.getParameter("txtDIA");	
             idr=request.getParameter("txtID");
             dni=request.getParameter("txtDNI");
-            legajo=request.getParameter("txtLEGAJO");
-            		
+            dniP=request.getParameter("txtDNIP");
+            idtipoej=request.getParameter("txtIDTIPOEJ");
+            series=request.getParameter("txtSERIES");
+            repeticiones=request.getParameter("txtREPETICIONES");
 			
 			
             if ( null !=request.getParameter("Editar") )
     		{	
             
-			if (dia!= "" && idr != "" && dni != "" &&  legajo != "" )
+			if (dia!= "" && idr != "" && dni != "" &&  dniP != "" &&  idtipoej != "" &&  series != "" &&  repeticiones != "" )
 			{
 				laRutina.setDia(dia);
 				laRutina.setDni(Integer.parseInt(idr));
 				laRutina.setIdRutina(Integer.parseInt(dni));
-				laRutina.setLegajo(Integer.parseInt(legajo));
+				laRutina.setDniP(Integer.parseInt(dniP));
+				laRutina.setIdtipoej(Integer.parseInt(idtipoej));
+				laRutina.setSeries(Integer.parseInt(series));
+				laRutina.setRepeticiones(Integer.parseInt(repeticiones));
+				
 				
 				r.modRutina(laRutina,(id));
 				response.sendRedirect("rutina-tabla.jsp");

@@ -13,9 +13,9 @@ public class dataRutina {
 	
 	private String buscabyidRutina = "select * from rutina where idRutina LIKE %?";
 	private String getOnebyidRutina="select * from rutina where idRutina=? ";
-	private String newRutina="insert into rutina (`dia`, `idRutina`, `dni`, `dniP`, `id_ejer`, `idtiporutina`) VALUES (?,?,?,?,?,?)";
+	private String newRutina="insert into rutina (`dia`, `idRutina`, `dni`, `dniP`, `idtipoej`, `series`,`repeticiones`) VALUES (?,?,?,?,?,?,?)";
 	private String deleteRutina= "delete from rutina where idRutina=?";
-	private String modifica= "UPDATE rutina SET  `dia` = ?,`idRutina` =?,`dni` = ?,`dniP` = ? WHERE `idRutina` = ?, `idtiporutina` = ?";
+	private String modifica= "UPDATE rutina SET  `dia` = ?,`idRutina` =?,`dni` = ?,`dniP`,`idtipoej`,`series`,`repeticiones` = ? WHERE `idRutina` = ?, `idtipoej` = ?";
 	
 	public LinkedList<Rutina> getAll(){
 		
@@ -38,8 +38,10 @@ public class dataRutina {
 					r.setDia(rs.getString("dia"));
 					r.setIdRutina(rs.getInt("idRutina"));
 					r.setDni(rs.getInt("dni"));
-					r.setLegajo(rs.getInt("dniP"));
-					r.setIdtiporutina(rs.getInt("idtiporutina"));
+					r.setDniP(rs.getInt("dniP"));
+					r.setIdtipoej(rs.getInt("idtipoej"));
+					r.setSeries(rs.getInt("series"));
+					r.setRepeticiones(rs.getInt("repeticiones"));
 									
 					
 					rut.add(r);
@@ -68,7 +70,7 @@ public class dataRutina {
 		ResultSet rs=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(getOnebyidRutina);
-			ps.setInt(2, idRutina);
+			ps.setInt(1, idRutina);
 			rs=ps.executeQuery();
 			
 				if(rs!=null && rs.next())
@@ -78,8 +80,10 @@ public class dataRutina {
 					laRutina.setDia(rs.getString("dia"));
 					laRutina.setIdRutina(rs.getInt("idRutina"));
 					laRutina.setDni(rs.getInt("dni"));
-					laRutina.setLegajo(rs.getInt("dniP"));
-					laRutina.setIdtiporutina(rs.getInt("idtiporutina"));
+					laRutina.setDniP(rs.getInt("dniP"));
+					laRutina.setIdtipoej(rs.getInt("idtipoej"));
+					laRutina.setSeries(rs.getInt("series"));
+					laRutina.setRepeticiones(rs.getInt("repeticiones"));
 				}
 				
 			} 
@@ -110,9 +114,10 @@ public class dataRutina {
 			ps.setString(1, r.getDia());
 			ps.setInt(2, r.getIdRutina());
 			ps.setInt(3,r.getDni());
-			ps.setInt(4,r.getLegajo());
-			ps.setInt(5,r.getId_ejer());
-			ps.setInt(6,r.getIdtiporutina());
+			ps.setInt(4,r.getDniP());
+			ps.setInt(5,r.getIdtipoej());
+			ps.setInt(6,r.getSeries());
+			ps.setInt(7,r.getRepeticiones());
 			ps.executeUpdate();
 	 		}
 		catch(SQLException e)
@@ -157,12 +162,14 @@ public class dataRutina {
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
 			
+			
 			ps.setString(1, r.getDia());
 			ps.setInt(2, r.getIdRutina());
 			ps.setInt(3,r.getDni());
-			ps.setInt(4,r.getLegajo());
-			ps.setInt(5, idRutinaold); 
-			ps.setInt(6,r.getIdtiporutina());
+			ps.setInt(4,r.getDniP());
+			ps.setInt(5,r.getIdtipoej());
+			ps.setInt(6,r.getSeries());
+			ps.setInt(7,r.getRepeticiones());
 			ps.executeUpdate();
 		}
 		catch(SQLException e)
@@ -195,11 +202,17 @@ public class dataRutina {
 				{while(rs!=null && rs.next()) {
 					Rutina r=new Rutina();
 					
+					
+					
+	
+					
 					r.setDia(rs.getString("dia"));
 					r.setIdRutina(rs.getInt("idRutina"));
 					r.setDni(rs.getInt("dni"));
-					r.setLegajo(rs.getInt("dniP"));
-					r.setIdtiporutina(rs.getInt("idtiporutina"));
+					r.setDniP(rs.getInt("dniP"));
+					r.setIdtipoej(rs.getInt("idtipoej"));
+					r.setSeries(rs.getInt("series"));
+					r.setRepeticiones(rs.getInt("repeticiones"));
 									
 					
 					rutinas.add(r);

@@ -30,12 +30,9 @@ import data.dataReserva;
 public class login {
 
 	public static void main(String[] args) {
-		dataEjercicio d =new dataEjercicio();
-		Ejercicio e= d.getOne(15);
-		e.setDescripcion("Si edito");
-		d.update(e, 15);
-		System.out.println(e.getDescripcion()+ " "+ e.getIdtipo());
-		
+		dataRutina dr =new dataRutina();
+		System.out.println((dr.getOne(2)).toString());
+	
 	}
 }
 
