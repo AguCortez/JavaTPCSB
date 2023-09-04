@@ -3,7 +3,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
 <%@page import="util.reservaUtil"%>
-<%@ include file="../menu-header.jsp"%>s
+<%@ include file="../menu-header.jsp"%>
 <body>	
 <%
 
@@ -25,11 +25,6 @@ else{
 %>
 	<br>
 	<br>
-	<div class="container">
-	
-		
-		
-	</div>
 	<br>
 	<div class="container">
 	<h1>Lista de Reservas</h1>
@@ -52,8 +47,13 @@ else{
 	</table>
 	</form>	
 	<%
-			
-	      reserva= r.getAll();
+				String dnibuscar = request.getParameter("txtbuscar");
+				if (dnibuscar != null ){
+					reserva= r.buscaDNI(Integer.parseInt(dnibuscar));
+					System.out.print(dnibuscar);
+				}else{
+					reserva= r.getAll();
+				}
 	%>
 		<br>
 		<br>
