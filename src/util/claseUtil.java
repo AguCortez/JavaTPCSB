@@ -66,4 +66,10 @@ public class claseUtil {
 		dataClase ds=new dataClase();
 		return ds.buscabyCodigo(nombre);
 	}
+	public void altaClase (Clase c)
+	{
+		dataClase dc= new dataClase();
+		dc.add(c);
+		
+	}
 }

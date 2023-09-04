@@ -14,9 +14,9 @@ public class dataClase {
 	
 	private String buscabyNombre = "select * from clase where `dia` LIKE ?  ORDER BY `codigo` ASC";
 	private String getOnebyCodigo="select * from clase where `codigo` =? ";
-	private String newClase="insert into clase (`codigo`, `total_cupos`, `nombre`, `actual_cupos`, `dia`, `hora`,`descripcion`,`legajo`) VALUES (?,?,?,?,?,?,?,?)";
+	private String newClase="insert into clase (`codigo`, `total_cupos`, `nombre`, `actual_cupos`, `dia`, `hora`,`dniP`) VALUES (?,?,?,?,?,?,?)";
 	private String deleteClase= "delete from clase where `codigo` =? ";
-    private String modifica= "UPDATE clase SET `codigo` = ?,`total_cupos` =?,`dia` = ?,`hora` =?, `legajo` = ? , `idtipo_clase` = ? WHERE `codigo` = ?;";
+    private String modifica= "UPDATE clase SET `codigo` = ?,`total_cupos` =?,`cupos_actuales` =?,`dia` = ?,`hora` =?, `legajo` = ? , `idtipo_clase` = ? WHERE `codigo` = ?;";
 	
 	public LinkedList<Clase> getAll(){
 		
@@ -35,7 +35,7 @@ public class dataClase {
 					c.setCodigo(rs.getInt("codigo"));
 					c.setTotal_cupo(rs.getInt("total_cupos"));
 					/* c.setNombre(rs.getString("nombre"));*/
-					/* c.setActual_cupos(rs.getInt("actual_cupos"));*/
+					c.setCupos_actuales(rs.getInt("cupos_actuales"));
 					c.setDia(rs.getString("dia"));
 					c.setHora(rs.getString("hora"));				
 					/* c.setDescripcion(rs.getString("descripcion"));*/
@@ -75,6 +75,7 @@ public class dataClase {
 				{
 					laClase=new Clase();
 					laClase.setCodigo(rs.getInt("codigo"));
+					laClase.setCupos_actuales(rs.getInt("cupos_actuales"));
 					laClase.setTotal_cupo(rs.getInt("total_cupos"));
 					laClase.setDia(rs.getString("dia"));
 					laClase.setHora(rs.getString("hora"));
@@ -110,9 +111,10 @@ public class dataClase {
 			ps.setInt(1, c.getCodigo());
 			ps.setInt(2, c.getTotal_cupo());
 			ps.setString(3, c.getDia());
-			ps.setString(4, c.getHora());
-			ps.setInt(5, c.getLegajo_prof());
-			ps.setInt(6, c.getidtipo_clase());
+			ps.setInt(4, c.getCupos_actuales());
+			ps.setString(5, c.getHora());
+			ps.setInt(6, c.getLegajo_prof());
+			ps.setInt(8, c.getidtipo_clase());
 			
 			ps.executeUpdate();
 	 		}
@@ -162,9 +164,10 @@ public class dataClase {
 			ps.setInt(2, c.getTotal_cupo());
 			ps.setString(3, c.getDia());
 			ps.setString(4, c.getHora());
-			ps.setInt(5,c.getLegajo_prof());
-			ps.setInt(6,c.getidtipo_clase());
-			ps.setInt(7, codigoold);
+			ps.setString(5, c.getHora());
+			ps.setInt(6,c.getLegajo_prof());
+			ps.setInt(7,c.getidtipo_clase());
+			ps.setInt(8, codigoold);
 			ps.executeUpdate();
 		}
 		catch(SQLException e)
@@ -198,6 +201,7 @@ public class dataClase {
 						Clase c=new Clase();
 						c.setCodigo(rs.getInt("codigo"));
 						c.setTotal_cupo(rs.getInt("total_cupos"));
+						c.setCupos_actuales(rs.getInt("cupos_actuales"));
 						c.setDia(rs.getString("dia"));
 						c.setHora(rs.getString("hora"));				
 						c.setLegajo_prof(rs.getInt("legajo"));

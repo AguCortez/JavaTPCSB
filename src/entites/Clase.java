@@ -4,7 +4,40 @@ import java.sql.*;
 public class Clase {
 
 	private int total_cupo;
+	private int cupos_actuales;
+
+	private int codigo;
+	private String dia;
+	private String hora;
+	private int legajo_prof;
+	private int  idtipo_clase;
 	
+	public int getCupos_actuales() {
+		return cupos_actuales;
+	}
+	public void setCupos_actuales(int cupos_actuales) {
+		this.cupos_actuales = cupos_actuales;
+	}
+	public int getIdtipo_clase() {
+		return idtipo_clase;
+	}
+	public void setIdtipo_clase(int idtipo_clase) {
+		this.idtipo_clase = idtipo_clase;
+	}
+
+	public int getLegajo_prof() {
+		return legajo_prof;
+	}
+	public void setLegajo_prof(int legajo_prof) {
+		this.legajo_prof = legajo_prof;
+	}
+
+	public int getidtipo_clase() {
+		return idtipo_clase;
+	}
+	public void setidtipo_clase(int idtipo_clase) {
+		this.idtipo_clase = idtipo_clase;
+	}
 	public int getTotal_cupo() {
 		return total_cupo;
 	}
@@ -31,27 +64,7 @@ public class Clase {
 		this.hora = hora;
 	}
 
-	private int codigo;
-	private String dia;
-	private String hora;
-	private int legajo_prof;
-	private int  idtipo_clase;
-	
-	public int getLegajo_prof() {
-		return legajo_prof;
-	}
-	public void setLegajo_prof(int legajo_prof) {
-		this.legajo_prof = legajo_prof;
-	}
-
-	public int getidtipo_clase() {
-		return idtipo_clase;
-	}
-	public void setidtipo_clase(int idtipo_clase) {
-		this.idtipo_clase = idtipo_clase;
-	}
-
-public Clase(int codigo, int total_cupo, String dia, String hora, int legajo_prof , int idtipo_clase) {
+public Clase(int codigo, int total_cupo, String dia, String hora, int legajo_prof , int idtipo_clase, int cupos_act) {
 	this.setTotal_cupo(total_cupo);
 	this.setDia(dia);
 	this.setHora(hora);
