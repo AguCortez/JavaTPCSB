@@ -98,7 +98,7 @@ if ( null !=request.getParameter("Guardar") )
 {
 	
 
-
+Clase cla=new Clase();
 String nombre, descripcion, dia, total_cupo, id, actual_cupo,  hora, legajo_prof; 
 
 total_cupo = request.getParameter("txtTotal_cupo");
@@ -114,7 +114,11 @@ descripcion = request.getParameter("txtDescripcion");
 
 if (total_cupo!= "" && id!= "" && nombre!= "" && actual_cupo!= "" && dia!= "" && hora!= "" &&  descripcion!= "")
 	{
-		c.altaClase(Integer.parseInt(id), Integer.parseInt(total_cupo), nombre,	Integer.parseInt(actual_cupo), dia, hora, descripcion, p.getDni());
+		cla.setCodigo(id);
+		cla.setDia(dia);
+		cla.set
+		cla.set
+		c. (Integer.parseInt(id), Integer.parseInt(total_cupo), nombre,	Integer.parseInt(actual_cupo), dia, hora, descripcion, p.getDni());
 		response.sendRedirect("clases-tabla.jsp");
 	
 	}

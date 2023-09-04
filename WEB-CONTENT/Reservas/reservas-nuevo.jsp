@@ -1,7 +1,7 @@
 
 <%@page import="java.util.LinkedList"%>
-<%@page import="entites.Reserva"%>
-<%@page import="util.reservaUtil"%>
+<%@page import="entites.*"%>
+<%@page import="util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -26,7 +26,13 @@ else{
 	out.print("<script>location.replace('index.jsp');</script>"); 
 }
 %>
+<%
+
+		tipoclaseUtil tc =new tipoclaseUtil();
+		LinkedList<TipoClase> tcs=new LinkedList<TipoClase>();
+%>
 </head>
+<% tcs= tc.getAll(); %>
 <body>
 	<div class = "conteiner">
 		<h1>Agregar nueva reserva </h1>	
@@ -38,9 +44,18 @@ else{
   					<label class="input-group-text" for="inputGroupSelect01">Options</label>
  						<select class="form-select" id="inputGroupSelect01">
     						<option selected>Choose...</option>
-   							<option value="1">ACA VA EL NOMBRE DE LA CLASE</option>
-    						<option value="2">Two</option>
-    						<option value="3">Three</option>
+   								<% for (TipoClase e: tcs){ %>
+   								<option value="1"><%=e.getNombre_clase()%></option>
+								<%    }    %>
+  						</select>
+  						<select class="form-select" id="inputGroupSelect01">
+    						<option selected>Choose...</option>
+   								<option value="1">Lunes</option>
+   								<option value="1">Martes</option>
+   								<option value="1">Miercoles</option>
+   								<option value="1">Jueves</option>
+   								<option value="1">Viernes</option>
+   								<option value="1">Sabado</option>
   						</select>
 				</div>
 				<br>
