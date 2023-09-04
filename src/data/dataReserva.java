@@ -7,7 +7,7 @@ import entites.Reserva;
 
 public class dataReserva { 
 	
-	private String buscabyIdreserva = "select * from reserva where idreserva LIKE %?";
+	private String buscabyIdreserva = "select * from reserva where dni LIKE ?";
 	private String getOnebyDNI="select * from reserva where dni=? ";
 	private String getOne="select * from reserva where idreserva=?";
 	private String newReserva="insert into reserva (`idreserva`, `dni`, `codigo`,`fecha`) VALUES (?,?,?,?)";
@@ -39,11 +39,9 @@ public class dataReserva {
 			
 			if(rs!=null) {
 				while(rs.next()) {
-					Reserva r=new Reserva();
-					
+					Reserva r=new Reserva();					
 					r.setId_reserva(rs.getInt("idreserva"));
 					r.setFecha(rs.getString("fecha"));
-
 					r.setDni(rs.getInt("dni"));								
 					r.setCodigo(rs.getInt("codigo"));
 					res.add(r);
@@ -162,10 +160,7 @@ public class dataReserva {
 		PreparedStatement ps=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(modifica);
-			
-			
 			ps.setInt(1, r.getId_reserva());
-			
 			ps.setInt(2,r.getDni());
 			ps.setInt(3,r.getCodigo());
 			ps.setString(4, r.getDate());
@@ -195,18 +190,16 @@ public class dataReserva {
 		ResultSet rs=null;
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(buscabyIdreserva);
-			ps.setInt(1, idreserva);
+			ps.setInt(1, idreserva );
 			rs=ps.executeQuery();
 			
-				if(rs!=null && rs.next())
-				{while(rs!=null && rs.next()) {
-					Reserva r=new Reserva();
-					
-					r.setId_reserva(rs.getInt("id reserva"));
-				
-					r.setDni(rs.getInt("dni"));
+				if(rs!=null)
+				{while(rs.next()) {
+					Reserva r=new Reserva();					
+					r.setId_reserva(rs.getInt("idreserva"));
+					r.setFecha(rs.getString("fecha"));
+					r.setDni(rs.getInt("dni"));								
 					r.setCodigo(rs.getInt("codigo"));
-					
 					reservas.add(r);
 				}
 				}
@@ -219,7 +212,6 @@ public class dataReserva {
 		{
 			try {
 				if(rs!=null) {rs.close();}
-				if(ps!=null) {ps.close();}
 				dbConector.getInstancia().releaseConn();
 			} 
 			catch (SQLException e) {

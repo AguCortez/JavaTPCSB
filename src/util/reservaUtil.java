@@ -1,10 +1,11 @@
 package util;
 
+import entites.Ejercicio;
 import entites.Reserva;
 import java.sql.Date;
 import java.util.LinkedList;
 
-
+import data.dataEjercicio;
 import data.dataReserva;
 
 public class reservaUtil {
@@ -46,5 +47,10 @@ public class reservaUtil {
 	public Reserva getByIdreserva(int id_reserva) {
 		dataReserva ds=new dataReserva();
 		return ds.getOne(id_reserva);
+	}
+	
+	public LinkedList<Reserva> buscaDNI(int dni){
+		dataReserva de=new dataReserva();
+	return de.buscabyId(dni);
 	}
 }
