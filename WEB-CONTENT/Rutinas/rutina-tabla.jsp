@@ -50,7 +50,7 @@ else{
 			
 		<table class="table table-bordered">
 			<tr>
-				<th class="text-center">DNI del socio</th>
+				<th class="text-center">DNI socio</th>
 				<th class="text-center">dia</th>
 				<th class="text-center">id-Rutina</th>
 				<th class="text-center"> Profesional</th>
@@ -63,15 +63,13 @@ else{
 				<td class="text-center"><%=ru.getDni() %></td>
 				<td class="text-center"><%=ru.getDia() %></td>
 				<td class="text-center"><%=ru.getIdRutina() %></td>
-				<td class="text-center"><%=ru.getDniP() %></td>
+     			<td class="text-center"><%=ru.getDniP() %></td>
 				
-				<% Rutina ri=new Rutina();
-					rutinaUtil ra=new rutinaUtil();
-					ri=ra.getByidRutina(ru.getIdtipoej());   %>
+				<%    %>
 				
 				
 				<td>
-				<a href="rutina-editar.jsp?id=<%=ru.getDni() %>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="rutina-editar.jsp?id=<%=ru.getIdRutina() %>"class="btn btn-warning btn-sm">Editar</a>
 			
 				<a href="rutina-borrar.jsp?id=<%=ru.getIdRutina() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>

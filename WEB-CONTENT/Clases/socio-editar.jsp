@@ -33,7 +33,7 @@ else{
 		System.out.println(dni1);
 		sociosUtil s =new sociosUtil();
 		Socio elsocio=s.getBydni(dni1);
-		System.out.println("puto el que lea esto: " + elsocio.getDni());
+		
 	%>
 
  	<div class = "conteiner">
