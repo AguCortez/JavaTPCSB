@@ -13,8 +13,7 @@
 	int id=Integer.parseInt(request.getParameter("id"));
 	rutinaUtil ru= new rutinaUtil();
 	ru.bajaRutina(id);	
-
-	response.sendRedirect("rutina-borrar.jsp");
+	response.sendRedirect("rutina-tabla.jsp");
 
 %>
 </body>
