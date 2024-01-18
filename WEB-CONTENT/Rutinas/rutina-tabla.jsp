@@ -63,6 +63,7 @@ else{
 				<td class="text-center"><%=ru.getDni() %></td>
 				<td class="text-center"><%=ru.getDia() %></td>
 				<td class="text-center"><%=ru.getIdRutina() %></td>
+     			<td class="text-center"><%=ru.getDniP() %></td>
 				
 				<%    %>
 				
