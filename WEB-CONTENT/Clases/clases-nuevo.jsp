@@ -76,12 +76,7 @@ profesionalUtil pu=new profesionalUtil();
 				<br>
 				DESCRIPCION:
 				<input type = "text" name = "txtDescripcion" class = "form-control"/>
-				<br>
-				<br>
-			
-			
-			
-				<br>
+				<br>				<br>
 				<br>
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg" name = "Guardar"/>
 				<br>
@@ -98,27 +93,28 @@ if ( null !=request.getParameter("Guardar") )
 {
 	
 
-Clase cla=new Clase();
-String nombre, descripcion, dia, total_cupo, id, actual_cupo,  hora, legajo_prof; 
+	Clase cla=new Clase();
+	claseUtil cu =new claseUtil();
 
-total_cupo = request.getParameter("txtTotal_cupo");
-id = request.getParameter("txtId");
-nombre = request.getParameter ("txtNombre");
-actual_cupo = request.getParameter ("txtActual_cupos");
-dia = request.getParameter("txtDia");
-hora = request.getParameter("txtHora");
-
-descripcion = request.getParameter("txtDescripcion");
+	String nombre, descripcion, dia, total_cupo, id, actual_cupo,  hora, legajo_prof; 
+	
+	total_cupo = request.getParameter("txtTotal_cupo");
+	id = request.getParameter("txtId");
+	nombre = request.getParameter ("txtNombre");
+	actual_cupo = request.getParameter ("txtActual_cupos");
+	dia = request.getParameter("txtDia");
+	hora = request.getParameter("txtHora");
+	
+	descripcion = request.getParameter("txtDescripcion");
 
 
 
 if (total_cupo!= "" && id!= "" && nombre!= "" && actual_cupo!= "" && dia!= "" && hora!= "" &&  descripcion!= "")
 	{
-		cla.setCodigo(id);
+		cla.setCodigo(Integer.parseInt(id));
 		cla.setDia(dia);
-		cla.set
-		cla.set
-		c. (Integer.parseInt(id), Integer.parseInt(total_cupo), nombre,	Integer.parseInt(actual_cupo), dia, hora, descripcion, p.getDni());
+		cla.setTotal_cupo(Integer.parseInt(total_cupo));
+		cla.setHora(hora);
 		response.sendRedirect("clases-tabla.jsp");
 	
 	}

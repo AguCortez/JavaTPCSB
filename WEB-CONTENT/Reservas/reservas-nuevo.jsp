@@ -30,9 +30,16 @@ else{
 
 		tipoclaseUtil tc =new tipoclaseUtil();
 		LinkedList<TipoClase> tcs=new LinkedList<TipoClase>();
+		
+		claseUtil c =new claseUtil();
+		LinkedList<Clase> cs=new LinkedList<Clase>();
 %>
 </head>
-<% tcs= tc.getAll(); %>
+<% 
+tcs= tc.getAll(); 
+cs=c.getAll();
+
+%>
 <body>
 	<div class = "conteiner">
 		<h1>Agregar nueva reserva </h1>	
@@ -42,30 +49,27 @@ else{
 				
 				<div class="input-group mb-3">
   					<label class="input-group-text" for="inputGroupSelect01">Options</label>
- 						<select class="form-select" id="inputGroupSelect01">
-    						<option selected>Choose...</option>
+ 						<select name="NombreClase" class="form-select" id="inputGroupSelect01">
    								<% for (TipoClase e: tcs){ %>
-   								<option value="1"><%=e.getNombre_clase()%></option>
+   								<option  value="1"><%=e.getNombre_clase()%></option>
 								<%    }    %>
   						</select>
-  						<select class="form-select" id="inputGroupSelect01">
-    						<option selected>Choose...</option>
-   								<option value="1">Lunes</option>
-   								<option value="1">Martes</option>
-   								<option value="1">Miercoles</option>
-   								<option value="1">Jueves</option>
-   								<option value="1">Viernes</option>
-   								<option value="1">Sabado</option>
+  						<select name="HoraClase"  class="form-select" id="inputGroupSelect01">
+   								<% for (Clase f: cs){ %>
+   								<option value="1"><%=f.getHora()%></option>
+								<%    }    %>
   						</select>
+  						<select name="DiaClase"  class="form-select" id="inputGroupSelect01">
+   								<% for (Clase g: cs){ %>
+   								<option value="1"><%=g.getDia()%></option>
+								<%    }    %>
+  						</select>
+  						
 				</div>
 				<br>
 				DNI:
 				<input type = "text" name= "txtDni" class = "form-control"/>		
-				<br>
-				ID RESERVA:
-				<input type = "text" name = "txtId_reserva" class = "form-control"/>
-				<br>
-			
+				
 				<br>
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
