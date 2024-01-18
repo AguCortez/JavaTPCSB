@@ -47,7 +47,7 @@ else{
 				PROFESIONAL:
 				<input type = "text" name= "txtPROF" class = "form-control"/>		
 				<br>
-				<a href= "ejercicio-agrega-varios.jsp"> AGREGAR EJERCICIOS</a>
+				<a href= "rutina-ejercicios.jsp"> AGREGAR EJERCICIOS</a>
 				<br>
 				<br>
 				<br>
@@ -60,7 +60,10 @@ else{
 	</div>
 </body>
 </html>
-		<%rutinaUtil ru =new rutinaUtil();
+		<%
+		if ( null !=request.getParameter("Guardar") )
+		{
+		rutinaUtil ru =new rutinaUtil();
 		
 		String dia,idr;
 		String dniSoc, dniProf, idEj;
@@ -85,7 +88,7 @@ else{
 
 		}
 		
-		
+		}
 		
 		
 			%>
