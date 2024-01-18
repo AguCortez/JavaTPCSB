@@ -15,7 +15,7 @@ public class dataRutina {
 	private String getOnebyidRutina="select * from rutina where idRutina=? ";
 	private String newRutina="insert into rutina (`dia`, `idRutina`, `dni`, `dniP`, `idtipoej`, `series`,`repeticiones`) VALUES (?,?,?,?,?,?,?)";
 	private String deleteRutina= "delete from rutina where idrutina=?";
-	private String modifica= "UPDATE rutina SET  `dia` = ?,`idRutina` =?,`dni` = ?,`dniP`,`idtipoej`,`series`,`repeticiones` = ? WHERE `idRutina` = ?, `idtipoej` = ?";
+	private String modifica= "UPDATE rutina SET  `dia` = ?,`idRutina` =?,`dni` = ?,`dniP`,`idtipoej`,`series`,`repeticiones` = ? WHERE `idRutina` = ?";
 	
 	public LinkedList<Rutina> getAll(){
 		
