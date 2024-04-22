@@ -64,14 +64,14 @@ public class Clase {
 		this.hora = hora;
 	}
 
-public Clase(int codigo, int total_cupo, String dia, String hora, int legajo_prof , int idtipo_clase, int cupos_act) {
-	this.setTotal_cupo(total_cupo);
-	this.setDia(dia);
-	this.setHora(hora);
-	this.setLegajo_prof(legajo_prof);
-	this.setidtipo_clase(idtipo_clase);
-	
-}
+	public Clase(int total_cupo2, int id, String nombre, int actual_cupos, String dia2, String hora2, String descripcion,
+			int legajo_prof2) {
+		this.setTotal_cupo(total_cupo);
+		this.setDia(dia);
+		this.setHora(hora);
+		this.setLegajo_prof(legajo_prof);
+		this.setidtipo_clase(idtipo_clase);
+	}
 	
 	public Clase() {
 }

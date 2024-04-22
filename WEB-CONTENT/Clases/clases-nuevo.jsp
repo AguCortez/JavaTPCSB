@@ -111,10 +111,7 @@ if ( null !=request.getParameter("Guardar") )
 
 if (total_cupo!= "" && id!= "" && nombre!= "" && actual_cupo!= "" && dia!= "" && hora!= "" &&  descripcion!= "")
 	{
-		cla.setCodigo(Integer.parseInt(id));
-		cla.setDia(dia);
-		cla.setTotal_cupo(Integer.parseInt(total_cupo));
-		cla.setHora(hora);
+		cu.altaClase(Integer.parseInt(total_cupo),Integer.parseInt(id),nombre, Integer.parseInt(actual_cupo),dia,hora, descripcion,p.getDni());
 		response.sendRedirect("clases-tabla.jsp");
 	
 	}
