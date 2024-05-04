@@ -55,8 +55,8 @@ public class claseUtil {
 		dataClase ds=new dataClase();
 		return ds.buscabyCodigo(nombre);
 	}
-	public void altaClase(int total_cupo, int id, String nombre, int actual_cupos, String dia, String hora, String descripcion, int legajo_prof) {
-		Clase nClase= new Clase(total_cupo, id, nombre, actual_cupos, dia, hora, descripcion, legajo_prof);
+	public void altaClase(int total_cupo, int actual_cupos, String dia, String hora, String descripcion, int legajo_prof, int id_TipoClase) {
+		Clase nClase= new Clase(total_cupo, actual_cupos,  dia, hora, descripcion, legajo_prof, id_TipoClase);
 		dataClase ds= new dataClase();
 		ds.add(nClase);
 	}

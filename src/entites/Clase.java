@@ -5,10 +5,10 @@ public class Clase {
 
 	private int total_cupo;
 	private int cupos_actuales;
-
 	private int codigo;
 	private String dia;
 	private String hora;
+	private String Descripcion;
 	private int legajo_prof;
 	private int  idtipo_clase;
 	
@@ -57,6 +57,12 @@ public class Clase {
 	public void setDia(String dia) {
 		this.dia = dia;
 	}
+	public String getDescripcion() {
+		return Descripcion;
+	}
+	public void setDescripcion(String Descripcion) {
+		this.Descripcion = Descripcion;
+	}
 	public String getHora() {
 		return hora;
 	}
@@ -64,13 +70,17 @@ public class Clase {
 		this.hora = hora;
 	}
 
-	public Clase(int total_cupo2, int id, String nombre, int actual_cupos, String dia2, String hora2, String descripcion,
-			int legajo_prof2) {
+	public Clase(int total_cupo, int actual_cupos, 
+			String dia,  String hora,String descripcion, 
+			int legajo_prof,
+			int idtipo_clase) {
 		this.setTotal_cupo(total_cupo);
+		this.setCupos_actuales(actual_cupos);
 		this.setDia(dia);
 		this.setHora(hora);
 		this.setLegajo_prof(legajo_prof);
 		this.setidtipo_clase(idtipo_clase);
+		this.setDescripcion(descripcion);
 	}
 	
 	public Clase() {

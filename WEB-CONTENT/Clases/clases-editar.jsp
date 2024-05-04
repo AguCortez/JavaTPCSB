@@ -39,11 +39,15 @@ else{
 		<hr>
 
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
+				<br>
+				ID:
+				<%= laclase.getCodigo() %>		
+				<br>
 				TOTAL CUPO:
 				<input type = "text" name= "txtTotal_cupo" class = "form-control" value="<%= laclase.getTotal_cupo() %>"/>	
 				<br>
 				ID:
-				<input type = "text" name= "txtId" class = "form-control" value="<%= laclase.getCodigo() %>"/>		
+				<%= laclase.getCodigo() %>		
 				<br>
 				DIA:
 				<input type = "text" name = "txtDia" class = "form-control" value="<%= laclase.getDia() %>"/>
@@ -53,6 +57,10 @@ else{
 				<br>
 				LEGAJO PROFESIONAL:
 				<input type = "text" name = "txtLegajo_prof" class = "form-control" value="<%= laclase.getLegajo_prof() %>"/>
+				<br>
+				Descripcion:
+				<input type = "text" name = "txtDescripcion" class = "form-control" value="<%= laclase.getDescripcion() %>"/>
+				<br>
 				<br>
 				ID TIPO CLASE:
 				<input type = "text" name = "txtIDTIPO" class = "form-control" value="<%= laclase.getidtipo_clase() %>"/>
@@ -71,6 +79,7 @@ else{
 			hora = request.getParameter("txtHora");
 			legajo_prof = request.getParameter("txtLegajo_prof");
 			idtipo = request.getParameter("txtIDTIPO");
+			descripcion = request.getParameter("txtDescripcion");
 
 			if ( null !=request.getParameter("Editar") )
 			{
@@ -82,8 +91,8 @@ else{
 				laclase.setTotal_cupo(Integer.parseInt(total_cupo));
 				laclase.setDia(dia);
 				laclase.setHora(hora);
-				laclase.setLegajo_prof(Integer.parseInt(legajo_prof));
-				
+				laclase.setDescripcion(descripcion);
+				laclase.setLegajo_prof(Integer.parseInt(legajo_prof));				
 				c.modClase(laclase, id1);
 				response.sendRedirect("clases-tabla.jsp");
 			}
