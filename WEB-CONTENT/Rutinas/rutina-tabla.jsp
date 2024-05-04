@@ -42,10 +42,9 @@ else{
 			<input class="btn btn" type="submit" value="Buscar">	
 			</td>
 		</tr>
-	</table>
-	</form>	
-	<%
-	rutinas= r.getAll();
+	                 <%rutinas= r.getAll();
+	                 
+	             
 	%>	
 			
 		<table class="table table-bordered">
@@ -69,9 +68,9 @@ else{
 				
 				
 				<td>
-				<a href="rutina-editar.jsp?id=<%=ru.getIdRutina() %>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="rutina-editar.jsp?id=<%= ru.getIdRutina() %>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="rutina-borrar.jsp?id=<%=ru.getIdRutina() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="rutina-borrar.jsp?id=<%= ru.getIdRutina() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%	}	%>

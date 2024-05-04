@@ -1,4 +1,3 @@
-
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
 <%@page import="util.*"%>
@@ -26,52 +25,25 @@ else{
 	out.print("<script>location.replace('index.jsp');</script>"); 
 }
 %>
-<%
-
-		tipoclaseUtil tc =new tipoclaseUtil();
-		LinkedList<TipoClase> tcs=new LinkedList<TipoClase>();
-		
-		claseUtil c =new claseUtil();
-		LinkedList<Clase> cs=new LinkedList<Clase>();
-%>
 </head>
-<% 
-tcs= tc.getAll(); 
-cs=c.getAll();
-
-%>
 <body>
 	<div class = "conteiner">
-		<h1>Agregar nueva reserva </h1>	
+		<h1>Agregar nueva reserva</h1>	
 		<hr>
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
-				Clase que desea reservar:
-				
-				<div class="input-group mb-3">
-  					<label class="input-group-text" for="inputGroupSelect01">Options</label>
- 						<select name="NombreClase" class="form-select" id="inputGroupSelect01">
-   								<% for (TipoClase e: tcs){ %>
-   								<option  value="1"><%=e.getNombre_clase()%></option>
-								<%    }    %>
-  						</select>
-  						<select name="HoraClase"  class="form-select" id="inputGroupSelect01">
-   								<% for (Clase f: cs){ %>
-   								<option value="1"><%=f.getHora()%></option>
-								<%    }    %>
-  						</select>
-  						<select name="DiaClase"  class="form-select" id="inputGroupSelect01">
-   								<% for (Clase g: cs){ %>
-   								<option value="1"><%=g.getDia()%></option>
-								<%    }    %>
-  						</select>
-  						
-				</div>
+				ID RESERVA:
+				<input type = "text" name= "txtIdreserva" class = "form-control"/>
 				<br>
 				DNI:
 				<input type = "text" name= "txtDni" class = "form-control"/>		
-				
 				<br>
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
+				CODIGO:
+				<input type = "text" name = "txtCodigo" class = "form-control"/>
+				<br>
+				FECHA:
+				<input type = "text" name = "txtFecha" class = "form-control"/>
+				<br>
+				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg" name = "Guardar"/>
 				<br>
 				<br>
 				<a href= "reservas-tabla.jsp"> Regresar</a>				
@@ -81,26 +53,34 @@ cs=c.getAll();
 	</div>
 </body>
 </html>
-<%	reservaUtil r =new reservaUtil();
+<%	
 
-	String codigo,dni, id_reserva, fecha;
+	if ( null !=request.getParameter("Guardar") )
+	{
+		reservaUtil r =new reservaUtil();		
+		String dni, idreserva, codigo, fecha;
 
-	codigo = request.getParameter("txtCodigo");
-	dni = request.getParameter("txtDni");
-	id_reserva = request.getParameter ("txtId_reserva");
-	
-	if ( null !=request.getParameter("Guardar") ){
-	if (codigo!= ""  && dni != ""  && id_reserva != ""  )
-	{	r.altaReserva(Integer.parseInt(id_reserva),Integer.parseInt(dni), codigo);
+		dni = request.getParameter("txtDni");
+		idreserva = request.getParameter("txtIdreserva");
+		codigo = request.getParameter ("txtCodigo");
+		fecha = request.getParameter ("txtFecha");
+		
+	if (idreserva!= "" && dni != "" && codigo != "" && fecha != "")
+	{
+		
+		r.altaReserva(Integer.parseInt(idreserva),fecha,Integer.parseInt(dni), Integer.parseInt(codigo));
 		response.sendRedirect("reservas-tabla.jsp");
 	}
 	
-else
+	else
 		
 	{
 		out.print("Rellenar todos los campos");
 
 	}
 	}
+	
+	
+	
 	
 	%>
