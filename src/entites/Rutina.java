@@ -2,14 +2,13 @@ package entites;
 
 
 public class Rutina {
-	public Rutina(int idtipoej2, String dia2, int idrutina2, int dni2, int dniP2, int dniP3, int series2,
+	public Rutina(int idtipoej2, String dia2, int idrutina2, int dni2, int dniP2, int series2,
 			int repeticiones2) {
 		setIdtipoej(idtipoej2);
 		setDia(dia2);
 		setIdRutina(idrutina2);
 		setDni(dni2);
-		setDniP(dniP2);
-		setDniP(dniP3);
+		setDniP(dniP2);	
 		setSeries(series2);
 		
 		// TODO Auto-generated constructor stub

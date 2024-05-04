@@ -28,7 +28,16 @@ else{
 %>
 </head>
 <body>
+<%
+sociosUtil su= new sociosUtil();
+LinkedList<Socio> Socios = new LinkedList<Socio>();
+Socios= su.getAll();
+profesionalUtil pu= new profesionalUtil();
+LinkedList<Profesional> Profes = new LinkedList<Profesional>();
+Profes= pu.getAll();
 
+
+%>
 
 
 	<div class = "conteiner">
@@ -42,10 +51,25 @@ else{
 				<input type = "text" name= "txtDIA" class = "form-control"/>	
 				<br>
 				SOCIO:
-				<input type = "text" name= "txtSOC" class = "form-control"/>		
+				<select name="Socio">
+				<%
+					for (Socio soc: Socios){			
+				%>	
+				
+				<option value= "<%= soc.getDni() %>"><%= soc.getApellido_soc() %></option>
+				<% } %>
+				</select> 
 				<br>
 				PROFESIONAL:
-				<input type = "text" name= "txtPROF" class = "form-control"/>		
+				<select name="Prof">
+				<%
+					for (Profesional prof: Profes){			
+				%>	
+				
+				<option value= "<%= prof.getDni() %>"><%= prof.getApellido()+" "+prof.getNombre() %></option>
+				<% } %>
+				</select> 
+				
 				<br>
 				<a href= "rutina-ejercicios.jsp"> AGREGAR EJERCICIOS</a>
 				<br>
@@ -61,22 +85,27 @@ else{
 </body>
 </html>
 		<%
-		if ( null !=request.getParameter("Guardar") )
-		{
-		rutinaUtil ru =new rutinaUtil();
-		
-		String dia,idr;
+		String series, rep,dia,idr;
 		String dniSoc, dniProf, idEj;
 		
 		idr=request.getParameter("txtID");
-		dniSoc=request.getParameter("txtSOC");
-		dniProf=request.getParameter("txtPROF");
+		dniSoc=request.getParameter("Socio");
+		dniProf=request.getParameter("Prof");
 		dia=request.getParameter("txtDIA");
-		idEj = request.getParameter("txtEJER");
+		idEj = "3";
+		series=request.getParameter("txtSERIES");
+        rep=request.getParameter("txtREPETICIONES");
+        System.out.println(dniSoc+" 10000000000000000023 "+dniProf);
 		
-		if (idr!= "" && dniSoc != "" && dniProf != "" && dia != "" && idEj != "" )
+        if ( null !=request.getParameter("Guardar") )
+		{
+			rutinaUtil ru =new rutinaUtil();
+		  
+		
+			if (idr!= "" && dniSoc != "" && dniProf != "" && dia != "" && idEj != "" )
 			{
-			 // ru.altaRutina(dia, Integer.parseInt(idr), Integer.parseInt(dniSoc), Integer.parseInt(dniProf),Integer.parseInt(idEj));
+				System.out.println(dniSoc+" 10000000000023 "+dniProf);
+			 ru.altaRutina(Integer.parseInt(idEj),dia, Integer.parseInt(idr), Integer.parseInt(dniSoc), Integer.parseInt(dniProf),Integer.parseInt(series),Integer.parseInt(rep));
 			 response.sendRedirect("rutina-tabla.jsp");
 			}
 		

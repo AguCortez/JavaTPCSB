@@ -9,7 +9,7 @@ public class rutinaUtil {
 	
 	
 	public void altaRutina(int idtipoej, String dia, int idrutina, int dni, int dniP, int series, int repeticiones) {
-		Rutina nRutina=new Rutina(idtipoej, dia, idrutina, dni, dniP, dniP, series, repeticiones);
+		Rutina nRutina=new Rutina(idtipoej, dia, idrutina, dni, dniP, series, repeticiones);
 		dataRutina ds=new dataRutina();
 		ds.add(nRutina);
 
