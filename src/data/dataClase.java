@@ -14,9 +14,9 @@ public class dataClase {
 	
 	private String buscabyNombre = "select * from clase where `dia` LIKE ?  ORDER BY `codigo` ASC";
 	private String getOnebyCodigo="select * from clase where `codigo` =? ";
-	private String newClase="insert into clase (`codigo`, `total_cupos`, `nombre`, `actual_cupos`, `dia`, `hora`,`dniP`) VALUES (?,?,?,?,?,?,?)";
+	private String newClase="INSERT INTO `clase` (`codigo`, `total_cupos`, `cupos_actuales`, `dia`, `hora`, `Descripcion`, `legajo`, `idtipo_clase`) VALUES (NULL,?,?,?,?,?,?,?)";
 	private String deleteClase= "delete from clase where `codigo` =? ";
-    private String modifica= "UPDATE clase SET `codigo` = ?,`total_cupos` =?,`cupos_actuales` =?,`dia` = ?,`hora` =?, `legajo` = ? , `idtipo_clase` = ? WHERE `codigo` = ?;";
+    private String modifica= "UPDATE clase SET `codigo` = ?,`total_cupos` =?,`cupos_actuales` =?,`dia` = ?,`hora` =?,`Descripcion` =?, `legajo` = ? , `idtipo_clase` = ? WHERE `codigo` = ?;";
 	
 	public LinkedList<Clase> getAll(){
 		
@@ -105,17 +105,17 @@ public class dataClase {
 	
 	public void add(Clase c) {
 		PreparedStatement ps=null;
-		
 		try {
 			ps=dbConector.getInstancia().getConn().prepareStatement(newClase);
-			ps.setInt(1, c.getCodigo());
-			ps.setInt(2, c.getTotal_cupo());
+			ps.setInt(1, c.getTotal_cupo());
+			ps.setInt(2, c.getCupos_actuales());
 			ps.setString(3, c.getDia());
-			ps.setInt(4, c.getCupos_actuales());
-			ps.setString(5, c.getHora());
+			ps.setString(4, c.getHora());
+			ps.setString(5, c.getDescripcion());
 			ps.setInt(6, c.getLegajo_prof());
-			ps.setInt(8, c.getidtipo_clase());
-			
+			ps.setInt(7, c.getidtipo_clase());
+			System.out.println( "Clase data"+c.getDescripcion());
+
 			ps.executeUpdate();
 	 		}
 		catch(SQLException e)
@@ -164,7 +164,7 @@ public class dataClase {
 			ps.setInt(2, c.getTotal_cupo());
 			ps.setString(3, c.getDia());
 			ps.setString(4, c.getHora());
-			ps.setString(5, c.getHora());
+			ps.setString(5, c.getDescripcion());
 			ps.setInt(6,c.getLegajo_prof());
 			ps.setInt(7,c.getidtipo_clase());
 			ps.setInt(8, codigoold);

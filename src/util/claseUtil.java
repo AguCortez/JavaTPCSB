@@ -1,14 +1,9 @@
 package util;
-import entites.Clase;
-import entites.TipoClase;
-
+import entites.*;
 import java.sql.*;
-
 import java.util.LinkedList;
-
-
-
 import data.dataClase;
+import data.dataSocio;
 import data.dataTipoClase;
 
 public class claseUtil {
@@ -23,13 +18,7 @@ public class claseUtil {
 		laclase.setActual_cupos(cupo);
 		dc.update(laclase, id);
 	}
-	public void altaClase(int total_cupo, int id, String nombre, int actual_cupos, String dia, String hora, String descripcion, int legajo_prof) {
-		
-		Clase nClase=new Clase(total_cupo, id, nombre, actual_cupos, dia, hora, descripcion, legajo_prof);
-		dataClase ds=new dataClase();
-		ds.add(nClase);
 
-	}
 	public LinkedList<Clase> getAllconcupo(){
 		dataClase dc=new dataClase();
 		LinkedList<Clase> concupo=new LinkedList<Clase>();
@@ -66,10 +55,9 @@ public class claseUtil {
 		dataClase ds=new dataClase();
 		return ds.buscabyCodigo(nombre);
 	}
-	public void altaClase (Clase c)
-	{
-		dataClase dc= new dataClase();
-		dc.add(c);
-		
+	public void altaClase(int total_cupo, int actual_cupos, String dia, String hora, String descripcion, int legajo_prof, int id_TipoClase) {
+		Clase nClase= new Clase(total_cupo, actual_cupos,  dia, hora, descripcion, legajo_prof, id_TipoClase);
+		dataClase ds= new dataClase();
+		ds.add(nClase);
 	}
 }
