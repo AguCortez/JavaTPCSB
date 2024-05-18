@@ -31,22 +31,24 @@ else{
 		<h1>Agregar nueva cuota</h1>	
 		<hr>
 		<form action="" method= "post" class = "form-control" style = "width: 500 px; height: 400 px">
-				IDCUOTA:
-				<input type = "text" name= "txtIdCuota" class = "form-control"/>
-				<br>
-				ANIO:
-				<input type = "text" name= "txtAnio" class = "form-control"/>		
-				<br>
 				MES:
 				<input type = "text" name = "txtMes" class = "form-control"/>
 				<br>
 				PRECIO:
 				<input type = "text" name = "txtPrecio" class = "form-control"/>
 				<br>
+				IDCUOTA:
+				<input type = "text" name= "txtIdcuota" class = "form-control"/>		
+				<br>
+				DNI:
+				<input type = "text" name= "txtDni" class = "form-control"/>		
+				<br>
+				ANIO:
+				<input type = "text" name= "txtAnio" class = "form-control"/>		
+				<br>
 				FECHA PAGO:
 				<input type = "text" name = "txtFecha_pago" class = "form-control"/>
 				<br>
-				
 				<br>
 				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
 				<br>
@@ -58,19 +60,27 @@ else{
 	</div>
 </body>
 </html>
-<%	cuotaUtil c =new cuotaUtil();
+<%	
 
-	String idCuota, anio, mes, precio, fecha_pago;
 
-	idCuota = request.getParameter("txtIdCuota");
-	anio = request.getParameter("txtAnio");
+if ( null !=request.getParameter("Guardar") )
+{
+	cuotasUtil c =new cuotasUtil();		
+	UsuarioUtil usuarioUtil = new UsuarioUtil();
+	String  mes, precio, idcuota, dni, anio, fecha_pago;
+
+
 	mes = request.getParameter ("txtMes");
 	precio = request.getParameter ("txtPrecio");
+    idcuota = request.getParameter("txtIdcuota");
+	dni = request.getParameter ("txtDni");
+	anio = request.getParameter("txtAnio");
 	fecha_pago = request.getParameter ("txtFecha_pago");
 	
-	if (idCuota!= "" && anio != "" && mes != "" && precio != "" && fecha_pago != "")
+	if (mes != ""  && precio != "" &&  idcuota!= ""  && dni != ""  && anio!= ""  && fecha_pago != "")
 	{
-		c.altaCuota(Integer.parseInt(idCuota), Integer.parseInt(anio),Integer.parseInt(mes), Integer.parseInt(precio), fecha_pago);
+
+		c.altaCuota(Integer.parseInt(mes),Integer.parseInt(precio),Integer.parseInt(idcuota),Integer.parseInt(dni), Integer.parseInt(anio), fecha_pago);
 		response.sendRedirect("cuotas-tabla.jsp");
 	}
 	
@@ -80,7 +90,7 @@ else{
 		out.print("Rellenar todos los campos");
 
 	}
-	
+    }
 	
 	
 	%>
