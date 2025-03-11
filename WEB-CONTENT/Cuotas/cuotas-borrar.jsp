@@ -10,9 +10,9 @@
 </head>
 <body>
 <%
-	int idCuota=Integer.parseInt(request.getParameter("idCuota"));
-	cuotaUtil su= new cuotaUtil();
-	su.bajaCuota(idCuota);
+	int idcuota=Integer.parseInt(request.getParameter("idcuota"));
+	cuotaUtil c= new cuotaUtil();
+	c.bajaCuota(idcuota);
 	response.sendRedirect("cuotas-tabla.jsp");
 
 %>

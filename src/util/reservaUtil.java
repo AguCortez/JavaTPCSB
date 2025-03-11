@@ -22,9 +22,9 @@ public class reservaUtil {
 		}
 		return reservas;
 	}
-	public void altaReserva(int id_reserva, int dni, String codigo) {
+	public void altaReserva(int idReserva, String fecha, int dni, int codclase) {
 		
-		Reserva nReserva= new Reserva(id_reserva, dni, codigo);
+		Reserva nReserva= new Reserva(idReserva, fecha, dni, codclase);
 		dataReserva ds=new dataReserva();
 		ds.add(nReserva);
 

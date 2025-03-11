@@ -15,6 +15,7 @@ public class dataRutina {
 	private String getOnebyidRutina="select * from rutina where idRutina=? ";
 	private String newRutina="insert into rutina (`dia`, `idRutina`, `dni`, `dniP`, `idtipoej`, `series`,`repeticiones`) VALUES (?,?,?,?,?,?,?)";
 	private String deleteRutina= "delete from rutina where idrutina=?";
+
 	private String modifica= "UPDATE rutina SET  `dia` = ?,`idRutina` =?,`dni` = ?,`dniP`,`idtipoej`,`series`,`repeticiones` = ? WHERE `idRutina` = ?";
 	
 	public LinkedList<Rutina> getAll(){
@@ -170,6 +171,7 @@ public class dataRutina {
 			ps.setInt(5,r.getIdtipoej());
 			ps.setInt(6,r.getSeries());
 			ps.setInt(7,r.getRepeticiones());
+			ps.setInt(8, idRutinaold);
 			ps.executeUpdate();
 		}
 		catch(SQLException e)

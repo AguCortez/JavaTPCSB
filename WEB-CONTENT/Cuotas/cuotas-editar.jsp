@@ -28,9 +28,9 @@ else{
 %>
 <body>
 	<%
-		int idCuota1= Integer.parseInt(request.getParameter("idCuota"));
+		int idcuota1= Integer.parseInt(request.getParameter("idcuota"));
 		cuotaUtil c =new cuotaUtil();
-		Cuota lacuota=c.getbyID(idCuota1);
+		Cuota lacuota=c.getbyID(idcuota1);
 	%>
 
  	<div class = "conteiner">
@@ -53,30 +53,34 @@ else{
 				FECHA PAGO:
 				<input type = "text" name = "txtFecha_pago" class = "form-control" value="<%= lacuota.getFecha_pago() %>"/>
 				<br>
-				
 				<br>
-				<input type = "Submit" value= "Guardar" class = "btn btn-primary btn-lg"/>
+				<input type = "Submit" value= "Editar" class = "btn btn-primary btn-lg"/>
 				<br>
 				<br>
-				<a href= "tablasocio.jsp"> Regresar</a>				
+				<a href= "tabla-cuota.jsp"> Regresar</a>				
            <%
-            String idCuota, anio, mes, precio, fecha_pago;
-            idCuota = request.getParameter("txtIdCuota");
+            String mes, precio , idcuota , dni , anio , fecha_pago;
+           
+            mes = request.getParameter ("txtMes");
+            precio = request.getParameter ("txtPrecio");
+            idcuota = request.getParameter("txtIdcuota");
+            dni = request.getParameter("txtDni");
 			anio = request.getParameter("txtAnio");
-			mes = request.getParameter ("txtMes");
-			precio = request.getParameter ("txtPrecio");
 			fecha_pago = request.getParameter ("txtFecha_pago");
 						
-			
-			if (idCuota!= ""  && anio != ""  && mes != ""  && precio != ""  && fecha_pago != "" )
+			if ( null !=request.getParameter("Editar") )
+			{	
+			if (mes != ""  && precio != "" &&  idcuota!= ""  && dni != ""  && anio!= ""  && fecha_pago != "")
 			{
-				lacuota.setIdCuota(Integer.parseInt(idCuota));
-				lacuota.setAnio(Integer.parseInt(anio));
+				
 				lacuota.setMes(Integer.parseInt(mes));
 				lacuota.setPrecio(Integer.parseInt(precio));
+				lacuota.setIdCuota(Integer.parseInt(idcuota));
+				lacuota.setDni(Integer.parseInt(dni));
+				lacuota.setAnio(Integer.parseInt(anio));
 				lacuota.setFecha_pago(fecha_pago);
 				
-				c.modCuota(lacuota, idCuota1);
+				c.modCuota(lacuota, idcuota1);
 				response.sendRedirect("cuotas-tabla.jsp");
 			}
 			
@@ -86,7 +90,7 @@ else{
 			{
 				out.print("Rellenar todos los campos");
 
-			}
+			}}
 %>
 		</form> 
 	</div>

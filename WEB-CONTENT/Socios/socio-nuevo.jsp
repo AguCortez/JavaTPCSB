@@ -1,4 +1,4 @@
-
+	
 <%@page import="java.util.LinkedList"%>
 <%@page import="entites.*"%>
 <%@page import="util.*"%>
@@ -71,11 +71,11 @@ else{
 		String  contrase, tipo, nom, ape, cel;
 
 		dni = request.getParameter("txtDNI");
-	tipo = request.getParameter("txtTipo");
-	nom = request.getParameter ("txtNombre");
-	contrase = request.getParameter ("txtcontra");
-	ape = request.getParameter ("txtApellido");
-	cel = request.getParameter ("txtCelular");
+		tipo = request.getParameter("txtTipo");
+		nom = request.getParameter ("txtNombre");
+		contrase = request.getParameter ("txtcontra");
+		ape = request.getParameter ("txtApellido");
+		cel = request.getParameter ("txtCelular");
 	if (nom!= "" && tipo != "" && contrase != "" && ape != "" && cel != "")
 	{
 		
@@ -91,8 +91,5 @@ else{
 
 	}
 	}
-	
-	
-	
 	
 	%>

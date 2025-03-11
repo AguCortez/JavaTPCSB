@@ -3,6 +3,11 @@
 <%@page import="entites.*"%>
 <%@page import="util.*"%>
 <%@include file="../menu-header.jsp" %>
+<body>
+<%
+	cuotaUtil c =new cuotaUtil();
+	LinkedList<Cuota> cuotas=new LinkedList<Cuota>();
+%>	
 <% 
 	HttpSession sesion= request.getSession();
 	String user, lvl;	
@@ -18,8 +23,8 @@ else{
 %>
 <%
 
-	cuotaUtil c =new cuotaUtil();
-	LinkedList<Cuota> cuotas =new LinkedList<Cuota>();
+	cuotaUtil cuo =new cuotaUtil();
+	LinkedList<Cuota> cuot =new LinkedList<Cuota>();
 %>
 	<br>
 	<br>
@@ -50,37 +55,36 @@ else{
 	</table>
 	</form>	
 	<%
-			
- 			cuotas= c.getAll();
-			
-		
+
 		
  		
 			%>
-		<br>
-		<br>
-		<br>	
+	</table>
+	</form>	
+			
 		<table class="table table-bordered">
 			<tr>
-				<th class="text-center">IdCuota</th>
+			    <th class="text-center">Mes</th>
+			    <th class="text-center">Precio</th>
+				<th class="text-center">Idcuota</th>
+				<th class="text-center">Dni</th>
 				<th class="text-center">Anio</th>
-				<th class="text-center">Mes</th>
-				<th class="text-center">Precio</th>
 				<th class="text-center">Fecha_pago</th>
 			</tr>
 			<%
 			for (Cuota a: cuotas){
 			%>
 			<tr>
-				<td class="text-center"><%=a.getIdCuota() %></td>
-				<td class="text-center"><%=a.getAnio() %></td>
-				<td class="text-center"><%=a.getMes() %></td>
-				<td class="text-center"><%=a.getPrecio() %></td>
-				<td class="text-center"><%=a.getFecha_pago() %></td>
+				<th class="text-center">Mes</th>
+			    <th class="text-center">Precio</th>
+				<th class="text-center">Idcuota</th>
+				<th class="text-center">Dni</th>
+				<th class="text-center">Anio</th>
+				<th class="text-center">Fecha_pago</th>
 				<td>
-				<a href="cuotas-editar.jsp?dni=<%=a.getIdCuota() %>"class="btn btn-warning btn-sm">Editar</a>
+				<a href="cuotas-editar.jsp?dni=<%= a.getIdCuota() %>"class="btn btn-warning btn-sm">Editar</a>
 			
-				<a href="cuotas-borrar.jsp?dni=<%=a.getIdCuota() %>" class= "btn btn-danger btn-sm">Eliminar</a>
+				<a href="cuotas-borrar.jsp?dni=<%= a.getIdCuota() %>" class= "btn btn-danger btn-sm">Eliminar</a>
 				</td>
 			</tr>
 			<%	}	%>

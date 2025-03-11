@@ -8,8 +8,11 @@ public class Reserva {
 	private int dni;
 	private int id_reserva;
 	private String fecha;
-	public Reserva(int id_reserva2, int dni2, String codigo2) {
-		// TODO Auto-generated constructor stub
+	public Reserva(int idReserva,String fecha, int dni, int codclase) {
+		this.setCodigo(codclase);
+		this.setDni(dni);
+		this.setFecha(fecha);
+		this.setId_reserva(idReserva);
 	}
 	public int getId_reserva() {
 		return id_reserva;
